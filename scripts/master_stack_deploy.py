@@ -1,0 +1,97 @@
+import argparse
+import logging
+import math
+import subprocess
+import sys
+import threading
+import time
+from pathlib import Path
+import json
+
+def docker_stack_rm(stack_name):
+    docker_stack_rm = subprocess.Popen(
+        ["docker", "stack", "rm", stack_name],
+        universal_newlines=True,
+        stdout=subprocess.PIPE,
+    )
+    docker_stack_rm.wait()
+    # outs, errs = docker_stack_deploy.communicate()
+    # print(outs, errs)
+
+    # docker stack ps social-network-swarm -q
+    rm_finish = False
+    while not rm_finish:
+        docker_stack_ps = subprocess.Popen(
+            ["docker", "stack", "ps", stack_name, "-q"],
+            universal_newlines=True,
+            stdout=subprocess.PIPE,
+        )
+        outs, errs = docker_stack_ps.communicate()
+        if not outs:
+            rm_finish = True
+        else:
+            time.sleep(5)
+
+
+# -----------------------------------------------------------------------
+# parser args definition
+# -----------------------------------------------------------------------
+parser = argparse.ArgumentParser()
+parser.add_argument('--instances', dest='instances_n', type=int, required=True)
+parser.add_argument('--username', dest='username', type=str, required=True)
+parser.add_argument('--instance-name', dest='instance_name',
+                    type=str, required=True)
+parser.add_argument("--master-internal-ip", dest="master_internal_ip",
+                    type=str, required=True)
+parser.add_argument("--background", dest="background", action='store_true')
+
+# -----------------------------------------------------------------------
+# parse args
+# -----------------------------------------------------------------------
+# gcloud
+args = parser.parse_args()
+instances_n = args.instances_n
+instance_name = args.instance_name
+username = args.username
+master_internal_ip = args.master_internal_ip
+# exp
+background = args.background
+
+# -----------------------------------------------------------------------
+# set up docker-swarm
+# -----------------------------------------------------------------------
+with open("/proc/sys/kernel/hostname", "r") as f:
+    hostname = f.readlines()[0]
+    assert(hostname == instance_name + "-0")
+
+cmd = "docker swam init"
+subprocess.run(cmd, shell=True, stdout=sys.stdout)
+
+cmd = "docker swarm join-token worker"
+worker_join_cmd = subprocess.check_output(cmd, shell=True, stderr=sys.stderr).decode(
+            "utf-8").strip().splitlines()[2].lstrip()
+
+# print(worker_join_cmd)
+for worker_i in range(1, instances_n):
+    instance_name = worker_instance_name + "-" + str(worker_i)
+    cmd = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no " + username + "@" + \
+        instance_name + " \"" + worker_join_cmd + "\""
+    subprocess.run(
+        cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
+
+# -----------------------------------------------------------------------
+# deploy services (social-network)
+# -----------------------------------------------------------------------
+docker_stack_rm("social_network_ml_swarm")
+time.sleep(5)
+compose_file = "/home/" + username + "/sinan_gcp/benchmarks/" + \
+               "social-network/docker-compose-swarm.yml"
+cmd = "docker stack deploy --compose-file " + compose_file + "  social_network_ml_swarm"
+subprocess.run(cmd, shell=True, stdout=sys.stdout,
+                       stderr=sys.stderr)
+
+
+
+
+
+
