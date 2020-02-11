@@ -75,9 +75,9 @@ worker_join_cmd = subprocess.check_output(cmd, shell=True, stderr=sys.stderr).de
 
 # print(worker_join_cmd)
 for worker_i in range(1, instances_n):
-    instance_name = worker_instance_name + "-" + str(worker_i)
+    worker_instance_name = instance_name + "-" + str(worker_i)
     cmd = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no " + username + "@" + \
-        instance_name + " \"" + worker_join_cmd + "\""
+        worker_instance_name + " \"" + worker_join_cmd + "\""
     subprocess.run(
         cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
 
