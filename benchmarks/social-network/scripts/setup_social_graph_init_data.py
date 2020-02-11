@@ -2,6 +2,7 @@ import aiohttp
 import asyncio
 import sys
 import random
+import argparse
 
 # social graph states
 user_id_by_follower_num = {}
@@ -294,17 +295,26 @@ async def compose(addr, num_posts):
 
 
 if __name__ == '__main__':
-  if len(sys.argv) < 2:
-    filename = "datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
-  else:
-    filename = sys.argv[1]
+  # if len(sys.argv) < 2:
+  #   filename = "datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
+  # else:
+  #   filename = sys.argv[1]
+
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--data-file', dest='data_file', type=str, required=True)
+  parser.add_argument('--nginx-addr', dest='nginx_addr', type=str, required=True)
+
+  args = parser.parse_args()
+  file_name = args.data_file
+  nginx_addr = args.nginx_addr
+
   with open(filename, 'r') as file:
     nodes = getNodes(file)
     edges = getEdges(file)
 
   # nginx is on ath-3
   # addr = "http://127.0.0.1:8080"
-  addr = "http://128.253.128.245:8080"
+  addr = "http://" + nginx_addr +  ":8080"
 
   loop = asyncio.get_event_loop()
   future = asyncio.ensure_future(register(addr, nodes))

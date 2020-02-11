@@ -203,6 +203,10 @@ if init_gcloud:
     with open(internal_ip_path, "w+") as f:
         json.dump(internal_ips, f)
 
+internal_ip_json = json.loads(internal_ip_json)
+# debug
+print(internal_ip_json)
+
 time.sleep(10)
 
 # -----------------------------------------------------------------------
@@ -213,7 +217,9 @@ master_cmd = "python3 /home/" + username + "/sinan_gcp/scripts/master_stack_depl
     " --instances=" + str(instances_n) + \
     " --instance-name=" + str(instance_name) + \
     " --username=" + username + \
-    " --master-internal-ip=" + str(internal_ips[master_host])
+    " --master-internal-ip=" + str(internal_ips[master_host]) + \
+    " --internal-ip-json=" + internal_ip_json
+
 
 if background:
     master_cmd = run_exp_cmd + " --background"

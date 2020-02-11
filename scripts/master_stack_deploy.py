@@ -43,6 +43,8 @@ parser.add_argument('--instance-name', dest='instance_name',
                     type=str, required=True)
 parser.add_argument("--master-internal-ip", dest="master_internal_ip",
                     type=str, required=True)
+parser.add_argument("--internal-ip-json", dest="internal_json",
+                    type=str, required=True)
 parser.add_argument("--background", dest="background", action='store_true')
 
 # -----------------------------------------------------------------------
@@ -54,8 +56,10 @@ instances_n = args.instances_n
 instance_name = args.instance_name
 username = args.username
 master_internal_ip = args.master_internal_ip
+internal_ip_json = args.internal_ip_json
 # exp
 background = args.background
+internal_ips = json.loads(internal_ip_json)
 
 # -----------------------------------------------------------------------
 # set up docker-swarm
@@ -92,6 +96,25 @@ cmd = "docker stack deploy --compose-file " + compose_file + "  social_network_m
 subprocess.run(cmd, shell=True, stdout=sys.stdout,
                        stderr=sys.stderr)
 
+time.sleep(10)
+# -----------------------------------------------------------------------
+# check node on which nginx is running
+# -----------------------------------------------------------------------
+cmd = "docker service ps social_network_ml_swarm_nginx-web-server"
+ps_result = subprocess.check_output(cmd, shell=True).decode('utf-8').splitlines()[1].split(" ")
+nginx_node = [s for s in ps_result if s][3]
+nginx_internal_addr = internal_ips[nginx_node]
+
+# -----------------------------------------------------------------------
+# warm up databases
+# -----------------------------------------------------------------------
+cmd = "python3 /home/" + username + "/sinan_gcp/benchmarks/" + \
+      "social-network/scripts/setup_social_graph_init_data_sync.py" + \
+      " --data-file /home/" + username + "/sinan_gcp/benchmarks/" + \
+      "social-network/datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx" + \
+      " --nginx-addr " + nginx_internal_addr
+
+subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
 
 
 

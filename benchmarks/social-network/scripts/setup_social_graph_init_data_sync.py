@@ -1,6 +1,7 @@
 import sys
 import requests
 import random
+import argparse
 
 # social graph states
 user_id_by_follower_num = {}
@@ -344,13 +345,22 @@ if __name__ == '__main__':
     filename = "datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
   else:
     filename = sys.argv[1]
+
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--data-file', dest='data_file', type=str, required=True)
+  parser.add_argument('--nginx-addr', dest='nginx_addr', type=str, required=True)
+
+  args = parser.parse_args()
+  file_name = args.data_file
+  nginx_addr = args.nginx_addr
+
   with open(filename, 'r') as file:
     nodes = getNodes(file)
     edges = getEdges(file)
 
   # nginx is on ath-3
   # addr = "http://127.0.0.1:8080"
-  addr = "http://128.253.128.66:8080"
+  addr = "http://" + nginx_addr +  ":8080"
 
   register(addr, nodes)
   follow(addr, edges)
