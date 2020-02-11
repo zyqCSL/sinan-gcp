@@ -56,7 +56,6 @@ instances_n = args.instances_n
 instance_name = args.instance_name
 username = args.username
 master_internal_ip = args.master_internal_ip
-internal_ip_json = args.internal_ip_json
 # exp
 background = args.background
 # internal_ips = json.loads(internal_ip_json)
