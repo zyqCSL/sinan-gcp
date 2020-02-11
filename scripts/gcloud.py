@@ -34,7 +34,7 @@ def ssh(destination, cmd, identity_file, quiet=False):
 
 
 def create_sinan_instance(instance_name, zone, startup_script_path, public_key_path, 
-        cpus, memory, external_ips, internal_ips, quiet=False):
+        cpus, memory, external_ips, quiet=False):
     _stdout = None
     _stderr = None
     if quiet:
@@ -62,12 +62,12 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
         cmd, shell=True).decode("utf-8").strip()
     external_ips[instance_name] = external_ip
 
-    cmd = 'gcloud compute instances describe ' + instance_name + \
-        ' --zone=' + zone + \
-        ' --format=\'get(networkInterfaces[0].networkIP)\''
-    internal_ip = subprocess.check_output(
-        cmd, shell=True).decode("utf-8").strip()
-    internal_ips[instance_name] = internal_ip
+    # cmd = 'gcloud compute instances describe ' + instance_name + \
+    #     ' --zone=' + zone + \
+    #     ' --format=\'get(networkInterfaces[0].networkIP)\''
+    # internal_ip = subprocess.check_output(
+    #     cmd, shell=True).decode("utf-8").strip()
+    # internal_ips[instance_name] = internal_ip
     # -----------------------------------------------------------------------
     # wait for startup script to finish
     # -----------------------------------------------------------------------
@@ -172,7 +172,7 @@ public_key_path = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa.pub'
 memory = math.ceil(0.9 * cpus)
 
 external_ips = {}
-internal_ips = {}
+# internal_ips = {}
 init_gcloud_threads = []
 if init_gcloud:
     logging.info('starting init_gcloud')
@@ -185,7 +185,7 @@ if init_gcloud:
             'cpus': cpus,
             'memory': memory,
             'external_ips': external_ips,
-            'internal_ips': internal_ips,
+            # 'internal_ips': internal_ips,
             'quiet': True
         })
         init_gcloud_threads.append(t)
@@ -196,16 +196,9 @@ if init_gcloud:
     logging.info('init_gcloud finished')
 
 external_ip_path = Path.home() / 'sinan-gcp' / 'external_ip.json'
-internal_ip_path = Path.home() / 'sinan-gcp' / 'internal_ip.json'
 if init_gcloud:
     with open(external_ip_path, "w+") as f:
         json.dump(external_ips, f)
-    with open(internal_ip_path, "w+") as f:
-        json.dump(internal_ips, f)
-
-# internal_ip_json = json.dumps(internal_ips)
-# # debug
-# print(internal_ip_json)
 
 time.sleep(10)
 
@@ -216,17 +209,14 @@ master_host = instance_name + '-0'
 master_cmd = "python3 /home/" + username + "/sinan_gcp/scripts/master_stack_deploy.py" + \
     " --instances=" + str(instances_n) + \
     " --instance-name=" + str(instance_name) + \
-    " --username=" + username + \
-    " --master-internal-ip=" + str(internal_ips[master_host])
-
+    " --username=" + username
 
 if background:
     master_cmd = run_exp_cmd + " --background"
 
-ssh(destination=username+'@'+external_ips[master_host],
-    cmd="ls /home/" + username,
-    identity_file=str(rsa_private_key), quiet=False)
-
+# ssh(destination=username+'@'+external_ips[master_host],
+#     cmd="ls /home/" + username,
+#     identity_file=str(rsa_private_key), quiet=False)
 
 ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_cmd,
