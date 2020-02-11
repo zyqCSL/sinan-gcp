@@ -66,7 +66,7 @@ with open("/proc/sys/kernel/hostname", "r") as f:
     print(instance_name + "-0")
     assert(hostname == instance_name + "-0")
 
-cmd = "docker swam init"
+cmd = "docker swarm init"
 subprocess.run(cmd, shell=True, stdout=sys.stdout)
 
 cmd = "docker swarm join-token worker"
