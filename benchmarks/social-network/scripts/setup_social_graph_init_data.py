@@ -305,7 +305,6 @@ if __name__ == '__main__':
 
   args = parser.parse_args()
   file_name = args.data_file
-  nginx_addr = args.nginx_addr
 
   with open(file_name, 'r') as file:
     nodes = getNodes(file)
