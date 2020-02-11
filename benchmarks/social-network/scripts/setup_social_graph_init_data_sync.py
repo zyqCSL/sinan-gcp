@@ -341,10 +341,10 @@ def compose(addr, num_posts):
   print(idx, "compose posts finished")
 
 if __name__ == '__main__':
-  if len(sys.argv) < 2:
-    filename = "datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
-  else:
-    filename = sys.argv[1]
+  # if len(sys.argv) < 2:
+  #   filename = "datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
+  # else:
+  #   filename = sys.argv[1]
 
   parser = argparse.ArgumentParser()
   parser.add_argument('--data-file', dest='data_file', type=str, required=True)
@@ -354,7 +354,7 @@ if __name__ == '__main__':
   file_name = args.data_file
   nginx_addr = args.nginx_addr
 
-  with open(filename, 'r') as file:
+  with open(file_name, 'r') as file:
     nodes = getNodes(file)
     edges = getEdges(file)
 
