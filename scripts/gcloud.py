@@ -28,6 +28,8 @@ def ssh(destination, cmd, identity_file, quiet=False):
     cmd = 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ' + \
         '-i ' + identity_file + ' ' + \
         destination + ' \"' + cmd + '\"'
+
+    print("ssh cmd = " + cmd)
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
 
 
@@ -60,8 +62,9 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
         cmd, shell=True).decode("utf-8").strip()
     external_ips[instance_name] = external_ip
 
-    cmd = "gcloud compute instances describe " + master_instance_name + \
-    " --format='get(networkInterfaces[0].networkIP)'"
+    cmd = 'gcloud compute instances describe ' + instance_name + \
+        ' --zone=' + zone + \
+        ' --format=\'get(networkInterfaces[0].networkIP)\''
     internal_ip = subprocess.check_output(
         cmd, shell=True).decode("utf-8").strip()
     internal_ips[instance_name] = internal_ip
@@ -83,7 +86,7 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
 
         if res == "yes":
             break
-        time.sleep(5)
+        time.sleep(30)
     # -----------------------------------------------------------------------
     # scp generated private key to gce instance
     # -----------------------------------------------------------------------
@@ -182,7 +185,8 @@ if init_gcloud:
             'cpus': cpus,
             'memory': memory,
             'external_ips': external_ips,
-            'internal_ips:': internal_ips
+            'internal_ips': internal_ips,
+            'quiet': True
         })
         init_gcloud_threads.append(t)
         t.start()
@@ -199,11 +203,13 @@ if init_gcloud:
     with open(internal_ip_path, "w+") as f:
         json.dump(internal_ips, f)
 
+time.sleep(10)
+
 # -----------------------------------------------------------------------
 # set up docker-swarm
 # -----------------------------------------------------------------------
 master_host = instance_name + '-0'
-master_cmd = "python3 /home/" + username + "/sinan-gcp/scripts/master_stack_deploy.py" + \
+master_cmd = "python3 /home/" + username + "/sinan_gcp/scripts/master_stack_deploy.py" + \
     " --instances=" + str(instances_n) + \
     " --instance-name=" + str(instance_name) + \
     " --username=" + username + \
@@ -212,6 +218,11 @@ master_cmd = "python3 /home/" + username + "/sinan-gcp/scripts/master_stack_depl
 if background:
     master_cmd = run_exp_cmd + " --background"
 
-ssh(destination=username+'@'+external_ip,
+ssh(destination=username+'@'+external_ips[master_host],
+    cmd="ls /home/" + username,
+    identity_file=str(rsa_private_key), quiet=False)
+
+
+ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_cmd,
-    identity_file=str(rsa_private_key), quiet=quiet)
+    identity_file=str(rsa_private_key), quiet=False)

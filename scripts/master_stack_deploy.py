@@ -61,7 +61,9 @@ background = args.background
 # set up docker-swarm
 # -----------------------------------------------------------------------
 with open("/proc/sys/kernel/hostname", "r") as f:
-    hostname = f.readlines()[0]
+    hostname = f.readlines()[0].replace("\n", "")
+    print(hostname)
+    print(instance_name + "-0")
     assert(hostname == instance_name + "-0")
 
 cmd = "docker swam init"
