@@ -116,9 +116,9 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     # -----------------------------------------------------------------------
     # scp sinan-gcp
     # -----------------------------------------------------------------------
-    scp(source='~/sinan-gcp',
-        target=username+'@'+external_ip+':~/sinan-gcp',
-        identity_file=str(rsa_private_key), quiet=quiet)
+    # scp(source='~/sinan-gcp',
+    #     target=username+'@'+external_ip+':~/sinan-gcp',
+    #     identity_file=str(rsa_private_key), quiet=quiet)
     logging.info(instance_name + ' startup finished')
 
 
@@ -195,7 +195,7 @@ if init_gcloud:
             'memory': memory,
             'external_ips': external_ips,
             'internal_ips': internal_ips,
-            'quiet': True
+            'quiet': False
         })
         init_gcloud_threads.append(t)
         t.start()
@@ -207,14 +207,14 @@ if init_gcloud:
 external_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'external_ip.json'
 internal_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'internal_ip.json'
 if init_gcloud:
-    with open(external_ip_path, "w+") as f:
+    with open(str(external_ip_path), "w+") as f:
         json.dump(external_ips, f)
-    with open(internal_ip_path, "w+") as f:
+    with open(str(internal_ip_path), "w+") as f:
         json.dump(internal_ips, f)
 else:
-    with open(external_ip_path, 'r') as f:
+    with open(str(external_ip_path), 'r') as f:
         external_ips = json.load(f)
-    with open(internal_ip_path, 'r') as f:
+    with open(str(internal_ip_path), 'r') as f:
         internal_ips = json.load(f)
 
 # -----------------------------------------------------------------------
