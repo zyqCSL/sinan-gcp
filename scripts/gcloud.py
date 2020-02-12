@@ -195,7 +195,7 @@ if init_gcloud:
             'memory': memory,
             'external_ips': external_ips,
             'internal_ips': internal_ips,
-            'quiet': False
+            'quiet': True
         })
         init_gcloud_threads.append(t)
         t.start()
