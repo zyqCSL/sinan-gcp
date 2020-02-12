@@ -107,6 +107,7 @@ void OnReceivedWorker(const AMQP::Message &msg) {
     redis_client->sync_commit();
     redis_span->Finish();
     _redis_client_pool->Push(redis_client_wrapper);
+    span->Finish();
   } catch (...) {
     LOG(error) << "OnReveived worker error";
     throw;

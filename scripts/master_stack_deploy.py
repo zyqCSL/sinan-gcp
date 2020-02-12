@@ -32,6 +32,7 @@ def docker_stack_rm(stack_name):
         else:
             time.sleep(5)
 
+
 # -----------------------------------------------------------------------
 # parser args definition
 # -----------------------------------------------------------------------
@@ -40,8 +41,8 @@ parser.add_argument('--instances', dest='instances_n', type=int, required=True)
 parser.add_argument('--username', dest='username', type=str, required=True)
 parser.add_argument('--instance-name', dest='instance_name',
                     type=str, required=True)
-# parser.add_argument("--internal-ip-json", dest="internal_json",
-#                     type=str, required=True)
+parser.add_argument("--master-internal-ip", dest="master_internal_ip",
+                    type=str, required=True)
 parser.add_argument("--background", dest="background", action='store_true')
 
 # -----------------------------------------------------------------------
@@ -52,6 +53,7 @@ args = parser.parse_args()
 instances_n = args.instances_n
 instance_name = args.instance_name
 username = args.username
+master_internal_ip = args.master_internal_ip
 # exp
 background = args.background
 
@@ -84,11 +86,12 @@ for worker_i in range(1, instances_n):
 # -----------------------------------------------------------------------
 docker_stack_rm("social_network_ml_swarm")
 time.sleep(5)
-compose_file = "/home/" + username + "/sinan_gcp/benchmarks/" + \
+compose_file = "/home/" + username + "/sinan-gcp/benchmarks/" + \
                "social-network/docker-compose-swarm.yml"
 cmd = "docker stack deploy --compose-file " + compose_file + "  social_network_ml_swarm"
 subprocess.run(cmd, shell=True, stdout=sys.stdout,
                        stderr=sys.stderr)
+
 time.sleep(10)
 
 # -----------------------------------------------------------------------

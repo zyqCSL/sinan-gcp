@@ -8,6 +8,7 @@ import time
 from pathlib import Path
 import json
 
+
 def scp(source, target, identity_file, quiet=False):
     _stdout = None
     _stderr = None
@@ -28,13 +29,15 @@ def ssh(destination, cmd, identity_file, quiet=False):
     cmd = 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ' + \
         '-i ' + identity_file + ' ' + \
         destination + ' \"' + cmd + '\"'
-
-    print("ssh cmd = " + cmd)
+    if not quiet:
+        print("ssh cmd = " + cmd)
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
 
 
-def create_sinan_instance(instance_name, zone, startup_script_path, public_key_path, 
-        cpus, memory, external_ips, quiet=False):
+def create_sinan_instance(instance_name, zone, startup_script_path, public_key_path,
+                          cpus, memory,
+                          external_ips, internal_ips,
+                          quiet=False):
     _stdout = None
     _stderr = None
     if quiet:
@@ -62,12 +65,12 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
         cmd, shell=True).decode("utf-8").strip()
     external_ips[instance_name] = external_ip
 
-    # cmd = 'gcloud compute instances describe ' + instance_name + \
-    #     ' --zone=' + zone + \
-    #     ' --format=\'get(networkInterfaces[0].networkIP)\''
-    # internal_ip = subprocess.check_output(
-    #     cmd, shell=True).decode("utf-8").strip()
-    # internal_ips[instance_name] = internal_ip
+    cmd = 'gcloud compute instances describe ' + instance_name + \
+        ' --zone=' + zone + \
+        ' --format=\'get(networkInterfaces[0].networkIP)\''
+    internal_ip = subprocess.check_output(
+        cmd, shell=True).decode("utf-8").strip()
+    internal_ips[instance_name] = internal_ip
     # -----------------------------------------------------------------------
     # wait for startup script to finish
     # -----------------------------------------------------------------------
@@ -110,6 +113,12 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     ssh(destination=username+'@'+external_ip,
         cmd='sudo chown -R '+username+':'+username+' ~/.ssh',
         identity_file=str(rsa_private_key), quiet=quiet)
+    # -----------------------------------------------------------------------
+    # scp sinan-gcp
+    # -----------------------------------------------------------------------
+    scp(source='~/sinan-gcp',
+        target=username+'@'+external_ip+':~/sinan-gcp',
+        identity_file=str(rsa_private_key), quiet=quiet)
     logging.info(instance_name + ' startup finished')
 
 
@@ -119,13 +128,12 @@ logging.basicConfig(level=logging.INFO,
 # miscs parameters
 # -----------------------------------------------------------------------
 zone = 'us-central1-a'
-# username = 'zzhou612'
-username = 'yz2297'
 
 # -----------------------------------------------------------------------
 # parser args definition
 # -----------------------------------------------------------------------
 parser = argparse.ArgumentParser()
+parser.add_argument('--username', dest='username', type=str, required=True)
 parser.add_argument('--init-gcloud', dest='init_gcloud', action='store_true')
 parser.add_argument('--background', dest='background', action='store_true')
 parser.add_argument('--instances', dest='instances_n', type=int, required=True)
@@ -137,6 +145,7 @@ parser.add_argument('--instance-name', dest='instance_name',
 # parse args
 # -----------------------------------------------------------------------
 args = parser.parse_args()
+username = args.username
 init_gcloud = args.init_gcloud
 background = args.background
 instances_n = args.instances_n
@@ -146,10 +155,10 @@ instance_name = args.instance_name
 # -----------------------------------------------------------------------
 # ssh-keygen
 # -----------------------------------------------------------------------
+rsa_public_key = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa.pub'
+rsa_private_key = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa'
 if init_gcloud:
     logging.info('generate ssh keys')
-    rsa_public_key = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa.pub'
-    rsa_private_key = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa'
     if rsa_private_key.exists():
         rsa_private_key.unlink()
     if rsa_public_key.exists():
@@ -172,7 +181,7 @@ public_key_path = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa.pub'
 memory = math.ceil(0.9 * cpus)
 
 external_ips = {}
-# internal_ips = {}
+internal_ips = {}
 init_gcloud_threads = []
 if init_gcloud:
     logging.info('starting init_gcloud')
@@ -185,7 +194,7 @@ if init_gcloud:
             'cpus': cpus,
             'memory': memory,
             'external_ips': external_ips,
-            # 'internal_ips': internal_ips,
+            'internal_ips': internal_ips,
             'quiet': True
         })
         init_gcloud_threads.append(t)
@@ -195,28 +204,36 @@ if init_gcloud:
         t.join()
     logging.info('init_gcloud finished')
 
-external_ip_path = Path.home() / 'sinan-gcp' / 'external_ip.json'
+external_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'external_ip.json'
+internal_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'internal_ip.json'
 if init_gcloud:
     with open(external_ip_path, "w+") as f:
         json.dump(external_ips, f)
-
-time.sleep(10)
+    with open(internal_ip_path, "w+") as f:
+        json.dump(internal_ips, f)
+else:
+    with open(external_ip_path, 'r') as f:
+        external_ips = json.load(f)
+    with open(internal_ip_path, 'r') as f:
+        internal_ips = json.load(f)
 
 # -----------------------------------------------------------------------
 # set up docker-swarm
 # -----------------------------------------------------------------------
 master_host = instance_name + '-0'
-master_cmd = "python3 /home/" + username + "/sinan_gcp/scripts/master_stack_deploy.py" + \
+master_cmd = "python3 /home/" + username + "/sinan-gcp/scripts/master_stack_deploy.py" + \
     " --instances=" + str(instances_n) + \
     " --instance-name=" + str(instance_name) + \
-    " --username=" + username
+    " --username=" + username + \
+    " --master-internal-ip=" + str(internal_ips[master_host])
 
-if background:
-    master_cmd = run_exp_cmd + " --background"
+# if background:
+#     master_cmd = master_cmd + " --background"
 
-# ssh(destination=username+'@'+external_ips[master_host],
-#     cmd="ls /home/" + username,
-#     identity_file=str(rsa_private_key), quiet=False)
+
+ssh(destination=username+'@'+external_ips[master_host],
+    cmd="ls /home/" + username,
+    identity_file=str(rsa_private_key), quiet=False)
 
 ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_cmd,

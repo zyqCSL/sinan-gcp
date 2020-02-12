@@ -36,7 +36,7 @@ apt-get -y --no-install-recommends install libssl-dev \
   gcc
 luarocks install luasocket
 
-# git clones
+git clones
 git clone https://github.com/zyqCSL/sinan-gcp.git /home/zzhou612/sinan_gcp
 git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan_gcp
 sudo chown -R zzhou612:zzhou612 /home/zzhou612/sinan_gcp
