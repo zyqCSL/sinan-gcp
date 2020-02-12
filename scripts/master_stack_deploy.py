@@ -41,8 +41,8 @@ parser.add_argument('--instances', dest='instances_n', type=int, required=True)
 parser.add_argument('--username', dest='username', type=str, required=True)
 parser.add_argument('--instance-name', dest='instance_name',
                     type=str, required=True)
-parser.add_argument("--master-internal-ip", dest="master_internal_ip",
-                    type=str, required=True)
+# parser.add_argument("--master-internal-ip", dest="master_internal_ip",
+#                     type=str, required=True)
 parser.add_argument("--background", dest="background", action='store_true')
 
 # -----------------------------------------------------------------------
@@ -53,7 +53,7 @@ args = parser.parse_args()
 instances_n = args.instances_n
 instance_name = args.instance_name
 username = args.username
-master_internal_ip = args.master_internal_ip
+# master_internal_ip = args.master_internal_ip
 # exp
 background = args.background
 
@@ -99,6 +99,6 @@ time.sleep(10)
 # -----------------------------------------------------------------------
 cmd = "python3 /home/" + username + "/sinan-gcp/benchmarks/" + \
       "social-network/scripts/setup_social_graph_init_data_sync.py" + \
-      " --data-file /home/" + username + "/sinan-gcp/benchmarks/" + \
+      " /home/" + username + "/sinan-gcp/benchmarks/" + \
       "social-network/datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
 subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)

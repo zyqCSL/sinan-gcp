@@ -224,8 +224,7 @@ master_host = instance_name + '-0'
 master_cmd = "python3 /home/" + username + "/sinan-gcp/scripts/master_stack_deploy.py" + \
     " --instances=" + str(instances_n) + \
     " --instance-name=" + str(instance_name) + \
-    " --username=" + username + \
-    " --master-internal-ip=" + str(internal_ips[master_host])
+    " --username=" + username
 
 # if background:
 #     master_cmd = master_cmd + " --background"
