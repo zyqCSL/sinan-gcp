@@ -98,7 +98,7 @@ time.sleep(10)
 # warm up databases
 # -----------------------------------------------------------------------
 cmd = "python3 /home/" + username + "/sinan-gcp/benchmarks/" + \
-      "social-network/scripts/setup_social_graph_init_data_sync.py" + \
+      "social-network/scripts/setup_social_graph_init_data.py" + \
       " /home/" + username + "/sinan-gcp/benchmarks/" + \
       "social-network/datasets/social-graph/socfb-Reed98/socfb-Reed98.mtx"
 subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
