@@ -416,7 +416,12 @@ def main():
 
 	local_serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	local_serv_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-	local_serv_sock.bind(('localhost', ServerPort))
+	#---------------------------------
+	# When application / server is configured for localhost or 127.0.0.1, 
+	# which means accept connections only on the local machine. 
+	# You need to bind with 0.0.0.0 which means listen on all available networks.
+	#------------------------------------
+	local_serv_sock.bind(('0.0.0.0', ServerPort))
 	local_serv_sock.listen(1024)
 	host_sock, addr = local_serv_sock.accept()
 	host_sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
