@@ -77,6 +77,16 @@ for node in list(node_service_map.keys()):
     slave_procs.append(p)
 
 master_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/sinan/' + \
-        'sinan_tracegen_master_gcp.py --max-cpus ' + str(max_cpus) 
-subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
-logging.info('init social graph finished')
+        'sinan_tracegen_master_gcp.py --cpus ' + str(max_cpus)  + \
+        ' --stack-name ' + stack_name + \
+        ' --max-rps ' + str(max_rps) + \
+        ' --min-rps ' + str(min_rps) + \
+        ' --rps-step ' + str(rps_step) + \
+        ' --slave port ' + '40000' + \
+        ' --exp-time ' + str(exp_time) + \
+        ' --cluster-config ' + 'social_media_cluster.txt'
+master_proc = subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
+
+master_proc.wait()
+for p in slave_procs:
+    p.wait()
