@@ -129,9 +129,9 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     # -----------------------------------------------------------------------
     # rsync sinan-gcp
     # -----------------------------------------------------------------------
-    rsync(source='~/sinan-gcp/',
-          target=username+'@'+external_ip+':~/sinan-gcp',
-          identity_file=rsa_private_key, quiet=quiet)
+    # rsync(source='~/sinan-gcp/',
+    #       target=username+'@'+external_ip+':~/sinan-gcp',
+    #       identity_file=rsa_private_key, quiet=quiet)
     logging.info(instance_name + ' startup finished')
 
 
@@ -155,7 +155,14 @@ parser.add_argument('--instances', dest='instances_n', type=int, required=True)
 parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 parser.add_argument('--instance-name', dest='instance_name',
                     type=str, required=True)
-parser.add_argument('--rps', dest='rps', type=int, required=True)
+
+parser.add_argument('--min-rps', dest='min_rps', type=int, required=True)
+parser.add_argument('--max-rps', dest='max_rps', type=int, required=True)
+parser.add_argument('--max-cpus', dest='max_cpus', type=int, required=True)
+parser.add_argument('--rps-step', dest='rps_step', type=int, required=True)
+parser.add_argument('--exp-time', dest='exp_time', type=int, required=True)
+parser.add_argument('--slave-port', dest='slave_port', type=int, default=40000)
+parser.add_argument('--cluster-config', dest='cluster_config', type=str, required=True)
 
 # -----------------------------------------------------------------------
 # parse args
@@ -169,7 +176,13 @@ background = args.background
 instances_n = args.instances_n
 cpus = args.cpus
 instance_name = args.instance_name
-rps = args.rps
+
+min_rps = args.min_rps
+max_rps = args.max_rps
+rps_step = args.rps_step
+exp_time = args.exp_time
+slave_port = args.slave_port
+cluster_config = args.cluster_config
 
 # -----------------------------------------------------------------------
 # ssh-keygen
@@ -273,7 +286,13 @@ ssh(destination=username+'@'+external_ips[master_host],
 master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_run_exp.py' + \
     ' --cpus=' + str(cpus) + \
     ' --stack-name=' + stack_name + \
-    ' --rps=' + str(rps)
+    ' --max-rps ' + str(max_rps) + \
+    ' --min-rps ' + str(min_rps) + \
+    ' --rps-step ' + str(rps_step) + \
+    ' --slave port ' + str(slave_port) + \
+    ' --exp-time ' + str(exp_time) + \
+    ' --cluster-config ' + str(cluster_config)
+
 ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_run_exp_cmd,
     identity_file=str(rsa_private_key), quiet=False)

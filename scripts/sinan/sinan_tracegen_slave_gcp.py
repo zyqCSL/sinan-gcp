@@ -18,7 +18,7 @@ from pathlib import Path
 # -----------------------------------------------------------------------
 parser = argparse.ArgumentParser()
 # parser.add_argument('--instance-name', dest='instance_name', type=str, required=True)
-parser.add_argument('--max-cpus', dest='max_cpus', type=int, required=True)
+parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 # parser.add_argument('--max-memory', dest='max_memory',type=str, required=True)	# in MB
 parser.add_argument('--server-port', dest='server_port',type=int, default=40000)
 
@@ -29,11 +29,11 @@ args = parser.parse_args()
 # global variables
 # InstanceName = args.instance_name	
 ServiceName  = ''
-MaxCpus 	 = args.max_cpus
+Cpus 	 = args.cpus
 # MaxMemory 	 = args.max_memory
 ServerPort   = args.server_port
 MsgBuffer    = ''
-CpuLimit 	 = MaxCpus
+CpuLimit 	 = Cpus
 
 # container stats
 Containers = []
@@ -51,7 +51,6 @@ def clear_container_stats():
 def create_container_stats(container_name, container_id):
 	global Containers
 	global ContainerStats
-	global MaxCpus
 	assert container_name not in Containers
 	assert container_name not in ContainerStats
 	Containers.append(container_name)

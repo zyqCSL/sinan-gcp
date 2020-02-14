@@ -28,7 +28,6 @@ parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
 parser.add_argument('--min-rps', dest='min_rps', type=int, required=True)
 parser.add_argument('--max-rps', dest='max_rps', type=int, required=True)
-parser.add_argument('--max-cpus', dest='max_cpus', type=int, required=True)
 parser.add_argument('--rps-step', dest='rps_step', type=int, required=True)
 parser.add_argument('--exp-time', dest='exp_time', type=int, required=True)
 parser.add_argument('--slave-port', dest='slave_port', type=int, required=True)
@@ -45,7 +44,7 @@ min_rps = args.min_rps
 max_rps = args.max_rps
 rps_step = args.rps_step
 exp_time = args.exp_time
-max_cpus = args.cpus
+cpus = args.cpus
 slave_port = args.slave_port
 cluster_config = args.cluster_config
 username = args.username
@@ -60,7 +59,7 @@ with open(service_config_path, 'r') as f:
     service_config = json.load(f)
     services = list(service_config.keys())
     for s in services:
-        service_config[s]['cpus'] = max_cpus
+        service_config[s]['cpus'] = cpus
         node_service_map[service_config[s]['node']] = s
 
 # -----------------------------------------------------------------------
@@ -71,20 +70,21 @@ with open(service_config_path, 'r') as f:
 slave_procs = []
 for node in list(node_service_map.keys()):
     slave_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/sinan/' + \
-        'sinan_tracegen_slave_gcp.py --max-cpus ' + str(max_cpus) 
-    cmd = 'ssh ' + username + '@' + node + '\'' + slave_cmd + '\''
+        'sinan_tracegen_slave_gcp.py --cpus ' + str(cpus) 
+    cmd = 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' + \
+        username + '@' + node + '\"' + slave_cmd + '\"'
     p = subprocess.Popen(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
     slave_procs.append(p)
 
 master_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/sinan/' + \
-        'sinan_tracegen_master_gcp.py --cpus ' + str(max_cpus)  + \
+        'sinan_tracegen_master_gcp.py --cpus ' + str(cpus)  + \
         ' --stack-name ' + stack_name + \
         ' --max-rps ' + str(max_rps) + \
         ' --min-rps ' + str(min_rps) + \
         ' --rps-step ' + str(rps_step) + \
-        ' --slave port ' + '40000' + \
+        ' --slave port ' + str(slave_port) + \
         ' --exp-time ' + str(exp_time) + \
-        ' --cluster-config ' + 'social_media_cluster.txt'
+        ' --cluster-config ' + str(cluster_config)
 master_proc = subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
 
 master_proc.wait()
