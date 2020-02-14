@@ -273,7 +273,8 @@ master_stack_deploy_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/mast
     ' --username=' + username + \
     ' --stack-name=' + stack_name + \
     ' --compose-file=' + compose_file + \
-    ' --replica=' + str(replica)
+    ' --replica=' + str(replica) + \
+    ' --username=' + username
 
 if background:
     master_stack_deploy_cmd = master_stack_deploy_cmd + " --background"
@@ -291,7 +292,7 @@ master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_ru
     ' --max-rps=' + str(max_rps) + \
     ' --min-rps=' + str(min_rps) + \
     ' --rps-step=' + str(rps_step) + \
-    ' --slave port=' + str(slave_port) + \
+    ' --slave-port=' + str(slave_port) + \
     ' --exp-time=' + str(exp_time) + \
     ' --cluster-config=' + str(cluster_config)
 

@@ -326,8 +326,8 @@ def set_cpu_limit(cpu_limit, quiet=False):
 	_stdout = sys.stdout
 	_stderr = sys.stderr
 	if quiet:
-        _stdout = subprocess.DEVNULL
-        _stderr = subprocess.DEVNULL
+		_stdout = subprocess.DEVNULL
+		_stderr = subprocess.DEVNULL
 	p_list = []
 	for container in Containers:
 		cmd = 'docker update --cpus=%s %s' %(format(cpu_limit, '.2f'), container)

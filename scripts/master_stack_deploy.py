@@ -80,7 +80,7 @@ compose_file = args.compose_file
 replica = args.replica
 # exp
 background = args.background
-service_config_path = Path.home() / 'sinan-gcp' / 'service_config.json'
+service_config_path = Path.home() / 'sinan-gcp' / 'config' / 'service_config.json'
 
 # -----------------------------------------------------------------------
 # service config
