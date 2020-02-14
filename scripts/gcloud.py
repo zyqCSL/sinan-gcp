@@ -65,8 +65,8 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
         ' --metadata-from-file startup-script=' + str(startup_script_path) + \
         ',ssh-keys=' + str(public_key_path) + \
         ' --custom-cpu=' + str(cpus) + \
-        ' --custom-memory=' + str(memory) + \
-        ' --tags=expose-slave-port'
+        ' --custom-memory=' + str(memory)
+        # ' --tags=expose-slave-port'
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
     logging.info("gcloud create done")
     # -----------------------------------------------------------------------
@@ -137,15 +137,15 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     logging.info(instance_name + ' startup finished')
 
 
-def create_sinan_firewall_rule(slave_port, source_ranges='0.0.0.0/0', target_tags='expose-slave-port'):
-    cmd = 'gcloud compute firewall-rules create ' + \
-          'rule-expose-slave-' + str(slave_port) + \
-          ' --source-ranges ' + source_ranges + \
-          ' --target-tags ' + target_tags + \
-          ' --allow tcp:' + str(slave_port)
+# def create_sinan_firewall_rule(slave_port, source_ranges='0.0.0.0/0', target_tags='expose-slave-port'):
+#     cmd = 'gcloud compute firewall-rules create ' + \
+#           'rule-expose-slave-' + str(slave_port) + \
+#           ' --source-ranges ' + source_ranges + \
+#           ' --target-tags ' + target_tags + \
+#           ' --allow tcp:' + str(slave_port)
 
-    subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
-    logging.info("gcloud firewall rule created")
+#     subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
+#     logging.info("gcloud firewall rule created")
 
 
 logging.basicConfig(level=logging.INFO,
@@ -276,7 +276,7 @@ else:
     with open(str(internal_ip_path), 'r') as f:
         internal_ips = json.load(f)
 
-create_sinan_firewall_rule(slave_port=slave_port)
+# create_sinan_firewall_rule(slave_port=slave_port)
 
 # -----------------------------------------------------------------------
 # set up docker-swarm, deploy & init social-network

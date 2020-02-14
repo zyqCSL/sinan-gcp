@@ -73,7 +73,8 @@ for node in list(node_service_map.keys()):
     slave_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/sinan/' + \
         'sinan_tracegen_slave_gcp.py' + \
         ' --cpus ' + str(cpus) + \
-        ' --server-port ' + str(slave_port)
+        ' --server-port ' + str(slave_port) + \
+        ' > /home/' + username + '/slave_log.txt'
     cmd = 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' + \
         username + '@' + node + ' \'' + slave_cmd + '\''
     p = subprocess.Popen(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
