@@ -312,5 +312,5 @@ if __name__ == '__main__':
   loop.run_until_complete(future)
 
   # future = asyncio.ensure_future(compose(addr, 15000))
-  future = asyncio.ensure_future(compose(addr, 1500))
+  future = asyncio.ensure_future(compose(addr, 150))
   loop.run_until_complete(future)

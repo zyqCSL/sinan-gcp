@@ -126,6 +126,7 @@ if background:
 
 hostname = socket.gethostname()
 assert(hostname == instance_name + '-0')
+assert(len(service_config.keys()) == instances_n + 1)
 
 cmd = 'docker swarm init'
 subprocess.run(cmd, shell=True, stdout=_stdout)
@@ -144,7 +145,7 @@ for worker_i in range(1, instances_n):
 # -----------------------------------------------------------------------
 # update node labels
 # -----------------------------------------------------------------------
-for node_i in range(0, instances_n):
+for node_i in range(1, instances_n):
     node_name = instance_name + '-' + str(node_i)
     cmd = 'docker node update --label-add service=' + services_list[node_i] + \
         ' ' + node_name

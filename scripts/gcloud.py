@@ -294,7 +294,8 @@ master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_ru
     ' --rps-step=' + str(rps_step) + \
     ' --slave-port=' + str(slave_port) + \
     ' --exp-time=' + str(exp_time) + \
-    ' --cluster-config=' + str(cluster_config)
+    ' --cluster-config=' + str(cluster_config) + \
+    ' --username=' + username
 
 ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_run_exp_cmd,

@@ -70,6 +70,7 @@ with open(service_config_path, 'r') as f:
 # start slaves on workers
 slave_procs = []
 for node in list(node_service_map.keys()):
+    print(node)
     slave_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/sinan/' + \
         'sinan_tracegen_slave_gcp.py --cpus ' + str(cpus) 
     cmd = 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' + \
