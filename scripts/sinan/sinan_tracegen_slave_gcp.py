@@ -20,7 +20,7 @@ parser = argparse.ArgumentParser()
 # parser.add_argument('--instance-name', dest='instance_name', type=str, required=True)
 parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 # parser.add_argument('--max-memory', dest='max_memory',type=str, required=True)	# in MB
-parser.add_argument('--server-port', dest='server_port',type=int, default=40000)
+parser.add_argument('--server-port', dest='server_port',type=int, default=40011)
 
 # -----------------------------------------------------------------------
 # parse args

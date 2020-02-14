@@ -161,7 +161,7 @@ parser.add_argument('--min-rps', dest='min_rps', type=int, required=True)
 parser.add_argument('--max-rps', dest='max_rps', type=int, required=True)
 parser.add_argument('--rps-step', dest='rps_step', type=int, required=True)
 parser.add_argument('--exp-time', dest='exp_time', type=int, required=True)
-parser.add_argument('--slave-port', dest='slave_port', type=int, default=40000)
+parser.add_argument('--slave-port', dest='slave_port', type=int, default=40011)
 parser.add_argument('--cluster-config', dest='cluster_config', type=str, required=True)
 
 # -----------------------------------------------------------------------

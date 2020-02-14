@@ -126,7 +126,7 @@ if background:
 
 hostname = socket.gethostname()
 assert(hostname == instance_name + '-0')
-assert(len(service_config.keys()) == instances_n + 1)
+assert(len(service_config.keys()) + 1 == instances_n)
 
 cmd = 'docker swarm init'
 subprocess.run(cmd, shell=True, stdout=_stdout)
