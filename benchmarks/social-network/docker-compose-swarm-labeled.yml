@@ -12,7 +12,7 @@ services:
       - social-graph-redis
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == social-graph-service
@@ -26,7 +26,7 @@ services:
 #      - 27018:27017
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == social-graph-mongodb
@@ -39,7 +39,7 @@ services:
 #      - 6380:6379
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == social-graph-redis
@@ -55,7 +55,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == write-home-timeline-service
@@ -73,7 +73,7 @@ services:
 #      - 5672:5672
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == write-home-timeline-rabbitmq
@@ -89,7 +89,7 @@ services:
     #  - 5673:5672
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == write-user-timeline-rabbitmq
@@ -105,7 +105,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == write-user-timeline-service
@@ -120,7 +120,7 @@ services:
 #      - 6381:6379
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == home-timeline-redis
@@ -137,7 +137,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == compose-post-service
@@ -152,7 +152,7 @@ services:
 #      - 6382:6379
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == compose-post-redis
@@ -169,7 +169,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
         - node.labels.service == post-storage-service
@@ -186,7 +186,7 @@ services:
       - MEMCACHED_THREADS=4
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == post-storage-memcached
@@ -198,7 +198,7 @@ services:
 #      - 27019:27017
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == post-storage-mongodb
@@ -215,7 +215,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-timeline-service
@@ -230,7 +230,7 @@ services:
 #      - 6383:6379
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-timeline-redis
@@ -242,7 +242,7 @@ services:
 #      - 27020:27017
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-timeline-mongodb
@@ -257,7 +257,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == url-shorten-service
@@ -276,7 +276,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-service
@@ -293,7 +293,7 @@ services:
       - MEMCACHED_THREADS=4
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-memcached
@@ -305,7 +305,7 @@ services:
 #      - 27023:27017
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-mongodb
@@ -320,7 +320,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == media-service
@@ -339,7 +339,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == text-service
@@ -356,7 +356,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == unique-id-service
@@ -373,7 +373,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == user-mention-service
@@ -392,7 +392,7 @@ services:
       - social-graph-service
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == home-timeline-service
@@ -415,7 +415,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 1
+      replicas: 3
       placement:
         constraints:
           - node.labels.service == nginx-web-server
