@@ -212,18 +212,15 @@ AllHoldCycles		= []
 # util functions
 # -----------------------------------------------------------------------
 def run_wrk2(wrk2,  lua_script, nginx_ip,
-			dist='exp', tail=95, tail_resolution=0.5, stats_rate=0.2, tail_report_interval=1,
-			num_threads=10, num_conns=300, duration=10, reqs_per_sec=6000,
-			quiet=False):
-	global wrk2
+		dist='exp', tail=95, tail_resolution=0.5, stats_rate=0.2, tail_report_interval=1,
+		num_threads=10, num_conns=300, duration=10, reqs_per_sec=6000,
+		quiet=False):
 	_stdout = subprocess.PIPE
-    if quiet:
-    	_stdout = subprocess.DEVNULL
-    wrk2_proc = subprocess.Popen(
-    	[str(wrk2),
-		'-L',
-		'-D', str(dist),
-		#  '-P', '0',
+	if quiet:
+		_stdout = subprocess.DEVNULL
+	wrk2_proc = subprocess.Popen([str(wrk2),
+		'-L', 
+		'-D', str(dist), 
 		'-p', str(tail),
 		'-r', str(tail_resolution),
 		'-S', str(stats_rate),
@@ -236,8 +233,7 @@ def run_wrk2(wrk2,  lua_script, nginx_ip,
 		'-R', str(reqs_per_sec)],
 		stdout=_stdout,
 		bufsize=1,
-		universal_newlines=True
-	)
+		universal_newlines=True)
 	return wrk2_proc
 
 # DON'T USE THIS!!!
@@ -456,6 +452,7 @@ def init_data(docker_restart):
 
 # todo
 def warmup_app():
+	global wrk2
 	wrk2_proc = run_wrk2(wrk2=wrk2,
 		lua_script=str(
 			benchmark_dir / 'wrk2' / 'scripts' / 'social-network' / 'mixed-workload.lua'),
@@ -472,6 +469,8 @@ def connect_slave():
 	global SlavePort
 
 	for service in Services:
+		print(service + ' ' + ServiceConfig[service]['node'])
+		print(SlavePort)
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		sock.connect((ServiceConfig[service]['node'], SlavePort))
 		sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
@@ -543,9 +542,9 @@ def compute_state_flag(diff):
 	elif diff <= StateLatFluctFlags[-3][0]:
 		return -3
 	else:
-		print 'debug'
-		print 'diff = ', diff
-		print StateLatFluctFlags
+		print('debug')
+		print('diff = ' +  str(diff))
+		print(StateLatFluctFlags)
 
 class RscProposal:
 	def __init__(self):
@@ -742,7 +741,7 @@ class State:
 						
 		# if there is no spare room for further scaling down, just hold
 		CurrentHoldCycle += 1
-		print 'CurrentHoldCycle = ', CurrentHoldCycle
+		logging.info('CurrentHoldCycle = ' + str(CurrentHoldCycle))
 		if CurrentHoldCycle < MaxHoldCycle:
 			rsc_proposal.op = 'hold'
 			rsc_proposal.propose_cpu = dict(propose_cpu)
@@ -907,7 +906,7 @@ def show_states():
 			logging.info(line)
 			f.write(line + '\n')
 
-			print ''
+			print('')
 			f.write('\n')
 
 		line = 'total_samples = ' + str(total_actions) + ' non_aoi_samples = ' + str(non_aoi_actions)
@@ -1364,7 +1363,7 @@ def save_records(record_file):
 			f.write(line)
 
 def help():
-	print '1st arg: total hour allowed to run the experiments'
+	print('1st arg: total hour allowed to run the experiments')
 
 def main():
 	global SchedState
@@ -1397,6 +1396,7 @@ def main():
 
 	global QueueingDelaySteps
 	global OpLog
+	global wrk2
 
 	init()
 	init_data(True)
@@ -1556,6 +1556,6 @@ def main():
 if __name__ == '__main__':
 	# reload_sched_states()
 	main()
-	print '\n\nState stats:'
+	print('\n\nState stats:')
 	show_states()
 	send_terminate_slave()
