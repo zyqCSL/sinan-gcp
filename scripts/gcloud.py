@@ -144,7 +144,7 @@ def create_sinan_firewall_rule(slave_port, source_ranges='0.0.0.0/0', target_tag
           ' --target-tags ' + target_tags + \
           ' --allow tcp:' + str(slave_port)
 
-    subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
+    subprocess.run(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
     logging.info("gcloud firewall rule created")
 
 
