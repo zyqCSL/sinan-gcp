@@ -212,33 +212,33 @@ AllHoldCycles		= []
 # util functions
 # -----------------------------------------------------------------------
 def run_wrk2(wrk2,  lua_script, nginx_ip,
-             dist='exp', tail=95, tail_resolution=0.5, stats_rate=0.2, tail_report_interval=1,
-             num_threads=10, num_conns=300, duration=10, reqs_per_sec=6000,
-             quiet=False):
+			dist='exp', tail=95, tail_resolution=0.5, stats_rate=0.2, tail_report_interval=1,
+			num_threads=10, num_conns=300, duration=10, reqs_per_sec=6000,
+			quiet=False):
 	global wrk2
-    _stdout = subprocess.PIPE
+	_stdout = subprocess.PIPE
     if quiet:
-        _stdout = subprocess.DEVNULL
+    	_stdout = subprocess.DEVNULL
     wrk2_proc = subprocess.Popen(
-        [str(wrk2),
-         '-L',
-         '-D', str(dist),
-         #  '-P', '0',
-         '-p', str(tail),
-         '-r', str(tail_resolution),
-         '-S', str(stats_rate),
-         '-i', str(tail_report_interval),
-         '-t', str(num_threads),
-         '-c', str(num_conns),
-         '-d', str(duration) + 's',
-         '-s', str(lua_script),
-         nginx_ip,
-         '-R', str(reqs_per_sec)],
-        stdout=_stdout,
-        bufsize=1,
-        universal_newlines=True
-    )
-    return wrk2_proc
+    	[str(wrk2),
+		'-L',
+		'-D', str(dist),
+		#  '-P', '0',
+		'-p', str(tail),
+		'-r', str(tail_resolution),
+		'-S', str(stats_rate),
+		'-i', str(tail_report_interval),
+		'-t', str(num_threads),
+		'-c', str(num_conns),
+		'-d', str(duration) + 's',
+		'-s', str(lua_script),
+		nginx_ip,
+		'-R', str(reqs_per_sec)],
+		stdout=_stdout,
+		bufsize=1,
+		universal_newlines=True
+	)
+	return wrk2_proc
 
 # DON'T USE THIS!!!
 def docker_service_update(stack_name, service_name, limit_cpu):
