@@ -66,8 +66,6 @@ with open(service_config_path, 'r') as f:
 # -----------------------------------------------------------------------
 # run experiment
 # -----------------------------------------------------------------------
-print(node_service_map)
-print(list(node_service_map.keys()))
 # start slaves on workers
 slave_procs = []
 for node in list(node_service_map.keys()):
@@ -78,7 +76,6 @@ for node in list(node_service_map.keys()):
         ' --server-port ' + str(slave_port)
     cmd = 'ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' + \
         username + '@' + node + ' \'' + slave_cmd + '\''
-    print(cmd)
     p = subprocess.Popen(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
     slave_procs.append(p)
 
@@ -93,7 +90,7 @@ master_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/sinan/' + \
         ' --slave-port=' + str(slave_port) + \
         ' --exp-time=' + str(exp_time) + \
         ' --cluster-config=' + str(cluster_config)
-master_proc = subprocess.Popen(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
+master_proc = subprocess.Popen(master_cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr)
 
 master_proc.wait()
 for p in slave_procs:
