@@ -152,7 +152,9 @@ for node_i in range(0, instances_n):
     service_config[services_list[node_i]]['node'] = node_name
 
 with open(str(service_config_path), 'w+') as f:
-    json.dump(service_config, f)
+    service_config_new = dict(service_config)
+    del service_config_new['jaeger']
+    json.dump(service_config_new, f)
 
 # -----------------------------------------------------------------------
 # deploy services (social-network)

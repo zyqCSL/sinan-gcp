@@ -283,20 +283,20 @@ ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_stack_deploy_cmd,
     identity_file=str(rsa_private_key), quiet=False)
 
-# -----------------------------------------------------------------------
-# run exp
-# -----------------------------------------------------------------------
-master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_run_exp.py' + \
-    ' --cpus=' + str(cpus) + \
-    ' --stack-name=' + stack_name + \
-    ' --max-rps=' + str(max_rps) + \
-    ' --min-rps=' + str(min_rps) + \
-    ' --rps-step=' + str(rps_step) + \
-    ' --slave-port=' + str(slave_port) + \
-    ' --exp-time=' + str(exp_time) + \
-    ' --cluster-config=' + str(cluster_config) + \
-    ' --username=' + username
+# # -----------------------------------------------------------------------
+# # run exp
+# # -----------------------------------------------------------------------
+# master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_run_exp.py' + \
+#     ' --cpus=' + str(cpus) + \
+#     ' --stack-name=' + stack_name + \
+#     ' --max-rps=' + str(max_rps) + \
+#     ' --min-rps=' + str(min_rps) + \
+#     ' --rps-step=' + str(rps_step) + \
+#     ' --slave-port=' + str(slave_port) + \
+#     ' --exp-time=' + str(exp_time) + \
+#     ' --cluster-config=' + str(cluster_config) + \
+#     ' --username=' + username
 
-ssh(destination=username+'@'+external_ips[master_host],
-    cmd=master_run_exp_cmd,
-    identity_file=str(rsa_private_key), quiet=False)
+# ssh(destination=username+'@'+external_ips[master_host],
+#     cmd=master_run_exp_cmd,
+#     identity_file=str(rsa_private_key), quiet=False)

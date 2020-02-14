@@ -66,7 +66,8 @@ with open(service_config_path, 'r') as f:
 # -----------------------------------------------------------------------
 # run experiment
 # -----------------------------------------------------------------------
-
+print(node_service_map)
+print(list(node_service_map.keys()))
 # start slaves on workers
 slave_procs = []
 for node in list(node_service_map.keys()):

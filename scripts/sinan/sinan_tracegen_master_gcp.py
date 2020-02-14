@@ -473,7 +473,7 @@ def connect_slave():
 
 	for service in Services:
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		sock.connect((service, SlavePort))
+		sock.connect((ServiceConfig[service]['node'], SlavePort))
 		sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 		ServiceConfig[service]['sock'] = sock
 
