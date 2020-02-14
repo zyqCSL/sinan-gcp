@@ -156,6 +156,7 @@ parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 parser.add_argument('--instance-name', dest='instance_name',
                     type=str, required=True)
 
+parser.add_argument('--replica', dest='replica', type=int, required=True)
 parser.add_argument('--min-rps', dest='min_rps', type=int, required=True)
 parser.add_argument('--max-rps', dest='max_rps', type=int, required=True)
 parser.add_argument('--rps-step', dest='rps_step', type=int, required=True)
@@ -176,6 +177,7 @@ instances_n = args.instances_n
 cpus = args.cpus
 instance_name = args.instance_name
 
+replica = args.replica
 min_rps = args.min_rps
 max_rps = args.max_rps
 rps_step = args.rps_step
@@ -221,8 +223,8 @@ if init_gcloud:
         'zone': zone,
         'startup_script_path': startup_script_path,
         'public_key_path': public_key_path,
-        'cpus': 20,
-        'memory': 20,
+        'cpus': cpus,
+        'memory': cpus,
         'external_ips': external_ips,
         'internal_ips': internal_ips,
         'quiet': True
@@ -270,7 +272,8 @@ master_stack_deploy_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/mast
     ' --instance-name=' + str(instance_name) + \
     ' --username=' + username + \
     ' --stack-name=' + stack_name + \
-    ' --compose-file=' + compose_file
+    ' --compose-file=' + compose_file + \
+    ' --replica=' + str(replica)
 
 if background:
     master_stack_deploy_cmd = master_stack_deploy_cmd + " --background"
@@ -285,12 +288,12 @@ ssh(destination=username+'@'+external_ips[master_host],
 master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_run_exp.py' + \
     ' --cpus=' + str(cpus) + \
     ' --stack-name=' + stack_name + \
-    ' --max-rps ' + str(max_rps) + \
-    ' --min-rps ' + str(min_rps) + \
-    ' --rps-step ' + str(rps_step) + \
-    ' --slave port ' + str(slave_port) + \
-    ' --exp-time ' + str(exp_time) + \
-    ' --cluster-config ' + str(cluster_config)
+    ' --max-rps=' + str(max_rps) + \
+    ' --min-rps=' + str(min_rps) + \
+    ' --rps-step=' + str(rps_step) + \
+    ' --slave port=' + str(slave_port) + \
+    ' --exp-time=' + str(exp_time) + \
+    ' --cluster-config=' + str(cluster_config)
 
 ssh(destination=username+'@'+external_ips[master_host],
     cmd=master_run_exp_cmd,
