@@ -1,4 +1,5 @@
 import argparse
+import json
 import logging
 import math
 import subprocess
@@ -6,7 +7,6 @@ import sys
 import threading
 import time
 from pathlib import Path
-import json
 
 
 def scp(source, target, identity_file, quiet=False):
@@ -16,7 +16,20 @@ def scp(source, target, identity_file, quiet=False):
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL
     cmd = 'scp -r -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' + \
-        '-i ' + identity_file + ' ' + source + ' ' + target
+        '-i ' + str(identity_file) + ' ' + str(source) + ' ' + str(target)
+    subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
+
+
+def rsync(source, target, identity_file, quiet=False):
+    _stdout = None
+    _stderr = None
+    if quiet:
+        _stdout = subprocess.DEVNULL
+        _stderr = subprocess.DEVNULL
+    cmd = 'rsync -arz --info=progress2 -e ' + \
+        '\"ssh -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ' + \
+        '-i ' + str(identity_file) + '\" ' + \
+        str(source) + ' ' + str(target)
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
 
 
@@ -26,9 +39,9 @@ def ssh(destination, cmd, identity_file, quiet=False):
     if quiet:
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL
-    cmd = 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ' + \
-        '-i ' + identity_file + ' ' + \
-        destination + ' \"' + cmd + '\"'
+    cmd = 'ssh -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ' + \
+        '-i ' + str(identity_file) + ' ' + \
+        str(destination) + ' \"' + cmd + '\"'
     if not quiet:
         print("ssh cmd = " + cmd)
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
@@ -84,7 +97,7 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
                                           '/startup_finished ]; then echo yes; else echo no; fi\'',
                                           shell=True, stderr=_stderr).decode("utf-8").strip()
         except:
-            logging.warning("ssh error")
+            logging.warning(instance_name + ' ssh error')
             res = ""
 
         if res == "yes":
@@ -103,22 +116,22 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     # logging.info('set .ssh files privileges')
     ssh(destination=username+'@'+external_ip,
         cmd='sudo chmod 700 ~/.ssh',
-        identity_file=str(rsa_private_key), quiet=quiet)
+        identity_file=rsa_private_key, quiet=quiet)
     ssh(destination=username+'@'+external_ip,
         cmd='sudo chmod 600 ~/.ssh/id_rsa',
-        identity_file=str(rsa_private_key), quiet=quiet)
+        identity_file=rsa_private_key, quiet=quiet)
     ssh(destination=username+'@'+external_ip,
         cmd='sudo chmod 600 ~/.ssh/authorized_keys',
-        identity_file=str(rsa_private_key), quiet=quiet)
+        identity_file=rsa_private_key, quiet=quiet)
     ssh(destination=username+'@'+external_ip,
         cmd='sudo chown -R '+username+':'+username+' ~/.ssh',
-        identity_file=str(rsa_private_key), quiet=quiet)
+        identity_file=rsa_private_key, quiet=quiet)
     # -----------------------------------------------------------------------
-    # scp sinan-gcp
+    # rsync sinan-gcp
     # -----------------------------------------------------------------------
-    # scp(source='~/sinan-gcp',
-    #     target=username+'@'+external_ip+':~/sinan-gcp',
-    #     identity_file=str(rsa_private_key), quiet=quiet)
+    rsync(source='~/sinan-gcp/',
+          target=username+'@'+external_ip+':~/sinan-gcp',
+          identity_file=rsa_private_key, quiet=quiet)
     logging.info(instance_name + ' startup finished')
 
 
@@ -134,23 +147,29 @@ zone = 'us-central1-a'
 # -----------------------------------------------------------------------
 parser = argparse.ArgumentParser()
 parser.add_argument('--username', dest='username', type=str, required=True)
+parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
+parser.add_argument('--compose-file', dest='compose_file', type=str, required=True)
 parser.add_argument('--init-gcloud', dest='init_gcloud', action='store_true')
 parser.add_argument('--background', dest='background', action='store_true')
 parser.add_argument('--instances', dest='instances_n', type=int, required=True)
 parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 parser.add_argument('--instance-name', dest='instance_name',
                     type=str, required=True)
+parser.add_argument('--rps', dest='rps', type=int, required=True)
 
 # -----------------------------------------------------------------------
 # parse args
 # -----------------------------------------------------------------------
 args = parser.parse_args()
 username = args.username
+stack_name = args.stack_name
+compose_file = args.compose_file
 init_gcloud = args.init_gcloud
 background = args.background
 instances_n = args.instances_n
 cpus = args.cpus
 instance_name = args.instance_name
+rps = args.rps
 
 # -----------------------------------------------------------------------
 # ssh-keygen
@@ -185,7 +204,20 @@ internal_ips = {}
 init_gcloud_threads = []
 if init_gcloud:
     logging.info('starting init_gcloud')
-    for i in range(instances_n):
+    t = threading.Thread(target=create_sinan_instance, kwargs={
+        'instance_name': instance_name + '-0',
+        'zone': zone,
+        'startup_script_path': startup_script_path,
+        'public_key_path': public_key_path,
+        'cpus': 20,
+        'memory': 20,
+        'external_ips': external_ips,
+        'internal_ips': internal_ips,
+        'quiet': True
+    })
+    init_gcloud_threads.append(t)
+    t.start()
+    for i in range(1, instances_n):
         t = threading.Thread(target=create_sinan_instance, kwargs={
             'instance_name': instance_name + '-' + str(i),
             'zone': zone,
@@ -218,22 +250,30 @@ else:
         internal_ips = json.load(f)
 
 # -----------------------------------------------------------------------
-# set up docker-swarm
+# set up docker-swarm, deploy & init social-network
 # -----------------------------------------------------------------------
 master_host = instance_name + '-0'
-master_cmd = "python3 /home/" + username + "/sinan-gcp/scripts/master_stack_deploy.py" + \
-    " --instances=" + str(instances_n) + \
-    " --instance-name=" + str(instance_name) + \
-    " --username=" + username
+master_stack_deploy_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_stack_deploy.py' + \
+    ' --instances=' + str(instances_n) + \
+    ' --instance-name=' + str(instance_name) + \
+    ' --username=' + username + \
+    ' --stack-name=' + stack_name + \
+    ' --compose-file=' + compose_file
 
-# if background:
-#     master_cmd = master_cmd + " --background"
-
+if background:
+    master_stack_deploy_cmd = master_stack_deploy_cmd + " --background"
 
 ssh(destination=username+'@'+external_ips[master_host],
-    cmd="ls /home/" + username,
+    cmd=master_stack_deploy_cmd,
     identity_file=str(rsa_private_key), quiet=False)
 
+# -----------------------------------------------------------------------
+# run exp
+# -----------------------------------------------------------------------
+master_run_exp_cmd = 'python3 /home/' + username + '/sinan-gcp/scripts/master_run_exp.py' + \
+    ' --cpus=' + str(cpus) + \
+    ' --stack-name=' + stack_name + \
+    ' --rps=' + str(rps)
 ssh(destination=username+'@'+external_ips[master_host],
-    cmd=master_cmd,
+    cmd=master_run_exp_cmd,
     identity_file=str(rsa_private_key), quiet=False)

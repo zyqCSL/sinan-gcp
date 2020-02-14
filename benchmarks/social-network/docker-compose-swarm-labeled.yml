@@ -13,12 +13,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == social-graph-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -30,12 +27,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == social-graph-mongodb
 
   social-graph-redis:
     image: redis
@@ -46,12 +40,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == social-graph-redis
 
   write-home-timeline-service:
     image: yz2297/social-network-ml-swarm
@@ -65,12 +56,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == write-home-timeline-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -86,12 +74,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == write-home-timeline-rabbitmq
 
   write-user-timeline-rabbitmq:
     image: rabbitmq
@@ -105,12 +90,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == write-user-timeline-rabbitmq
 
   write-user-timeline-service:
     image: yz2297/social-network-ml-swarm
@@ -124,12 +106,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == write-user-timeline-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -142,12 +121,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == home-timeline-redis
 
   compose-post-service:
     image: yz2297/social-network-ml-swarm
@@ -162,12 +138,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == compose-post-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -180,12 +153,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == compose-post-redis
 
   post-storage-service:
     image: yz2297/social-network-ml-swarm
@@ -200,12 +170,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #     - node.hostname == ath-9
+      placement:
+        constraints:
+        - node.labels.service == post-storage-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -220,12 +187,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == post-storage-memcached
 
   post-storage-mongodb:
     image: mongo
@@ -235,12 +199,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == post-storage-mongodb
 
   user-timeline-service:
     image: yz2297/social-network-ml-swarm
@@ -255,12 +216,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-timeline-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -273,12 +231,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-timeline-redis
 
   user-timeline-mongodb:
     image: mongo
@@ -288,12 +243,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-timeline-mongodb
 
   url-shorten-service:
     image: yz2297/social-network-ml-swarm
@@ -306,12 +258,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == url-shorten-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -328,12 +277,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -348,12 +294,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-memcached
 
   user-mongodb:
     image: mongo
@@ -363,12 +306,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-mongodb
 
   media-service:
     image: yz2297/social-network-ml-swarm
@@ -381,12 +321,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == media-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -403,12 +340,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #     - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == text-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -423,12 +357,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == unique-id-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -443,12 +374,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == user-mention-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -465,12 +393,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == home-timeline-service
     volumes:
       - ./config:/social-network-microservices/config
 
@@ -491,12 +416,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == nginx-web-server
     depends_on:
       - user-service
       - user-mention-service
@@ -524,9 +446,6 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-      # resources:
-      #   limits:
-      #     cpus: '10.0'
-    #   placement:
-    #     constraints:
-    #       - node.hostname == ath-9
+      placement:
+        constraints:
+          - node.labels.service == jaeger
