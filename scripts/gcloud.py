@@ -66,7 +66,7 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
         ',ssh-keys=' + str(public_key_path) + \
         ' --custom-cpu=' + str(cpus) + \
         ' --custom-memory=' + str(memory) + \
-        ' --tags=expose_slave_port'
+        ' --tags=expose-slave-port'
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
     logging.info("gcloud create done")
     # -----------------------------------------------------------------------
@@ -137,7 +137,7 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     logging.info(instance_name + ' startup finished')
 
 
-def create_sinan_firewall_rule(slave_port, source_ranges='0.0.0.0/0', target_tags='expose_slave_port'):
+def create_sinan_firewall_rule(slave_port, source_ranges='0.0.0.0/0', target_tags='expose-slave-port'):
     cmd = 'gcloud compute firewall-rules create ' + \
           'rule-expose-slave-' + str(slave_port) + \
           ' --source-ranges ' + source_ranges + \
