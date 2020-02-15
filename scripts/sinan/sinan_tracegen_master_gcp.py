@@ -979,7 +979,7 @@ def send_terminate_slave():
 
 	cmd = 'terminate_slave\n'
 	for service in Services:
-		ServiceConfig[service].sendall(cmd.encode('utf-8'))
+		ServiceConfig[service]['sock'].sendall(cmd.encode('utf-8'))
 
 def send_service_init_data(restart_flag, service):
 	global ServiceConfig
@@ -1330,8 +1330,8 @@ def save_records(record_file):
 			line = format(record.time, '.1f') + 's---'
 			line += 'xput:' + str(record.xput) + ';'
 			for service in Services:
-				line += service + '-cpu:' + str(record.cpu_num[service]) + ';'
-				line += service + '-freq:' + str(record.cpu_freq[service]) + ';'
+				line += service + '-cpu:' + str(record.cpu_limit[service]) + ';'
+				line += service + '-freq:' + str(2000) + ';'
 
 			for service in Services:
 				line += service + '-cpu_util:' + format(record.cpu_util[service], '.1f') + ';'
