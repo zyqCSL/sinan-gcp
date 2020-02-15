@@ -6,7 +6,7 @@ partial----ReadUserLogic: user-timeline-service, post-storage-service; 0.075
 
 partial----UserLogic: user-service; 0.0
 
-partial----ComposePostLogic: user-service, media-service, text-service, unique-id-service, user-mention-service, url-shorten-service, compose-post-service, social-graph-service, write-home-timeline, write-user-timeline, write-home-timeline-rabbitmq, write-user-timeline-rabbitmq, compose-post-redis; 0.075
+partial----ComposePostLogic: user-service, media-service, text-service, unique-id-service, user-mention-service, url-shorten-service, compose-post-service, social-graph-service, write-home-timeline-service, write-user-timeline-service, write-home-timeline-rabbitmq, write-user-timeline-rabbitmq, compose-post-redis; 0.075
 
 partial----Tiny_ComposePostLogic: user-service, media-service, text-service, unique-id-service; 0.0
 
@@ -22,6 +22,6 @@ complete----ReadHome: nginx-web-server, home-timeline-service, post-storage-serv
 
 complete----ReadUser: nginx-web-server, user-timeline-service, post-storage-service, post-storage-memcached, post-storage-mongodb, user-timeline-redis, user-timeline-mongodb; 0.075
 
-complete----ComposePost: nginx-web-server, user-service, media-service, text-service, unique-id-service, user-mention-service, url-shorten-service, compose-post-service, social-graph-service, write-home-timeline, write-user-timeline, write-home-timeline-rabbitmq, write-user-timeline-rabbitmq, compose-post-redis, post-storage-memcached, post-storage-mongodb, home-timeline-redis, user-timeline-redis, user-timeline-mongodb, social-graph-redis, social-graph-mongodb; 0.075
+complete----ComposePost: nginx-web-server, user-service, media-service, text-service, unique-id-service, user-mention-service, url-shorten-service, compose-post-service, social-graph-service, write-home-timeline-service, write-user-timeline-service, write-home-timeline-rabbitmq, write-user-timeline-rabbitmq, compose-post-redis, post-storage-memcached, post-storage-mongodb, home-timeline-redis, user-timeline-redis, user-timeline-mongodb, social-graph-redis, social-graph-mongodb; 0.075
 
 complete----User: nginx-web-server, user-service, user-memcached, user-mongodb; 0.0
