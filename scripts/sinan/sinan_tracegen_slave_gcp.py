@@ -69,10 +69,10 @@ def create_container_stats(container_name, container_id):
 	ContainerStats[container_name]['io_wait_time'] = 0
 
 # used when previous container failed and a new one is rebooted
-def reset_container_id_pids(quiet=False):
+def reset_container_id_pids():
 	logging.info('reset_container_id_pids')
 	clear_container_stats()
-	docker_ps(quiet)
+	docker_ps()
 
 def docker_ps():
 	global ServiceName
