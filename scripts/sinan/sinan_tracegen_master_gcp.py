@@ -275,7 +275,7 @@ class Record:
 		self.io_wait	 = {}
 
 	def show_docker_metric(self):
-		global Servers
+		global Services
 
 		line = ''
 		for service in Services:
@@ -554,7 +554,7 @@ class RscProposal:
 		self.propose_cpu = {}
 
 	def show(self):
-		global Servers
+		global Services
 		report = self.op + ' vic_service: ' + self.vic_service + ' vic_cluster:' + self.vic_cluster + ' --'
 		for service in Services:
 			report += ' ' + service + ':%.1f;' %(self.propose_cpu[service])
@@ -936,7 +936,7 @@ def send_init_exp():
 	
 	for service in Services:
 		cmd = 'init_exp ' + service + '\n'
-		ServerSlaveSock[server].sendall(cmd)
+		ServiceConfig[service]['sock'].sendall(cmd)
 
 def send_service_terminate_exp(service):
 	global ServiceConfig
