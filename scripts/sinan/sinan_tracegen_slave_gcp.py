@@ -347,7 +347,7 @@ def start_experiment(host_sock):
 
 	exp_succ = True
 	while True:
-		data = host_sock.recv(1024)
+		data = host_sock.recv(1024).decode('utf-8')
 		# print 'recv: ', data
 		MsgBuffer += data
 
@@ -385,7 +385,7 @@ def start_experiment(host_sock):
 
 				prev_host_query_time = cur_time
 				ret_msg = json.dumps(ret_info) + '\n'
-				host_sock.sendall(ret_msg)
+				host_sock.sendall(ret_msg.encode('utf-8'))
 
 			elif 'set_cpu_limit' in cmd:
 				cpu_limit = float(cmd.split(' ')[1])
@@ -404,7 +404,7 @@ def start_experiment(host_sock):
 				terminate = True
 
 		if terminate:
-			host_sock.sendall('experiment_done\n')
+			host_sock.sendall(('experiment_done\n').encode('utf-8'))
 			return exp_succ
 
 def main():
@@ -429,7 +429,7 @@ def main():
 	MsgBuffer = ''
 	terminate = False
 	while True:
-		data = host_sock.recv(1024)
+		data = host_sock.recv(1024).decode('utf-8')
 		if len(data) == 0:
 			logging.info('connection reset by host, exiting...')
 			break
@@ -447,7 +447,7 @@ def main():
 			elif 'init_data' in cmd:
 				service_restart = (int(cmd.split(' ')[1]) == 1)
 				init_data(service_restart)
-				host_sock.sendall('init_data_done\n')
+				host_sock.sendall(('init_data_done\n').encode('utf-8'))
 			elif 'exp_start' in cmd:
 				assert '\n' not in rest
 				# docker_restart = (int(cmd.split(' ')[2]) == 1)

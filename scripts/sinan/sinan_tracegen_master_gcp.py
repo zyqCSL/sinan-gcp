@@ -469,8 +469,6 @@ def connect_slave():
 	global SlavePort
 
 	for service in Services:
-		print(service + ' ' + ServiceConfig[service]['node'])
-		print(SlavePort)
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		sock.connect((ServiceConfig[service]['node'], SlavePort))
 		sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
@@ -936,18 +934,18 @@ def send_init_exp():
 	
 	for service in Services:
 		cmd = 'init_exp ' + service + '\n'
-		ServiceConfig[service]['sock'].sendall(cmd)
+		ServiceConfig[service]['sock'].sendall(cmd.encode('utf-8'))
 
 def send_service_terminate_exp(service):
 	global ServiceConfig
 
 	cmd = 'terminate_exp\n'
 	sock = ServiceConfig[service]['sock']
-	sock.sendall(cmd)
+	sock.sendall(cmd.encode('utf-8'))
 	msg = ''
 	exp_done = False
 	while True:
-		data = sock.recv(1024)
+		data = sock.recv(1024).decode('utf-8')
 		msg += data
 		while '\n' in msg:
 			(cmd, rest) = msg.split('\n', 1)
@@ -980,18 +978,18 @@ def send_terminate_slave():
 
 	cmd = 'terminate_slave\n'
 	for service in Services:
-		ServiceConfig[service].sendall(cmd)
+		ServiceConfig[service].sendall(cmd.encode('utf-8'))
 
 def send_service_init_data(restart_flag, service):
 	global ServiceConfig
 	cmd = 'init_data ' + restart_flag + '\n'
 	sock = ServiceConfig[service]['sock']
-	sock.sendall(cmd)
+	sock.sendall(cmd.encode('utf-8'))
 
 	msg = ''
 	init_data_done = False
 	while True:
-		data = sock.recv(1024)
+		data = sock.recv(1024).decode('utf-8')
 		msg += data
 		while '\n' in msg:
 			(cmd, rest) = msg.split('\n', 1)
@@ -1028,13 +1026,13 @@ def send_exp_start(exp_time):
 
 	cmd = 'exp_start\n'
 	for service in Services:
-		ServiceConfig[service]['sock'].sendall(cmd)
+		ServiceConfig[service]['sock'].sendall(cmd.encode('utf-8'))
 
 def send_service_rsc_config(service, cpu_limit):
 	global ServiceConfig
 
 	cmd = 'set_cpu limit ' + format(cpu_limit, '.2f') + '\n'
-	ServiceConfig[service]['sock'].sendall(cmd)
+	ServiceConfig[service]['sock'].sendall(cmd.encode('utf-8'))
 
 def send_rsc_config(cpu_config):
 	global Services
@@ -1220,10 +1218,10 @@ def send_set_recover_rsc():
 def get_service_slave_metric(service, cur_record):
 	global ServiceConfig
 	sock = ServiceConfig[service]['sock']
-	sock.sendall('get_info\n')
+	sock.sendall(('get_info\n').encode('utf-8'))
 	msg = ''
 	while True:
-		msg += sock.recv(1024)
+		msg += sock.recv(1024).decode('utf-8')
 		if '\n' not in msg:
 			continue
 		else:
