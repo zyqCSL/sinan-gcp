@@ -247,33 +247,25 @@ def get_io_usage():
 	global Containers
 	global ContainerStats
 
-	global Tiers
-	global ContainerIds
-	global CumIOSectors		
-	global CumIOServices		
-	global CumIOWaitTime
-
 	ret_io_sectors	= {}
 	ret_io_serviced = {}
 	ret_io_wait		= {}
 
 	for container in Containers:	
 		# io sectors (512 bytes)
-		pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.sectors_recursive'
+		pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.throttle.io_service_bytes_recursive'
 		with open(pseudo_file, 'r') as f:
 			lines = f.readlines()
-			if len(lines) > 0:
-				sector_num = int(lines[0].split(' ')[-1])
-				ret_io_sectors[container] = sector_num - ContainerStats[container]['io_sectors']
-				if ret_io_sectors[container] < 0:
-					ret_io_sectors[container] = sector_num
-			else:
-				sector_num = 0
-				ret_io_sectors[container] = 0
-			ContainerStats[container]['io_sectors'] = sector_num
+			for line in lines:
+				if 'Total' in line:
+					sector_num = int(lines[0].split(' ')[-1])
+					ret_io_sectors[container] = sector_num - ContainerStats[container]['io_sectors']
+					if ret_io_sectors[container] < 0:
+						ret_io_sectors[container] = sector_num
+					ContainerStats[container]['io_sectors'] = sector_num
 
 		# io services
-		pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.io_serviced_recursive'
+		pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.throttle.io_serviced_recursive'
 		with open(pseudo_file, 'r') as f:
 			lines = f.readlines()
 			for line in lines:
@@ -285,17 +277,20 @@ def get_io_usage():
 					ContainerStats[container]['io_services'] = serv_num
 
 		# io wait time
-		pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.io_wait_time_recursive'
-		with open(pseudo_file, 'r') as f:
-			lines = f.readlines()
-			for line in lines:
-				if 'Total' in line:
-					wait_ms = round(int(line.split(' ')[-1])/1000000.0, 3)	# turn ns to ms
-					ret_io_wait[container] = wait_ms - ContainerStats[container]['io_wait_time']
-					if ret_io_wait[container] < 0:
-						ret_io_wait[container] = wait_ms
-					ContainerStats[container_name]['io_wait_time'] = wait_ms
+		ret_io_wait[container] = 0
+		ContainerStats[container_name]['io_wait_time'] = 0
+		# pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.io_wait_time_recursive'
+		# with open(pseudo_file, 'r') as f:
+		# 	lines = f.readlines()
+		# 	for line in lines:
+		# 		if 'Total' in line:
+		# 			wait_ms = round(int(line.split(' ')[-1])/1000000.0, 3)	# turn ns to ms
+		# 			ret_io_wait[container] = wait_ms - ContainerStats[container]['io_wait_time']
+		# 			if ret_io_wait[container] < 0:
+		# 				ret_io_wait[container] = wait_ms
+		# 			ContainerStats[container_name]['io_wait_time'] = wait_ms
 
+		assert container in ret_io_sectors
 		assert container in ret_io_serviced
 		assert container in ret_io_wait
 
