@@ -278,7 +278,7 @@ def get_io_usage():
 
 		# io wait time
 		ret_io_wait[container] = 0
-		ContainerStats[container]['io_wait_time'] = 0
+		ContainerStats[container_name]['io_wait_time'] = 0
 		# pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.io_wait_time_recursive'
 		# with open(pseudo_file, 'r') as f:
 		# 	lines = f.readlines()
@@ -379,8 +379,7 @@ def start_experiment(host_sock):
 
 				prev_host_query_time = cur_time
 				ret_msg = json.dumps(ret_info) + '\n'
-				# host_sock.sendall(ret_msg.encode('utf-8'))
-				host_sock.sendall(ret_msg)
+				host_sock.sendall(ret_msg.encode('utf-8'))
 
 			elif 'set_cpu_limit' in cmd:
 				cpu_limit = float(cmd.split(' ')[1])

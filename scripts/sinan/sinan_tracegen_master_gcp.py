@@ -1038,19 +1038,26 @@ def send_service_rsc_config(service, cpu_limit):
 def send_rsc_config(cpu_config):
 	global Services
 	global ServiceConfig
-
-	t_list = []
 	for service in Services:
 		cpu_limit = cpu_config[service]/float(ServiceConfig[service]['replica'])
-		t = threading.Thread(target=send_service_rsc_config, kwargs={
-			'service': service,
-			'cpu_limit': cpu_limit
-		})
-		t_list.append(t)
-		t.start()
+		send_service_rsc_config(service, cpu_limit)
 
-	for t in t_list:
-		t.join()
+# def send_rsc_config(cpu_config):
+# 	global Services
+# 	global ServiceConfig
+
+# 	t_list = []
+# 	for service in Services:
+# 		cpu_limit = cpu_config[service]/float(ServiceConfig[service]['replica'])
+# 		t = threading.Thread(target=send_service_rsc_config, kwargs={
+# 			'service': service,
+# 			'cpu_limit': cpu_limit
+# 		})
+# 		t_list.append(t)
+# 		t.start()
+
+# 	for t in t_list:
+# 		t.join()
 
 def set_rsc_config(cpu_config):
 	global Services
@@ -1220,14 +1227,14 @@ def get_service_slave_metric(service, cur_record):
 	global ServiceConfig
 	sock = ServiceConfig[service]['sock']
 	sock.sendall(('get_info\n').encode('utf-8'))
-	msg = ''
+	msg = b''
 	while True:
 		# msg += sock.recv(1024).decode('utf-8')
 		msg += sock.recv(1024)
 		if '\n' not in msg:
 			continue
 		else:
-			metric = json.loads(msg.split('\n')[0])
+			metric = json.loads(msg.split(b'\n')[0])
 			# debug
 			logging.info('recv metric from %s' %service)
 			if service != 'jaeger':
