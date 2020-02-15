@@ -79,7 +79,7 @@ def docker_ps():
 	texts = subprocess.check_output('docker ps', shell=True, stderr=sys.stderr).decode(
 			'utf-8').splitlines()
 	for i in range(1, len(texts) - 1):
-		c_name = [s for s in texts[i].split(' ') if s][2]
+		c_name = [s for s in texts[i].split(' ') if s][-1]
 		c_id = get_container_id(c_name)
 		logging.info("docker ps container_name = %s, container_id = %s service = %s" %(c_name, c_id, ServiceName))
 		assert ServiceName in c_name
@@ -88,7 +88,7 @@ def docker_ps():
 
 def get_container_id(container_name):
 	cmd = "docker inspect --format=\"{{.Id}}\" " + container_name
-	container_id = subprocess.check_output(cmd, shell=True, stderr=sys.stderr).decode(
+	container_id = subprocess.check_output(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr).decode(
 		'utf-8').replace('\n', '')
 	return container_id
 
