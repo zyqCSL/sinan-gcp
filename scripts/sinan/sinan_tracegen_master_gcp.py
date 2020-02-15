@@ -1402,7 +1402,7 @@ def main():
 	for rps in TestRps:
 		logging.info('Test const rps: ' + str(rps))
 		# setup dir
-		exp_dir = DataDir / 'rps_' + str(rps) 
+		exp_dir = DataDir / ('rps_' + str(rps)) 
 		if not os.path.isdir(str(exp_dir)):
 			os.makedirs(str(exp_dir))
 
