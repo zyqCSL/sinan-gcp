@@ -1021,7 +1021,7 @@ def send_init_data(docker_restart):
 		t.join()
 	logging.info('send_init_data done')
 
-def send_exp_start(exp_time):
+def send_exp_start():
 	global Services
 	global ServiceConfig
 
@@ -1222,7 +1222,8 @@ def get_service_slave_metric(service, cur_record):
 	sock.sendall(('get_info\n').encode('utf-8'))
 	msg = ''
 	while True:
-		msg += sock.recv(1024).decode('utf-8')
+		# msg += sock.recv(1024).decode('utf-8')
+		msg += sock.recv(1024)
 		if '\n' not in msg:
 			continue
 		else:
@@ -1381,6 +1382,7 @@ def main():
 	global ExpTime		
 	global MeasureInterval
 	global DataDir 
+	global BenchmarkDir
 	
 	global Services
 	global ServiceConfig
@@ -1423,7 +1425,7 @@ def main():
 
 		wrk2_p = run_wrk2(wrk2=wrk2,
 			lua_script=str(
-				benchmark_dir / 'wrk2' / 'scripts' / 'social-network' / 'mixed-workload.lua'),
+				BenchmarkDir / 'wrk2' / 'scripts' / 'social-network' / 'mixed-workload.lua'),
 			nginx_ip='http://127.0.0.1:8080',
 			dist='exp', tail=95, tail_resolution=0.5, stats_rate=0.2, tail_report_interval=1,
 			num_threads=10, num_conns=300, duration=ExpTime, reqs_per_sec=rps,
@@ -1508,7 +1510,7 @@ def main():
 						consecutive_viol = 0
 						culprit_state = None
 						# print 'xput = ', xput
-						q_load = quantize_state_rps(load)
+						q_load = quantize_state_rps(rps)
 						# print 'q_load = ', q_load
 						q_lat  = quantize_state_latency(tail)
 

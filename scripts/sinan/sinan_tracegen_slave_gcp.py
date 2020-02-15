@@ -379,7 +379,8 @@ def start_experiment(host_sock):
 
 				prev_host_query_time = cur_time
 				ret_msg = json.dumps(ret_info) + '\n'
-				host_sock.sendall(ret_msg.encode('utf-8'))
+				# host_sock.sendall(ret_msg.encode('utf-8'))
+				host_sock.sendall(ret_msg)
 
 			elif 'set_cpu_limit' in cmd:
 				cpu_limit = float(cmd.split(' ')[1])
