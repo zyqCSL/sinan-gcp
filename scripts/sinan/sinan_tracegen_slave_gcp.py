@@ -252,9 +252,6 @@ def get_io_usage():
 	global CumIOSectors		
 	global CumIOServices		
 	global CumIOWaitTime
-	ContainerStats[container_name]['io_sectors'] = 0
-	ContainerStats[container_name]['io_services'] = 0
-	ContainerStats[container_name]['io_wait_time'] = 0	
 
 	ret_io_sectors	= {}
 	ret_io_serviced = {}
