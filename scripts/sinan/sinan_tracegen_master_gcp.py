@@ -1227,14 +1227,14 @@ def get_service_slave_metric(service, cur_record):
 	global ServiceConfig
 	sock = ServiceConfig[service]['sock']
 	sock.sendall(('get_info\n').encode('utf-8'))
-	msg = b''
+	msg = ''
 	while True:
 		# msg += sock.recv(1024).decode('utf-8')
-		msg += sock.recv(1024)
+		msg += (sock.recv(1024)).decode('utf-8')
 		if '\n' not in msg:
 			continue
 		else:
-			metric = json.loads(msg.split(b'\n')[0])
+			metric = json.loads(msg.split('\n')[0])
 			# debug
 			logging.info('recv metric from %s' %service)
 			if service != 'jaeger':
