@@ -69,7 +69,7 @@ def create_container_stats(container_name, container_id):
 	ContainerStats[container_name]['io_wait_time'] = 0
 
 # used when previous container failed and a new one is rebooted
-def reset_container_id_pids():
+def reset_container_id_pids(quiet=False):
 	logging.info('reset_container_id_pids')
 	clear_container_stats()
 	docker_ps(quiet)
@@ -310,7 +310,7 @@ def init_data(service_restart):
 	global ContainerStats
 
 	if service_restart:
-		reset_container_id_pids(quiet = False)
+		reset_container_id_pids()
 
 	# read initial values
 	get_docker_cpu_usage()
