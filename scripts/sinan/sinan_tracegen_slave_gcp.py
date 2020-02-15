@@ -278,7 +278,7 @@ def get_io_usage():
 
 		# io wait time
 		ret_io_wait[container] = 0
-		ContainerStats[container_name]['io_wait_time'] = 0
+		ContainerStats[container]['io_wait_time'] = 0
 		# pseudo_file = '/sys/fs/cgroup/blkio/docker/' + ContainerStats[container]['id']  + '/blkio.io_wait_time_recursive'
 		# with open(pseudo_file, 'r') as f:
 		# 	lines = f.readlines()
