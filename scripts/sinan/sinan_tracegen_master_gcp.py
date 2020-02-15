@@ -885,7 +885,7 @@ def show_states():
 		for state in SchedState:
 			line = 'State: ' +  str(state) + ', true_activations = ' + str(SchedState[state].true_activations) + ' activations = ' + str(SchedState[state].activations)
 			total_actions += SchedState[state].true_activations
-			loggin.info(line)
+			logging.info(line)
 			f.write(line + '\n')
 
 			bound_report = SchedState[state].show_bound()
@@ -1032,32 +1032,32 @@ def send_exp_start():
 def send_service_rsc_config(service, cpu_limit):
 	global ServiceConfig
 
-	cmd = 'set_cpu limit ' + format(cpu_limit, '.2f') + '\n'
+	cmd = 'set_cpu_limit ' + format(cpu_limit, '.2f') + '\n'
 	ServiceConfig[service]['sock'].sendall(cmd.encode('utf-8'))
-
-def send_rsc_config(cpu_config):
-	global Services
-	global ServiceConfig
-	for service in Services:
-		cpu_limit = cpu_config[service]/float(ServiceConfig[service]['replica'])
-		send_service_rsc_config(service, cpu_limit)
 
 # def send_rsc_config(cpu_config):
 # 	global Services
 # 	global ServiceConfig
-
-# 	t_list = []
 # 	for service in Services:
 # 		cpu_limit = cpu_config[service]/float(ServiceConfig[service]['replica'])
-# 		t = threading.Thread(target=send_service_rsc_config, kwargs={
-# 			'service': service,
-# 			'cpu_limit': cpu_limit
-# 		})
-# 		t_list.append(t)
-# 		t.start()
+# 		send_service_rsc_config(service, cpu_limit)
 
-# 	for t in t_list:
-# 		t.join()
+def send_rsc_config(cpu_config):
+	global Services
+	global ServiceConfig
+
+	t_list = []
+	for service in Services:
+		cpu_limit = cpu_config[service]/float(ServiceConfig[service]['replica'])
+		t = threading.Thread(target=send_service_rsc_config, kwargs={
+			'service': service,
+			'cpu_limit': cpu_limit
+		})
+		t_list.append(t)
+		t.start()
+
+	for t in t_list:
+		t.join()
 
 def set_rsc_config(cpu_config):
 	global Services
