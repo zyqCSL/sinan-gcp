@@ -182,7 +182,7 @@ def get_network_usage():
 		else:
 			reset_container_id_pids()
 
-	return compute_mean(ret_rx_packets), compute_mean(ret_rx_bytes), compute_mean(ret_tx_packets), comppute_mean(ret_tx_bytes)
+	return compute_mean(ret_rx_packets), compute_mean(ret_rx_bytes), compute_mean(ret_tx_packets), compute_mean(ret_tx_bytes)
 
 def get_memory_usage():
 	global Containers
