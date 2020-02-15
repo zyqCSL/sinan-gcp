@@ -806,7 +806,7 @@ class State:
 					for service in Services:
 						if service == 'jaeger':
 							continue
-						inc_cpu = int(round(1.0/8 *MaxCpus))
+						inc_cpu_num = int(round(1.0/8 *MaxCpus))
 						propose_cpu[service] = min(ServiceConfig[service]['cpus'] + inc_cpu_num, MaxCpus)
 
 				elif sub_coin < 0.65:
@@ -814,7 +814,7 @@ class State:
 					for service in Services:
 						if service == 'jaeger':
 							continue
-						inc_cpu = int(round(1.0/4 *MaxCpus))
+						inc_cpu_num = int(round(1.0/4 *MaxCpus))
 						propose_cpu[service] = min(ServiceConfig[service]['cpus'] + inc_cpu_num, MaxCpus)
 
 				elif sub_coin < 0.85:
@@ -822,7 +822,7 @@ class State:
 					for service in Services:
 						if service == 'jaeger':
 							continue
-						inc_cpu = int(round(1.0/2 *MaxCpus))
+						inc_cpu_num = int(round(1.0/2 *MaxCpus))
 						propose_cpu[service] = min(ServiceConfig[service]['cpus'] + inc_cpu_num, MaxCpus)
 
 				else:
