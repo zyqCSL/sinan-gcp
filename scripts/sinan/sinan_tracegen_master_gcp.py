@@ -1406,6 +1406,8 @@ def main():
 	global OpLog
 	global wrk2
 
+	parse_cluster_config()
+
 	warmup_app()
 	init()
 	init_data(True)
