@@ -88,7 +88,7 @@ def docker_ps():
 
 def get_container_id(container_name):
 	cmd = "docker inspect --format=\"{{.Id}}\" " + container_name
-	container_id = subprocess.check_output(cmd, shell=True, stdout=sys.stdout, stderr=sys.stderr).decode(
+	container_id = subprocess.check_output(cmd, shell=True, stderr=sys.stderr).decode(
 		'utf-8').replace('\n', '')
 	return container_id
 
