@@ -231,7 +231,9 @@ def get_docker_cpu_usage():
 			with open(pseudo_file, 'r') as f:
 				cum_cpu_time = int(f.readlines()[0])/1000000.0	# turn ns to ms
 				docker_cpu_time[container] = max(cum_cpu_time - ContainerStats[container]['cpu_time'], 0)
-				logging.info(container + ' docker cummulative cpu time: ' + cum_cpu_time + ' interval cpu time: ' + docker_cpu_time[container])
+				logging.info(container + ' docker cummulative cpu time: ' + \
+					format(cum_cpu_time, '.1f') + ' interval cpu time: ' + \
+					format(docker_cpu_time[container], '.1f'))
 				ContainerStats[container]['cpu_time'] = cum_cpu_time
 
 		if not fail:
