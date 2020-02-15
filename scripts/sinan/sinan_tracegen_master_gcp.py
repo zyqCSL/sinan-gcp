@@ -453,9 +453,10 @@ def init_data(docker_restart):
 # todo
 def warmup_app():
 	global wrk2
+	global BenchmarkDir
 	wrk2_proc = run_wrk2(wrk2=wrk2,
 		lua_script=str(
-			benchmark_dir / 'wrk2' / 'scripts' / 'social-network' / 'mixed-workload.lua'),
+			BenchmarkDir / 'wrk2' / 'scripts' / 'social-network' / 'mixed-workload.lua'),
 		nginx_ip='http://127.0.0.1:8080',
 		dist='exp', tail=95, tail_resolution=0.5, stats_rate=0.2, tail_report_interval=1,
 		num_threads=10, num_conns=300, duration=30, reqs_per_sec=1000,
