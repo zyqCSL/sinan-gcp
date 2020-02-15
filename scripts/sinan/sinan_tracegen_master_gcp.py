@@ -1396,6 +1396,7 @@ def main():
 	global OpLog
 	global wrk2
 
+	warmup_app()
 	init()
 	init_data(True)
 	# for const load
@@ -1412,10 +1413,7 @@ def main():
 
 		record_path 	= exp_dir / 'record.txt'
 		wrk2_exp_log	= exp_dir / 'wrk2_log.txt'
-
-		start_app()
 		time.sleep(5)
-		warmup_app()
 		init_data(False)
 
 		# start wrk2
