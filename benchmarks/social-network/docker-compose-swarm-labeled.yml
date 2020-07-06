@@ -13,6 +13,7 @@ services:
     deploy:
       mode: replicated
       replicas: 3
+      max_replicas_per_node: 1
       placement:
         constraints:
           - node.labels.service == social-graph-service

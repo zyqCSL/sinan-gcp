@@ -1,0 +1,263 @@
+import mxnet as mx
+import numpy as np
+import math
+import argparse,logging,os
+
+Tiers      = ['compose-post-redis',
+              'compose-post-service',
+              'home-timeline-redis',
+              'home-timeline-service',
+              # 'jaeger',
+              'nginx-thrift',
+              'post-storage-memcached',
+              'post-storage-mongodb',
+              'post-storage-service',
+              'social-graph-mongodb',
+              'social-graph-redis',
+              'social-graph-service',
+              'text-service',
+              'text-filter',
+              'unique-id-service',
+              'url-shorten-service',
+              'media-service',
+              'media-filter',
+              'user-mention-service',
+              'user-memcached',
+              'user-mongodb',
+              'user-service',
+              'user-timeline-mongodb',
+              'user-timeline-redis',
+              'user-timeline-service',
+              'write-home-timeline-service',
+              'write-home-timeline-rabbitmq',
+              'write-user-timeline-service',
+              'write-user-timeline-rabbitmq'] 
+
+def multi_factor_scheduler(begin_epoch, epoch_size, step=[60, 75, 90], factor=0.1):
+    step_ = [epoch_size * (x-begin_epoch) for x in step if x-begin_epoch > 0]
+    return mx.lr_scheduler.MultiFactorScheduler(step=step_, factor=factor) if len(step_) else None
+
+def _save_model(args, rank=0):
+    if args.model_prefix is None:
+        return None
+    dst_dir = os.path.dirname(args.model_prefix)
+    if not os.path.isdir(dst_dir):
+        os.mkdir(dst_dir)
+    return mx.callback.do_checkpoint(args.model_prefix if rank == 0 else "%s-%d" % (
+        args.model_prefix, rank))
+    
+def _load_model(args, rank=0):
+    if 'load_epoch' not in args or args.load_epoch is None:
+        return (None, None, None)
+    assert args.model_prefix is not None
+    model_prefix = args.model_prefix
+    if rank > 0 and os.path.exists("%s-%d-symbol.json" % (model_prefix, rank)):
+        model_prefix += "-%d" % (rank)
+    sym, arg_params, aux_params = mx.model.load_checkpoint(
+        model_prefix, args.load_epoch)
+    logging.info('Loaded model %s_%04d.params', model_prefix, args.load_epoch)
+    return (sym, arg_params, aux_params)
+
+def custom_metric(label, latency):
+    qos = 300
+    samples = label.shape[0]
+    errors = 0
+    false_pos = 0
+    false_neg = 0
+    for i in range(0, label.shape[0]):
+        label_classify = np.sum(label[i].reshape(5,5)[-1] >= qos) >= 1
+        lat_classify = np.sum(latency[i].reshape(5,5)[-1] >= qos) >= 1
+        if label_classify != lat_classify:
+            print 'error: ',
+            errors += 1
+        if label_classify == True and lat_classify == False:
+            print 'false negative'
+            false_neg += 1
+        elif label_classify == False and lat_classify == True:
+            print 'false positive'
+            false_pos += 1
+
+        print 'label:    '
+        print label[i].reshape(5,5)
+        print 'predict:  '
+        print latency[i].reshape(5,5)
+        print ''
+
+    print 'error rate = ', errors*1.0/samples
+    print 'false_pos = ', false_pos*1.0/samples
+    print 'false_neg = ', false_neg*1.0/samples
+    return np.sqrt(np.mean(np.square(label - latency)))
+
+def shuffle_in_unison(arr):
+    rnd_state = np.random.get_state()
+    for i in range(0, 10):
+        for a in arr:
+            np.random.set_state(rnd_state)
+            np.random.shuffle(a)
+            np.random.set_state(rnd_state)
+
+def main():
+    global Upsample
+
+    mx.random.seed(2333)
+    np.random.seed(2333)
+    data_dir = args.data_dir
+ 
+    sys_data_t = np.load(data_dir + '/sys_data_train.npy')
+    nxt_data_t = np.load(data_dir + '/nxt_data_train.npy')
+    nxt_k_data_t = np.load(data_dir + '/nxt_k_data_train.npy')
+    
+    # combine all data in next ([+1]), and next ([k+2, +k)) cycles
+    if args.network == 'latnet':
+        nxt_k_data_t = np.reshape(nxt_k_data_t,(nxt_k_data_t.shape[0],nxt_k_data_t.shape[1],-1))
+        nxt_data_t   = np.concatenate((nxt_data_t, nxt_k_data_t), axis=2)
+ 
+    lat_data_t = np.load(data_dir + '/lat_data_train.npy')
+    
+    print nxt_data_t.shape, nxt_k_data_t.shape, lat_data_t.shape
+
+    # predict latencies of multiple cycles
+    if args.network == "latnet":
+        label_t = np.load(data_dir + '/train_label.npy')
+        label_t_nxt_k = np.load(data_dir + '/nxt_k_train_label.npy')
+        label_t = np.concatenate((label_t, label_t_nxt_k), axis=2)
+        label_t = label_t.reshape((label_t.shape[0], label_t.shape[1] * label_t.shape[2]))
+    else:
+        label_t = np.load(data_dir + '/train_label.npy')
+        label_t_nxt_k = np.load(data_dir + '/nxt_k_train_label.npy')
+    
+    print "label shape:", label_t.shape
+    
+    original_label_t = label_t
+    qos = 300
+    d = 300
+    k = 0.01
+    label_t = np.where(label_t < d, label_t, d+(label_t-d)/(1.0+k*(label_t-d)))
+
+    train_data = {'data1':sys_data_t, 'data2':lat_data_t, 'data3':nxt_data_t} 
+    train_label = {'label':label_t}
+
+    print 'training:' 
+    print 'data1(sys_data_t) shape: ', sys_data_t.shape
+    print 'data2(lat_data_t) shape: ', lat_data_t.shape
+    print 'data3(nxt_data_t) shape: ', nxt_data_t.shape
+    print 'label shape: ', label_t.shape
+    
+    sys_data_v = np.load(data_dir + '/sys_data_valid.npy')
+    nxt_data_v = np.load(data_dir + '/nxt_data_valid.npy')
+    nxt_k_data_v = np.load(data_dir + '/nxt_k_data_valid.npy')
+
+    if args.network == 'latnet':
+        nxt_k_data_v = np.reshape(nxt_k_data_v,(nxt_k_data_v.shape[0],nxt_k_data_v.shape[1],-1))
+        nxt_data_v   = np.concatenate((nxt_data_v, nxt_k_data_v), axis=2)
+    
+    lat_data_v = np.load(data_dir + '/lat_data_valid.npy')
+    
+    if args.network == "latnet":
+        label_v = np.load(data_dir + '/valid_label.npy')
+        label_v_nxt_k = np.load(data_dir + '/nxt_k_valid_label.npy')
+        label_v = np.concatenate((label_v, label_v_nxt_k), axis=2)
+        label_v = label_v.reshape((label_v.shape[0], label_v.shape[1] * label_v.shape[2]))
+    else:
+        label_v = np.load(data_dir + '/valid_label.npy')
+        label_v_nxt_k = np.load(data_dir + '/nxt_k_valid_label.npy')
+  
+    # original_label_v = label_v
+    label_v = np.where(label_v < d, label_v, d+(label_v-d)/(1.0+k*(label_v-d)))
+
+    # label_v_99 = np.squeeze(label_v[:, 4])
+    # sat_v_idx  = np.where(label_v_99 < d)[0]
+    # viol_v_idx = np.where(label_v_99 >= d)[0]
+    
+    valid_data = {'data1':sys_data_v, 'data2':lat_data_v, 'data3':nxt_data_v} 
+    valid_label = {'label':label_v}
+
+    train_iter = mx.io.NDArrayIter(train_data, train_label, batch_size=args.batch_size, shuffle=True)
+    valid_iter = mx.io.NDArrayIter(valid_data, valid_label, batch_size=args.batch_size)
+    
+    kv = mx.kvstore.create(args.kv_store)
+    devs = mx.cpu() if args.gpus is None else [mx.gpu(int(i)) for i in args.gpus.split(',')]
+     
+    from importlib import import_module
+    net = import_module('symbols.'+args.network)
+    sym = net.get_symbol()
+
+    epoch_size = max(int(args.num_examples / args.batch_size / kv.num_workers), 1)
+    lr_scheduler = multi_factor_scheduler(0, epoch_size, step=[120, 150], factor=0.1)
+    optimizer_params = {
+            'learning_rate': args.lr,
+            'wd': args.wd,
+            'lr_scheduler': lr_scheduler}
+    
+    optimizer = 'nag'
+    has_momentum = {'sgd', 'dcasgd', 'nag'}
+    if optimizer in has_momentum:
+        optimizer_params['momentum'] = args.mom
+    
+    checkpoint = _save_model(args, kv.rank)
+
+    eval_metric = mx.metric.CustomMetric(custom_metric, name='RMSE', output_names=['latency_output'],label_names=['label'])
+    
+    model   = mx.mod.Module(
+            context = devs,
+            symbol = sym,
+            data_names = ('data1','data2', 'data3'),
+            label_names = ('label',)
+            )
+
+    if args.load_epoch > 1:
+        sym, arg_params, aux_params = _load_model(args, kv.rank)
+        model.fit(
+            # train_iter,
+            valid_iter,
+            eval_data = valid_iter,
+            optimizer_params = optimizer_params,
+            optimizer = 'sgd',
+            num_epoch = 1,
+            arg_params = arg_params,
+            # epoch_end_callback=checkpoint,
+            #initializer = mx.init.Xavier(rnd_type='gaussian', factor_type='in', magnitude=2),
+            # eval_metric = mx.metric.RMSE() 
+            eval_metric = eval_metric
+            )
+    else:
+        model.fit(
+            train_iter,
+            eval_data = valid_iter,
+            optimizer_params = optimizer_params,
+            optimizer = 'sgd',
+            num_epoch = 200,
+            epoch_end_callback=checkpoint,
+            #initializer = mx.init.Xavier(rnd_type='gaussian', factor_type='in', magnitude=2),
+            # eval_metric = mx.metric.RMSE()
+            eval_metric = eval_metric 
+            )
+  
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="command for training")
+    parser.add_argument('--data-dir', type=str, required=True)
+    parser.add_argument('--look-forward', type=int, default=4)
+    parser.add_argument('--gpus', type=str, default='0', help='the gpus will be used, e.g "0,1,2,3"')
+    parser.add_argument('--lr', type=float, default=0.0005, help='initialization learning rate')
+    parser.add_argument('--mom', type=float, default=0.9, help='momentum for sgd')
+    parser.add_argument('--bn-mom', type=float, default=0.9, help='momentum for batch normlization')
+    parser.add_argument('--wd', type=float, default=0.0005, help='weight decay for sgd')
+    parser.add_argument('--batch-size', type=int, default=2048, help='the batch size')
+    parser.add_argument('--kv-store', type=str, default='local', help='the kvstore type')
+    parser.add_argument('--log', default='test_single_qps_upsample', type=str)
+    #parser.add_argument('--num-examples', type=int, default=26501, help='the number of training examples')
+    #parser.add_argument('--num-examples', type=int, default=75658, help='the number of training examples')  # window size of 3
+    #parser.add_argument('--num-examples', type=int, default=394637, help='the number of training examples')  # window size of 5
+    parser.add_argument('--num-examples', type=int, default=75321, help='the number of training examples')  # window size of 5
+    parser.add_argument('--network', type=str, default='latnet')
+    parser.add_argument('--model-prefix', type=str, default='./model/lat')
+    parser.add_argument('--load-epoch', type=int, default=200)
+    parser.add_argument('--upsample', type=int, default=0)
+    
+    args = parser.parse_args()
+    logging.basicConfig(filename=args.log+'.log')
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    logging.info(args)
+
+    main()

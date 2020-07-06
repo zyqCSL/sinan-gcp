@@ -29,12 +29,12 @@ pip3 install argparse \
   aiohttp \
   asyncio
 
-# pre-requirements
-apt-get -y --no-install-recommends install libssl-dev \
-  libz-dev \
-  luarocks \
-  gcc
-luarocks install luasocket
+# # pre-requirements for wrk2
+# apt-get -y --no-install-recommends install libssl-dev \
+#   libz-dev \
+#   luarocks \
+#   gcc
+# luarocks install luasocket
 
 # git clones
 # git clone https://github.com/zyqCSL/sinan-gcp.git /home/zzhou612/sinan-gcp
@@ -43,7 +43,5 @@ git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan-gcp
 sudo chown -R yz2297:yz2297 /home/yz2297/sinan-gcp
 
 # finish flag
-touch /home/zzhou612/startup_finished
-chown zzhou612:zzhou612 /home/zzhou612/startup_finished
 touch /home/yz2297/startup_finished
 chown yz2297:yz2297 /home/yz2297/startup_finished
