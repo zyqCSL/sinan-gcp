@@ -163,7 +163,7 @@ parser.add_argument('--username', dest='username', type=str, required=True)
 parser.add_argument('--init-gcloud', dest='init_gcloud', action='store_true')
 parser.add_argument('--background', dest='background', action='store_true')
 
-parser.add_argument('--deploy_config', dest='deploy_config',
+parser.add_argument('--deploy-config', dest='deploy_config',
                     type=str, required=True)
 
 # -----------------------------------------------------------------------
