@@ -165,35 +165,15 @@ parser.add_argument('--background', dest='background', action='store_true')
 
 parser.add_argument('--deploy_config', dest='deploy_config',
                     type=str, required=True)
-parser.add_argument('--mab-config', dest='mab_config', type=str, required=True)
-parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
-parser.add_argument('--compose-file', dest='compose_file', type=str, required=True)
-parser.add_argument('--min-users', dest='min_users', type=int, required=True)
-parser.add_argument('--max-users', dest='max_users', type=int, required=True)
-parser.add_argument('--users-step', dest='users_step', type=int, required=True)
-parser.add_argument('--exp-time', dest='exp_time', type=int, required=True)
-parser.add_argument('--measure-interval', dest='measure_inteval', type=int, default=1)
-parser.add_argument('--slave-port', dest='slave_port', type=int, default=40011)
 
 # -----------------------------------------------------------------------
 # parse args
 # -----------------------------------------------------------------------
 args = parser.parse_args()
 username = args.username
-stack_name = args.stack_name
-compose_file = args.compose_file
 init_gcloud = args.init_gcloud
 background = args.background
 deploy_config_path = Path.cwd() / 'config' / args.deploy_config
-
-deploy_config = args.deploy_config
-mab_config = args.mab_config
-min_users = args.min_users
-max_users = args.max_users
-users_step = args.users_step
-exp_time = args.exp_time
-measure_inteval = args.measure_inteval
-slave_port = args.slave_port
 
 # -----------------------------------------------------------------------
 # ssh-keygen
@@ -268,34 +248,3 @@ else:
         internal_ips = json.load(f)
 
 # create_sinan_firewall_rule(slave_port=slave_port)
-# -----------------------------------------------------------------------
-# run exp
-# -----------------------------------------------------------------------
-
-# python3 master_data_collect_social.py --user-name yz2297 \
-#     --stack-name sinan-socialnet \
-#     --min-users 4 --max-users 64 --users-step 4 \
-#     --exp-time 2700 --measure-interval 1 --slave-port 40011 --deploy-config swarm_ath.json \
-#     --mab-config social_mab.json --deploy
-master_run_exp_cmd = 'cd /home/' + username + '/sinan-gcp/ & '
-
-master_run_exp_cmd += 'python3 master_data_collect_social.py' + \
-    ' --username=' + username + \
-    ' --stack-name=' + stack_name + \
-    ' --max-users=' + str(max_users) + \
-    ' --min-users=' + str(min_users) + \
-    ' --users-step=' + str(users_step) + \
-    ' --slave-port=' + str(slave_port) + \
-    ' --exp-time=' + str(exp_time) + \
-    ' --measure-interval=' + str(measure_interval) + \
-    ' --slave-port=' + str(slave_port) + \
-    ' --deploy-config=' + str(deploy_config) + \
-    ' --mab-config=' + str(mab_config) + \
-    ' --deploy' + \
-    ' --setup_swarm'
-    
-assert master_host != ''
-assert master_host in external_ips
-ssh(destination=username+'@'+external_ips[master_host],
-    cmd=master_run_exp_cmd,
-    identity_file=str(rsa_private_key), quiet=False)
