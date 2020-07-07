@@ -7,183 +7,179 @@
         },
         "node-1": {
             "cpus": 4,
-            "label": "service=user-mongodb"
+            "label": "service=compose-post-service"
         },
         "node-10": {
-            "cpus": 4,
-            "label": "service=social-graph-redis"
+            "cpus": 16,
+            "label": "service=media-filter-service"
         },
         "node-11": {
-            "cpus": 4,
-            "label": "service=compose-post-service"
+            "cpus": 16,
+            "label": "service=media-filter-service"
         },
         "node-12": {
             "cpus": 16,
-            "label": "service=home-timeline-service"
+            "label": "service=media-filter-service"
         },
         "node-13": {
-            "cpus": 4,
-            "label": "service=post-storage-memcached"
+            "cpus": 16,
+            "label": "service=media-filter-service"
         },
         "node-14": {
             "cpus": 16,
-            "label": "service=post-storage-service"
+            "label": "service=media-filter-service"
         },
         "node-15": {
             "cpus": 16,
-            "label": "service=post-storage-service"
+            "label": "service=media-filter-service"
         },
         "node-16": {
-            "cpus": 4,
-            "label": "service=write-home-timeline-service"
+            "cpus": 16,
+            "label": "service=media-filter-service"
         },
         "node-17": {
-            "cpus": 4,
-            "label": "service=write-user-timeline-service"
+            "cpus": 16,
+            "label": "service=media-filter-service"
         },
         "node-18": {
-            "cpus": 8,
-            "label": "service=nginx-thrift"
-        },
-        "node-19": {
-            "cpus": 8,
-            "label": "service=nginx-thrift"
-        },
-        "node-2": {
-            "cpus": 4,
-            "label": "service=unique-id-service"
-        },
-        "node-20": {
-            "cpus": 4,
-            "label": "service=post-storage-mongodb"
-        },
-        "node-21": {
-            "cpus": 4,
-            "label": "service=user-timeline-service"
-        },
-        "node-22": {
-            "cpus": 4,
-            "label": "service=text-service"
-        },
-        "node-23": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-24": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-25": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-26": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-27": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-28": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-29": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-3": {
-            "cpus": 4,
-            "label": "service=home-timeline-redis"
-        },
-        "node-30": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-31": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-32": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-33": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-34": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-35": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-36": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-37": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-38": {
-            "cpus": 16,
-            "label": "service=media-filter-service"
-        },
-        "node-39": {
-            "cpus": 4,
-            "label": "service=user-mention-service"
-        },
-        "node-4": {
-            "cpus": 4,
-            "label": "service=text-filter-service"
-        },
-        "node-40": {
-            "cpus": 4,
-            "label": "service=user-timeline-mongodb"
-        },
-        "node-41": {
-            "cpus": 4,
-            "label": "service=url-shorten-service"
-        },
-        "node-42": {
-            "cpus": 4,
-            "label": "service=media-service"
-        },
-        "node-43": {
-            "cpus": 4,
-            "label": "service=compose-post-redis"
-        },
-        "node-44": {
-            "cpus": 4,
-            "label": "service=write-home-timeline-rabbitmq"
-        },
-        "node-45": {
-            "cpus": 4,
-            "label": "service=user-service"
-        },
-        "node-5": {
-            "cpus": 4,
-            "label": "service=user-timeline-redis"
-        },
-        "node-6": {
             "cpus": 4,
             "label": "service=social-graph-service"
         },
-        "node-7": {
+        "node-19": {
             "cpus": 4,
-            "label": "service=write-user-timeline-rabbitmq"
+            "label": "service=write-home-timeline-service"
         },
-        "node-8": {
+        "node-2": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-20": {
+            "cpus": 4,
+            "label": "service=write-home-timeline-rabbitmq"
+        },
+        "node-21": {
+            "cpus": 4,
+            "label": "service=text-service"
+        },
+        "node-22": {
             "cpus": 4,
             "label": "service=user-memcached"
         },
-        "node-9": {
+        "node-23": {
+            "cpus": 4,
+            "label": "service=media-service"
+        },
+        "node-24": {
+            "cpus": 4,
+            "label": "service=user-timeline-redis"
+        },
+        "node-25": {
+            "cpus": 4,
+            "label": "service=text-filter-service"
+        },
+        "node-26": {
+            "cpus": 4,
+            "label": "service=unique-id-service"
+        },
+        "node-27": {
+            "cpus": 4,
+            "label": "service=user-service"
+        },
+        "node-28": {
+            "cpus": 4,
+            "label": "service=url-shorten-service"
+        },
+        "node-29": {
+            "cpus": 16,
+            "label": "service=post-storage-service"
+        },
+        "node-3": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-30": {
             "cpus": 4,
             "label": "service=social-graph-mongodb"
+        },
+        "node-31": {
+            "cpus": 4,
+            "label": "service=write-user-timeline-service"
+        },
+        "node-32": {
+            "cpus": 8,
+            "label": "service=nginx-thrift"
+        },
+        "node-33": {
+            "cpus": 8,
+            "label": "service=nginx-thrift"
+        },
+        "node-34": {
+            "cpus": 16,
+            "label": "service=home-timeline-service"
+        },
+        "node-35": {
+            "cpus": 4,
+            "label": "service=write-user-timeline-rabbitmq"
+        },
+        "node-36": {
+            "cpus": 4,
+            "label": "service=compose-post-redis"
+        },
+        "node-37": {
+            "cpus": 4,
+            "label": "service=home-timeline-redis"
+        },
+        "node-38": {
+            "cpus": 4,
+            "label": "service=post-storage-memcached"
+        },
+        "node-39": {
+            "cpus": 4,
+            "label": "service=user-timeline-service"
+        },
+        "node-4": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-40": {
+            "cpus": 4,
+            "label": "service=user-mongodb"
+        },
+        "node-41": {
+            "cpus": 4,
+            "label": "service=user-mention-service"
+        },
+        "node-42": {
+            "cpus": 4,
+            "label": "service=post-storage-mongodb"
+        },
+        "node-43": {
+            "cpus": 4,
+            "label": "service=user-timeline-mongodb"
+        },
+        "node-44": {
+            "cpus": 4,
+            "label": "service=social-graph-redis"
+        },
+        "node-5": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-6": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-7": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-8": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
+        },
+        "node-9": {
+            "cpus": 16,
+            "label": "service=media-filter-service"
         }
     },
     "replica_cpus": 8,
@@ -288,13 +284,13 @@
             "replica": 1
         },
         "post-storage-service": {
-            "cpus": 32,
-            "max_cpus": 32,
-            "max_replica": 8,
-            "max_replicas_per_node": 4,
-            "node": 2,
+            "cpus": 16,
+            "max_cpus": 16,
+            "max_replica": 1,
+            "max_replicas_per_node": 1,
+            "node": 1,
             "node_cpus": 16,
-            "replica": 8
+            "replica": 1
         },
         "social-graph-mongodb": {
             "cpus": 4,

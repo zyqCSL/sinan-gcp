@@ -50,7 +50,7 @@ service_config = {
     "url-shorten-service":  {'max_replica': 4, 'max_cpus': 4},
     "user-mention-service": {'max_replica': 4, 'max_cpus': 4},
     # "post-storage-service": {'max_replica': 1, 'max_cpus': 16},
-    "post-storage-service": {'max_replica': 8, 'max_replicas_per_node': 4, 'max_cpus': 32},
+    "post-storage-service": {'max_replica': 1, 'max_cpus': 16},
     "post-storage-memcached":   {'max_replica': 1, 'max_cpus': 4},
     "post-storage-mongodb":     {'max_replica': 1, 'max_cpus': 4},
     "user-timeline-service":    {'max_replica': 4, 'max_cpus': 4},
