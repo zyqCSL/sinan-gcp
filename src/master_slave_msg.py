@@ -56,7 +56,8 @@ def setup_slaves(stack_name, username, servers,
 def connect_slave(servers, slave_port, slave_socks):
 	for server in servers:
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		sock.connect((servers[server]['ip_addr'], slave_port))
+		# sock.connect((servers[server]['ip_addr'], slave_port))
+		sock.connect((server, slave_port))
 		sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 		slave_socks[server] = sock
 		logging.info('%s connected' %server)
