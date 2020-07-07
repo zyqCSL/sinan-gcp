@@ -98,7 +98,7 @@ Deploy = args.deploy
 SetupSwarm = args.setup_swarm
 Stackname = args.stack_name
 Benchmark = args.benchmark
-BenchmarkDir =  Path.cwd() / '..' / 'benchmarks' / args.benchmark
+BenchmarkDir =  Path.cwd() / 'benchmarks' / args.benchmark
 ComposeFile = BenchmarkDir / args.compose_file
 MinUsers = args.min_users
 MaxUsers = args.max_users
@@ -109,8 +109,6 @@ SlavePort = args.slave_port
 DeployConfig = Path.cwd() / 'config' / args.deploy_config.strip()
 MultiArmBanditConfig = Path.cwd() / 'config' / args.mab_config.strip()
 
-SchedStateFile = Path.cwd() / 'logs' / 'sched_states.txt'
-StateSummary = Path.cwd() / 'logs' / 'social_state_summary.txt'
 DataDir =  Path.cwd() / 'logs' / 'collected_data'
 
 # keep track of collected data distribution

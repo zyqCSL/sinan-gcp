@@ -50,7 +50,7 @@ Deploy = args.deploy
 SetupSwarm = args.setup_swarm
 Stackname = args.stack_name
 Benchmark = args.benchmark
-BenchmarkDir =  Path.cwd() / '..' / 'benchmarks' / args.benchmark
+BenchmarkDir =  Path.cwd() / 'benchmarks' / args.benchmark
 ComposeFile = BenchmarkDir / args.compose_file
 DeployConfig = Path.cwd() / 'config' / args.deploy_config.strip()
 
