@@ -10,8 +10,8 @@ from pathlib import Path
 
 
 def scp(source, target, identity_file, quiet=False):
-    _stdout = None
-    _stderr = None
+    _stdout = sys.stdout
+    _stderr = sys.stderr
     if quiet:
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL
@@ -21,8 +21,8 @@ def scp(source, target, identity_file, quiet=False):
 
 
 def rsync(source, target, identity_file, quiet=False):
-    _stdout = None
-    _stderr = None
+    _stdout = sys.stdout
+    _stderr = sys.stderr
     if quiet:
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL
@@ -34,8 +34,8 @@ def rsync(source, target, identity_file, quiet=False):
 
 
 def ssh(destination, cmd, identity_file, quiet=False):
-    _stdout = None
-    _stderr = None
+    _stdout = sys.stdout
+    _stderr = sys.stderr
     if quiet:
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL
@@ -51,8 +51,8 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
                           cpus, memory, disk,
                           external_ips, internal_ips,
                           quiet=False):
-    _stdout = None
-    _stderr = None
+    _stdout = sys.stdout
+    _stderr = sys.stderr
     if quiet:
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL

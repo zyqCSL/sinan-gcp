@@ -109,7 +109,7 @@ for service in service_config:
         if service_config[service]['max_cpus'] / service_config[service]['max_replica'] > replica_cpus:
             node_config[node_name]['cpus'] = int(math.ceil(service_config[service]['max_cpus'] / service_config[service]['max_replica'])) + 1
         else:
-            node_config[node_name]['cpus'] = replica_cpus + 1 # 1 additional for background task
+            node_config[node_name]['cpus'] = 2*(replica_cpus // 2 + 1) # 1 additional for background task
         node_config[node_name]['label'] = 'service=' + str(service)
 
 cluster_config = {}
