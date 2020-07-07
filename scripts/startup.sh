@@ -42,6 +42,10 @@ pip3 install argparse \
 git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan-gcp
 sudo chown -R yz2297:yz2297 /home/yz2297/sinan-gcp
 
+# for locust
+mkdir /home/yz2297/sinan_locust_log
+sudo chmod -R 777 /home/yz2297/sinan_locust_log
+
 # finish flag
 touch /home/yz2297/startup_finished
 chown yz2297:yz2297 /home/yz2297/startup_finished
