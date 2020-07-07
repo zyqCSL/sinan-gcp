@@ -243,9 +243,9 @@ external_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'external_ip.json'
 internal_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'internal_ip.json'
 if init_gcloud:
     with open(str(external_ip_path), "w+") as f:
-        json.dump(external_ips, f)
+        json.dump(external_ips, f, indent=4, sort_keys=True)
     with open(str(internal_ip_path), "w+") as f:
-        json.dump(internal_ips, f)
+        json.dump(internal_ips, f, indent=4, sort_keys=True)
 else:
     with open(str(external_ip_path), 'r') as f:
         external_ips = json.load(f)

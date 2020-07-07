@@ -511,9 +511,9 @@ services:
       - jaeger
     deploy:
       mode: replicated
-      replicas: 4
+      replicas: 1
       placement:
-        max_replicas_per_node: 4
+        max_replicas_per_node: 1
         constraints:
           - node.labels.service == unique-id-service
     volumes:
