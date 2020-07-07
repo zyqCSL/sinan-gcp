@@ -1030,7 +1030,7 @@ def run_exp(users, log_dir):
 		client_script=LocustScript, csv=LocustCsv, 
 		nginx_ip='http://127.0.0.1:8080', volumes=LocustVolumes,
 		log_file=LocustLog, duration=ExpTime + 120,
-		users=users, quiet=True)
+		users=users, quiet=False)
 
 	assert(locust_p != None)
 
