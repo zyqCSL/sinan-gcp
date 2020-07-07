@@ -421,4 +421,4 @@ if __name__ == '__main__':
   register(addr, nodes)
   follow(addr, edges)
   compose_for_each(addr)
-  compose(addr, 5000)
+  compose(addr, 10000)
