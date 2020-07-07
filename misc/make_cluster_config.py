@@ -99,7 +99,6 @@ node_config = {}
 node_config['node-0'] = {}
 node_config['node-0']['cpus'] = 16
 node_config['node-0']['label'] = 'service=master'
-node_config['host_node'] = 'node-0'
 node_id = 1
 for service in service_config:
     for k in range(0, service_config[service]['max_replica']):
@@ -115,6 +114,7 @@ for service in service_config:
 
 cluster_config = {}
 cluster_config['nodes'] = node_config
+cluster_config['host_node'] = 'node-0'
 cluster_config['service'] = service_config
 cluster_config['scalable_service'] = scalable_service
 cluster_config['replica_cpus'] = replica_cpus
