@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser()
 # parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 # parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
 parser.add_argument('--cluster-config', dest='cluster_config', type=str, required=True)
-parser.add_argument('--replica-cpus', dest='replica_cpus', type=int, default=4)
+parser.add_argument('--replica-cpus', dest='replica_cpus', type=int, default=8)
 
 # data collection parameters
 # TODO: add argument parsing here
@@ -36,7 +36,7 @@ replica_cpus = args.replica_cpus
 # cpu_percent = args.cpu_percent
 
 service_config = {
-    "nginx-thrift":         {'max_replica': 8},
+    "nginx-thrift":         {'max_replica': 8, 'max_replicas_per_node': 4, 'max_cpus': 32},
     "compose-post-service": {'max_replica': 4, 'max_cpus': 4},
     "compose-post-redis":   {'max_replica': 1, 'max_cpus': 4},
     "text-service":         {'max_replica': 4, 'max_cpus': 4},
@@ -45,12 +45,12 @@ service_config = {
     "user-memcached":       {'max_replica': 1, 'max_cpus': 4},
     "user-mongodb":         {'max_replica': 1, 'max_cpus': 4},
     "media-service":        {'max_replica': 4, 'max_cpus': 4},
-    "media-filter-service": {'max_replica': 36},
+    "media-filter-service": {'max_replica': 16, 'max_replicas_per_node': 1, 'max_cpus': 128},
     "unique-id-service":    {'max_replica': 4, 'max_cpus': 4},
     "url-shorten-service":  {'max_replica': 4, 'max_cpus': 4},
     "user-mention-service": {'max_replica': 4, 'max_cpus': 4},
     # "post-storage-service": {'max_replica': 1, 'max_cpus': 16},
-    "post-storage-service": {'max_replica': 8, 'max_cpus': 16},
+    "post-storage-service": {'max_replica': 8, 'max_replicas_per_node': 4, 'max_cpus': 16},
     "post-storage-memcached":   {'max_replica': 1, 'max_cpus': 4},
     "post-storage-mongodb":     {'max_replica': 1, 'max_cpus': 4},
     "user-timeline-service":    {'max_replica': 4, 'max_cpus': 4},
@@ -60,7 +60,7 @@ service_config = {
     "write-home-timeline-rabbitmq": {'max_replica': 4, 'max_cpus': 4},
     "write-user-timeline-service":  {'max_replica': 4, 'max_cpus': 4},
     "write-user-timeline-rabbitmq": {'max_replica': 4, 'max_cpus': 4},
-    "home-timeline-service":    {'max_replica': 4},
+    "home-timeline-service":    {'max_replica': 4, 'max_cpus': 16},
     "home-timeline-redis":      {'max_replica': 1, 'max_cpus': 4},
     "social-graph-service":     {'max_replica': 4, 'max_cpus': 4},
     "social-graph-redis":   {'max_replica': 1, 'max_cpus': 4},
@@ -90,9 +90,14 @@ scalable_service = [
 
 for service in service_config:
     service_config[service]['replica'] = service_config[service]['max_replica']
+    if 'max_replicas_per_node' not in service_config[service]:
+        service_config[service]['max_replicas_per_node'] = service_config[service]['max_replica']
     # service_config[service]['replica_cpus'] = replica_cpus
     if 'max_cpus' not in service_config[service]:
         service_config[service]['max_cpus'] = replica_cpus * service_config[service]['max_replica']
+
+    service_config[service]['node'] = service_config[service]['max_replica'] // service_config[service]['max_replicas_per_node']
+    service_config[service]['node_cpus'] = service_config[service]['max_cpus'] // service_config[service]['node']
     service_config[service]['cpus'] = service_config[service]['max_cpus']
 
 node_config = {}
@@ -101,15 +106,12 @@ node_config['node-0']['cpus'] = 16
 node_config['node-0']['label'] = 'service=master'
 node_id = 1
 for service in service_config:
-    for k in range(0, service_config[service]['max_replica']):
+    for k in range(0, service_config[service]['node']):
         node_name = 'node-'+str(node_id)
         assert node_name not in node_config
         node_id += 1
         node_config[node_name] = {}
-        if service_config[service]['max_cpus'] / service_config[service]['max_replica'] > replica_cpus:
-            node_config[node_name]['cpus'] = int(math.ceil(service_config[service]['max_cpus'] / service_config[service]['max_replica'])) + 1
-        else:
-            node_config[node_name]['cpus'] = replica_cpus
+        node_config[node_name]['cpus'] = service_config[service]['node_cpus']
         node_config[node_name]['label'] = 'service=' + str(service)
 
 cluster_config = {}

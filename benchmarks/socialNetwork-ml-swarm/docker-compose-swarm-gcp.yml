@@ -13,7 +13,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == social-graph-service
@@ -73,7 +73,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == write-home-timeline-service
@@ -96,7 +96,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == write-home-timeline-rabbitmq
@@ -117,7 +117,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == write-user-timeline-rabbitmq
@@ -138,7 +138,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == write-user-timeline-service
@@ -181,7 +181,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == compose-post-service
@@ -225,7 +225,7 @@ services:
       mode: replicated
       # endpoint_mode: dnsrr
       replicas: 8
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
         - node.labels.service == post-storage-service
@@ -288,7 +288,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == user-timeline-service
@@ -347,7 +347,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == url-shorten-service
@@ -371,7 +371,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == user-service
@@ -432,7 +432,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == media-service
@@ -448,7 +448,7 @@ services:
     hostname: media-filter-service
     deploy:
       mode: replicated
-      replicas: 36
+      replicas: 16
       max_replicas_per_node: 1
       placement:
         constraints:
@@ -473,7 +473,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
         - node.labels.service == text-service
@@ -490,7 +490,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
         - node.labels.service == text-filter-service
@@ -512,7 +512,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == unique-id-service
@@ -532,7 +532,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == user-mention-service
@@ -554,7 +554,7 @@ services:
     deploy:
       mode: replicated
       replicas: 4
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == home-timeline-service
@@ -581,7 +581,7 @@ services:
     deploy:
       mode: replicated
       replicas: 8
-      max_replicas_per_node: 1
+      max_replicas_per_node: 4
       placement:
         constraints:
           - node.labels.service == nginx-thrift
