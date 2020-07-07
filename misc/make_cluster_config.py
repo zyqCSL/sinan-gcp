@@ -45,7 +45,7 @@ service_config = {
     "user-memcached":       {'max_replica': 1, 'max_cpus': 4},
     "user-mongodb":         {'max_replica': 1, 'max_cpus': 4},
     "media-service":        {'max_replica': 4, 'max_cpus': 4},
-    "media-filter-service": {'max_replica': 32},
+    "media-filter-service": {'max_replica': 36},
     "unique-id-service":    {'max_replica': 4, 'max_cpus': 4},
     "url-shorten-service":  {'max_replica': 4, 'max_cpus': 4},
     "user-mention-service": {'max_replica': 4, 'max_cpus': 4},
@@ -109,7 +109,7 @@ for service in service_config:
         if service_config[service]['max_cpus'] / service_config[service]['max_replica'] > replica_cpus:
             node_config[node_name]['cpus'] = int(math.ceil(service_config[service]['max_cpus'] / service_config[service]['max_replica'])) + 1
         else:
-            node_config[node_name]['cpus'] = 2*(replica_cpus // 2 + 1) # 1 additional for background task
+            node_config[node_name]['cpus'] = replica_cpus
         node_config[node_name]['label'] = 'service=' + str(service)
 
 cluster_config = {}

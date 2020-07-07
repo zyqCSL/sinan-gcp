@@ -448,7 +448,7 @@ services:
     hostname: media-filter-service
     deploy:
       mode: replicated
-      replicas: 32
+      replicas: 36
       max_replicas_per_node: 1
       placement:
         constraints:
