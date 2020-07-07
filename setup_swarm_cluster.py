@@ -14,6 +14,7 @@ from pathlib import Path
 import copy
 
 sys.path.append(str(Path.cwd() / 'src'))
+from docker_swarm_util import *
 # from socket import SOCK_STREAM, socket, AF_INET, SOL_SOCKET, SO_REUSEADDR
 
 random.seed(time.time())
@@ -111,6 +112,7 @@ def main():
 		# establish docker swarm
 		worker_nodes = list(Servers.keys())
 		worker_nodes.remove(HostServer)
+		print('host: ', HostServer)
 		assert HostServer not in worker_nodes
 		setup_swarm(username=Username, worker_nodes=worker_nodes)
 		# label nodes
