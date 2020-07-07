@@ -86,10 +86,10 @@ with open(str(DeployConfig), 'r') as f:
 		if 'cpus' not in ServiceConfig[service]:
 			ServiceConfig[service]['cpus'] = ServiceConfig[service]['max_cpus']
 		if 'replica' not in ServiceConfig[service]:
-			ServiceReplicaStates[service] = ReplicaState(1)
+			ServiceReplicaStates[service] = 1
 		else:
 			# ServiceConfig[service]['replica'] only used for initialization
-			ServiceReplicaStates[service] = ReplicaState(ServiceConfig[service]['replica'])
+			ServiceReplicaStates[service] = ServiceConfig[service]['replica']
 		# cpu limit assigned to each replica
 		ServiceConfig[service]['replica_cpus'] = ServiceConfig[service]['cpus']/ServiceConfig[service]['replica']
 		# assert ServiceConfig[service]['replica_cpus'] <= ReplicaCpus
