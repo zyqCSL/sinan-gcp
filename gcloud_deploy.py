@@ -209,7 +209,7 @@ master_host = ''
 if init_gcloud:
     logging.info('starting init_gcloud')
     with open(str(deploy_config_path), 'r') as f:
-        node_config = json.load(f)
+        node_config = json.load(f)['nodes']
         master_host = node_config['host_node']
         for node_name in node_config:
             disk_size = '10GB'
