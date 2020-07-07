@@ -50,7 +50,7 @@ parser.add_argument('--setup_swarm', dest='setup_swarm', action='store_true')
 parser.add_argument('--deploy', dest='deploy', action='store_true')
 parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
 parser.add_argument('--benchmark', dest='benchmark', type=str, default='socialNetwork-ml-swarm')
-parser.add_argument('--compose-file', dest='compose_file', type=str, default='docker-compose-swarm-gcp.yml')
+parser.add_argument('--compose-file', dest='compose_file', type=str, default='docker-compose-swarm.yml')
 parser.add_argument('--min-users', dest='min_users', type=int, required=True)
 parser.add_argument('--max-users', dest='max_users', type=int, required=True)
 parser.add_argument('--users-step', dest='users_step', type=int, required=True)
@@ -109,6 +109,8 @@ SlavePort = args.slave_port
 DeployConfig = Path.cwd() / 'config' / args.deploy_config.strip()
 MultiArmBanditConfig = Path.cwd() / 'config' / args.mab_config.strip()
 
+SchedStateFile = Path.cwd() / 'logs' / 'sched_states.txt'
+StateSummary = Path.cwd() / 'logs' / 'social_state_summary.txt'
 DataDir =  Path.cwd() / 'logs' / 'collected_data'
 
 # keep track of collected data distribution
@@ -141,6 +143,7 @@ with open(str(DeployConfig), 'r') as f:
 	ReplicaCpus = config_info['replica_cpus']
 	Servers = config_info['nodes']
 	for node in Servers:
+		assert 'ip_addr' in Servers[node]
 		assert 'cpus' in Servers[node]
 		# assert 'label' in Servers[node]	# docker swarm tag of the node
 	ServiceConfig = config_info['service']
@@ -353,19 +356,20 @@ def get_min_cpus(cur_cpu, cpu_util, max_cpu):
 	else:
 		return 0.2
 
-# compute k: when cpu_util >= 1.0, make downscaling as likely as holding, assuming holding & downscaling having same viol distribution
-# compute k: e(-k*1.0) = 0.5 (set in mab config)
-def cpu_util_scaling(cpu_util, op, k=0.69):
+# compute k: when cpu_util >= 0.7, make downscaling as likely as holding, assuming holding & downscaling having same viol distribution
+# compute k: e(-k*0.7) = 1/2 (set in mab config)
+def cpu_util_scaling(cpu_util, op, cur_cpu, next_cpu, k=0.99):
 	if not is_reduce_op(op) >= 0:
 		return 1.0
 	else:
-		return max(math.exp(-k * cpu_util), 0.5)
+		est_cpu_util = cpu_util*cur_cpu/next_cpu
+		return math.exp(-k * est_cpu_util)
 
 def bernoulli_std_dev(sat, viol):
 	sat_rate = sat*1.0/(sat + viol)
 	return (sat_rate*(1.0 - sat_rate))**0.5
 
-def compute_reward(sat, viol, bias, op, cpu_util):
+def compute_reward(sat, viol, bias, op, cpu_util, cur_cpu, next_cpu):
 	global ViolationBias
 	sat_rate = sat*1.0/(sat + viol)
 	cur_ci = bernoulli_std_dev(sat, viol) / (sat + viol)**0.5
@@ -376,7 +380,7 @@ def compute_reward(sat, viol, bias, op, cpu_util):
 	if sat < viol:
 		reward *= ViolationBias
 	# print('reward (viol_bias) = %.f' %reward)
-	reward *= cpu_util_scaling(cpu_util, op)
+	reward *= cpu_util_scaling(cpu_util, op, cur_cpu, next_cpu)
 	# print('reward final=%f' %reward)
 	return reward
 
@@ -489,10 +493,7 @@ def get_metric(feature):
 	global ReplicaCpus
 	global DockerMetrics
 
-	t_s = time.time()
 	stats_accum = get_slave_metric(Servers, SlaveSocks)
-	t_e = time.time()
-	print('get_slave_metric time = %.2fs' %(t_e - t_s))
 	for service in ServiceConfig:
 		if service == 'jaeger' or service == 'zipkin':
 			continue
@@ -647,7 +648,9 @@ class HiddenState:
 										viol=self.rsc_history[service][op_cpus]['viol'],
 										bias=OperationConfig[op]['bias'],
 										op=op, 
-										cpu_util=service_cpu_util)
+										cpu_util=service_cpu_util,
+										cur_cpu=ServiceConfig[service]['cpus'],
+										next_cpu=op_cpus)
 
 				if reward > expected_reward:
 					chosen_op = op
@@ -698,7 +701,9 @@ class HiddenState:
 										   viol=self.rsc_history[service][op_cpus]['viol'],
 										   bias=OperationConfig[op]['bias'], 
 										   op=op,
-										   cpu_util=service_cpu_util)
+										   cpu_util=service_cpu_util,
+										   cur_cpu=ServiceConfig[service]['cpus'],
+										   next_cpu=op_cpus)
 
 				if op_reward > expected_reward:
 					expected_reward = op_reward
@@ -1067,7 +1072,10 @@ def run_exp(users, log_dir):
 				feature.replica_cpu_limit[s] = ServiceConfig[s]['replica_cpus']
 
 			tail, rps, failures = get_locust_data(feature=feature, log_path=str(LocustStats))
+			t_s = time.time()
 			success = get_metric(feature=feature)
+			t_e = time.time()
+			print('get_metric time = %.2f' %(t_e - t_s))
 			if not success:
 				exp_terminated = True
 				service_fail = True
