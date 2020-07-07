@@ -50,7 +50,7 @@ parser.add_argument('--setup_swarm', dest='setup_swarm', action='store_true')
 parser.add_argument('--deploy', dest='deploy', action='store_true')
 parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
 parser.add_argument('--benchmark', dest='benchmark', type=str, default='socialNetwork-ml-swarm')
-parser.add_argument('--compose-file', dest='compose_file', type=str, default='docker-compose-swarm.yml')
+parser.add_argument('--compose-file', dest='compose_file', type=str, default='docker-compose-swarm-gcp.yml')
 parser.add_argument('--min-users', dest='min_users', type=int, required=True)
 parser.add_argument('--max-users', dest='max_users', type=int, required=True)
 parser.add_argument('--users-step', dest='users_step', type=int, required=True)
@@ -143,7 +143,6 @@ with open(str(DeployConfig), 'r') as f:
 	ReplicaCpus = config_info['replica_cpus']
 	Servers = config_info['nodes']
 	for node in Servers:
-		assert 'ip_addr' in Servers[node]
 		assert 'cpus' in Servers[node]
 		# assert 'label' in Servers[node]	# docker swarm tag of the node
 	ServiceConfig = config_info['service']
@@ -492,7 +491,10 @@ def get_metric(feature):
 	global ReplicaCpus
 	global DockerMetrics
 
+	t_s = time.time()
 	stats_accum = get_slave_metric(Servers, SlaveSocks)
+	t_e = time.time()
+	print('get_slave_metric time = %.2fs' %(t_e - t_s))
 	for service in ServiceConfig:
 		if service == 'jaeger' or service == 'zipkin':
 			continue
