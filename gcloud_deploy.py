@@ -73,26 +73,21 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     # get external ip
     # -----------------------------------------------------------------------
     success = False
-    while not success:
-        try:
-            cmd = 'gcloud compute instances describe ' + instance_name + \
-                ' --zone=' + zone + \
-                ' --format=\'get(networkInterfaces[0].accessConfigs[0].natIP)\''
-            external_ip = subprocess.check_output(
-                cmd, shell=True).decode("utf-8").strip()
-            external_ips[instance_name] = external_ip
 
-            cmd = 'gcloud compute instances describe ' + instance_name + \
-                ' --zone=' + zone + \
-                ' --format=\'get(networkInterfaces[0].networkIP)\''
-            internal_ip = subprocess.check_output(
-                cmd, shell=True).decode("utf-8").strip()
-            internal_ips[instance_name] = internal_ip
+    cmd = 'gcloud compute instances describe ' + instance_name + \
+        ' --zone=' + zone + \
+        ' --format=\'get(networkInterfaces[0].accessConfigs[0].natIP)\''
+    external_ip = subprocess.check_output(
+        cmd, shell=True).decode("utf-8").strip()
+    external_ips[instance_name] = external_ip
 
-            success = True
-        except:
-            logging.info('instance %s describe fail, retry...' %instance_name)
-            continue
+    cmd = 'gcloud compute instances describe ' + instance_name + \
+        ' --zone=' + zone + \
+        ' --format=\'get(networkInterfaces[0].networkIP)\''
+    internal_ip = subprocess.check_output(
+        cmd, shell=True).decode("utf-8").strip()
+    internal_ips[instance_name] = internal_ip
+
 
     # -----------------------------------------------------------------------
     # wait for startup script to finish
