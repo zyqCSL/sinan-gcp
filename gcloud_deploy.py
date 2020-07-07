@@ -210,8 +210,11 @@ if init_gcloud:
     logging.info('starting init_gcloud')
     with open(str(deploy_config_path), 'r') as f:
         node_config = json.load(f)['nodes']
+        print(node_config)
         master_host = node_config['host_node']
         for node_name in node_config:
+            print(node_name)
+            print(node_config[node_name])
             disk_size = '10GB'
             if node_name == master_host:
                 disk_size = '40GB'
