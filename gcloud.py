@@ -172,7 +172,7 @@ parser.add_argument('--min-users', dest='min_users', type=int, required=True)
 parser.add_argument('--max-users', dest='max_users', type=int, required=True)
 parser.add_argument('--users-step', dest='users_step', type=int, required=True)
 parser.add_argument('--exp-time', dest='exp_time', type=int, required=True)
-parser.add_argument('--measure-interval', dest='measure_inteval', type=int, default=1)
+parser.add_argument('--measure-interval', dest='measure_interval', type=int, default=1)
 parser.add_argument('--slave-port', dest='slave_port', type=int, default=40011)
 
 # -----------------------------------------------------------------------
@@ -192,7 +192,7 @@ min_users = args.min_users
 max_users = args.max_users
 users_step = args.users_step
 exp_time = args.exp_time
-measure_inteval = args.measure_inteval
+measure_interval = args.measure_interval
 slave_port = args.slave_port
 
 # -----------------------------------------------------------------------
