@@ -281,7 +281,7 @@ else:
 master_run_exp_cmd = 'cd /home/' + username + '/sinan-gcp/;'
 
 master_run_exp_cmd += 'python3 master_data_collect_social.py' + \
-    ' --username=' + username + \
+    ' --user-name=' + username + \
     ' --stack-name=' + stack_name + \
     ' --max-users=' + str(max_users) + \
     ' --min-users=' + str(min_users) + \
