@@ -278,7 +278,7 @@ else:
 #     --min-users 4 --max-users 64 --users-step 4 \
 #     --exp-time 2700 --measure-interval 1 --slave-port 40011 --deploy-config swarm_ath.json \
 #     --mab-config social_mab.json --deploy
-master_run_exp_cmd = 'cd /home/' + username + '/sinan-gcp/ & '
+master_run_exp_cmd = 'cd /home/' + username + '/sinan-gcp/;'
 
 master_run_exp_cmd += 'python3 master_data_collect_social.py' + \
     ' --username=' + username + \
