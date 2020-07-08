@@ -167,7 +167,7 @@ parser.add_argument('--deploy-config', dest='deploy_config',
                     type=str, required=True)
 parser.add_argument('--mab-config', dest='mab_config', type=str, required=True)
 parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
-parser.add_argument('--compose-file', dest='compose_file', type=str, required=True)
+# parser.add_argument('--compose-file', dest='compose_file', type=str, required=True)
 parser.add_argument('--min-users', dest='min_users', type=int, required=True)
 parser.add_argument('--max-users', dest='max_users', type=int, required=True)
 parser.add_argument('--users-step', dest='users_step', type=int, required=True)
@@ -181,7 +181,7 @@ parser.add_argument('--slave-port', dest='slave_port', type=int, default=40011)
 args = parser.parse_args()
 username = args.username
 stack_name = args.stack_name
-compose_file = args.compose_file
+# compose_file = args.compose_file
 init_gcloud = args.init_gcloud
 background = args.background
 deploy_config_path = Path.cwd() / 'config' / args.deploy_config
