@@ -1,5 +1,8 @@
 {
-    "host": "tsg-gpu1.ece.cornell.edu",
-    "ip_addr": "128.253.128.8",
-    "working_dir": "/home/yz2297/ml/"
+    "accelerator": "nvidia-tesla-t4",
+    "gpus": [
+        0
+    ],
+    "host": "predictor",
+    "working_dir": "/home/yz2297/sinan-gcp/ml"
 }

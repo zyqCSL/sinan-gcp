@@ -1,39 +1,19 @@
-# param tunning
-# python  train_cnvnet.py --num-examples 45297 --lr 0.002 --gpus 1 --data-dir ./data_+4s --wd 0.004
+# train cnn that predicts latency of next cycle
+'''
+# pretrain on local cluster data
+python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0 --data-dir ./swarm_data_next_5s \
+ --wd 0.001 --model-prefix ./model/pretrain-cnv
+
+# fine tune on gcp data
+python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0 --data-dir ./gcp_swarm_data_next_5s \
+ --sample 0.2 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_20_cnv
+'''
+
 import mxnet as mx
 import numpy as np
 import math
 import argparse,logging,os
-
-Tiers      = ['compose-post-redis',
-              'compose-post-service',
-              'home-timeline-redis',
-              'home-timeline-service',
-              # 'jaeger',
-              'nginx-thrift',
-              'post-storage-memcached',
-              'post-storage-mongodb',
-              'post-storage-service',
-              'social-graph-mongodb',
-              'social-graph-redis',
-              'social-graph-service',
-              'text-service',
-              'text-filter',
-              'unique-id-service',
-              'url-shorten-service',
-              'media-service',
-              'media-filter',
-              'user-mention-service',
-              'user-memcached',
-              'user-mongodb',
-              'user-service',
-              'user-timeline-mongodb',
-              'user-timeline-redis',
-              'user-timeline-service',
-              'write-home-timeline-service',
-              'write-home-timeline-rabbitmq',
-              'write-user-timeline-service',
-              'write-user-timeline-rabbitmq'] 
+from importlib import import_module
 
 def multi_factor_scheduler(begin_epoch, epoch_size, step=[60, 75, 90], factor=0.1):
     step_ = [epoch_size * (x-begin_epoch) for x in step if x-begin_epoch > 0]
@@ -51,8 +31,8 @@ def _save_model(args, rank=0):
 def _load_model(args, rank=0):
     if 'load_epoch' not in args or args.load_epoch is None:
         return (None, None, None)
-    assert args.model_prefix is not None
-    model_prefix = args.model_prefix
+    assert args.pretrain_model_prefix is not None
+    model_prefix = args.pretrain_model_prefix
     if rank > 0 and os.path.exists("%s-%d-symbol.json" % (model_prefix, rank)):
         model_prefix += "-%d" % (rank)
     sym, arg_params, aux_params = mx.model.load_checkpoint(
@@ -71,42 +51,46 @@ def shuffle_in_unison(arr):
             np.random.shuffle(a)
             np.random.set_state(rnd_state)
 
-def main():
-    global Upsample
+def sample_in_unison(arr, num_examples, sample_rate):
+    index = np.array(list(range(0, num_examples)))
+    for i in range(10):
+        np.random.shuffle(indexes)
+    sampled_index = index[:int(num_examples * sample_rate)]
+    sampled_data = []
+    for a in arr:
+        a = np.take(a, indices=sampled_index, axis = 0)
 
+# Can one get trained by brainwave? Thats needs investigated :)
+def main():
     mx.random.seed(2333)
     np.random.seed(2333)
     data_dir = args.data_dir
  
     sys_data_t = np.load(data_dir + '/sys_data_train.npy')
-    nxt_data_t = np.load(data_dir + '/nxt_data_train.npy')
     lat_data_t = np.load(data_dir + '/lat_data_train.npy')
-    
-    print sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape
+    # only use latency data of immediate future
+    nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
+    print(sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape)
 
-    if args.network == "cnvnet":
-        label_t = np.load(data_dir + '/train_label.npy')
-        label_t = np.squeeze(label_t)
-    
-    print "label shape:", label_t.shape
-    
-    original_label_t = label_t
-    qos = 300
-    d = 300
+    label_t = np.squeeze(np.load(data_dir + '/nxt_k_train_label.npy')[:,:,0])
+    print("label shape:", label_t.shape)
+    qos = 500
+    d = 505
     k = 0.01
     label_t = np.where(label_t < d, label_t, d+(label_t-d)/(1.0+k*(label_t-d)))
+
+    if args.sample < 1.0:
+        sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
+            num_examples=sys_data_t.shape[0], args.sample)
 
     train_data = {'data1':sys_data_t, 'data2':lat_data_t, 'data3':nxt_data_t} 
     train_label = {'label':label_t}
     
     sys_data_v = np.load(data_dir + '/sys_data_valid.npy')
-    nxt_data_v = np.load(data_dir + '/nxt_data_valid.npy')
     lat_data_v = np.load(data_dir + '/lat_data_valid.npy')
+    nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,0])
     
-    if args.network == "cnvnet":
-        label_v = np.load(data_dir + '/valid_label.npy')
-        label_v = np.squeeze(label_v)
-  
+    label_v = np.squeeze(np.load(data_dir + '/nxt_k_valid_label.npy')[:,:,0])
     label_v = np.where(label_v < d, label_v, d+(label_v-d)/(1.0+k*(label_v-d)))
     
     valid_data = {'data1':sys_data_v, 'data2':lat_data_v, 'data3':nxt_data_v} 
@@ -117,8 +101,7 @@ def main():
     
     kv = mx.kvstore.create(args.kv_store)
     devs = mx.cpu() if args.gpus is None else [mx.gpu(int(i)) for i in args.gpus.split(',')]
-     
-    from importlib import import_module
+    
     net = import_module('symbols.'+args.network)
     sym = net.get_symbol()
 
@@ -147,12 +130,13 @@ def main():
     
     if args.load_epoch > 1:
         sym, arg_params, aux_params = _load_model(args, kv.rank)
+        model.set_params(arg_params, aux_params, allow_missing=True, allow_extra=True)
         model.fit(
             train_iter,
             eval_data = valid_iter,
             optimizer_params = optimizer_params,
             optimizer = 'sgd',
-            num_epoch = 1,
+            num_epoch = 200,
             arg_params = arg_params,
             epoch_end_callback=checkpoint,
             #initializer = mx.init.Xavier(rnd_type='gaussian', factor_type='in', magnitude=2),
@@ -182,15 +166,13 @@ if __name__ == "__main__":
     parser.add_argument('--wd', type=float, default=0.0005, help='weight decay for sgd')
     parser.add_argument('--batch-size', type=int, default=2048, help='the batch size')
     parser.add_argument('--kv-store', type=str, default='local', help='the kvstore type')
-    parser.add_argument('--log', default='test_single_qps_upsample', type=str)
-    #parser.add_argument('--num-examples', type=int, default=26501, help='the number of training examples')
-    #parser.add_argument('--num-examples', type=int, default=75658, help='the number of training examples')  # window size of 3
-    #parser.add_argument('--num-examples', type=int, default=394637, help='the number of training examples')  # window size of 5
-    parser.add_argument('--num-examples', type=int, default=75321, help='the number of training examples')  # window size of 5
+    parser.add_argument('--log', default='cnv_training', type=str)
+    parser.add_argument('--num-examples', type=int, required=True, help='the number of training examples')  # window size of 5
     parser.add_argument('--network', type=str, default='cnvnet')
     parser.add_argument('--model-prefix', type=str, default='./model/cnv')
+    parser.add_argument('--pretrain-model-prefix', type=str, default='')
     parser.add_argument('--load-epoch', type=int, default=0)
-    parser.add_argument('--upsample', type=int, default=0)
+    parser.add_argument('--sample', type=float, default=1.0)
     
     args = parser.parse_args()
     logging.basicConfig(filename=args.log+'.log')

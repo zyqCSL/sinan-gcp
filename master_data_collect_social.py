@@ -46,7 +46,7 @@ parser = argparse.ArgumentParser()
 # parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 # parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
 parser.add_argument('--user-name', dest='user_name', type=str, default='yz2297')
-parser.add_argument('--setup_swarm', dest='setup_swarm', action='store_true')
+parser.add_argument('--setup-swarm', dest='setup_swarm', action='store_true')
 parser.add_argument('--deploy', dest='deploy', action='store_true')
 parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
 parser.add_argument('--benchmark', dest='benchmark', type=str, default='socialNetwork-ml-swarm')
@@ -1238,6 +1238,18 @@ def main():
 		service_fail = run_exp(users=users, log_dir=users_dir)
 		if not service_fail:
 			i += 1
+		else:
+			docker_teardown_swarm(username=Username, nodes=list(Servers.keys()))
+			# establish docker swarm
+			worker_nodes = list(Servers.keys())
+			worker_nodes.remove(HostServer)
+			assert HostServer not in worker_nodes
+			setup_swarm(username=Username, worker_nodes=worker_nodes)
+			# label nodes
+			for server in Servers:
+				if 'label' in Servers[server]:
+					update_node_label(server, Servers[server]['label'])
+
 		time.sleep(20)
 
 	send_terminate_slave(servers=Servers, slave_socks=SlaveSocks)

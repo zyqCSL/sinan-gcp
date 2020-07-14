@@ -56,7 +56,7 @@ def get_symbol(bn_mom=0.9, workspace=512, dtype='float32'):
     sys_fc    = mx.sym.FullyConnected(data = sys, num_hidden = 32)
     sys_bn    = mx.sym.BatchNorm(data = sys_fc)
     sys_act   = mx.sym.relu(data = sys_bn)
-    sys_act_dropout = mx.sym.Dropout(data = sys_act, p=0.1)
+    # sys_act_dropout = mx.sym.Dropout(data = sys_act, p=0.1)
     #======================================= system data convolution =======================================# 
     
     #======================================= latency data convolution =======================================# 
@@ -64,20 +64,21 @@ def get_symbol(bn_mom=0.9, workspace=512, dtype='float32'):
     lat_fc1    = mx.sym.FullyConnected(data = lat_data, num_hidden = 32)
     lat_bn1    = mx.sym.BatchNorm(data = lat_fc1)
     lat_act1   = mx.sym.relu(data = lat_bn1)
-    lat_act1_dropout = mx.sym.Dropout(data = lat_act1, p=0.1)
+    # lat_act1_dropout = mx.sym.Dropout(data = lat_act1, p=0.1)
     
     #======================================= latency data convolution =======================================# 
-    # latent_var = mx.sym.Concat(sys_act, lat_act1, dim=1)
-    latent_var = mx.sym.Concat(sys_act_dropout, lat_act1_dropout, dim=1)
+    latent_var = mx.sym.Concat(sys_act, lat_act1, dim=1)
+    # latent_var = mx.sym.Concat(sys_act_dropout, lat_act1_dropout, dim=1)
     fc1        = mx.sym.FullyConnected(data = latent_var, num_hidden = 32, name = 'fc1')
     fc1_bn     = mx.sym.BatchNorm(data = fc1)
     fc1_act    = mx.sym.relu(data = fc1_bn)
-    fc1_act_dropout = mx.sym.Dropout(data = fc1_act, p=0.1)
+    # fc1_act_dropout = mx.sym.Dropout(data = fc1_act, p=0.1)
     
-    fc2        = mx.sym.FullyConnected(data = fc1_act_dropout, num_hidden = 32, name = 'fc2')
+    # fc2        = mx.sym.FullyConnected(data = fc1_act_dropout, num_hidden = 32, name = 'fc2')
+    fc2        = mx.sym.FullyConnected(data = fc1_act, num_hidden = 32, name = 'fc2')
     fc2_bn     = mx.sym.BatchNorm(data = fc2)
     fc2_act    = mx.sym.relu(data = fc2_bn)
-    fc2_act_dropout = mx.sym.Dropout(data = fc2_act, p=0.1)
+    # fc2_act_dropout = mx.sym.Dropout(data = fc2_act, p=0.1)
     
     #======================================= next data convolution =======================================# 
     nxt_data   = mx.sym.Flatten(data = nxt_data)
@@ -85,22 +86,24 @@ def get_symbol(bn_mom=0.9, workspace=512, dtype='float32'):
     nxt_bn     = mx.sym.BatchNorm(data = nxt_fc)
     #nxt_bn     = nxt_fc
     nxt_act    = mx.sym.relu(data = nxt_bn)
-    nxt_act_dropout = mx.sym.Dropout(data = nxt_act, p=0.1)
+    # nxt_act_dropout = mx.sym.Dropout(data = nxt_act, p=0.1)
 
     nxt_fc_1     = mx.sym.FullyConnected(data = nxt_act, num_hidden = 32, name = 'nxt_fc_1', no_bias = True)
     nxt_bn_1     = mx.sym.BatchNorm(data = nxt_fc_1)
     #nxt_bn     = nxt_fc
     nxt_act_1    = mx.sym.relu(data = nxt_bn_1)
-    nxt_act_1_dropout = mx.sym.Dropout(data = nxt_act_1, p=0.1)
+    # nxt_act_1_dropout = mx.sym.Dropout(data = nxt_act_1, p=0.1)
     
-    full_feature = mx.sym.Concat(nxt_act_1_dropout, fc2_act_dropout, dim=1, name = 'full_feature')
+    # full_feature = mx.sym.Concat(nxt_act_1_dropout, fc2_act_dropout, dim=1, name = 'full_feature')
+    full_feature = mx.sym.Concat(nxt_act_1, fc2_act, dim=1, name = 'full_feature')
     fc3        = mx.sym.FullyConnected(data = full_feature, num_hidden = 64, name = 'fc3')
     fc3_bn     = mx.sym.BatchNorm(data = fc3)
     fc3_act    = mx.sym.relu(data = fc3_bn, name = 'fc3_relu')
-    fc3_act_droputout = mx.sym.Dropout(data=fc3_act, p=0.2, name='fc3_dropout')
+    # fc3_act_droputout = mx.sym.Dropout(data=fc3_act, p=0.2, name='fc3_dropout')
     
     label      = mx.sym.Variable(name = 'label')
-    fc4        = mx.sym.FullyConnected(data = fc3_act_droputout, num_hidden = 5, name = 'fc4')
+    # fc4        = mx.sym.FullyConnected(data = fc3_act_droputout, num_hidden = 5, name = 'fc4')
+    fc4        = mx.sym.FullyConnected(data = fc3_act, num_hidden = 5, name = 'fc4')
     #fc4, label = mx.sym.Custom(fc4, label, op_type='DMon')
     latency_output    = mx.sym.BlockGrad(data = fc4, name = 'latency')
 

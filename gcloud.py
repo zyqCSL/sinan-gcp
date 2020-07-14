@@ -293,7 +293,7 @@ master_run_exp_cmd += 'python3 master_data_collect_social.py' + \
     ' --deploy-config=' + str(deploy_config) + \
     ' --mab-config=' + str(mab_config) + \
     ' --deploy' + \
-    ' --setup_swarm'
+    ' --setup-swarm'
     
 assert master_host != ''
 assert master_host in external_ips

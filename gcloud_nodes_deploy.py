@@ -48,7 +48,7 @@ def ssh(destination, cmd, identity_file, quiet=False):
 
 
 def create_sinan_instance(instance_name, zone, startup_script_path, public_key_path,
-                          cpus, memory, disk,
+                          cpus, memory, disk, accelerator,
                           external_ips, internal_ips,
                           quiet=False):
     _stdout = sys.stdout
@@ -56,16 +56,28 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     if quiet:
         _stdout = subprocess.DEVNULL
         _stderr = subprocess.DEVNULL
-    cmd = 'gcloud compute instances create ' + instance_name + \
-        ' --zone=' + zone + \
-        ' --image=ubuntu-1804-bionic-v20200129a' + \
-        ' --image-project=ubuntu-os-cloud' + \
-        ' --boot-disk-size=' + disk + \
-        ' --boot-disk-type=pd-standard' + \
-        ' --metadata-from-file startup-script=' + str(startup_script_path) + \
-        ',ssh-keys=' + str(public_key_path) + \
-        ' --custom-cpu=' + str(cpus) + \
-        ' --custom-memory=' + str(memory)
+    if accelerator == None:
+        cmd = 'gcloud compute instances create ' + instance_name + \
+            ' --zone=' + zone + \
+            ' --image=ubuntu-1804-bionic-v20200129a' + \
+            ' --image-project=ubuntu-os-cloud' + \
+            ' --boot-disk-size=' + disk + \
+            ' --boot-disk-type=pd-standard' + \
+            ' --metadata-from-file startup-script=' + str(startup_script_path) + \
+            ',ssh-keys=' + str(public_key_path) + \
+            ' --custom-cpu=' + str(cpus) + \
+            ' --custom-memory=' + str(memory)
+    else:
+        cmd = 'gcloud compute instances create ' + instance_name + \
+            ' --zone=' + zone + \
+            ' --image=ubuntu-1804-bionic-v20200129a' + \
+            ' --image-project=ubuntu-os-cloud' + \
+            ' --boot-disk-size=' + disk + \
+            ' --boot-disk-type=pd-standard' + \
+            ' --metadata-from-file startup-script=' + str(startup_script_path) + \
+            ',ssh-keys=' + str(public_key_path) + \
+            ' --custom-cpu=' + str(cpus) + \
+            ' --custom-memory=' + str(memory)
         # ' --tags=expose-slave-port'
     subprocess.run(cmd, shell=True, stdout=_stdout, stderr=_stderr)
     logging.info("gcloud create done")
@@ -169,6 +181,8 @@ parser.add_argument('--background', dest='background', action='store_true')
 
 parser.add_argument('--deploy-config', dest='deploy_config',
                     type=str, required=True)
+parser.add_argument('--gpu-config', dest='gpu_config',
+                    type=str, default='')
 
 # -----------------------------------------------------------------------
 # parse args
@@ -178,6 +192,10 @@ username = args.username
 init_gcloud = args.init_gcloud
 background = args.background
 deploy_config_path = Path.cwd() / 'config' / args.deploy_config
+if args.gpu_config != '':
+    gpu_config_path = Path.cwd() / 'config' / args.gpu_config
+else:
+    gpu_config_path = None
 
 # -----------------------------------------------------------------------
 # ssh-keygen
@@ -204,6 +222,7 @@ if init_gcloud:
 # gcloud compute instances create
 # -----------------------------------------------------------------------
 startup_script_path = Path.home() / 'sinan-gcp' / 'scripts' / 'startup.sh'
+predictor_startup_script_path = Path.home() / 'sinan-gcp' / 'scripts' / 'predictor_startup.sh'
 public_key_path = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa.pub'
 
 external_ips = {}
@@ -229,12 +248,37 @@ if init_gcloud:
                 'cpus': node_config[node_name]['cpus'],
                 'memory': node_config[node_name]['cpus'],
                 'disk': disk_size,
+                'accelerator': None,
                 'external_ips': external_ips,
                 'internal_ips': internal_ips,
                 'quiet': True
             })
             init_gcloud_threads.append(t)
             t.start()
+
+    if gpu_config_path != None:
+        with open(str(gpu_config_path), 'r') as f:
+            json_config = json.load(f)
+            node_name = json_config['host']
+            cpus = json_config['cpus']
+            accelerator = json_config['accelerator']
+
+            t = threading.Thread(target=create_sinan_instance, kwargs={
+                'instance_name': node_name,
+                'zone': zone,
+                'startup_script_path': predictor_startup_script_path,
+                'public_key_path': public_key_path,
+                'cpus': cpus,
+                'memory': cpus,
+                'disk': disk_size,
+                'accelerator': accelerator,
+                'external_ips': external_ips,
+                'internal_ips': internal_ips,
+                'quiet': True
+            })
+            init_gcloud_threads.append(t)
+            t.start()
+
     for t in init_gcloud_threads:
         t.join()
     logging.info('init_gcloud finished')

@@ -1,3 +1,4 @@
+# python xgb_train_latent.py --gpus 0 --data-dir ./gcp_swarm_data_next_5s
 # multiclass classification
 import pandas
 import mxnet as mx
@@ -9,6 +10,36 @@ import matplotlib.pyplot as plt
 import os
 import argparse
 import math
+
+Services   = ['compose-post-redis',
+              'compose-post-service',
+              'home-timeline-redis',
+              'home-timeline-service',
+              # 'jaeger',
+              'nginx-thrift',
+              'post-storage-memcached',
+              'post-storage-mongodb',
+              'post-storage-service',
+              'social-graph-mongodb',
+              'social-graph-redis',
+              'social-graph-service',
+              'text-service',
+              'text-filter-service',
+              'unique-id-service',
+              'url-shorten-service',
+              'media-service',
+              'media-filter-service',
+              'user-mention-service',
+              'user-memcached',
+              'user-mongodb',
+              'user-service',
+              'user-timeline-mongodb',
+              'user-timeline-redis',
+              'user-timeline-service',
+              'write-home-timeline-service',
+              'write-home-timeline-rabbitmq',
+              'write-user-timeline-service',
+              'write-user-timeline-rabbitmq']
 
 def _load_model(args, rank=0):
     if 'load_epoch' not in args or args.load_epoch is None:
@@ -23,7 +54,7 @@ def _load_model(args, rank=0):
     return (sym, arg_params, aux_params)
 
 TimeSteps = 5
-QoS = 300.0
+QoS = 500.0
 
 def shuffle_in_unison(arr):
     rnd_state = np.random.get_state()
@@ -65,7 +96,9 @@ def main():
 
     batch_size = args.batch_size
     model_sys_state.bind(for_training=False, 
-        data_shapes=[('data1', (batch_size,13,28,TimeSteps)), ('data2', (batch_size,5,1,TimeSteps)), ('data3', (batch_size,2,28))])
+        data_shapes=[('data1', (batch_size,43,len(Services),TimeSteps)), 
+                     ('data2', (batch_size,5,TimeSteps)), 
+                     ('data3', (batch_size,2,len(Services)))])
     model_sys_state.set_params(load_params[1], load_params[2], allow_missing=True, allow_extra=True)
 
     #--------- data shape for look_forward = 6, which is the last dimension in next_k_lbl ---------#
@@ -74,12 +107,11 @@ def main():
     # glob_next_info_train.shape =  (samples, 2, 28)
 
     #---------------------- training data ----------------------#
-    sys_data_t     = np.load(data_dir + '/sys_data_train.npy')
-    nxt_data_t     = np.load(data_dir + '/nxt_data_train.npy')
-    nxt_k_data_t   = np.load(data_dir + '/nxt_k_data_train.npy')
-    lat_data_t     = np.load(data_dir + '/lat_data_train.npy')
-
-    print nxt_k_data_t.shape
+    sys_data_t = np.load(data_dir + '/sys_data_train.npy')
+    lat_data_t = np.load(data_dir + '/lat_data_train.npy')
+    nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
+    nxt_k_data_t = np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,1:]
+    print(nxt_k_data_t.shape)
 
     #nxt_k_data_t = nxt_k_data_t[:,2,:,:]    # only keep qps
     nxt_k_data_t = nxt_k_data_t.reshape(nxt_k_data_t.shape[0], -1)
@@ -90,9 +122,8 @@ def main():
     # print sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape
 
     # print sys_data_t.shape
-    if args.network is "cnvnet":
-        label_t = np.load(data_dir + '/train_label.npy')
-        label_t = np.squeeze(label_t[:, :, 0])  # only keep e2e latencies
+    label_t = np.load(data_dir + '/nxt_k_train_label.npy')
+    label_t = np.squeeze(label_t[:, :, 0])  # only keep immediate future
 
     train_data  = {'data1':sys_data_t, 'data2':lat_data_t, 'data3':nxt_data_t} #, 'data4':original_label_t}
     train_label = {'label':label_t}
@@ -101,13 +132,16 @@ def main():
     train_iter = mx.io.NDArrayIter(train_data, train_label, batch_size=args.batch_size)
     internal_rep_train = model_sys_state.predict(train_iter).asnumpy()
 
-    label_nxt_t = np.load(data_dir + '/nxt_k_train_label.npy')
-    label_nxt_t = np.squeeze(label_nxt_t[:, -1, :])     # only keep 99% percentile
+    # only keep 99% percentile of far future (excluding immediate future)
+    label_nxt_t = np.load(data_dir + '/nxt_k_train_label.npy')[:, -2, 1:]    
+    label_nxt_t = np.squeeze(label_nxt_t)     
 
     # print label_nxt_t.shape
     label_nxt_t = np.greater_equal(label_nxt_t, QoS)
     # +1 viol, (+1 sat, +2 viol), (+1 sat, +2 sat, +3 viol)
-    print "violations:", np.sum(label_nxt_t[:, 0]), np.sum(np.logical_not(label_nxt_t[:,0])*label_nxt_t[:, 1]), np.sum(np.logical_not(label_nxt_t[:,0]) * np.logical_not(label_nxt_t[:,1]) * label_nxt_t[:, 2])
+    print "violations: ", np.sum(label_nxt_t[:, 0]), 
+    print np.sum(np.logical_not(label_nxt_t[:,0])*label_nxt_t[:, 1]), 
+    print np.sum(np.logical_not(label_nxt_t[:,0]) * np.logical_not(label_nxt_t[:,1]) * label_nxt_t[:, 2])
     
     n_v_v = 0
     n_s_v = 0
@@ -146,7 +180,7 @@ def main():
     print 'internal_rep_train.shape = ', internal_rep_train.shape
     print 'nxt_k_data_t.shape = ', nxt_k_data_t.shape
 
-    lat_info_t = np.squeeze(lat_data_t[:, 4, :, :])
+    # lat_info_t = np.squeeze(lat_data_t[:, 4, :, :])
     X_train = np.concatenate((internal_rep_train, nxt_k_data_t), axis=1)
     #X_train = np.concatenate((lat_info_t, nxt_k_data_t), axis=1)
     print 'X_train.shape = ', X_train.shape
@@ -154,40 +188,11 @@ def main():
     y_train = final_label_t
     print 'y_train.shape = ', y_train.shape
 
-    # # upsampling
-    # viol_idx_train = []
-    # sat_idx_train  = []
-    # for i in range(0, len(y_train)):
-    #     if y_train[i] == 1:
-    #         viol_idx_train.append(i)
-    #     else:
-    #         sat_idx_train.append(i)
-
-    # print '#train_set_viol = ', len(viol_idx_train)
-    # print '#train_set_sat  = ', len(sat_idx_train)
-
-    # sample_times = int(math.ceil(len(sat_idx_train)*1.0/len(viol_idx_train)))
-    # print 'sample times = ', sample_times
-    # # return
-
-    # X_train_viol = np.take(X_train, indices = viol_idx_train, axis = 0)
-    # X_train_sat  = np.take(X_train, indices = sat_idx_train, axis = 0)
-    # y_train_viol = np.take(y_train, indices = viol_idx_train)
-    # y_train_sat  = np.take(y_train, indices = sat_idx_train)
-
-    # X_train = X_train_sat
-    # y_train = y_train_sat
-    # for i in range(0, sample_times):
-    #     X_train = np.concatenate((X_train, X_train_viol), axis = 0)
-    #     y_train = np.concatenate((y_train, y_train_viol), axis = 0)
-
-    # shuffle_in_unison([X_train, y_train])
-
     #-------------------------- validation data ----------------------------#
-    sys_data_v   = np.load(data_dir + '/sys_data_valid.npy')
-    nxt_data_v   = np.load(data_dir + '/nxt_data_valid.npy')
-    nxt_k_data_v = np.load(data_dir + '/nxt_k_data_valid.npy')
-    lat_data_v   = np.load(data_dir + '/lat_data_valid.npy')
+    sys_data_v = np.load(data_dir + '/sys_data_valid.npy')
+    lat_data_v = np.load(data_dir + '/lat_data_valid.npy')
+    nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,0])
+    nxt_k_data_v = np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,1:]
 
     # qps_info_v = nxt_data_v[:, 2, 0]
     # nxt_k_data_v = nxt_k_data_v[:, 0:2, :, :].reshape(nxt_k_data_v.shape[0], -1)
@@ -195,10 +200,8 @@ def main():
     #nxt_k_data_v = nxt_k_data_v[:,2,:,:]    # only keep qps
     nxt_k_data_v = nxt_k_data_v.reshape(nxt_k_data_v.shape[0], -1)
 
-    if args.network is "cnvnet":
-        label_v = np.load(data_dir + '/valid_label.npy')
-        # print 'label_v.shape = ', label_v.shape
-        label_v = np.squeeze(label_v[:, :, 0])
+    label_v = np.load(data_dir + '/nxt_k_valid_label.npy')
+    label_v = np.squeeze(label_v[:, :, 0])  # only keep immediate future
 
     valid_data  = {'data1':sys_data_v, 'data2':lat_data_v, 'data3':nxt_data_v} #, 'data4':original_label_v}
     valid_label = {'label':label_v}
@@ -206,9 +209,11 @@ def main():
     valid_iter = mx.io.NDArrayIter(valid_data, valid_label, batch_size=args.batch_size)
     internal_rep_valid = model_sys_state.predict(valid_iter).asnumpy()
 
-    label_nxt_v = np.load(data_dir + '/nxt_k_valid_label.npy')
-    label_nxt_v = np.squeeze(label_nxt_v[:, -1, :])     # only keep 99% percentile
+    # only keep 99% percentile of far future (excluding immediate future)
+    label_nxt_v = np.load(data_dir + '/nxt_k_valid_label.npy')[:, -2, 1:]    
+    label_nxt_v = np.squeeze(label_nxt_v)     
     label_nxt_v = np.greater_equal(label_nxt_v, QoS)
+
     if look_forward > 1:
         label_nxt_v = np.sum(label_nxt_v, axis = 1)
     final_label_v = np.greater_equal(label_nxt_v, 1)
@@ -218,7 +223,7 @@ def main():
     # final_label_v = np.where(label_nxt_v < QoS, 0, 1)
 
     # X_test = np.concatenate((internal_rep_valid, nxt_k_data_v, qps_info_v.reshape(qps_info_v.shape[0], 1)), axis=1)
-    lat_info_v = np.squeeze(lat_data_v[:, 4, :, :])
+    # lat_info_v = np.squeeze(lat_data_v[:, 4, :, :])
     X_test = np.concatenate((internal_rep_valid, nxt_k_data_v), axis=1)
     #X_test = np.concatenate((lat_info_v, nxt_k_data_v), axis=1)
     print 'X_test.shape = ', X_test.shape

@@ -28,10 +28,12 @@ args = parser.parse_args()
 gpu_config_path = Path('..') / 'config' / args.gpu_config.strip()
 
 gpu_config = {}
-gpu_config['gpus'] = [0, 1]
-gpu_config['ip_addr'] = '128.253.128.8'
-gpu_config['host'] = 'tsg-gpu1.ece.cornell.edu'
-gpu_config['working_dir'] = '/home/yz2297/sinan-ath/ml_docker_swarm'
+gpu_config['gpus'] = [0]
+gpu_config['cpus'] = 16
+gpu_config['accelerator'] = 'nvidia-tesla-t4'
+gpu_config['host'] = 'predictor'
+gpu_config['working_dir'] = '/home/yz2297/sinan-gcp/ml'
+
 
 with open(str(gpu_config_path), 'w+') as f:
 	json.dump(gpu_config, f, indent=4, sort_keys=True)

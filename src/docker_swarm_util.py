@@ -229,3 +229,8 @@ def docker_service_scale(stack_name, service, replica):
 
 	# print('docker scale %s out: %s, time: %s' %(
 	# 	service, out, round(time.time() - start, 2) ), flush=True)
+
+def docker_teardown_swarm(username, nodes):
+	cmd = 'sudo docker swarm leave --force'
+	for node in nodes:
+		ssh(username=username, host=node, cmd-cmd, quiet=False)
