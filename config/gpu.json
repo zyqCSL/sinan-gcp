@@ -1,6 +1,6 @@
 {
     "accelerator": "nvidia-tesla-t4",
-    "cpus": 24,
+    "cpus": 8,
     "gpus": [
         0
     ],
