@@ -72,7 +72,7 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
             ' --zone=' + zone + \
             ' --image-family=ubuntu-1804-lts' + \
             ' --image-project=ubuntu-os-cloud' + \
-            ' --accelerator=' + accelerator + ',count=1' + \
+            ' --accelerator type=' + accelerator + ',count=1' + \
             ' --boot-disk-size=' + disk + \
             ' --boot-disk-type=pd-standard' + \
             ' --metadata-from-file startup-script=' + str(startup_script_path) + \
