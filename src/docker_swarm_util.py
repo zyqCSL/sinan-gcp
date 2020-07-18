@@ -233,4 +233,4 @@ def docker_service_scale(stack_name, service, replica):
 def docker_teardown_swarm(username, nodes):
 	cmd = 'docker swarm leave --force'
 	for node in nodes:
-		ssh(username=username, host=node, cmd-cmd, quiet=False)
+		ssh(username=username, host=node, cmd=cmd, quiet=False)
