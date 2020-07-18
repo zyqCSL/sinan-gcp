@@ -31,6 +31,7 @@ def _save_model(args, rank=0):
         args.model_prefix, rank))
     
 def _load_model(args, rank=0):
+    print 'load_epoch ', args.load_epoch
     if 'load_epoch' not in args or args.load_epoch is None:
         return (None, None, None)
     assert args.pretrain_model_prefix is not None
@@ -135,7 +136,9 @@ def main():
             )
     
     if args.load_epoch > 1:
+        assert model != None
         sym, arg_params, aux_params = _load_model(args, kv.rank)
+        assert sym != None
         model.set_params(arg_params, aux_params, allow_missing=True, allow_extra=True)
         model.fit(
             train_iter,
