@@ -59,8 +59,11 @@ def sample_in_unison(arr, num_examples, sample_rate):
         np.random.shuffle(index)
     sampled_index = index[:int(num_examples * sample_rate)]
     sampled_data = []
+    sampled_arr = 
     for a in arr:
         a = np.take(a, indices=sampled_index, axis = 0)
+        sampled_arr.append(a)
+    return sampled_arr
 
 # Can one get trained by brainwave? Thats needs investigated :)
 def main():
@@ -84,8 +87,12 @@ def main():
 
     if args.sample < 1.0:
         print('sample needed')
-        sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
+        sampled = sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
             num_examples=sys_data_t.shape[0], sample_rate=args.sample)
+        sys_data_t = sampled_arr[0]
+        lat_data_t = sampled_arr[1]
+        nxt_data_t = sampled_arr[2]
+        label_t = sampled_arr[3]
     print(sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape)
 
     train_data = {'data1':sys_data_t, 'data2':lat_data_t, 'data3':nxt_data_t} 
