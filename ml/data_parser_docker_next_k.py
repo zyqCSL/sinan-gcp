@@ -28,7 +28,7 @@ Upsample = args.upsample
 # directories
 
 # sorted order for services
-Services   = ['compose-post-redis',
+Services	= ['compose-post-redis',
 			  'compose-post-service',
 			  'home-timeline-redis',
 			  'home-timeline-service',
@@ -308,82 +308,74 @@ def parse_subdir(log_dir):
 
 	# cpu usage
 	cpu_usage_mean_data = compose_sys_data_channel(raw_data, 'cpu_usage_mean')
-	cpu_usage_min_data  = compose_sys_data_channel(raw_data, 'cpu_usage_min')
-	cpu_usage_max_data  = compose_sys_data_channel(raw_data, 'cpu_usage_max')
-	cpu_usage_std_data  = compose_sys_data_channel(raw_data, 'cpu_usage_std')   # std deviation
-
 	# memory
 	rss_mean_data = compose_sys_data_channel(raw_data, 'rss_mean')
-	rss_min_data  = compose_sys_data_channel(raw_data, 'rss_min')
-	rss_max_data  = compose_sys_data_channel(raw_data, 'rss_max')
-	rss_std_data  = compose_sys_data_channel(raw_data, 'rss_std')   # std deviation
 
 	cache_mem_mean_data = compose_sys_data_channel(raw_data, 'cache_mem_mean')
-	cache_mem_min_data  = compose_sys_data_channel(raw_data, 'cache_mem_min')
-	cache_mem_max_data  = compose_sys_data_channel(raw_data, 'cache_mem_max')
-	cache_mem_std_data  = compose_sys_data_channel(raw_data, 'cache_mem_std')   # std deviation
 
 	page_faults_mean_data = compose_sys_data_channel(raw_data, 'page_faults_mean')
-	page_faults_min_data  = compose_sys_data_channel(raw_data, 'page_faults_min')
-	page_faults_max_data  = compose_sys_data_channel(raw_data, 'page_faults_max')
-	page_faults_std_data  = compose_sys_data_channel(raw_data, 'page_faults_std')   # std deviation
 
 	# network
 	rx_packets_mean_data = compose_sys_data_channel(raw_data, 'rx_packets_mean')
-	rx_packets_min_data  = compose_sys_data_channel(raw_data, 'rx_packets_min')
-	rx_packets_max_data  = compose_sys_data_channel(raw_data, 'rx_packets_max')
-	rx_packets_std_data  = compose_sys_data_channel(raw_data, 'rx_packets_std')   # std deviation
 
 	rx_bytes_mean_data = compose_sys_data_channel(raw_data, 'rx_bytes_mean')
-	rx_bytes_min_data  = compose_sys_data_channel(raw_data, 'rx_bytes_min')
-	rx_bytes_max_data  = compose_sys_data_channel(raw_data, 'rx_bytes_max')
-	rx_bytes_std_data  = compose_sys_data_channel(raw_data, 'rx_bytes_std')   # std deviation
 
 	tx_packets_mean_data = compose_sys_data_channel(raw_data, 'tx_packets_mean')
-	tx_packets_min_data  = compose_sys_data_channel(raw_data, 'tx_packets_min')
-	tx_packets_max_data  = compose_sys_data_channel(raw_data, 'tx_packets_max')
-	tx_packets_std_data  = compose_sys_data_channel(raw_data, 'tx_packets_std')   # std deviation
 
 	tx_bytes_mean_data = compose_sys_data_channel(raw_data, 'tx_bytes_mean')
-	tx_bytes_min_data  = compose_sys_data_channel(raw_data, 'tx_bytes_min')
-	tx_bytes_max_data  = compose_sys_data_channel(raw_data, 'tx_bytes_max')
-	tx_bytes_std_data  = compose_sys_data_channel(raw_data, 'tx_bytes_std')   # std deviation
-
 	# io
 	io_bytes_mean_data = compose_sys_data_channel(raw_data, 'io_bytes_mean')
-	io_bytes_min_data  = compose_sys_data_channel(raw_data, 'io_bytes_min')
-	io_bytes_max_data  = compose_sys_data_channel(raw_data, 'io_bytes_max')
-	io_bytes_std_data  = compose_sys_data_channel(raw_data, 'io_bytes_std')   # std deviation
 
 	io_serviced_mean_data = compose_sys_data_channel(raw_data, 'io_serviced_mean')
-	io_serviced_min_data  = compose_sys_data_channel(raw_data, 'io_serviced_min')
-	io_serviced_max_data  = compose_sys_data_channel(raw_data, 'io_serviced_max')
-	io_serviced_std_data  = compose_sys_data_channel(raw_data, 'io_serviced_std')   # std deviation
 
-	# shape: (batch_size, channel width, #servers, CnnTimeSteps)
+	# # shape: (batch_size, channel width, #servers, CnnTimeSteps)
+	# sys_data = np.concatenate(
+	# 	(rps_data, replica_data, cpu_limit_data,
+	# 	 cpu_usage_mean_data,
+	# 	 # network
+	# 	 rx_packets_mean_data,
+	# 	 rx_bytes_mean_data,	
+	# 	 tx_packets_mean_data, 
+	# 	 tx_bytes_mean_data,	
+	# 	 # memory
+	# 	 rss_mean_data, 
+	# 	 cache_mem_mean_data, 
+	# 	 page_faults_mean_data,
+	# 	 # io
+	# 	 io_serviced_mean_data, 
+	# 	 io_bytes_mean_data), 
+	# 	axis=1)
+
 	sys_data = np.concatenate(
-		(rps_data, replica_data, cpu_limit_data,
-		 cpu_usage_mean_data, cpu_usage_min_data, cpu_usage_max_data, cpu_usage_std_data, 
-		 # network
-		 rx_packets_mean_data, rx_packets_min_data, rx_packets_max_data, rx_packets_std_data,
-		 rx_bytes_mean_data,   rx_bytes_min_data,   rx_bytes_max_data,   rx_bytes_std_data, 
-		 tx_packets_mean_data, tx_packets_min_data, tx_packets_max_data, tx_packets_std_data,
-		 tx_bytes_mean_data,   tx_bytes_min_data,   tx_bytes_max_data,   tx_bytes_std_data,
+		(rps_data, 
+		 replica_data, 
+		 cpu_limit_data,
+		 cpu_usage_mean_data,
+		 # # network
+		 # rx_packets_mean_data,
+		 # rx_bytes_mean_data,	
+		 # tx_packets_mean_data, 
+		 # tx_bytes_mean_data,	
 		 # memory
-		 rss_mean_data, rss_min_data, rss_max_data, rss_std_data,
-		 cache_mem_mean_data, cache_mem_min_data, cache_mem_max_data, cache_mem_std_data,
-		 page_faults_mean_data, page_faults_min_data, page_faults_max_data, page_faults_std_data,
-		 # io
-		 io_serviced_mean_data, io_serviced_min_data, io_serviced_max_data, io_serviced_std_data,
-		 io_bytes_mean_data, io_bytes_min_data, io_bytes_max_data, io_bytes_std_data), 
+		 rss_mean_data, 
+		 cache_mem_mean_data
+		 # page_faults_mean_data,
+		 # # io
+		 # io_serviced_mean_data, 
+		 # io_bytes_mean_data
+		 ), 
 		axis=1)
 
+
 	#----------------------------- next_k data -------------------------------#
-	rps_next_k = compose_next_k_data_channel(raw_data, 'rps')
+	# rps_next_k = compose_next_k_data_channel(raw_data, 'rps')
 	cpu_limit_next_k = compose_next_k_data_channel(raw_data, 'cpu_limit')
 
-	# shape (batch_size, channel width(=2), #servers, LookForward)
-	next_k_info = np.concatenate((cpu_limit_next_k, rps_next_k), axis=1)
+	# # shape (batch_size, channel width(=2), #servers, LookForward)
+	# next_k_info = np.concatenate((cpu_limit_next_k, rps_next_k), axis=1)
+
+	# shape (batch_size, #servers, LookForward)
+	next_k_info = np.squeeze(cpu_limit_next_k)
 
 	#----------------------------- latency -------------------------------#
 	# lat shape (5, batch_size)
@@ -432,8 +424,8 @@ def parse_subdir(log_dir):
 	lat_data_v = lat_data[:num_val,:,:]
 	lat_data_t = lat_data[num_val:,:,:]
 
-	next_k_info_v = next_k_info[:num_val,:,:,:]
-	next_k_info_t = next_k_info[num_val:,:,:,:]
+	next_k_info_v = next_k_info[:num_val,:,:]
+	next_k_info_t = next_k_info[num_val:,:,:]
 
 	lat_next_k_label_v = lat_next_k_label[:num_val,:]
 	lat_next_k_label_t = lat_next_k_label[num_val:,:]
@@ -481,12 +473,12 @@ def main():
 				glob_sys_data_train = np.concatenate((glob_sys_data_train,sys_data_t),axis = 0)
 				glob_lat_data_train = np.concatenate((glob_lat_data_train,lat_data_t),axis = 0)
 				glob_next_k_info_train	= np.concatenate((glob_next_k_info_train, next_k_info_t), axis = 0)
-				glob_lat_next_k_label_train   = np.concatenate((glob_lat_next_k_label_train,lat_next_k_label_t), axis = 0)
+				glob_lat_next_k_label_train	= np.concatenate((glob_lat_next_k_label_train,lat_next_k_label_t), axis = 0)
 
 				glob_sys_data_valid = np.concatenate((glob_sys_data_valid,sys_data_v),axis = 0)
 				glob_lat_data_valid = np.concatenate((glob_lat_data_valid,lat_data_v),axis = 0)
 				glob_next_k_info_valid	= np.concatenate((glob_next_k_info_valid, next_k_info_v), axis = 0)
-				glob_lat_next_k_label_valid   = np.concatenate((glob_lat_next_k_label_valid,lat_next_k_label_v), axis = 0)
+				glob_lat_next_k_label_valid	= np.concatenate((glob_lat_next_k_label_valid,lat_next_k_label_v), axis = 0)
 			count = count + 1
 
 	print('glob_sys_data_train.shape = '),  
@@ -495,7 +487,7 @@ def main():
 	print(glob_lat_data_train.shape)
 	print('glob_next_k_info_train.shape = '), 
 	print(glob_next_k_info_train.shape)
-	print('glob_lat_next_k_label_train.shape = '),   
+	print('glob_lat_next_k_label_train.shape = '),	
 	print(glob_lat_next_k_label_train.shape)
 
 	if SaveDir == '':

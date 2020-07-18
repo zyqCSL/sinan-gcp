@@ -1,12 +1,14 @@
 # train cnn that predicts latency of next cycle
+# param tunning
+# python  train_cnvnet.py --num-examples 36304 --lr 0.001 --gpus 0,1 --data-dir ./swarm_data_next_5s --wd 0.001
+# python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir  ../logs/socialnet_ml_data/swarm_simple_sys_data_next_5s --wd 0.001
+
 '''
 # pretrain on local cluster data
-python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0 --data-dir ./swarm_data_next_5s \
- --wd 0.001 --model-prefix ./model/pretrain-cnv
+python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_data_next_5s --wd 0.001 --model-prefix ./model/pretrain-cnv
 
 # fine tune on gcp data
-python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0 --data-dir ./gcp_swarm_data_next_5s \
- --sample 0.2 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_20_cnv
+python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ./gcp_swarm_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_20_cnv
 '''
 
 import mxnet as mx
@@ -68,8 +70,10 @@ def main():
  
     sys_data_t = np.load(data_dir + '/sys_data_train.npy')
     lat_data_t = np.load(data_dir + '/lat_data_train.npy')
-    # only use latency data of immediate future
-    nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
+    # # only use latency data of immediate future
+    # nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
+    # only cpu & only use latency data of immediate future
+    nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,0])
     print(sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape)
 
     label_t = np.squeeze(np.load(data_dir + '/nxt_k_train_label.npy')[:,:,0])
@@ -88,7 +92,8 @@ def main():
     
     sys_data_v = np.load(data_dir + '/sys_data_valid.npy')
     lat_data_v = np.load(data_dir + '/lat_data_valid.npy')
-    nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,0])
+    # nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,0])
+    nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,0])
     
     label_v = np.squeeze(np.load(data_dir + '/nxt_k_valid_label.npy')[:,:,0])
     label_v = np.where(label_v < d, label_v, d+(label_v-d)/(1.0+k*(label_v-d)))
@@ -166,7 +171,7 @@ if __name__ == "__main__":
     parser.add_argument('--wd', type=float, default=0.0005, help='weight decay for sgd')
     parser.add_argument('--batch-size', type=int, default=2048, help='the batch size')
     parser.add_argument('--kv-store', type=str, default='local', help='the kvstore type')
-    parser.add_argument('--log', default='cnv_training', type=str)
+    parser.add_argument('--log', default='test_single_qps_upsample', type=str)
     parser.add_argument('--num-examples', type=int, required=True, help='the number of training examples')  # window size of 5
     parser.add_argument('--network', type=str, default='cnvnet')
     parser.add_argument('--model-prefix', type=str, default='./model/cnv')

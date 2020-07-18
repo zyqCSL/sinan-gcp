@@ -126,74 +126,101 @@ def _predict(info):
 
 	# cpu usage
 	cpu_usage_mean_data = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_mean', batch_size)
-	cpu_usage_min_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_min', batch_size)
-	cpu_usage_max_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_max', batch_size)
-	cpu_usage_std_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_std', batch_size)   # std deviation
+	# cpu_usage_min_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_min', batch_size)
+	# cpu_usage_max_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_max', batch_size)
+	# cpu_usage_std_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_std', batch_size)   # std deviation
 
 	# memory
 	rss_mean_data = _compose_sys_data_channel(raw_sys_data, 'rss_mean', batch_size)
-	rss_min_data  = _compose_sys_data_channel(raw_sys_data, 'rss_min', batch_size)
-	rss_max_data  = _compose_sys_data_channel(raw_sys_data, 'rss_max', batch_size)
-	rss_std_data  = _compose_sys_data_channel(raw_sys_data, 'rss_std', batch_size)   # std deviation
+	# rss_min_data  = _compose_sys_data_channel(raw_sys_data, 'rss_min', batch_size)
+	# rss_max_data  = _compose_sys_data_channel(raw_sys_data, 'rss_max', batch_size)
+	# rss_std_data  = _compose_sys_data_channel(raw_sys_data, 'rss_std', batch_size)   # std deviation
 
 	cache_mem_mean_data = _compose_sys_data_channel(raw_sys_data, 'cache_mem_mean', batch_size)
-	cache_mem_min_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_min', batch_size)
-	cache_mem_max_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_max', batch_size)
-	cache_mem_std_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_std', batch_size)   # std deviation
+	# cache_mem_min_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_min', batch_size)
+	# cache_mem_max_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_max', batch_size)
+	# cache_mem_std_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_std', batch_size)   # std deviation
 
-	page_faults_mean_data = _compose_sys_data_channel(raw_sys_data, 'page_faults_mean', batch_size)
-	page_faults_min_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_min', batch_size)
-	page_faults_max_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_max', batch_size)
-	page_faults_std_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_std', batch_size)   # std deviation
+	#page_faults_mean_data = _compose_sys_data_channel(raw_sys_data, 'page_faults_mean', batch_size)
+	# page_faults_min_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_min', batch_size)
+	# page_faults_max_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_max', batch_size)
+	# page_faults_std_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_std', batch_size)   # std deviation
 
 	# network
-	rx_packets_mean_data = _compose_sys_data_channel(raw_sys_data, 'rx_packets_mean', batch_size)
-	rx_packets_min_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_min', batch_size)
-	rx_packets_max_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_max', batch_size)
-	rx_packets_std_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_std', batch_size)   # std deviation
+	#rx_packets_mean_data = _compose_sys_data_channel(raw_sys_data, 'rx_packets_mean', batch_size)
+	# rx_packets_min_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_min', batch_size)
+	# rx_packets_max_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_max', batch_size)
+	# rx_packets_std_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_std', batch_size)   # std deviation
 
-	rx_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_mean', batch_size)
-	rx_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_min', batch_size)
-	rx_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_max', batch_size)
-	rx_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_std', batch_size)   # std deviation
+	#rx_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_mean', batch_size)
+	# rx_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_min', batch_size)
+	# rx_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_max', batch_size)
+	# rx_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_std', batch_size)   # std deviation
 
-	tx_packets_mean_data = _compose_sys_data_channel(raw_sys_data, 'tx_packets_mean', batch_size)
-	tx_packets_min_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_min', batch_size)
-	tx_packets_max_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_max', batch_size)
-	tx_packets_std_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_std', batch_size)   # std deviation
+	#tx_packets_mean_data = _compose_sys_data_channel(raw_sys_data, 'tx_packets_mean', batch_size)
+	# tx_packets_min_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_min', batch_size)
+	# tx_packets_max_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_max', batch_size)
+	# tx_packets_std_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_std', batch_size)   # std deviation
 
-	tx_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_mean', batch_size)
-	tx_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_min', batch_size)
-	tx_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_max', batch_size)
-	tx_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_std', batch_size)   # std deviation
+	#tx_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_mean', batch_size)
+	# tx_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_min', batch_size)
+	# tx_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_max', batch_size)
+	# tx_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_std', batch_size)   # std deviation
 
 	# io
-	io_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'io_bytes_mean', batch_size)
-	io_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_min', batch_size)
-	io_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_max', batch_size)
-	io_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_std', batch_size)   # std deviation
+	#io_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'io_bytes_mean', batch_size)
+	# io_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_min', batch_size)
+	# io_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_max', batch_size)
+	# io_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_std', batch_size)   # std deviation
 
-	io_serviced_mean_data = _compose_sys_data_channel(raw_sys_data, 'io_serviced_mean', batch_size)
-	io_serviced_min_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_min', batch_size)
-	io_serviced_max_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_max', batch_size)
-	io_serviced_std_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_std', batch_size)   # std deviation
+	#io_serviced_mean_data = _compose_sys_data_channel(raw_sys_data, 'io_serviced_mean', batch_size)
+	# io_serviced_min_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_min', batch_size)
+	# io_serviced_max_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_max', batch_size)
+	# io_serviced_std_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_std', batch_size)   # std deviation
 
 	# shape: (batch_size, channel width, #servers, CnnTimeSteps)
+	# sys_data = np.concatenate(
+	# 	(rps_data, replica_data, cpu_limit_data,
+	# 	 cpu_usage_mean_data, cpu_usage_min_data, cpu_usage_max_data, cpu_usage_std_data, 
+	# 	 # network
+	# 	 rx_packets_mean_data, rx_packets_min_data, rx_packets_max_data, rx_packets_std_data,
+	# 	 rx_bytes_mean_data,   rx_bytes_min_data,   rx_bytes_max_data,   rx_bytes_std_data, 
+	# 	 tx_packets_mean_data, tx_packets_min_data, tx_packets_max_data, tx_packets_std_data,
+	# 	 tx_bytes_mean_data,   tx_bytes_min_data,   tx_bytes_max_data,   tx_bytes_std_data,
+	# 	 # memory
+	# 	 rss_mean_data, rss_min_data, rss_max_data, rss_std_data,
+	# 	 cache_mem_mean_data, cache_mem_min_data, cache_mem_max_data, cache_mem_std_data,
+	# 	 page_faults_mean_data, page_faults_min_data, page_faults_max_data, page_faults_std_data,
+	# 	 # io
+	# 	 io_serviced_mean_data, io_serviced_min_data, io_serviced_max_data, io_serviced_std_data,
+	# 	 io_bytes_mean_data, io_bytes_min_data, io_bytes_max_data, io_bytes_std_data), 
+	# 	axis=1)
+
+	# sys_data = np.concatenate(
+	# 	(rps_data, replica_data, cpu_limit_data,
+	# 	 cpu_usage_mean_data,
+	# 	 # network
+	# 	 rx_packets_mean_data,
+	# 	 rx_bytes_mean_data, 
+	# 	 tx_packets_mean_data,
+	# 	 tx_bytes_mean_data,
+	# 	 # memory
+	# 	 rss_mean_data,
+	# 	 cache_mem_mean_data,
+	# 	 page_faults_mean_data,
+	# 	 # io
+	# 	 io_serviced_mean_data,
+	# 	 io_bytes_mean_data), 
+	# 	axis=1)
+
 	sys_data = np.concatenate(
-		(rps_data, replica_data, cpu_limit_data,
-		 cpu_usage_mean_data, cpu_usage_min_data, cpu_usage_max_data, cpu_usage_std_data, 
-		 # network
-		 rx_packets_mean_data, rx_packets_min_data, rx_packets_max_data, rx_packets_std_data,
-		 rx_bytes_mean_data,   rx_bytes_min_data,   rx_bytes_max_data,   rx_bytes_std_data, 
-		 tx_packets_mean_data, tx_packets_min_data, tx_packets_max_data, tx_packets_std_data,
-		 tx_bytes_mean_data,   tx_bytes_min_data,   tx_bytes_max_data,   tx_bytes_std_data,
+		(rps_data, 
+		 replica_data, 
+		 cpu_limit_data,
+		 cpu_usage_mean_data,
 		 # memory
-		 rss_mean_data, rss_min_data, rss_max_data, rss_std_data,
-		 cache_mem_mean_data, cache_mem_min_data, cache_mem_max_data, cache_mem_std_data,
-		 page_faults_mean_data, page_faults_min_data, page_faults_max_data, page_faults_std_data,
-		 # io
-		 io_serviced_mean_data, io_serviced_min_data, io_serviced_max_data, io_serviced_std_data,
-		 io_bytes_mean_data, io_bytes_min_data, io_bytes_max_data, io_bytes_std_data), 
+		 rss_mean_data,
+		 cache_mem_mean_data), 
 		axis=1)
 
 	logging.info('sys_data.shape = ' + str(sys_data.shape))
@@ -220,52 +247,52 @@ def _predict(info):
 	#-------------------------- next_info --------------------------#
 	ncore_next = None
 	ncore_next_k = None
-	rps_next = None
-	rps_next_k = None
+	# rps_next = None
+	# rps_next_k = None
 	for i, proposal in enumerate(raw_next_info):
 		for j, service in enumerate(Services):
 			if j == 0:
 				ncore_proposal = np.array(proposal[service]['cpus'])
-				rps_proposal = np.array(proposal[service]['rps'])
+				# rps_proposal = np.array(proposal[service]['rps'])
 			else:
 				ncore_proposal = np.vstack((ncore_proposal, np.array(proposal[service]['cpus'])))
-				rps_proposal = np.vstack((rps_proposal, np.array(proposal[service]['rps'])))
+				# rps_proposal = np.vstack((rps_proposal, np.array(proposal[service]['rps'])))
 
 		for k in range(0, XgbLookForward):
 			if k == 0:
 				ncore_proposal_next_k = np.array(ncore_proposal).reshape([-1, 1])
-				rps_proposal_next_k = np.array(rps_proposal).reshape([-1, 1])
+				# rps_proposal_next_k = np.array(rps_proposal).reshape([-1, 1])
 			else:
 				ncore_proposal_next_k = np.hstack((ncore_proposal_next_k, 
 											np.array(ncore_proposal).reshape([-1, 1])))
-				rps_proposal_next_k = np.hstack((rps_proposal_next_k, 
-											np.array(rps_proposal).reshape([-1, 1])))
+				# rps_proposal_next_k = np.hstack((rps_proposal_next_k, 
+				# 							np.array(rps_proposal).reshape([-1, 1])))
 
 		if i == 0:
 			ncore_next = ncore_proposal.reshape([1, ncore_proposal.shape[0]])
 			ncore_next_k = ncore_proposal_next_k.reshape(
 							[1, ncore_proposal_next_k.shape[0], ncore_proposal_next_k.shape[1]])
 
-			rps_next = rps_proposal.reshape([1, rps_proposal.shape[0]])
-			rps_next_k = rps_proposal_next_k.reshape(
-							[1, rps_proposal_next_k.shape[0], rps_proposal_next_k.shape[1]])
+			# rps_next = rps_proposal.reshape([1, rps_proposal.shape[0]])
+			# rps_next_k = rps_proposal_next_k.reshape(
+			# 				[1, rps_proposal_next_k.shape[0], rps_proposal_next_k.shape[1]])
 		else:
 			ncore_next = np.vstack((ncore_next, ncore_proposal.reshape([1, ncore_proposal.shape[0]])))
 			ncore_next_k = np.vstack((ncore_next_k, 
 						ncore_proposal_next_k.reshape(
 							[1, ncore_proposal_next_k.shape[0], ncore_proposal_next_k.shape[1]])))
 
-			rps_next = np.vstack((rps_next, rps_proposal.reshape([1, rps_proposal.shape[0]])))
-			rps_next_k = np.vstack((rps_next_k, 
-						rps_proposal_next_k.reshape(
-							[1, rps_proposal_next_k.shape[0], rps_proposal_next_k.shape[1]])))
+			# rps_next = np.vstack((rps_next, rps_proposal.reshape([1, rps_proposal.shape[0]])))
+			# rps_next_k = np.vstack((rps_next_k, 
+			# 			rps_proposal_next_k.reshape(
+			# 				[1, rps_proposal_next_k.shape[0], rps_proposal_next_k.shape[1]])))
 
-	ncore_next = ncore_next.reshape([ncore_next.shape[0], 1, ncore_next.shape[1]])
-	ncore_next_k = ncore_next_k.reshape(
-					[ncore_next_k.shape[0], 1, ncore_next_k.shape[1], ncore_next_k.shape[2]])
-	rps_next = rps_next.reshape([rps_next.shape[0], 1, rps_next.shape[1]])
-	rps_next_k = rps_next_k.reshape(
-					[rps_next_k.shape[0], 1, rps_next_k.shape[1], rps_next_k.shape[2]])
+	# ncore_next = ncore_next.reshape([ncore_next.shape[0], 1, ncore_next.shape[1]])
+	# ncore_next_k = ncore_next_k.reshape(
+	# 				[ncore_next_k.shape[0], 1, ncore_next_k.shape[1], ncore_next_k.shape[2]])
+	# rps_next = rps_next.reshape([rps_next.shape[0], 1, rps_next.shape[1]])
+	# rps_next_k = rps_next_k.reshape(
+	# 				[rps_next_k.shape[0], 1, rps_next_k.shape[1], rps_next_k.shape[2]])
 	
 	# compose next_info
 	'''
@@ -274,8 +301,11 @@ def _predict(info):
 	print rps_next.shape
 	print rps_next_k.shape
 	'''
-	next_data = np.concatenate((ncore_next, rps_next), axis=1)
-	next_k_data = np.concatenate((ncore_next_k, rps_next_k),axis=1)
+	# next_data = np.concatenate((ncore_next, rps_next), axis=1)
+	# next_k_data = np.concatenate((ncore_next_k, rps_next_k),axis=1)
+
+	next_data = ncore_next
+	next_k_data = ncore_next_k
 
 	logging.info('next_data.shape = ' + str(next_data.shape))
 	logging.info('next_k_data.shape = ' + str(next_k_data.shape))
@@ -327,9 +357,10 @@ def test():
 
 	default_batch_size = 2048
 	Model.bind(for_training=False, 
-		data_shapes=[('data1', (default_batch_size,43,28,CnnTimeSteps)), 
+		data_shapes=[('data1', (default_batch_size,6,28,CnnTimeSteps)), 
 					 ('data2', (default_batch_size,5,CnnTimeSteps)), 
-					 ('data3', (default_batch_size,2,28))])
+					 # ('data3', (default_batch_size,2,28))
+					 ('data3', (default_batch_size,28))])
 
 	Model.set_params(load_params[1], load_params[2], allow_missing=True, allow_extra=True)
 
@@ -345,9 +376,10 @@ def test():
 			# label_names = ('label',)
 			)
 	InternalSysState.bind(for_training=False, 
-		data_shapes=[('data1', (default_batch_size,43,28,CnnTimeSteps)), 
+		data_shapes=[('data1', (default_batch_size,6,28,CnnTimeSteps)), 
 					 ('data2', (default_batch_size,5,CnnTimeSteps)), 
-					 ('data3', (default_batch_size,2,28))])
+					 # ('data3', (default_batch_size,2,28))
+					 ('data3', (default_batch_size,28))])
 	InternalSysState.set_params(load_params[1], load_params[2], allow_missing=True, allow_extra=True)
 
 	BoostTree = xgb.Booster()  # init model
@@ -366,56 +398,9 @@ def test():
 		sys_data[service]['rps'] =  [50] * CnnTimeSteps
 		sys_data[service]['cpu_limit'] = [12] * CnnTimeSteps
 		sys_data[service]['replica'] = [10] * CnnTimeSteps
-
 		sys_data[service]['cpu_usage_mean'] = [5.0] * CnnTimeSteps
-		sys_data[service]['cpu_usage_min'] = [5.0] * CnnTimeSteps
-		sys_data[service]['cpu_usage_max'] = [5.0] * CnnTimeSteps
-		sys_data[service]['cpu_usage_std'] = [0.0] * CnnTimeSteps
-		
-		sys_data[service]['rx_packets_mean']  = [186251]  * CnnTimeSteps
-		sys_data[service]['rx_packets_min']  = [186251]  * CnnTimeSteps
-		sys_data[service]['rx_packets_max']  = [186251]  * CnnTimeSteps
-		sys_data[service]['rx_packets_std']  = [186251]  * CnnTimeSteps
-
-		sys_data[service]['rx_bytes_mean'] = [28176723] * CnnTimeSteps
-		sys_data[service]['rx_bytes_min'] = [28176723] * CnnTimeSteps
-		sys_data[service]['rx_bytes_max'] = [28176723] * CnnTimeSteps
-		sys_data[service]['rx_bytes_std'] = [28176723] * CnnTimeSteps
-
-		sys_data[service]['tx_packets_mean']  = [28176723]  * CnnTimeSteps
-		sys_data[service]['tx_packets_min']  = [28176723]  * CnnTimeSteps
-		sys_data[service]['tx_packets_max']  = [28176723]  * CnnTimeSteps
-		sys_data[service]['tx_packets_std']  = [28176723]  * CnnTimeSteps
-
-		sys_data[service]['tx_bytes_mean'] = [186251] * CnnTimeSteps
-		sys_data[service]['tx_bytes_min'] = [186251] * CnnTimeSteps
-		sys_data[service]['tx_bytes_max'] = [186251] * CnnTimeSteps
-		sys_data[service]['tx_bytes_std'] = [186251] * CnnTimeSteps
-
 		sys_data[service]['rss_mean']  = [1.0]  * CnnTimeSteps
-		sys_data[service]['rss_min']  = [1.0]  * CnnTimeSteps
-		sys_data[service]['rss_max']  = [1.0]  * CnnTimeSteps
-		sys_data[service]['rss_std']  = [0.0]  * CnnTimeSteps
-
 		sys_data[service]['cache_mem_mean'] = [0.0] * CnnTimeSteps
-		sys_data[service]['cache_mem_min'] = [0.0] * CnnTimeSteps
-		sys_data[service]['cache_mem_max'] = [0.0] * CnnTimeSteps
-		sys_data[service]['cache_mem_std'] = [0.0] * CnnTimeSteps
-
-		sys_data[service]['page_faults_mean']  = [100]  * CnnTimeSteps
-		sys_data[service]['page_faults_min']  = [100]  * CnnTimeSteps
-		sys_data[service]['page_faults_max']  = [100]  * CnnTimeSteps
-		sys_data[service]['page_faults_std']  = [0.0]  * CnnTimeSteps
-
-		sys_data[service]['io_bytes_mean']  = [0.0]  * CnnTimeSteps
-		sys_data[service]['io_bytes_min']  = [0.0]  * CnnTimeSteps
-		sys_data[service]['io_bytes_max']  = [0.0]  * CnnTimeSteps
-		sys_data[service]['io_bytes_std']  = [0.0]  * CnnTimeSteps
-
-		sys_data[service]['io_serviced_mean'] = [0.0] * CnnTimeSteps
-		sys_data[service]['io_serviced_min'] = [0.0] * CnnTimeSteps
-		sys_data[service]['io_serviced_max'] = [0.0] * CnnTimeSteps
-		sys_data[service]['io_serviced_std'] = [0.0] * CnnTimeSteps
 
 	info['sys_data'] = sys_data
 	next_info = []
@@ -431,8 +416,10 @@ def test():
 		# info[service]['write_req_num_next'] = 300
 	info['next_info'] = next_info
 
+	t_s = time.time()
 	pred = _predict(info)
-	print pred
+	print 'inf time: ', time.time() - t_s
+	# print pred
 
 def main():
 	global Model
@@ -461,9 +448,10 @@ def main():
 
 	default_batch_size = 2048
 	Model.bind(for_training=False, 
-		data_shapes=[('data1', (default_batch_size,43,28,CnnTimeSteps)), 
+		data_shapes=[('data1', (default_batch_size,6,28,CnnTimeSteps)), 
 					 ('data2', (default_batch_size,5,CnnTimeSteps)), 
-					 ('data3', (default_batch_size,2,28))])
+					 # ('data3', (default_batch_size,2,28))
+					 ('data3', (default_batch_size,28))])
 
 	Model.set_params(load_params[1], load_params[2], allow_missing=True, allow_extra=True)
 
@@ -479,9 +467,10 @@ def main():
 			# label_names = ('label',)
 			)
 	InternalSysState.bind(for_training=False, 
-		data_shapes=[('data1', (default_batch_size,43,28,CnnTimeSteps)), 
+		data_shapes=[('data1', (default_batch_size,6,28,CnnTimeSteps)), 
 					 ('data2', (default_batch_size,5,CnnTimeSteps)), 
-					 ('data3', (default_batch_size,2,28))])
+					 # ('data3', (default_batch_size,2,28))
+					 ('data3', (default_batch_size,28))])
 	InternalSysState.set_params(load_params[1], load_params[2], allow_missing=True, allow_extra=True)
 
 	BoostTree = xgb.Booster()  # init model

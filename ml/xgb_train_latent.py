@@ -1,4 +1,5 @@
-# python xgb_train_latent.py --gpus 0 --data-dir ./gcp_swarm_data_next_5s
+# python xgb_train_latent.py --gpus 1 --data-dir ./swarm_data_next_5s_upsample/
+# python xgb_train_latent.py --gpus 0,1 --data-dir  ../logs/socialnet_ml_data/swarm_simple_sys_data_next_5s
 # multiclass classification
 import pandas
 import mxnet as mx
@@ -96,9 +97,10 @@ def main():
 
     batch_size = args.batch_size
     model_sys_state.bind(for_training=False, 
-        data_shapes=[('data1', (batch_size,43,len(Services),TimeSteps)), 
+        data_shapes=[('data1', (batch_size,6,len(Services),TimeSteps)), 
                      ('data2', (batch_size,5,TimeSteps)), 
-                     ('data3', (batch_size,2,len(Services)))])
+                     # ('data3', (batch_size,2,len(Services)))
+                     ('data3', (batch_size,len(Services))) ])
     model_sys_state.set_params(load_params[1], load_params[2], allow_missing=True, allow_extra=True)
 
     #--------- data shape for look_forward = 6, which is the last dimension in next_k_lbl ---------#
@@ -109,8 +111,11 @@ def main():
     #---------------------- training data ----------------------#
     sys_data_t = np.load(data_dir + '/sys_data_train.npy')
     lat_data_t = np.load(data_dir + '/lat_data_train.npy')
-    nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
-    nxt_k_data_t = np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,1:]
+    # nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
+    # nxt_k_data_t = np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,1:]
+
+    nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,0])
+    nxt_k_data_t = np.load(data_dir + '/nxt_k_data_train.npy')[:,:,1:]
     print(nxt_k_data_t.shape)
 
     #nxt_k_data_t = nxt_k_data_t[:,2,:,:]    # only keep qps
@@ -191,8 +196,11 @@ def main():
     #-------------------------- validation data ----------------------------#
     sys_data_v = np.load(data_dir + '/sys_data_valid.npy')
     lat_data_v = np.load(data_dir + '/lat_data_valid.npy')
-    nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,0])
-    nxt_k_data_v = np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,1:]
+    # nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,0])
+    # nxt_k_data_v = np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,:,1:]
+
+    nxt_data_v = np.squeeze(np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,0])
+    nxt_k_data_v = np.load(data_dir + '/nxt_k_data_valid.npy')[:,:,1:]
 
     # qps_info_v = nxt_data_v[:, 2, 0]
     # nxt_k_data_v = nxt_k_data_v[:, 0:2, :, :].reshape(nxt_k_data_v.shape[0], -1)
