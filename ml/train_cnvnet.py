@@ -5,10 +5,10 @@
 
 '''
 # pretrain on local cluster data
-python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/pretrain-cnv
+python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/precnv
 
 # fine tune on gcp data
-python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ../logs/gcp_simple_sys_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_01_cnv
+python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ../logs/gcp_simple_sys_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/precnv --load-epoch 200 --log finetune_01_cnv
 '''
 
 import mxnet as mx
@@ -31,15 +31,13 @@ def _save_model(args, rank=0):
         args.model_prefix, rank))
     
 def _load_model(args, rank=0):
-    print 'load_epoch ', args.load_epoch
     if 'load_epoch' not in args or args.load_epoch is None:
-        print args['load_epoch']
-        print args.load_epoch
         return (None, None, None)
     assert args.pretrain_model_prefix is not None
     model_prefix = args.pretrain_model_prefix
     if rank > 0 and os.path.exists("%s-%d-symbol.json" % (model_prefix, rank)):
         model_prefix += "-%d" % (rank)
+    print model_prefix
     sym, arg_params, aux_params = mx.model.load_checkpoint(
         model_prefix, args.load_epoch)
     logging.info('Loaded model %s_%04d.params', model_prefix, args.load_epoch)
