@@ -233,6 +233,31 @@ init_gcloud_threads = []
 master_host = ''
 if init_gcloud:
     logging.info('starting init_gcloud')
+    if gpu_config_path != None:
+        with open(str(gpu_config_path), 'r') as f:
+            json_config = json.load(f)
+            node_name = json_config['host']
+            cpus = json_config['cpus']
+            accelerator = json_config['accelerator']
+            disk_size = '40GB'
+
+            t = threading.Thread(target=create_sinan_instance, kwargs={
+                'instance_name': node_name,
+                'zone': zone,
+                'startup_script_path': predictor_startup_script_path,
+                'public_key_path': public_key_path,
+                'cpus': cpus,
+                'memory': cpus,
+                'disk': disk_size,
+                'accelerator': accelerator,
+                'external_ips': external_ips,
+                'internal_ips': internal_ips,
+                'quiet': False
+            })
+            init_gcloud_threads.append(t)
+            t.start()
+            t.join()
+    
     with open(str(deploy_config_path), 'r') as f:
         json_config = json.load(f)
         node_config = json_config['nodes']
@@ -260,31 +285,6 @@ if init_gcloud:
 
     for t in init_gcloud_threads:
         t.join()
-
-    if gpu_config_path != None:
-        with open(str(gpu_config_path), 'r') as f:
-            json_config = json.load(f)
-            node_name = json_config['host']
-            cpus = json_config['cpus']
-            accelerator = json_config['accelerator']
-            disk_size = '40GB'
-
-            t = threading.Thread(target=create_sinan_instance, kwargs={
-                'instance_name': node_name,
-                'zone': zone,
-                'startup_script_path': predictor_startup_script_path,
-                'public_key_path': public_key_path,
-                'cpus': cpus,
-                'memory': cpus,
-                'disk': disk_size,
-                'accelerator': accelerator,
-                'external_ips': external_ips,
-                'internal_ips': internal_ips,
-                'quiet': False
-            })
-            init_gcloud_threads.append(t)
-            t.start()
-            t.join()
     logging.info('init_gcloud finished')
 
 external_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'external_ip.json'
