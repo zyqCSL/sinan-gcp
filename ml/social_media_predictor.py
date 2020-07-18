@@ -421,6 +421,49 @@ def test():
 	print 'inf time: ', time.time() - t_s
 	# print pred
 
+def warmup():
+	global Model
+	global InternalSysState
+	global BoostTree
+	global CnnTimeSteps
+	global XgbLookForward
+
+	info = {}
+	sys_data = {}
+	sys_data['e2e_lat']  = {}
+	# info['rps_next'] = 2000
+	for i, key in enumerate(['90.0', '95.0', '98.0', '99.0', '99.9']):
+		sys_data['e2e_lat'][key] = [1.0 + i/10.0] * CnnTimeSteps
+
+	for service in Services:
+		sys_data[service] = {}
+		sys_data[service]['rps'] =  [50] * CnnTimeSteps
+		sys_data[service]['cpu_limit'] = [12] * CnnTimeSteps
+		sys_data[service]['replica'] = [10] * CnnTimeSteps
+		sys_data[service]['cpu_usage_mean'] = [5.0] * CnnTimeSteps
+		sys_data[service]['rss_mean']  = [1.0]  * CnnTimeSteps
+		sys_data[service]['cache_mem_mean'] = [0.0] * CnnTimeSteps
+
+	info['sys_data'] = sys_data
+	next_info = []
+	batch_size = 1024
+	for i in range(0, batch_size):
+		proposal = {}
+		for service in Services:
+			proposal[service] = {}
+			proposal[service]['cpus'] = 12
+			proposal[service]['rps'] = 50
+		next_info.append(proposal)
+		# info[service]['read_req_num_next']  = 2000
+		# info[service]['write_req_num_next'] = 300
+	info['next_info'] = next_info
+
+	t_s = time.time()
+	pred = _predict(info)
+	logging.info('model warmed up')
+	# print 'inf time: ', time.time() - t_s
+	# print pred
+
 def main():
 	global Model
 	global InternalSysState
@@ -478,6 +521,8 @@ def main():
 	BoostTree.load_model(args.xgb_prefix + str(XgbLookForward) + '.model')  # load data
 
 	logging.info('model loaded...')
+
+	warmup()
 
 	local_serv_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	local_serv_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
