@@ -5,7 +5,7 @@
 
 '''
 # pretrain on local cluster data
-python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/pre_cnv
+python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ../../sinan-ath/logs/socialnet_ml_data/swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/pre_cnv
 
 # fine tune on gcp data
 python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ../logs/gcp_simple_sys_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pre_cnv --load-epoch 200 --log finetune_01_cnv
@@ -137,6 +137,7 @@ def main():
     if args.load_epoch > 1:
         assert model != None
         load_params = _load_model(args, kv.rank)
+        CnnTimeSteps = 5
         model.bind(for_training=False, 
             data_shapes=[('data1', (args.batch_size,6,28,CnnTimeSteps)), 
                          ('data2', (args.batch_size,5,CnnTimeSteps)), 
