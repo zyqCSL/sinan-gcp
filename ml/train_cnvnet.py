@@ -188,7 +188,7 @@ if __name__ == "__main__":
     parser.add_argument('--sample', type=float, default=1.0)
     
     args = parser.parse_args()
-    logging.basicConfig(filename=args.log+'.log')
+    logging.basicConfig(filename=args.log+'.log', filemode='w+')
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     logging.info(args)
