@@ -59,7 +59,7 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     if accelerator == None:
         cmd = 'gcloud compute instances create ' + instance_name + \
             ' --zone=' + zone + \
-            ' --image=ubuntu-1804-bionic-v20200129a' + \
+            ' --image-family=ubuntu-1804-lts' + \
             ' --image-project=ubuntu-os-cloud' + \
             ' --boot-disk-size=' + disk + \
             ' --boot-disk-type=pd-standard' + \
@@ -70,8 +70,9 @@ def create_sinan_instance(instance_name, zone, startup_script_path, public_key_p
     else:
         cmd = 'gcloud compute instances create ' + instance_name + \
             ' --zone=' + zone + \
-            ' --image=ubuntu-1804-bionic-v20200129a' + \
+            ' --image-family=ubuntu-1804-lts' + \
             ' --image-project=ubuntu-os-cloud' + \
+            ' --accelerator=' + accelerator + ',count=1' + \
             ' --boot-disk-size=' + disk + \
             ' --boot-disk-type=pd-standard' + \
             ' --metadata-from-file startup-script=' + str(startup_script_path) + \
@@ -260,6 +261,8 @@ if init_gcloud:
         cpus = json_config['cpus']
         accelerator = json_config['accelerator']
         disk_size = '40GB'
+
+        print(accelerator)
 
         t = threading.Thread(target=create_sinan_instance, kwargs={
             'instance_name': node_name,
