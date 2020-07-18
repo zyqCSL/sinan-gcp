@@ -33,6 +33,8 @@ def _save_model(args, rank=0):
 def _load_model(args, rank=0):
     print 'load_epoch ', args.load_epoch
     if 'load_epoch' not in args or args.load_epoch is None:
+        print args['load_epoch']
+        print args.load_epoch
         return (None, None, None)
     assert args.pretrain_model_prefix is not None
     model_prefix = args.pretrain_model_prefix
