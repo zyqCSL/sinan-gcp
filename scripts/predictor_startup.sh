@@ -35,8 +35,8 @@ apt-key add /var/cuda-repo-10-2-local-10.2.89-440.33.01/7fa2af80.pub
 apt-get update
 apt-get -y --no-install-recommends install cuda
 
-sudo pip install --no-cache-dir mxnet-cu102
-sudo pip install --no-cache-dir xgboost
+pip install --no-cache-dir mxnet-cu102
+pip install --no-cache-dir xgboost
 
 # git clones
 git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan-gcp
