@@ -142,7 +142,7 @@ def main():
             eval_data = valid_iter,
             optimizer_params = optimizer_params,
             optimizer = 'sgd',
-            num_epoch = 200,
+            num_epoch = args.train_epoch,
             arg_params = arg_params,
             epoch_end_callback=checkpoint,
             #initializer = mx.init.Xavier(rnd_type='gaussian', factor_type='in', magnitude=2),
@@ -155,7 +155,7 @@ def main():
             eval_data = valid_iter,
             optimizer_params = optimizer_params,
             optimizer = 'sgd',
-            num_epoch = 200,
+            num_epoch = args.train_epoch,
             epoch_end_callback=checkpoint,
             #initializer = mx.init.Xavier(rnd_type='gaussian', factor_type='in', magnitude=2),
             # eval_metric = mx.metric.RMSE()
@@ -178,6 +178,7 @@ if __name__ == "__main__":
     parser.add_argument('--model-prefix', type=str, default='./model/cnv')
     parser.add_argument('--pretrain-model-prefix', type=str, default='')
     parser.add_argument('--load-epoch', type=int, default=0)
+    parser.add_argument('--train-epoch', type=int, default=200)
     parser.add_argument('--sample', type=float, default=1.0)
     
     args = parser.parse_args()
