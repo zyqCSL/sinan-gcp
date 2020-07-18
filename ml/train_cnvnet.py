@@ -136,14 +136,7 @@ def main():
     
     if args.load_epoch > 1:
         assert model != None
-        load_params = _load_model(args, kv.rank)
-        CnnTimeSteps = 5
-        model.bind(for_training=False, 
-            data_shapes=[('data1', (args.batch_size,6,28,CnnTimeSteps)), 
-                         ('data2', (args.batch_size,5,CnnTimeSteps)), 
-                         # ('data3', (default_batch_size,2,28))
-                         ('data3', (args.batch_size,28))])
-        model.set_params(load_params[1], load_params[2], allow_missing=True)
+        sym, arg_params, aux_params = _load_model(args, kv.rank)
         model.fit(
             train_iter,
             eval_data = valid_iter,
