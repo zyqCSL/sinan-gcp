@@ -5,7 +5,7 @@
 
 '''
 # pretrain on local cluster data
-python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_data_next_5s --wd 0.001 --model-prefix ./model/pretrain-cnv
+python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/pretrain-cnv
 
 # fine tune on gcp data
 python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ./gcp_swarm_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_20_cnv
@@ -84,8 +84,9 @@ def main():
     label_t = np.where(label_t < d, label_t, d+(label_t-d)/(1.0+k*(label_t-d)))
 
     if args.sample < 1.0:
+        print('sample needed')
         sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
-            num_examples=sys_data_t.shape[0], args.sample)
+            num_examples=sys_data_t.shape[0], sample_rate=args.sample)
 
     train_data = {'data1':sys_data_t, 'data2':lat_data_t, 'data3':nxt_data_t} 
     train_label = {'label':label_t}
