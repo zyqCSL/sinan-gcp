@@ -1,5 +1,5 @@
 # python xgb_train_latent.py --gpus 1 --data-dir ./swarm_data_next_5s_upsample/
-# python xgb_train_latent.py --gpus 0,1 --data-dir  ../logs/socialnet_ml_data/swarm_simple_sys_data_next_5s
+# python xgb_train_latent.py --gpus 0,1 --data-dir  ../logs/gcp_simple_sys_data_next_5s
 # multiclass classification
 import pandas
 import mxnet as mx
