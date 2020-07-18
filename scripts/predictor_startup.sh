@@ -35,19 +35,10 @@ apt-key add /var/cuda-repo-10-2-local-10.2.89-440.33.01/7fa2af80.pub
 apt-get update
 apt-get -y --no-install-recommends install cuda
 
-pip install mxnet-cu102
-pip install xgboost
-
-# # pre-requirements for wrk2
-# apt-get -y --no-install-recommends install libssl-dev \
-#   libz-dev \
-#   luarocks \
-#   gcc
-# luarocks install luasocket
+pip install --no-cache-dir mxnet-cu102
+pip install --no-cache-dir xgboost
 
 # git clones
-# git clone https://github.com/zyqCSL/sinan-gcp.git /home/zzhou612/sinan-gcp
-# sudo chown -R zzhou612:zzhou612 /home/zzhou612/sinan-gcp
 git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan-gcp
 sudo chown -R yz2297:yz2297 /home/yz2297/sinan-gcp
 
