@@ -258,6 +258,9 @@ if init_gcloud:
             init_gcloud_threads.append(t)
             t.start()
 
+    for t in init_gcloud_threads:
+        t.join()
+
     if gpu_config_path != None:
         with open(str(gpu_config_path), 'r') as f:
             json_config = json.load(f)
@@ -281,9 +284,7 @@ if init_gcloud:
             })
             init_gcloud_threads.append(t)
             t.start()
-
-    for t in init_gcloud_threads:
-        t.join()
+            t.join()
     logging.info('init_gcloud finished')
 
 external_ip_path = Path.home() / 'sinan-gcp' / 'logs' / 'external_ip.json'
