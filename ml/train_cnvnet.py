@@ -74,7 +74,6 @@ def main():
     # nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,:,0])
     # only cpu & only use latency data of immediate future
     nxt_data_t = np.squeeze(np.load(data_dir + '/nxt_k_data_train.npy')[:,:,0])
-    print(sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape)
 
     label_t = np.squeeze(np.load(data_dir + '/nxt_k_train_label.npy')[:,:,0])
     print("label shape:", label_t.shape)
@@ -87,6 +86,7 @@ def main():
         print('sample needed')
         sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
             num_examples=sys_data_t.shape[0], sample_rate=args.sample)
+    print(sys_data_t.shape, nxt_data_t.shape, lat_data_t.shape)
 
     train_data = {'data1':sys_data_t, 'data2':lat_data_t, 'data3':nxt_data_t} 
     train_label = {'label':label_t}
