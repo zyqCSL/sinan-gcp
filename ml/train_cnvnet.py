@@ -8,7 +8,7 @@
 python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/pretrain-cnv
 
 # fine tune on gcp data
-python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ./gcp_swarm_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_20_cnv
+python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ../logs/gcp_simple_sys_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pretrain-cnv --load-epoch 200 --log finetune_01_cnv
 '''
 
 import mxnet as mx
@@ -56,7 +56,7 @@ def shuffle_in_unison(arr):
 def sample_in_unison(arr, num_examples, sample_rate):
     index = np.array(list(range(0, num_examples)))
     for i in range(10):
-        np.random.shuffle(indexes)
+        np.random.shuffle(index)
     sampled_index = index[:int(num_examples * sample_rate)]
     sampled_data = []
     for a in arr:
