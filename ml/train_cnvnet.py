@@ -86,7 +86,7 @@ def main():
 
     if args.sample < 1.0:
         print('sample needed')
-        sampled = sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
+        sampled_arr = sample_in_unison(arr = [sys_data_t, lat_data_t, nxt_data_t, label_t], 
             num_examples=sys_data_t.shape[0], sample_rate=args.sample)
         sys_data_t = sampled_arr[0]
         lat_data_t = sampled_arr[1]
