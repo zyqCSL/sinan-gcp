@@ -185,6 +185,8 @@ parser.add_argument('--deploy-config', dest='deploy_config',
                     type=str, required=True)
 parser.add_argument('--gpu-config', dest='gpu_config',
                     type=str, default='')
+parser.add_argument('--zone', dest='zone',
+                    type=str, default='us-central1-a')
 
 # -----------------------------------------------------------------------
 # parse args
@@ -198,6 +200,7 @@ if args.gpu_config != '':
     gpu_config_path = Path.cwd() / 'config' / args.gpu_config
 else:
     gpu_config_path = None
+zone = args.zone
 
 # -----------------------------------------------------------------------
 # ssh-keygen
