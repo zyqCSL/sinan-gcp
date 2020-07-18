@@ -1,0 +1,3265 @@
+INFO:root:Namespace(batch_size=2048, bn_mom=0.9, data_dir='../../sinan-ath/logs/socialnet_ml_data/swarm_simple_sys_data_next_5s', gpus='0,1', kv_store='local', load_epoch=0, log='test_single_qps_upsample', lr=0.001, model_prefix='./model/pretrain-cnv', mom=0.9, network='cnvnet', num_examples=58499, pretrain_model_prefix='', sample=1.0, wd=0.001)
+INFO:root:Epoch[0] Train-RMSE=183.272763
+INFO:root:Epoch[0] Time cost=0.577
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0001.params"
+INFO:root:Epoch[0] Validation-RMSE=409.342045
+INFO:root:Epoch[1] Train-RMSE=76.047271
+INFO:root:Epoch[1] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0002.params"
+INFO:root:Epoch[1] Validation-RMSE=142.082672
+INFO:root:Epoch[2] Train-RMSE=57.479747
+INFO:root:Epoch[2] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0003.params"
+INFO:root:Epoch[2] Validation-RMSE=76.157569
+INFO:root:Epoch[3] Train-RMSE=52.572055
+INFO:root:Epoch[3] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0004.params"
+INFO:root:Epoch[3] Validation-RMSE=56.165904
+INFO:root:Epoch[4] Train-RMSE=45.933522
+INFO:root:Epoch[4] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0005.params"
+INFO:root:Epoch[4] Validation-RMSE=63.290199
+INFO:root:Epoch[5] Train-RMSE=44.107739
+INFO:root:Epoch[5] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0006.params"
+INFO:root:Epoch[5] Validation-RMSE=169.581161
+INFO:root:Epoch[6] Train-RMSE=43.113200
+INFO:root:Epoch[6] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0007.params"
+INFO:root:Epoch[6] Validation-RMSE=64.752690
+INFO:root:Epoch[7] Train-RMSE=43.187242
+INFO:root:Epoch[7] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0008.params"
+INFO:root:Epoch[7] Validation-RMSE=205.788034
+INFO:root:Epoch[8] Train-RMSE=42.084624
+INFO:root:Epoch[8] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0009.params"
+INFO:root:Epoch[8] Validation-RMSE=49.907256
+INFO:root:Epoch[9] Train-RMSE=40.483479
+INFO:root:Epoch[9] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0010.params"
+INFO:root:Epoch[9] Validation-RMSE=66.166407
+INFO:root:Epoch[10] Train-RMSE=39.217801
+INFO:root:Epoch[10] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0011.params"
+INFO:root:Epoch[10] Validation-RMSE=62.724917
+INFO:root:Epoch[11] Train-RMSE=38.349692
+INFO:root:Epoch[11] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0012.params"
+INFO:root:Epoch[11] Validation-RMSE=61.248746
+INFO:root:Epoch[12] Train-RMSE=37.487559
+INFO:root:Epoch[12] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0013.params"
+INFO:root:Epoch[12] Validation-RMSE=58.371666
+INFO:root:Epoch[13] Train-RMSE=36.717665
+INFO:root:Epoch[13] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0014.params"
+INFO:root:Epoch[13] Validation-RMSE=179.201368
+INFO:root:Epoch[14] Train-RMSE=35.599979
+INFO:root:Epoch[14] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0015.params"
+INFO:root:Epoch[14] Validation-RMSE=50.392139
+INFO:root:Epoch[15] Train-RMSE=35.840642
+INFO:root:Epoch[15] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0016.params"
+INFO:root:Epoch[15] Validation-RMSE=88.916272
+INFO:root:Epoch[16] Train-RMSE=35.509543
+INFO:root:Epoch[16] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0017.params"
+INFO:root:Epoch[16] Validation-RMSE=158.647758
+INFO:root:Epoch[17] Train-RMSE=35.806743
+INFO:root:Epoch[17] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0018.params"
+INFO:root:Epoch[17] Validation-RMSE=50.399791
+INFO:root:Epoch[18] Train-RMSE=34.855713
+INFO:root:Epoch[18] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0019.params"
+INFO:root:Epoch[18] Validation-RMSE=135.594193
+INFO:root:Epoch[19] Train-RMSE=35.443740
+INFO:root:Epoch[19] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0020.params"
+INFO:root:Epoch[19] Validation-RMSE=59.804503
+INFO:root:Epoch[20] Train-RMSE=34.886848
+INFO:root:Epoch[20] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0021.params"
+INFO:root:Epoch[20] Validation-RMSE=46.003989
+INFO:root:Epoch[21] Train-RMSE=34.462955
+INFO:root:Epoch[21] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0022.params"
+INFO:root:Epoch[21] Validation-RMSE=81.935502
+INFO:root:Epoch[22] Train-RMSE=35.043192
+INFO:root:Epoch[22] Time cost=0.311
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0023.params"
+INFO:root:Epoch[22] Validation-RMSE=84.455987
+INFO:root:Epoch[23] Train-RMSE=34.411199
+INFO:root:Epoch[23] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0024.params"
+INFO:root:Epoch[23] Validation-RMSE=40.630682
+INFO:root:Epoch[24] Train-RMSE=33.819466
+INFO:root:Epoch[24] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0025.params"
+INFO:root:Epoch[24] Validation-RMSE=71.814367
+INFO:root:Epoch[25] Train-RMSE=34.529333
+INFO:root:Epoch[25] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0026.params"
+INFO:root:Epoch[25] Validation-RMSE=121.926696
+INFO:root:Epoch[26] Train-RMSE=35.345086
+INFO:root:Epoch[26] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0027.params"
+INFO:root:Epoch[26] Validation-RMSE=67.918238
+INFO:root:Epoch[27] Train-RMSE=34.290630
+INFO:root:Epoch[27] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0028.params"
+INFO:root:Epoch[27] Validation-RMSE=90.107723
+INFO:root:Epoch[28] Train-RMSE=33.706240
+INFO:root:Epoch[28] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0029.params"
+INFO:root:Epoch[28] Validation-RMSE=38.162261
+INFO:root:Epoch[29] Train-RMSE=34.783088
+INFO:root:Epoch[29] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0030.params"
+INFO:root:Epoch[29] Validation-RMSE=218.418415
+INFO:root:Epoch[30] Train-RMSE=34.000749
+INFO:root:Epoch[30] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0031.params"
+INFO:root:Epoch[30] Validation-RMSE=79.745939
+INFO:root:Epoch[31] Train-RMSE=33.310926
+INFO:root:Epoch[31] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0032.params"
+INFO:root:Epoch[31] Validation-RMSE=122.309089
+INFO:root:Epoch[32] Train-RMSE=33.148472
+INFO:root:Epoch[32] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0033.params"
+INFO:root:Epoch[32] Validation-RMSE=37.035540
+INFO:root:Epoch[33] Train-RMSE=32.613103
+INFO:root:Epoch[33] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0034.params"
+INFO:root:Epoch[33] Validation-RMSE=132.496653
+INFO:root:Epoch[34] Train-RMSE=33.601759
+INFO:root:Epoch[34] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0035.params"
+INFO:root:Epoch[34] Validation-RMSE=75.189954
+INFO:root:Epoch[35] Train-RMSE=33.217284
+INFO:root:Epoch[35] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0036.params"
+INFO:root:Epoch[35] Validation-RMSE=109.633071
+INFO:root:Epoch[36] Train-RMSE=31.833848
+INFO:root:Epoch[36] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0037.params"
+INFO:root:Epoch[36] Validation-RMSE=36.794105
+INFO:root:Epoch[37] Train-RMSE=32.346109
+INFO:root:Epoch[37] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0038.params"
+INFO:root:Epoch[37] Validation-RMSE=123.431336
+INFO:root:Epoch[38] Train-RMSE=32.208003
+INFO:root:Epoch[38] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0039.params"
+INFO:root:Epoch[38] Validation-RMSE=74.624117
+INFO:root:Epoch[39] Train-RMSE=34.498317
+INFO:root:Epoch[39] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0040.params"
+INFO:root:Epoch[39] Validation-RMSE=48.156540
+INFO:root:Epoch[40] Train-RMSE=32.210208
+INFO:root:Epoch[40] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0041.params"
+INFO:root:Epoch[40] Validation-RMSE=35.922434
+INFO:root:Epoch[41] Train-RMSE=31.634352
+INFO:root:Epoch[41] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0042.params"
+INFO:root:Epoch[41] Validation-RMSE=38.888261
+INFO:root:Epoch[42] Train-RMSE=31.813886
+INFO:root:Epoch[42] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0043.params"
+INFO:root:Epoch[42] Validation-RMSE=53.799358
+INFO:root:Epoch[43] Train-RMSE=32.998554
+INFO:root:Epoch[43] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0044.params"
+INFO:root:Epoch[43] Validation-RMSE=70.976987
+INFO:root:Epoch[44] Train-RMSE=31.711646
+INFO:root:Epoch[44] Time cost=0.311
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0045.params"
+INFO:root:Epoch[44] Validation-RMSE=92.912141
+INFO:root:Epoch[45] Train-RMSE=33.389092
+INFO:root:Epoch[45] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0046.params"
+INFO:root:Epoch[45] Validation-RMSE=54.559384
+INFO:root:Epoch[46] Train-RMSE=31.316653
+INFO:root:Epoch[46] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0047.params"
+INFO:root:Epoch[46] Validation-RMSE=41.838317
+INFO:root:Epoch[47] Train-RMSE=31.649502
+INFO:root:Epoch[47] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0048.params"
+INFO:root:Epoch[47] Validation-RMSE=46.067618
+INFO:root:Epoch[48] Train-RMSE=31.059979
+INFO:root:Epoch[48] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0049.params"
+INFO:root:Epoch[48] Validation-RMSE=54.224965
+INFO:root:Epoch[49] Train-RMSE=31.277308
+INFO:root:Epoch[49] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0050.params"
+INFO:root:Epoch[49] Validation-RMSE=36.918311
+INFO:root:Epoch[50] Train-RMSE=30.922066
+INFO:root:Epoch[50] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0051.params"
+INFO:root:Epoch[50] Validation-RMSE=36.741885
+INFO:root:Epoch[51] Train-RMSE=32.122498
+INFO:root:Epoch[51] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0052.params"
+INFO:root:Epoch[51] Validation-RMSE=47.341922
+INFO:root:Epoch[52] Train-RMSE=31.444808
+INFO:root:Epoch[52] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0053.params"
+INFO:root:Epoch[52] Validation-RMSE=51.695741
+INFO:root:Epoch[53] Train-RMSE=30.899699
+INFO:root:Epoch[53] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0054.params"
+INFO:root:Epoch[53] Validation-RMSE=52.899125
+INFO:root:Epoch[54] Train-RMSE=30.774086
+INFO:root:Epoch[54] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0055.params"
+INFO:root:Epoch[54] Validation-RMSE=41.298315
+INFO:root:Epoch[55] Train-RMSE=30.543386
+INFO:root:Epoch[55] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0056.params"
+INFO:root:Epoch[55] Validation-RMSE=53.055253
+INFO:root:Epoch[56] Train-RMSE=30.422241
+INFO:root:Epoch[56] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0057.params"
+INFO:root:Epoch[56] Validation-RMSE=41.064717
+INFO:root:Epoch[57] Train-RMSE=30.733018
+INFO:root:Epoch[57] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0058.params"
+INFO:root:Epoch[57] Validation-RMSE=44.765852
+INFO:root:Epoch[58] Train-RMSE=31.237776
+INFO:root:Epoch[58] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0059.params"
+INFO:root:Epoch[58] Validation-RMSE=41.386744
+INFO:root:Epoch[59] Train-RMSE=34.542623
+INFO:root:Epoch[59] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0060.params"
+INFO:root:Epoch[59] Validation-RMSE=36.483427
+INFO:root:Epoch[60] Train-RMSE=31.853008
+INFO:root:Epoch[60] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0061.params"
+INFO:root:Epoch[60] Validation-RMSE=51.174162
+INFO:root:Epoch[61] Train-RMSE=31.164140
+INFO:root:Epoch[61] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0062.params"
+INFO:root:Epoch[61] Validation-RMSE=115.696585
+INFO:root:Epoch[62] Train-RMSE=30.632231
+INFO:root:Epoch[62] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0063.params"
+INFO:root:Epoch[62] Validation-RMSE=73.116361
+INFO:root:Epoch[63] Train-RMSE=30.685090
+INFO:root:Epoch[63] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0064.params"
+INFO:root:Epoch[63] Validation-RMSE=58.011309
+INFO:root:Epoch[64] Train-RMSE=30.612566
+INFO:root:Epoch[64] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0065.params"
+INFO:root:Epoch[64] Validation-RMSE=37.299759
+INFO:root:Epoch[65] Train-RMSE=30.334908
+INFO:root:Epoch[65] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0066.params"
+INFO:root:Epoch[65] Validation-RMSE=34.871727
+INFO:root:Epoch[66] Train-RMSE=30.583338
+INFO:root:Epoch[66] Time cost=0.312
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0067.params"
+INFO:root:Epoch[66] Validation-RMSE=49.940755
+INFO:root:Epoch[67] Train-RMSE=29.901654
+INFO:root:Epoch[67] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0068.params"
+INFO:root:Epoch[67] Validation-RMSE=60.740712
+INFO:root:Epoch[68] Train-RMSE=29.972957
+INFO:root:Epoch[68] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0069.params"
+INFO:root:Epoch[68] Validation-RMSE=76.566219
+INFO:root:Epoch[69] Train-RMSE=31.112531
+INFO:root:Epoch[69] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0070.params"
+INFO:root:Epoch[69] Validation-RMSE=50.076569
+INFO:root:Epoch[70] Train-RMSE=31.432611
+INFO:root:Epoch[70] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0071.params"
+INFO:root:Epoch[70] Validation-RMSE=117.025483
+INFO:root:Epoch[71] Train-RMSE=30.790213
+INFO:root:Epoch[71] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0072.params"
+INFO:root:Epoch[71] Validation-RMSE=59.598849
+INFO:root:Epoch[72] Train-RMSE=30.537194
+INFO:root:Epoch[72] Time cost=0.310
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0073.params"
+INFO:root:Epoch[72] Validation-RMSE=42.117980
+INFO:root:Epoch[73] Train-RMSE=30.956963
+INFO:root:Epoch[73] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0074.params"
+INFO:root:Epoch[73] Validation-RMSE=61.254964
+INFO:root:Epoch[74] Train-RMSE=31.063997
+INFO:root:Epoch[74] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0075.params"
+INFO:root:Epoch[74] Validation-RMSE=32.635187
+INFO:root:Epoch[75] Train-RMSE=32.013588
+INFO:root:Epoch[75] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0076.params"
+INFO:root:Epoch[75] Validation-RMSE=36.649827
+INFO:root:Epoch[76] Train-RMSE=30.981151
+INFO:root:Epoch[76] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0077.params"
+INFO:root:Epoch[76] Validation-RMSE=30.929402
+INFO:root:Epoch[77] Train-RMSE=30.500065
+INFO:root:Epoch[77] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0078.params"
+INFO:root:Epoch[77] Validation-RMSE=33.109473
+INFO:root:Epoch[78] Train-RMSE=29.510650
+INFO:root:Epoch[78] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0079.params"
+INFO:root:Epoch[78] Validation-RMSE=92.618896
+INFO:root:Epoch[79] Train-RMSE=29.801002
+INFO:root:Epoch[79] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0080.params"
+INFO:root:Epoch[79] Validation-RMSE=97.988573
+INFO:root:Epoch[80] Train-RMSE=29.318407
+INFO:root:Epoch[80] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0081.params"
+INFO:root:Epoch[80] Validation-RMSE=31.720103
+INFO:root:Epoch[81] Train-RMSE=30.075948
+INFO:root:Epoch[81] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0082.params"
+INFO:root:Epoch[81] Validation-RMSE=38.932030
+INFO:root:Epoch[82] Train-RMSE=29.587780
+INFO:root:Epoch[82] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0083.params"
+INFO:root:Epoch[82] Validation-RMSE=34.088330
+INFO:root:Epoch[83] Train-RMSE=30.019058
+INFO:root:Epoch[83] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0084.params"
+INFO:root:Epoch[83] Validation-RMSE=126.448609
+INFO:root:Epoch[84] Train-RMSE=29.537721
+INFO:root:Epoch[84] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0085.params"
+INFO:root:Epoch[84] Validation-RMSE=75.212898
+INFO:root:Epoch[85] Train-RMSE=30.444683
+INFO:root:Epoch[85] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0086.params"
+INFO:root:Epoch[85] Validation-RMSE=37.406234
+INFO:root:Epoch[86] Train-RMSE=30.288960
+INFO:root:Epoch[86] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0087.params"
+INFO:root:Epoch[86] Validation-RMSE=68.019567
+INFO:root:Epoch[87] Train-RMSE=30.484041
+INFO:root:Epoch[87] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0088.params"
+INFO:root:Epoch[87] Validation-RMSE=34.611839
+INFO:root:Epoch[88] Train-RMSE=32.050601
+INFO:root:Epoch[88] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0089.params"
+INFO:root:Epoch[88] Validation-RMSE=34.488681
+INFO:root:Epoch[89] Train-RMSE=29.615903
+INFO:root:Epoch[89] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0090.params"
+INFO:root:Epoch[89] Validation-RMSE=39.291492
+INFO:root:Epoch[90] Train-RMSE=29.664340
+INFO:root:Epoch[90] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0091.params"
+INFO:root:Epoch[90] Validation-RMSE=39.084644
+INFO:root:Epoch[91] Train-RMSE=29.845081
+INFO:root:Epoch[91] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0092.params"
+INFO:root:Epoch[91] Validation-RMSE=59.547232
+INFO:root:Epoch[92] Train-RMSE=30.798677
+INFO:root:Epoch[92] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0093.params"
+INFO:root:Epoch[92] Validation-RMSE=39.862293
+INFO:root:Epoch[93] Train-RMSE=30.235282
+INFO:root:Epoch[93] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0094.params"
+INFO:root:Epoch[93] Validation-RMSE=39.162571
+INFO:root:Epoch[94] Train-RMSE=30.509975
+INFO:root:Epoch[94] Time cost=0.312
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0095.params"
+INFO:root:Epoch[94] Validation-RMSE=42.044322
+INFO:root:Epoch[95] Train-RMSE=30.974526
+INFO:root:Epoch[95] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0096.params"
+INFO:root:Epoch[95] Validation-RMSE=63.755637
+INFO:root:Epoch[96] Train-RMSE=29.958586
+INFO:root:Epoch[96] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0097.params"
+INFO:root:Epoch[96] Validation-RMSE=88.261810
+INFO:root:Epoch[97] Train-RMSE=29.899056
+INFO:root:Epoch[97] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0098.params"
+INFO:root:Epoch[97] Validation-RMSE=32.339263
+INFO:root:Epoch[98] Train-RMSE=30.068041
+INFO:root:Epoch[98] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0099.params"
+INFO:root:Epoch[98] Validation-RMSE=34.985234
+INFO:root:Epoch[99] Train-RMSE=29.538433
+INFO:root:Epoch[99] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0100.params"
+INFO:root:Epoch[99] Validation-RMSE=33.058537
+INFO:root:Epoch[100] Train-RMSE=29.406900
+INFO:root:Epoch[100] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0101.params"
+INFO:root:Epoch[100] Validation-RMSE=61.745065
+INFO:root:Epoch[101] Train-RMSE=29.867511
+INFO:root:Epoch[101] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0102.params"
+INFO:root:Epoch[101] Validation-RMSE=40.644320
+INFO:root:Epoch[102] Train-RMSE=28.898072
+INFO:root:Epoch[102] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0103.params"
+INFO:root:Epoch[102] Validation-RMSE=91.520827
+INFO:root:Epoch[103] Train-RMSE=29.709685
+INFO:root:Epoch[103] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0104.params"
+INFO:root:Epoch[103] Validation-RMSE=46.154218
+INFO:root:Epoch[104] Train-RMSE=33.938375
+INFO:root:Epoch[104] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0105.params"
+INFO:root:Epoch[104] Validation-RMSE=45.032702
+INFO:root:Epoch[105] Train-RMSE=30.216092
+INFO:root:Epoch[105] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0106.params"
+INFO:root:Epoch[105] Validation-RMSE=40.570301
+INFO:root:Epoch[106] Train-RMSE=30.153201
+INFO:root:Epoch[106] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0107.params"
+INFO:root:Epoch[106] Validation-RMSE=77.144983
+INFO:root:Epoch[107] Train-RMSE=29.992561
+INFO:root:Epoch[107] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0108.params"
+INFO:root:Epoch[107] Validation-RMSE=36.556525
+INFO:root:Epoch[108] Train-RMSE=30.063182
+INFO:root:Epoch[108] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0109.params"
+INFO:root:Epoch[108] Validation-RMSE=38.675479
+INFO:root:Epoch[109] Train-RMSE=29.980220
+INFO:root:Epoch[109] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0110.params"
+INFO:root:Epoch[109] Validation-RMSE=38.001223
+INFO:root:Epoch[110] Train-RMSE=29.334087
+INFO:root:Epoch[110] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0111.params"
+INFO:root:Epoch[110] Validation-RMSE=31.791410
+INFO:root:Epoch[111] Train-RMSE=29.123649
+INFO:root:Epoch[111] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0112.params"
+INFO:root:Epoch[111] Validation-RMSE=72.875950
+INFO:root:Epoch[112] Train-RMSE=30.086201
+INFO:root:Epoch[112] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0113.params"
+INFO:root:Epoch[112] Validation-RMSE=45.290172
+INFO:root:Epoch[113] Train-RMSE=29.655664
+INFO:root:Epoch[113] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0114.params"
+INFO:root:Epoch[113] Validation-RMSE=33.610834
+INFO:root:Epoch[114] Train-RMSE=29.746250
+INFO:root:Epoch[114] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0115.params"
+INFO:root:Epoch[114] Validation-RMSE=34.694850
+INFO:root:Update[3361]: Change learning rate to 1.00000e-04
+INFO:root:Epoch[115] Train-RMSE=29.425449
+INFO:root:Epoch[115] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0116.params"
+INFO:root:Epoch[115] Validation-RMSE=141.432295
+INFO:root:Epoch[116] Train-RMSE=29.248356
+INFO:root:Epoch[116] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0117.params"
+INFO:root:Epoch[116] Validation-RMSE=32.664454
+INFO:root:Epoch[117] Train-RMSE=28.311310
+INFO:root:Epoch[117] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0118.params"
+INFO:root:Epoch[117] Validation-RMSE=27.606668
+INFO:root:Epoch[118] Train-RMSE=28.119187
+INFO:root:Epoch[118] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0119.params"
+INFO:root:Epoch[118] Validation-RMSE=28.196019
+INFO:root:Epoch[119] Train-RMSE=28.159404
+INFO:root:Epoch[119] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0120.params"
+INFO:root:Epoch[119] Validation-RMSE=28.657423
+INFO:root:Epoch[120] Train-RMSE=28.260383
+INFO:root:Epoch[120] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0121.params"
+INFO:root:Epoch[120] Validation-RMSE=29.635246
+INFO:root:Epoch[121] Train-RMSE=28.065293
+INFO:root:Epoch[121] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0122.params"
+INFO:root:Epoch[121] Validation-RMSE=29.308707
+INFO:root:Epoch[122] Train-RMSE=27.956730
+INFO:root:Epoch[122] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0123.params"
+INFO:root:Epoch[122] Validation-RMSE=27.541280
+INFO:root:Epoch[123] Train-RMSE=28.205175
+INFO:root:Epoch[123] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0124.params"
+INFO:root:Epoch[123] Validation-RMSE=28.861259
+INFO:root:Epoch[124] Train-RMSE=27.943222
+INFO:root:Epoch[124] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0125.params"
+INFO:root:Epoch[124] Validation-RMSE=27.501386
+INFO:root:Epoch[125] Train-RMSE=27.760487
+INFO:root:Epoch[125] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0126.params"
+INFO:root:Epoch[125] Validation-RMSE=29.184664
+INFO:root:Epoch[126] Train-RMSE=27.800536
+INFO:root:Epoch[126] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0127.params"
+INFO:root:Epoch[126] Validation-RMSE=28.194761
+INFO:root:Epoch[127] Train-RMSE=27.806868
+INFO:root:Epoch[127] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0128.params"
+INFO:root:Epoch[127] Validation-RMSE=28.301231
+INFO:root:Epoch[128] Train-RMSE=27.877602
+INFO:root:Epoch[128] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0129.params"
+INFO:root:Epoch[128] Validation-RMSE=28.556953
+INFO:root:Epoch[129] Train-RMSE=28.193213
+INFO:root:Epoch[129] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0130.params"
+INFO:root:Epoch[129] Validation-RMSE=28.899354
+INFO:root:Epoch[130] Train-RMSE=27.984985
+INFO:root:Epoch[130] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0131.params"
+INFO:root:Epoch[130] Validation-RMSE=29.155456
+INFO:root:Epoch[131] Train-RMSE=27.926684
+INFO:root:Epoch[131] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0132.params"
+INFO:root:Epoch[131] Validation-RMSE=27.877089
+INFO:root:Epoch[132] Train-RMSE=27.971224
+INFO:root:Epoch[132] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0133.params"
+INFO:root:Epoch[132] Validation-RMSE=27.926653
+INFO:root:Epoch[133] Train-RMSE=27.886434
+INFO:root:Epoch[133] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0134.params"
+INFO:root:Epoch[133] Validation-RMSE=27.327996
+INFO:root:Epoch[134] Train-RMSE=27.797362
+INFO:root:Epoch[134] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0135.params"
+INFO:root:Epoch[134] Validation-RMSE=27.465624
+INFO:root:Epoch[135] Train-RMSE=27.911037
+INFO:root:Epoch[135] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0136.params"
+INFO:root:Epoch[135] Validation-RMSE=28.244459
+INFO:root:Epoch[136] Train-RMSE=27.795063
+INFO:root:Epoch[136] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0137.params"
+INFO:root:Epoch[136] Validation-RMSE=29.497322
+INFO:root:Epoch[137] Train-RMSE=27.883487
+INFO:root:Epoch[137] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0138.params"
+INFO:root:Epoch[137] Validation-RMSE=27.811076
+INFO:root:Epoch[138] Train-RMSE=27.921383
+INFO:root:Epoch[138] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0139.params"
+INFO:root:Epoch[138] Validation-RMSE=27.897905
+INFO:root:Epoch[139] Train-RMSE=27.913082
+INFO:root:Epoch[139] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0140.params"
+INFO:root:Epoch[139] Validation-RMSE=28.023100
+INFO:root:Epoch[140] Train-RMSE=28.174052
+INFO:root:Epoch[140] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0141.params"
+INFO:root:Epoch[140] Validation-RMSE=27.743629
+INFO:root:Epoch[141] Train-RMSE=27.745206
+INFO:root:Epoch[141] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0142.params"
+INFO:root:Epoch[141] Validation-RMSE=27.616567
+INFO:root:Epoch[142] Train-RMSE=27.782248
+INFO:root:Epoch[142] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0143.params"
+INFO:root:Epoch[142] Validation-RMSE=28.579287
+INFO:root:Epoch[143] Train-RMSE=27.946184
+INFO:root:Epoch[143] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0144.params"
+INFO:root:Epoch[143] Validation-RMSE=27.594579
+INFO:root:Update[4201]: Change learning rate to 1.00000e-05
+INFO:root:Epoch[144] Train-RMSE=27.719156
+INFO:root:Epoch[144] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0145.params"
+INFO:root:Epoch[144] Validation-RMSE=28.020586
+INFO:root:Epoch[145] Train-RMSE=27.923183
+INFO:root:Epoch[145] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0146.params"
+INFO:root:Epoch[145] Validation-RMSE=27.276489
+INFO:root:Epoch[146] Train-RMSE=27.734965
+INFO:root:Epoch[146] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0147.params"
+INFO:root:Epoch[146] Validation-RMSE=27.219860
+INFO:root:Epoch[147] Train-RMSE=27.819684
+INFO:root:Epoch[147] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0148.params"
+INFO:root:Epoch[147] Validation-RMSE=27.222754
+INFO:root:Epoch[148] Train-RMSE=27.779284
+INFO:root:Epoch[148] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0149.params"
+INFO:root:Epoch[148] Validation-RMSE=27.208400
+INFO:root:Epoch[149] Train-RMSE=27.828022
+INFO:root:Epoch[149] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0150.params"
+INFO:root:Epoch[149] Validation-RMSE=27.238852
+INFO:root:Epoch[150] Train-RMSE=27.705483
+INFO:root:Epoch[150] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0151.params"
+INFO:root:Epoch[150] Validation-RMSE=27.222493
+INFO:root:Epoch[151] Train-RMSE=27.810189
+INFO:root:Epoch[151] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0152.params"
+INFO:root:Epoch[151] Validation-RMSE=27.226026
+INFO:root:Epoch[152] Train-RMSE=27.721603
+INFO:root:Epoch[152] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0153.params"
+INFO:root:Epoch[152] Validation-RMSE=27.231384
+INFO:root:Epoch[153] Train-RMSE=27.722177
+INFO:root:Epoch[153] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0154.params"
+INFO:root:Epoch[153] Validation-RMSE=27.227391
+INFO:root:Epoch[154] Train-RMSE=27.745101
+INFO:root:Epoch[154] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0155.params"
+INFO:root:Epoch[154] Validation-RMSE=27.242634
+INFO:root:Epoch[155] Train-RMSE=27.907415
+INFO:root:Epoch[155] Time cost=0.310
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0156.params"
+INFO:root:Epoch[155] Validation-RMSE=27.234977
+INFO:root:Epoch[156] Train-RMSE=27.665583
+INFO:root:Epoch[156] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0157.params"
+INFO:root:Epoch[156] Validation-RMSE=27.198349
+INFO:root:Epoch[157] Train-RMSE=27.814824
+INFO:root:Epoch[157] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0158.params"
+INFO:root:Epoch[157] Validation-RMSE=27.291948
+INFO:root:Epoch[158] Train-RMSE=27.708788
+INFO:root:Epoch[158] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0159.params"
+INFO:root:Epoch[158] Validation-RMSE=27.203329
+INFO:root:Epoch[159] Train-RMSE=27.749640
+INFO:root:Epoch[159] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0160.params"
+INFO:root:Epoch[159] Validation-RMSE=27.289233
+INFO:root:Epoch[160] Train-RMSE=27.991026
+INFO:root:Epoch[160] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0161.params"
+INFO:root:Epoch[160] Validation-RMSE=27.200339
+INFO:root:Epoch[161] Train-RMSE=27.638108
+INFO:root:Epoch[161] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0162.params"
+INFO:root:Epoch[161] Validation-RMSE=27.236791
+INFO:root:Epoch[162] Train-RMSE=27.838304
+INFO:root:Epoch[162] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0163.params"
+INFO:root:Epoch[162] Validation-RMSE=27.214586
+INFO:root:Epoch[163] Train-RMSE=27.652126
+INFO:root:Epoch[163] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0164.params"
+INFO:root:Epoch[163] Validation-RMSE=27.220742
+INFO:root:Epoch[164] Train-RMSE=27.704759
+INFO:root:Epoch[164] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0165.params"
+INFO:root:Epoch[164] Validation-RMSE=27.222316
+INFO:root:Epoch[165] Train-RMSE=27.634359
+INFO:root:Epoch[165] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0166.params"
+INFO:root:Epoch[165] Validation-RMSE=27.246998
+INFO:root:Epoch[166] Train-RMSE=27.712279
+INFO:root:Epoch[166] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0167.params"
+INFO:root:Epoch[166] Validation-RMSE=27.208593
+INFO:root:Epoch[167] Train-RMSE=27.859823
+INFO:root:Epoch[167] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0168.params"
+INFO:root:Epoch[167] Validation-RMSE=27.197282
+INFO:root:Epoch[168] Train-RMSE=27.797319
+INFO:root:Epoch[168] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0169.params"
+INFO:root:Epoch[168] Validation-RMSE=27.218410
+INFO:root:Epoch[169] Train-RMSE=27.852689
+INFO:root:Epoch[169] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0170.params"
+INFO:root:Epoch[169] Validation-RMSE=27.221379
+INFO:root:Epoch[170] Train-RMSE=27.715562
+INFO:root:Epoch[170] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0171.params"
+INFO:root:Epoch[170] Validation-RMSE=27.181257
+INFO:root:Epoch[171] Train-RMSE=27.860222
+INFO:root:Epoch[171] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0172.params"
+INFO:root:Epoch[171] Validation-RMSE=27.200379
+INFO:root:Epoch[172] Train-RMSE=27.647073
+INFO:root:Epoch[172] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0173.params"
+INFO:root:Epoch[172] Validation-RMSE=27.242009
+INFO:root:Epoch[173] Train-RMSE=27.542538
+INFO:root:Epoch[173] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0174.params"
+INFO:root:Epoch[173] Validation-RMSE=27.196499
+INFO:root:Epoch[174] Train-RMSE=27.775180
+INFO:root:Epoch[174] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0175.params"
+INFO:root:Epoch[174] Validation-RMSE=27.209775
+INFO:root:Epoch[175] Train-RMSE=27.681568
+INFO:root:Epoch[175] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0176.params"
+INFO:root:Epoch[175] Validation-RMSE=27.195797
+INFO:root:Epoch[176] Train-RMSE=27.691916
+INFO:root:Epoch[176] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0177.params"
+INFO:root:Epoch[176] Validation-RMSE=27.227299
+INFO:root:Epoch[177] Train-RMSE=27.783978
+INFO:root:Epoch[177] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0178.params"
+INFO:root:Epoch[177] Validation-RMSE=27.190537
+INFO:root:Epoch[178] Train-RMSE=27.760635
+INFO:root:Epoch[178] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0179.params"
+INFO:root:Epoch[178] Validation-RMSE=27.203542
+INFO:root:Epoch[179] Train-RMSE=27.948104
+INFO:root:Epoch[179] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0180.params"
+INFO:root:Epoch[179] Validation-RMSE=27.205521
+INFO:root:Epoch[180] Train-RMSE=27.644089
+INFO:root:Epoch[180] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0181.params"
+INFO:root:Epoch[180] Validation-RMSE=27.193693
+INFO:root:Epoch[181] Train-RMSE=27.849790
+INFO:root:Epoch[181] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0182.params"
+INFO:root:Epoch[181] Validation-RMSE=27.213707
+INFO:root:Epoch[182] Train-RMSE=27.859057
+INFO:root:Epoch[182] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0183.params"
+INFO:root:Epoch[182] Validation-RMSE=27.225369
+INFO:root:Epoch[183] Train-RMSE=27.650913
+INFO:root:Epoch[183] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0184.params"
+INFO:root:Epoch[183] Validation-RMSE=27.214219
+INFO:root:Epoch[184] Train-RMSE=27.588845
+INFO:root:Epoch[184] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0185.params"
+INFO:root:Epoch[184] Validation-RMSE=27.202223
+INFO:root:Epoch[185] Train-RMSE=27.779676
+INFO:root:Epoch[185] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0186.params"
+INFO:root:Epoch[185] Validation-RMSE=27.177253
+INFO:root:Epoch[186] Train-RMSE=27.742823
+INFO:root:Epoch[186] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0187.params"
+INFO:root:Epoch[186] Validation-RMSE=27.174918
+INFO:root:Epoch[187] Train-RMSE=27.674656
+INFO:root:Epoch[187] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0188.params"
+INFO:root:Epoch[187] Validation-RMSE=27.223598
+INFO:root:Epoch[188] Train-RMSE=27.725376
+INFO:root:Epoch[188] Time cost=0.316
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0189.params"
+INFO:root:Epoch[188] Validation-RMSE=27.230247
+INFO:root:Epoch[189] Train-RMSE=27.849952
+INFO:root:Epoch[189] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0190.params"
+INFO:root:Epoch[189] Validation-RMSE=27.219131
+INFO:root:Epoch[190] Train-RMSE=27.692130
+INFO:root:Epoch[190] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0191.params"
+INFO:root:Epoch[190] Validation-RMSE=27.194144
+INFO:root:Epoch[191] Train-RMSE=27.817404
+INFO:root:Epoch[191] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0192.params"
+INFO:root:Epoch[191] Validation-RMSE=27.179559
+INFO:root:Epoch[192] Train-RMSE=27.826405
+INFO:root:Epoch[192] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0193.params"
+INFO:root:Epoch[192] Validation-RMSE=27.213189
+INFO:root:Epoch[193] Train-RMSE=27.777427
+INFO:root:Epoch[193] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0194.params"
+INFO:root:Epoch[193] Validation-RMSE=27.237774
+INFO:root:Epoch[194] Train-RMSE=27.661621
+INFO:root:Epoch[194] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0195.params"
+INFO:root:Epoch[194] Validation-RMSE=27.202221
+INFO:root:Epoch[195] Train-RMSE=27.847557
+INFO:root:Epoch[195] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0196.params"
+INFO:root:Epoch[195] Validation-RMSE=27.214921
+INFO:root:Epoch[196] Train-RMSE=27.696043
+INFO:root:Epoch[196] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0197.params"
+INFO:root:Epoch[196] Validation-RMSE=27.192113
+INFO:root:Epoch[197] Train-RMSE=27.701705
+INFO:root:Epoch[197] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0198.params"
+INFO:root:Epoch[197] Validation-RMSE=27.213734
+INFO:root:Epoch[198] Train-RMSE=27.630786
+INFO:root:Epoch[198] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0199.params"
+INFO:root:Epoch[198] Validation-RMSE=27.206862
+INFO:root:Epoch[199] Train-RMSE=27.879133
+INFO:root:Epoch[199] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain-cnv-0200.params"
+INFO:root:Epoch[199] Validation-RMSE=27.203678
+INFO:root:Namespace(batch_size=2048, bn_mom=0.9, data_dir='../../sinan-ath/logs/socialnet_ml_data/swarm_simple_sys_data_next_5s', gpus='0,1', kv_store='local', load_epoch=0, log='test_single_qps_upsample', lr=0.001, model_prefix='./model/pretrain_cnv', mom=0.9, network='cnvnet', num_examples=58499, pretrain_model_prefix='', sample=1.0, wd=0.001)
+INFO:root:Epoch[0] Train-RMSE=176.463702
+INFO:root:Epoch[0] Time cost=0.563
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0001.params"
+INFO:root:Epoch[0] Validation-RMSE=125.397331
+INFO:root:Epoch[1] Train-RMSE=72.225454
+INFO:root:Epoch[1] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0002.params"
+INFO:root:Epoch[1] Validation-RMSE=57.128092
+INFO:root:Epoch[2] Train-RMSE=53.952083
+INFO:root:Epoch[2] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0003.params"
+INFO:root:Epoch[2] Validation-RMSE=59.635334
+INFO:root:Epoch[3] Train-RMSE=48.454442
+INFO:root:Epoch[3] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0004.params"
+INFO:root:Epoch[3] Validation-RMSE=51.701657
+INFO:root:Epoch[4] Train-RMSE=43.958030
+INFO:root:Epoch[4] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0005.params"
+INFO:root:Epoch[4] Validation-RMSE=44.792643
+INFO:root:Epoch[5] Train-RMSE=42.379729
+INFO:root:Epoch[5] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0006.params"
+INFO:root:Epoch[5] Validation-RMSE=45.799747
+INFO:root:Epoch[6] Train-RMSE=41.338133
+INFO:root:Epoch[6] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0007.params"
+INFO:root:Epoch[6] Validation-RMSE=40.146499
+INFO:root:Epoch[7] Train-RMSE=41.875427
+INFO:root:Epoch[7] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0008.params"
+INFO:root:Epoch[7] Validation-RMSE=39.954764
+INFO:root:Epoch[8] Train-RMSE=40.037779
+INFO:root:Epoch[8] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0009.params"
+INFO:root:Epoch[8] Validation-RMSE=38.927874
+INFO:root:Epoch[9] Train-RMSE=37.914632
+INFO:root:Epoch[9] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0010.params"
+INFO:root:Epoch[9] Validation-RMSE=45.526117
+INFO:root:Epoch[10] Train-RMSE=37.408253
+INFO:root:Epoch[10] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0011.params"
+INFO:root:Epoch[10] Validation-RMSE=40.762339
+INFO:root:Epoch[11] Train-RMSE=36.621870
+INFO:root:Epoch[11] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0012.params"
+INFO:root:Epoch[11] Validation-RMSE=42.879121
+INFO:root:Epoch[12] Train-RMSE=35.983779
+INFO:root:Epoch[12] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0013.params"
+INFO:root:Epoch[12] Validation-RMSE=40.394821
+INFO:root:Epoch[13] Train-RMSE=35.410061
+INFO:root:Epoch[13] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0014.params"
+INFO:root:Epoch[13] Validation-RMSE=38.713373
+INFO:root:Epoch[14] Train-RMSE=34.789983
+INFO:root:Epoch[14] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0015.params"
+INFO:root:Epoch[14] Validation-RMSE=81.986320
+INFO:root:Epoch[15] Train-RMSE=33.937656
+INFO:root:Epoch[15] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0016.params"
+INFO:root:Epoch[15] Validation-RMSE=36.622403
+INFO:root:Epoch[16] Train-RMSE=33.058270
+INFO:root:Epoch[16] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0017.params"
+INFO:root:Epoch[16] Validation-RMSE=38.443433
+INFO:root:Epoch[17] Train-RMSE=33.501857
+INFO:root:Epoch[17] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0018.params"
+INFO:root:Epoch[17] Validation-RMSE=41.829151
+INFO:root:Epoch[18] Train-RMSE=33.138767
+INFO:root:Epoch[18] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0019.params"
+INFO:root:Epoch[18] Validation-RMSE=63.736961
+INFO:root:Epoch[19] Train-RMSE=32.912492
+INFO:root:Epoch[19] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0020.params"
+INFO:root:Epoch[19] Validation-RMSE=42.227220
+INFO:root:Epoch[20] Train-RMSE=33.111281
+INFO:root:Epoch[20] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0021.params"
+INFO:root:Epoch[20] Validation-RMSE=50.085401
+INFO:root:Epoch[21] Train-RMSE=32.436035
+INFO:root:Epoch[21] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0022.params"
+INFO:root:Epoch[21] Validation-RMSE=35.705656
+INFO:root:Epoch[22] Train-RMSE=32.394657
+INFO:root:Epoch[22] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0023.params"
+INFO:root:Epoch[22] Validation-RMSE=42.668532
+INFO:root:Epoch[23] Train-RMSE=32.023751
+INFO:root:Epoch[23] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0024.params"
+INFO:root:Epoch[23] Validation-RMSE=75.398958
+INFO:root:Epoch[24] Train-RMSE=31.434236
+INFO:root:Epoch[24] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0025.params"
+INFO:root:Epoch[24] Validation-RMSE=102.224990
+INFO:root:Epoch[25] Train-RMSE=32.106043
+INFO:root:Epoch[25] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0026.params"
+INFO:root:Epoch[25] Validation-RMSE=39.309544
+INFO:root:Epoch[26] Train-RMSE=32.166879
+INFO:root:Epoch[26] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0027.params"
+INFO:root:Epoch[26] Validation-RMSE=34.983274
+INFO:root:Epoch[27] Train-RMSE=32.003132
+INFO:root:Epoch[27] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0028.params"
+INFO:root:Epoch[27] Validation-RMSE=31.968495
+INFO:root:Epoch[28] Train-RMSE=31.291615
+INFO:root:Epoch[28] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0029.params"
+INFO:root:Epoch[28] Validation-RMSE=35.327384
+INFO:root:Epoch[29] Train-RMSE=32.162749
+INFO:root:Epoch[29] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0030.params"
+INFO:root:Epoch[29] Validation-RMSE=39.314438
+INFO:root:Epoch[30] Train-RMSE=31.805988
+INFO:root:Epoch[30] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0031.params"
+INFO:root:Epoch[30] Validation-RMSE=30.903196
+INFO:root:Epoch[31] Train-RMSE=31.090361
+INFO:root:Epoch[31] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0032.params"
+INFO:root:Epoch[31] Validation-RMSE=34.571814
+INFO:root:Epoch[32] Train-RMSE=31.086219
+INFO:root:Epoch[32] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0033.params"
+INFO:root:Epoch[32] Validation-RMSE=37.677799
+INFO:root:Epoch[33] Train-RMSE=30.414741
+INFO:root:Epoch[33] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0034.params"
+INFO:root:Epoch[33] Validation-RMSE=51.158006
+INFO:root:Epoch[34] Train-RMSE=31.168132
+INFO:root:Epoch[34] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0035.params"
+INFO:root:Epoch[34] Validation-RMSE=35.335573
+INFO:root:Epoch[35] Train-RMSE=31.161065
+INFO:root:Epoch[35] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0036.params"
+INFO:root:Epoch[35] Validation-RMSE=41.338077
+INFO:root:Epoch[36] Train-RMSE=29.725427
+INFO:root:Epoch[36] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0037.params"
+INFO:root:Epoch[36] Validation-RMSE=50.514450
+INFO:root:Epoch[37] Train-RMSE=30.091382
+INFO:root:Epoch[37] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0038.params"
+INFO:root:Epoch[37] Validation-RMSE=31.194503
+INFO:root:Epoch[38] Train-RMSE=29.899505
+INFO:root:Epoch[38] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0039.params"
+INFO:root:Epoch[38] Validation-RMSE=35.328649
+INFO:root:Epoch[39] Train-RMSE=32.086964
+INFO:root:Epoch[39] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0040.params"
+INFO:root:Epoch[39] Validation-RMSE=41.171384
+INFO:root:Epoch[40] Train-RMSE=30.077234
+INFO:root:Epoch[40] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0041.params"
+INFO:root:Epoch[40] Validation-RMSE=34.765229
+INFO:root:Epoch[41] Train-RMSE=29.712390
+INFO:root:Epoch[41] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0042.params"
+INFO:root:Epoch[41] Validation-RMSE=32.540225
+INFO:root:Epoch[42] Train-RMSE=30.191849
+INFO:root:Epoch[42] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0043.params"
+INFO:root:Epoch[42] Validation-RMSE=34.423923
+INFO:root:Epoch[43] Train-RMSE=30.464636
+INFO:root:Epoch[43] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0044.params"
+INFO:root:Epoch[43] Validation-RMSE=31.986828
+INFO:root:Epoch[44] Train-RMSE=29.659818
+INFO:root:Epoch[44] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0045.params"
+INFO:root:Epoch[44] Validation-RMSE=35.092355
+INFO:root:Epoch[45] Train-RMSE=31.546199
+INFO:root:Epoch[45] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0046.params"
+INFO:root:Epoch[45] Validation-RMSE=59.594811
+INFO:root:Epoch[46] Train-RMSE=29.243426
+INFO:root:Epoch[46] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0047.params"
+INFO:root:Epoch[46] Validation-RMSE=30.514044
+INFO:root:Epoch[47] Train-RMSE=29.707081
+INFO:root:Epoch[47] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0048.params"
+INFO:root:Epoch[47] Validation-RMSE=33.759231
+INFO:root:Epoch[48] Train-RMSE=29.635270
+INFO:root:Epoch[48] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0049.params"
+INFO:root:Epoch[48] Validation-RMSE=35.027267
+INFO:root:Epoch[49] Train-RMSE=29.529040
+INFO:root:Epoch[49] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0050.params"
+INFO:root:Epoch[49] Validation-RMSE=38.866159
+INFO:root:Epoch[50] Train-RMSE=29.111773
+INFO:root:Epoch[50] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0051.params"
+INFO:root:Epoch[50] Validation-RMSE=59.734004
+INFO:root:Epoch[51] Train-RMSE=30.325250
+INFO:root:Epoch[51] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0052.params"
+INFO:root:Epoch[51] Validation-RMSE=30.416169
+INFO:root:Epoch[52] Train-RMSE=29.474692
+INFO:root:Epoch[52] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0053.params"
+INFO:root:Epoch[52] Validation-RMSE=29.610232
+INFO:root:Epoch[53] Train-RMSE=29.290041
+INFO:root:Epoch[53] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0054.params"
+INFO:root:Epoch[53] Validation-RMSE=33.391876
+INFO:root:Epoch[54] Train-RMSE=29.347700
+INFO:root:Epoch[54] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0055.params"
+INFO:root:Epoch[54] Validation-RMSE=28.530235
+INFO:root:Epoch[55] Train-RMSE=28.960461
+INFO:root:Epoch[55] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0056.params"
+INFO:root:Epoch[55] Validation-RMSE=30.812016
+INFO:root:Epoch[56] Train-RMSE=28.963130
+INFO:root:Epoch[56] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0057.params"
+INFO:root:Epoch[56] Validation-RMSE=33.066804
+INFO:root:Epoch[57] Train-RMSE=29.367288
+INFO:root:Epoch[57] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0058.params"
+INFO:root:Epoch[57] Validation-RMSE=66.948930
+INFO:root:Epoch[58] Train-RMSE=29.683502
+INFO:root:Epoch[58] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0059.params"
+INFO:root:Epoch[58] Validation-RMSE=71.001553
+INFO:root:Epoch[59] Train-RMSE=33.135634
+INFO:root:Epoch[59] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0060.params"
+INFO:root:Epoch[59] Validation-RMSE=43.563628
+INFO:root:Epoch[60] Train-RMSE=30.123247
+INFO:root:Epoch[60] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0061.params"
+INFO:root:Epoch[60] Validation-RMSE=34.610928
+INFO:root:Epoch[61] Train-RMSE=29.495759
+INFO:root:Epoch[61] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0062.params"
+INFO:root:Epoch[61] Validation-RMSE=29.801798
+INFO:root:Epoch[62] Train-RMSE=29.225655
+INFO:root:Epoch[62] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0063.params"
+INFO:root:Epoch[62] Validation-RMSE=31.512222
+INFO:root:Epoch[63] Train-RMSE=29.356011
+INFO:root:Epoch[63] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0064.params"
+INFO:root:Epoch[63] Validation-RMSE=30.377707
+INFO:root:Epoch[64] Train-RMSE=29.425815
+INFO:root:Epoch[64] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0065.params"
+INFO:root:Epoch[64] Validation-RMSE=60.991640
+INFO:root:Epoch[65] Train-RMSE=29.094326
+INFO:root:Epoch[65] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0066.params"
+INFO:root:Epoch[65] Validation-RMSE=31.892173
+INFO:root:Epoch[66] Train-RMSE=28.904793
+INFO:root:Epoch[66] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0067.params"
+INFO:root:Epoch[66] Validation-RMSE=28.673240
+INFO:root:Epoch[67] Train-RMSE=28.358832
+INFO:root:Epoch[67] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0068.params"
+INFO:root:Epoch[67] Validation-RMSE=31.205704
+INFO:root:Epoch[68] Train-RMSE=28.469141
+INFO:root:Epoch[68] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0069.params"
+INFO:root:Epoch[68] Validation-RMSE=42.971143
+INFO:root:Epoch[69] Train-RMSE=29.466028
+INFO:root:Epoch[69] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0070.params"
+INFO:root:Epoch[69] Validation-RMSE=33.945638
+INFO:root:Epoch[70] Train-RMSE=29.740419
+INFO:root:Epoch[70] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0071.params"
+INFO:root:Epoch[70] Validation-RMSE=29.670584
+INFO:root:Epoch[71] Train-RMSE=28.919294
+INFO:root:Epoch[71] Time cost=0.310
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0072.params"
+INFO:root:Epoch[71] Validation-RMSE=35.263635
+INFO:root:Epoch[72] Train-RMSE=28.585961
+INFO:root:Epoch[72] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0073.params"
+INFO:root:Epoch[72] Validation-RMSE=31.894743
+INFO:root:Epoch[73] Train-RMSE=29.110568
+INFO:root:Epoch[73] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0074.params"
+INFO:root:Epoch[73] Validation-RMSE=31.459073
+INFO:root:Epoch[74] Train-RMSE=29.670984
+INFO:root:Epoch[74] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0075.params"
+INFO:root:Epoch[74] Validation-RMSE=44.804400
+INFO:root:Epoch[75] Train-RMSE=30.428437
+INFO:root:Epoch[75] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0076.params"
+INFO:root:Epoch[75] Validation-RMSE=39.499785
+INFO:root:Epoch[76] Train-RMSE=29.639899
+INFO:root:Epoch[76] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0077.params"
+INFO:root:Epoch[76] Validation-RMSE=32.965755
+INFO:root:Epoch[77] Train-RMSE=28.664835
+INFO:root:Epoch[77] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0078.params"
+INFO:root:Epoch[77] Validation-RMSE=31.283944
+INFO:root:Epoch[78] Train-RMSE=28.072226
+INFO:root:Epoch[78] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0079.params"
+INFO:root:Epoch[78] Validation-RMSE=29.584286
+INFO:root:Epoch[79] Train-RMSE=28.410211
+INFO:root:Epoch[79] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0080.params"
+INFO:root:Epoch[79] Validation-RMSE=34.380411
+INFO:root:Epoch[80] Train-RMSE=27.878997
+INFO:root:Epoch[80] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0081.params"
+INFO:root:Epoch[80] Validation-RMSE=30.873537
+INFO:root:Epoch[81] Train-RMSE=28.490635
+INFO:root:Epoch[81] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0082.params"
+INFO:root:Epoch[81] Validation-RMSE=32.968200
+INFO:root:Epoch[82] Train-RMSE=28.108364
+INFO:root:Epoch[82] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0083.params"
+INFO:root:Epoch[82] Validation-RMSE=31.327132
+INFO:root:Epoch[83] Train-RMSE=28.693861
+INFO:root:Epoch[83] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0084.params"
+INFO:root:Epoch[83] Validation-RMSE=54.459898
+INFO:root:Epoch[84] Train-RMSE=28.327046
+INFO:root:Epoch[84] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0085.params"
+INFO:root:Epoch[84] Validation-RMSE=35.314651
+INFO:root:Epoch[85] Train-RMSE=28.963905
+INFO:root:Epoch[85] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0086.params"
+INFO:root:Epoch[85] Validation-RMSE=39.025232
+INFO:root:Epoch[86] Train-RMSE=28.856137
+INFO:root:Epoch[86] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0087.params"
+INFO:root:Epoch[86] Validation-RMSE=36.917989
+INFO:root:Epoch[87] Train-RMSE=29.485498
+INFO:root:Epoch[87] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0088.params"
+INFO:root:Epoch[87] Validation-RMSE=30.039082
+INFO:root:Epoch[88] Train-RMSE=30.515339
+INFO:root:Epoch[88] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0089.params"
+INFO:root:Epoch[88] Validation-RMSE=30.648038
+INFO:root:Epoch[89] Train-RMSE=28.492731
+INFO:root:Epoch[89] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0090.params"
+INFO:root:Epoch[89] Validation-RMSE=32.170309
+INFO:root:Epoch[90] Train-RMSE=28.360490
+INFO:root:Epoch[90] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0091.params"
+INFO:root:Epoch[90] Validation-RMSE=31.342666
+INFO:root:Epoch[91] Train-RMSE=28.359826
+INFO:root:Epoch[91] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0092.params"
+INFO:root:Epoch[91] Validation-RMSE=52.353063
+INFO:root:Epoch[92] Train-RMSE=29.153659
+INFO:root:Epoch[92] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0093.params"
+INFO:root:Epoch[92] Validation-RMSE=35.114417
+INFO:root:Epoch[93] Train-RMSE=28.659925
+INFO:root:Epoch[93] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0094.params"
+INFO:root:Epoch[93] Validation-RMSE=31.888740
+INFO:root:Epoch[94] Train-RMSE=28.930420
+INFO:root:Epoch[94] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0095.params"
+INFO:root:Epoch[94] Validation-RMSE=27.911263
+INFO:root:Epoch[95] Train-RMSE=30.057649
+INFO:root:Epoch[95] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0096.params"
+INFO:root:Epoch[95] Validation-RMSE=34.902250
+INFO:root:Epoch[96] Train-RMSE=29.028767
+INFO:root:Epoch[96] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0097.params"
+INFO:root:Epoch[96] Validation-RMSE=33.335177
+INFO:root:Epoch[97] Train-RMSE=28.928448
+INFO:root:Epoch[97] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0098.params"
+INFO:root:Epoch[97] Validation-RMSE=31.342019
+INFO:root:Epoch[98] Train-RMSE=29.055986
+INFO:root:Epoch[98] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0099.params"
+INFO:root:Epoch[98] Validation-RMSE=71.659613
+INFO:root:Epoch[99] Train-RMSE=28.407037
+INFO:root:Epoch[99] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0100.params"
+INFO:root:Epoch[99] Validation-RMSE=28.126938
+INFO:root:Epoch[100] Train-RMSE=27.903866
+INFO:root:Epoch[100] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0101.params"
+INFO:root:Epoch[100] Validation-RMSE=34.796704
+INFO:root:Epoch[101] Train-RMSE=28.374637
+INFO:root:Epoch[101] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0102.params"
+INFO:root:Epoch[101] Validation-RMSE=30.864119
+INFO:root:Epoch[102] Train-RMSE=27.789792
+INFO:root:Epoch[102] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0103.params"
+INFO:root:Epoch[102] Validation-RMSE=31.042146
+INFO:root:Epoch[103] Train-RMSE=28.406836
+INFO:root:Epoch[103] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0104.params"
+INFO:root:Epoch[103] Validation-RMSE=36.037801
+INFO:root:Epoch[104] Train-RMSE=32.814823
+INFO:root:Epoch[104] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0105.params"
+INFO:root:Epoch[104] Validation-RMSE=31.271287
+INFO:root:Epoch[105] Train-RMSE=28.495299
+INFO:root:Epoch[105] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0106.params"
+INFO:root:Epoch[105] Validation-RMSE=31.091218
+INFO:root:Epoch[106] Train-RMSE=28.548028
+INFO:root:Epoch[106] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0107.params"
+INFO:root:Epoch[106] Validation-RMSE=62.612627
+INFO:root:Epoch[107] Train-RMSE=28.665555
+INFO:root:Epoch[107] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0108.params"
+INFO:root:Epoch[107] Validation-RMSE=36.000593
+INFO:root:Epoch[108] Train-RMSE=28.478828
+INFO:root:Epoch[108] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0109.params"
+INFO:root:Epoch[108] Validation-RMSE=42.637985
+INFO:root:Epoch[109] Train-RMSE=28.429426
+INFO:root:Epoch[109] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0110.params"
+INFO:root:Epoch[109] Validation-RMSE=39.700026
+INFO:root:Epoch[110] Train-RMSE=28.287447
+INFO:root:Epoch[110] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0111.params"
+INFO:root:Epoch[110] Validation-RMSE=34.478177
+INFO:root:Epoch[111] Train-RMSE=27.825653
+INFO:root:Epoch[111] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0112.params"
+INFO:root:Epoch[111] Validation-RMSE=57.608030
+INFO:root:Epoch[112] Train-RMSE=28.775635
+INFO:root:Epoch[112] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0113.params"
+INFO:root:Epoch[112] Validation-RMSE=34.253412
+INFO:root:Epoch[113] Train-RMSE=28.386219
+INFO:root:Epoch[113] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0114.params"
+INFO:root:Epoch[113] Validation-RMSE=30.088068
+INFO:root:Epoch[114] Train-RMSE=28.614248
+INFO:root:Epoch[114] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0115.params"
+INFO:root:Epoch[114] Validation-RMSE=28.793761
+INFO:root:Update[3361]: Change learning rate to 1.00000e-04
+INFO:root:Epoch[115] Train-RMSE=28.014871
+INFO:root:Epoch[115] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0116.params"
+INFO:root:Epoch[115] Validation-RMSE=30.119711
+INFO:root:Epoch[116] Train-RMSE=28.154363
+INFO:root:Epoch[116] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0117.params"
+INFO:root:Epoch[116] Validation-RMSE=26.969499
+INFO:root:Epoch[117] Train-RMSE=27.066554
+INFO:root:Epoch[117] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0118.params"
+INFO:root:Epoch[117] Validation-RMSE=26.652041
+INFO:root:Epoch[118] Train-RMSE=26.842933
+INFO:root:Epoch[118] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0119.params"
+INFO:root:Epoch[118] Validation-RMSE=27.238287
+INFO:root:Epoch[119] Train-RMSE=26.898654
+INFO:root:Epoch[119] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0120.params"
+INFO:root:Epoch[119] Validation-RMSE=26.801916
+INFO:root:Epoch[120] Train-RMSE=27.018107
+INFO:root:Epoch[120] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0121.params"
+INFO:root:Epoch[120] Validation-RMSE=26.965342
+INFO:root:Epoch[121] Train-RMSE=26.797211
+INFO:root:Epoch[121] Time cost=0.310
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0122.params"
+INFO:root:Epoch[121] Validation-RMSE=26.718107
+INFO:root:Epoch[122] Train-RMSE=26.691213
+INFO:root:Epoch[122] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0123.params"
+INFO:root:Epoch[122] Validation-RMSE=26.445480
+INFO:root:Epoch[123] Train-RMSE=26.986349
+INFO:root:Epoch[123] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0124.params"
+INFO:root:Epoch[123] Validation-RMSE=27.203108
+INFO:root:Epoch[124] Train-RMSE=26.693618
+INFO:root:Epoch[124] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0125.params"
+INFO:root:Epoch[124] Validation-RMSE=26.655487
+INFO:root:Epoch[125] Train-RMSE=26.513602
+INFO:root:Epoch[125] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0126.params"
+INFO:root:Epoch[125] Validation-RMSE=27.605105
+INFO:root:Epoch[126] Train-RMSE=26.558538
+INFO:root:Epoch[126] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0127.params"
+INFO:root:Epoch[126] Validation-RMSE=26.794470
+INFO:root:Epoch[127] Train-RMSE=26.615182
+INFO:root:Epoch[127] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0128.params"
+INFO:root:Epoch[127] Validation-RMSE=26.707191
+INFO:root:Epoch[128] Train-RMSE=26.629471
+INFO:root:Epoch[128] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0129.params"
+INFO:root:Epoch[128] Validation-RMSE=26.790020
+INFO:root:Epoch[129] Train-RMSE=26.918777
+INFO:root:Epoch[129] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0130.params"
+INFO:root:Epoch[129] Validation-RMSE=27.797828
+INFO:root:Epoch[130] Train-RMSE=26.768148
+INFO:root:Epoch[130] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0131.params"
+INFO:root:Epoch[130] Validation-RMSE=26.904048
+INFO:root:Epoch[131] Train-RMSE=26.685706
+INFO:root:Epoch[131] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0132.params"
+INFO:root:Epoch[131] Validation-RMSE=26.717958
+INFO:root:Epoch[132] Train-RMSE=26.737427
+INFO:root:Epoch[132] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0133.params"
+INFO:root:Epoch[132] Validation-RMSE=26.730812
+INFO:root:Epoch[133] Train-RMSE=26.635552
+INFO:root:Epoch[133] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0134.params"
+INFO:root:Epoch[133] Validation-RMSE=27.026665
+INFO:root:Epoch[134] Train-RMSE=26.545482
+INFO:root:Epoch[134] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0135.params"
+INFO:root:Epoch[134] Validation-RMSE=26.726848
+INFO:root:Epoch[135] Train-RMSE=26.669858
+INFO:root:Epoch[135] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0136.params"
+INFO:root:Epoch[135] Validation-RMSE=26.742547
+INFO:root:Epoch[136] Train-RMSE=26.566103
+INFO:root:Epoch[136] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0137.params"
+INFO:root:Epoch[136] Validation-RMSE=28.301970
+INFO:root:Epoch[137] Train-RMSE=26.648703
+INFO:root:Epoch[137] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0138.params"
+INFO:root:Epoch[137] Validation-RMSE=26.872135
+INFO:root:Epoch[138] Train-RMSE=26.690027
+INFO:root:Epoch[138] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0139.params"
+INFO:root:Epoch[138] Validation-RMSE=27.332940
+INFO:root:Epoch[139] Train-RMSE=26.653308
+INFO:root:Epoch[139] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0140.params"
+INFO:root:Epoch[139] Validation-RMSE=26.504896
+INFO:root:Epoch[140] Train-RMSE=26.978398
+INFO:root:Epoch[140] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0141.params"
+INFO:root:Epoch[140] Validation-RMSE=27.059397
+INFO:root:Epoch[141] Train-RMSE=26.519502
+INFO:root:Epoch[141] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0142.params"
+INFO:root:Epoch[141] Validation-RMSE=26.701656
+INFO:root:Epoch[142] Train-RMSE=26.569848
+INFO:root:Epoch[142] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0143.params"
+INFO:root:Epoch[142] Validation-RMSE=27.430698
+INFO:root:Epoch[143] Train-RMSE=26.729234
+INFO:root:Epoch[143] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0144.params"
+INFO:root:Epoch[143] Validation-RMSE=27.074630
+INFO:root:Update[4201]: Change learning rate to 1.00000e-05
+INFO:root:Epoch[144] Train-RMSE=26.507297
+INFO:root:Epoch[144] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0145.params"
+INFO:root:Epoch[144] Validation-RMSE=26.415870
+INFO:root:Epoch[145] Train-RMSE=26.679269
+INFO:root:Epoch[145] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0146.params"
+INFO:root:Epoch[145] Validation-RMSE=26.427847
+INFO:root:Epoch[146] Train-RMSE=26.524110
+INFO:root:Epoch[146] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0147.params"
+INFO:root:Epoch[146] Validation-RMSE=26.356726
+INFO:root:Epoch[147] Train-RMSE=26.600095
+INFO:root:Epoch[147] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0148.params"
+INFO:root:Epoch[147] Validation-RMSE=26.371991
+INFO:root:Epoch[148] Train-RMSE=26.548945
+INFO:root:Epoch[148] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0149.params"
+INFO:root:Epoch[148] Validation-RMSE=26.361259
+INFO:root:Epoch[149] Train-RMSE=26.576756
+INFO:root:Epoch[149] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0150.params"
+INFO:root:Epoch[149] Validation-RMSE=26.413817
+INFO:root:Epoch[150] Train-RMSE=26.480115
+INFO:root:Epoch[150] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0151.params"
+INFO:root:Epoch[150] Validation-RMSE=26.365492
+INFO:root:Epoch[151] Train-RMSE=26.581982
+INFO:root:Epoch[151] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0152.params"
+INFO:root:Epoch[151] Validation-RMSE=26.370014
+INFO:root:Epoch[152] Train-RMSE=26.492648
+INFO:root:Epoch[152] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0153.params"
+INFO:root:Epoch[152] Validation-RMSE=26.379478
+INFO:root:Epoch[153] Train-RMSE=26.514915
+INFO:root:Epoch[153] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0154.params"
+INFO:root:Epoch[153] Validation-RMSE=26.370200
+INFO:root:Epoch[154] Train-RMSE=26.515006
+INFO:root:Epoch[154] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0155.params"
+INFO:root:Epoch[154] Validation-RMSE=26.378711
+INFO:root:Epoch[155] Train-RMSE=26.707543
+INFO:root:Epoch[155] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0156.params"
+INFO:root:Epoch[155] Validation-RMSE=26.396492
+INFO:root:Epoch[156] Train-RMSE=26.414391
+INFO:root:Epoch[156] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0157.params"
+INFO:root:Epoch[156] Validation-RMSE=26.353817
+INFO:root:Epoch[157] Train-RMSE=26.598636
+INFO:root:Epoch[157] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0158.params"
+INFO:root:Epoch[157] Validation-RMSE=26.391988
+INFO:root:Epoch[158] Train-RMSE=26.482429
+INFO:root:Epoch[158] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0159.params"
+INFO:root:Epoch[158] Validation-RMSE=26.357024
+INFO:root:Epoch[159] Train-RMSE=26.528085
+INFO:root:Epoch[159] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0160.params"
+INFO:root:Epoch[159] Validation-RMSE=26.376023
+INFO:root:Epoch[160] Train-RMSE=26.812517
+INFO:root:Epoch[160] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0161.params"
+INFO:root:Epoch[160] Validation-RMSE=26.392159
+INFO:root:Epoch[161] Train-RMSE=26.376275
+INFO:root:Epoch[161] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0162.params"
+INFO:root:Epoch[161] Validation-RMSE=26.374651
+INFO:root:Epoch[162] Train-RMSE=26.602595
+INFO:root:Epoch[162] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0163.params"
+INFO:root:Epoch[162] Validation-RMSE=26.366541
+INFO:root:Epoch[163] Train-RMSE=26.445152
+INFO:root:Epoch[163] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0164.params"
+INFO:root:Epoch[163] Validation-RMSE=26.424179
+INFO:root:Epoch[164] Train-RMSE=26.495398
+INFO:root:Epoch[164] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0165.params"
+INFO:root:Epoch[164] Validation-RMSE=26.377912
+INFO:root:Epoch[165] Train-RMSE=26.415520
+INFO:root:Epoch[165] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0166.params"
+INFO:root:Epoch[165] Validation-RMSE=26.373382
+INFO:root:Epoch[166] Train-RMSE=26.498152
+INFO:root:Epoch[166] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0167.params"
+INFO:root:Epoch[166] Validation-RMSE=26.363766
+INFO:root:Epoch[167] Train-RMSE=26.640480
+INFO:root:Epoch[167] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0168.params"
+INFO:root:Epoch[167] Validation-RMSE=26.339430
+INFO:root:Epoch[168] Train-RMSE=26.568746
+INFO:root:Epoch[168] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0169.params"
+INFO:root:Epoch[168] Validation-RMSE=26.377933
+INFO:root:Epoch[169] Train-RMSE=26.654588
+INFO:root:Epoch[169] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0170.params"
+INFO:root:Epoch[169] Validation-RMSE=26.385245
+INFO:root:Epoch[170] Train-RMSE=26.475951
+INFO:root:Epoch[170] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0171.params"
+INFO:root:Epoch[170] Validation-RMSE=26.378066
+INFO:root:Epoch[171] Train-RMSE=26.642500
+INFO:root:Epoch[171] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0172.params"
+INFO:root:Epoch[171] Validation-RMSE=26.368201
+INFO:root:Epoch[172] Train-RMSE=26.418731
+INFO:root:Epoch[172] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0173.params"
+INFO:root:Epoch[172] Validation-RMSE=26.372866
+INFO:root:Epoch[173] Train-RMSE=26.282384
+INFO:root:Epoch[173] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0174.params"
+INFO:root:Epoch[173] Validation-RMSE=26.353396
+INFO:root:Epoch[174] Train-RMSE=26.542977
+INFO:root:Epoch[174] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0175.params"
+INFO:root:Epoch[174] Validation-RMSE=26.367403
+INFO:root:Epoch[175] Train-RMSE=26.460091
+INFO:root:Epoch[175] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0176.params"
+INFO:root:Epoch[175] Validation-RMSE=26.366576
+INFO:root:Epoch[176] Train-RMSE=26.465095
+INFO:root:Epoch[176] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0177.params"
+INFO:root:Epoch[176] Validation-RMSE=26.366830
+INFO:root:Epoch[177] Train-RMSE=26.555002
+INFO:root:Epoch[177] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0178.params"
+INFO:root:Epoch[177] Validation-RMSE=26.386926
+INFO:root:Epoch[178] Train-RMSE=26.533884
+INFO:root:Epoch[178] Time cost=0.310
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0179.params"
+INFO:root:Epoch[178] Validation-RMSE=26.352103
+INFO:root:Epoch[179] Train-RMSE=26.706672
+INFO:root:Epoch[179] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0180.params"
+INFO:root:Epoch[179] Validation-RMSE=26.391835
+INFO:root:Epoch[180] Train-RMSE=26.421026
+INFO:root:Epoch[180] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0181.params"
+INFO:root:Epoch[180] Validation-RMSE=26.340659
+INFO:root:Epoch[181] Train-RMSE=26.627168
+INFO:root:Epoch[181] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0182.params"
+INFO:root:Epoch[181] Validation-RMSE=26.377614
+INFO:root:Epoch[182] Train-RMSE=26.650662
+INFO:root:Epoch[182] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0183.params"
+INFO:root:Epoch[182] Validation-RMSE=26.396524
+INFO:root:Epoch[183] Train-RMSE=26.443225
+INFO:root:Epoch[183] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0184.params"
+INFO:root:Epoch[183] Validation-RMSE=26.385153
+INFO:root:Epoch[184] Train-RMSE=26.366207
+INFO:root:Epoch[184] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0185.params"
+INFO:root:Epoch[184] Validation-RMSE=26.387717
+INFO:root:Epoch[185] Train-RMSE=26.555222
+INFO:root:Epoch[185] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0186.params"
+INFO:root:Epoch[185] Validation-RMSE=26.349394
+INFO:root:Epoch[186] Train-RMSE=26.523002
+INFO:root:Epoch[186] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0187.params"
+INFO:root:Epoch[186] Validation-RMSE=26.344316
+INFO:root:Epoch[187] Train-RMSE=26.473042
+INFO:root:Epoch[187] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0188.params"
+INFO:root:Epoch[187] Validation-RMSE=26.392854
+INFO:root:Epoch[188] Train-RMSE=26.493691
+INFO:root:Epoch[188] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0189.params"
+INFO:root:Epoch[188] Validation-RMSE=26.424937
+INFO:root:Epoch[189] Train-RMSE=26.612185
+INFO:root:Epoch[189] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0190.params"
+INFO:root:Epoch[189] Validation-RMSE=26.370724
+INFO:root:Epoch[190] Train-RMSE=26.475293
+INFO:root:Epoch[190] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0191.params"
+INFO:root:Epoch[190] Validation-RMSE=26.380989
+INFO:root:Epoch[191] Train-RMSE=26.617526
+INFO:root:Epoch[191] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0192.params"
+INFO:root:Epoch[191] Validation-RMSE=26.343533
+INFO:root:Epoch[192] Train-RMSE=26.581252
+INFO:root:Epoch[192] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0193.params"
+INFO:root:Epoch[192] Validation-RMSE=26.346909
+INFO:root:Epoch[193] Train-RMSE=26.552781
+INFO:root:Epoch[193] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0194.params"
+INFO:root:Epoch[193] Validation-RMSE=26.360944
+INFO:root:Epoch[194] Train-RMSE=26.451791
+INFO:root:Epoch[194] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0195.params"
+INFO:root:Epoch[194] Validation-RMSE=26.388523
+INFO:root:Epoch[195] Train-RMSE=26.622979
+INFO:root:Epoch[195] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0196.params"
+INFO:root:Epoch[195] Validation-RMSE=26.374168
+INFO:root:Epoch[196] Train-RMSE=26.495697
+INFO:root:Epoch[196] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0197.params"
+INFO:root:Epoch[196] Validation-RMSE=26.349029
+INFO:root:Epoch[197] Train-RMSE=26.482336
+INFO:root:Epoch[197] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0198.params"
+INFO:root:Epoch[197] Validation-RMSE=26.384240
+INFO:root:Epoch[198] Train-RMSE=26.406829
+INFO:root:Epoch[198] Time cost=0.312
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0199.params"
+INFO:root:Epoch[198] Validation-RMSE=26.371995
+INFO:root:Epoch[199] Train-RMSE=26.671861
+INFO:root:Epoch[199] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pretrain_cnv-0200.params"
+INFO:root:Epoch[199] Validation-RMSE=26.405511
+INFO:root:Namespace(batch_size=2048, bn_mom=0.9, data_dir='../../sinan-ath/logs/socialnet_ml_data/swarm_simple_sys_data_next_5s', gpus='0,1', kv_store='local', load_epoch=0, log='test_single_qps_upsample', lr=0.001, model_prefix='./model/precnv', mom=0.9, network='cnvnet', num_examples=58499, pretrain_model_prefix='', sample=1.0, wd=0.001)
+INFO:root:Epoch[0] Train-RMSE=174.631763
+INFO:root:Epoch[0] Time cost=0.637
+INFO:root:Saved checkpoint to "./model/precnv-0001.params"
+INFO:root:Epoch[0] Validation-RMSE=116.632559
+INFO:root:Epoch[1] Train-RMSE=70.075762
+INFO:root:Epoch[1] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/precnv-0002.params"
+INFO:root:Epoch[1] Validation-RMSE=61.522401
+INFO:root:Epoch[2] Train-RMSE=49.114649
+INFO:root:Epoch[2] Time cost=0.289
+INFO:root:Saved checkpoint to "./model/precnv-0003.params"
+INFO:root:Epoch[2] Validation-RMSE=61.704525
+INFO:root:Epoch[3] Train-RMSE=44.779351
+INFO:root:Epoch[3] Time cost=0.290
+INFO:root:Saved checkpoint to "./model/precnv-0004.params"
+INFO:root:Epoch[3] Validation-RMSE=42.974968
+INFO:root:Epoch[4] Train-RMSE=42.686184
+INFO:root:Epoch[4] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0005.params"
+INFO:root:Epoch[4] Validation-RMSE=45.754520
+INFO:root:Epoch[5] Train-RMSE=41.346018
+INFO:root:Epoch[5] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0006.params"
+INFO:root:Epoch[5] Validation-RMSE=52.911301
+INFO:root:Epoch[6] Train-RMSE=39.483530
+INFO:root:Epoch[6] Time cost=0.289
+INFO:root:Saved checkpoint to "./model/precnv-0007.params"
+INFO:root:Epoch[6] Validation-RMSE=65.843317
+INFO:root:Epoch[7] Train-RMSE=38.979787
+INFO:root:Epoch[7] Time cost=0.289
+INFO:root:Saved checkpoint to "./model/precnv-0008.params"
+INFO:root:Epoch[7] Validation-RMSE=42.329529
+INFO:root:Epoch[8] Train-RMSE=36.426105
+INFO:root:Epoch[8] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0009.params"
+INFO:root:Epoch[8] Validation-RMSE=45.664059
+INFO:root:Epoch[9] Train-RMSE=35.101298
+INFO:root:Epoch[9] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0010.params"
+INFO:root:Epoch[9] Validation-RMSE=43.161023
+INFO:root:Epoch[10] Train-RMSE=34.764810
+INFO:root:Epoch[10] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0011.params"
+INFO:root:Epoch[10] Validation-RMSE=40.349886
+INFO:root:Epoch[11] Train-RMSE=34.264852
+INFO:root:Epoch[11] Time cost=0.289
+INFO:root:Saved checkpoint to "./model/precnv-0012.params"
+INFO:root:Epoch[11] Validation-RMSE=107.229273
+INFO:root:Epoch[12] Train-RMSE=34.111606
+INFO:root:Epoch[12] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0013.params"
+INFO:root:Epoch[12] Validation-RMSE=65.237226
+INFO:root:Epoch[13] Train-RMSE=33.611883
+INFO:root:Epoch[13] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0014.params"
+INFO:root:Epoch[13] Validation-RMSE=40.853960
+INFO:root:Epoch[14] Train-RMSE=32.781910
+INFO:root:Epoch[14] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0015.params"
+INFO:root:Epoch[14] Validation-RMSE=47.129985
+INFO:root:Epoch[15] Train-RMSE=33.329079
+INFO:root:Epoch[15] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/precnv-0016.params"
+INFO:root:Epoch[15] Validation-RMSE=158.487072
+INFO:root:Epoch[16] Train-RMSE=32.878474
+INFO:root:Epoch[16] Time cost=0.290
+INFO:root:Saved checkpoint to "./model/precnv-0017.params"
+INFO:root:Epoch[16] Validation-RMSE=156.194323
+INFO:root:Epoch[17] Train-RMSE=33.163886
+INFO:root:Epoch[17] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0018.params"
+INFO:root:Epoch[17] Validation-RMSE=43.652500
+INFO:root:Epoch[18] Train-RMSE=32.254799
+INFO:root:Epoch[18] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0019.params"
+INFO:root:Epoch[18] Validation-RMSE=40.720207
+INFO:root:Epoch[19] Train-RMSE=33.025367
+INFO:root:Epoch[19] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0020.params"
+INFO:root:Epoch[19] Validation-RMSE=102.197351
+INFO:root:Epoch[20] Train-RMSE=32.672125
+INFO:root:Epoch[20] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/precnv-0021.params"
+INFO:root:Epoch[20] Validation-RMSE=43.461206
+INFO:root:Epoch[21] Train-RMSE=31.925530
+INFO:root:Epoch[21] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/precnv-0022.params"
+INFO:root:Epoch[21] Validation-RMSE=41.714772
+INFO:root:Epoch[22] Train-RMSE=32.675875
+INFO:root:Epoch[22] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0023.params"
+INFO:root:Epoch[22] Validation-RMSE=52.447778
+INFO:root:Epoch[23] Train-RMSE=31.883741
+INFO:root:Epoch[23] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0024.params"
+INFO:root:Epoch[23] Validation-RMSE=44.458829
+INFO:root:Epoch[24] Train-RMSE=31.331354
+INFO:root:Epoch[24] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0025.params"
+INFO:root:Epoch[24] Validation-RMSE=44.131549
+INFO:root:Epoch[25] Train-RMSE=32.417146
+INFO:root:Epoch[25] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0026.params"
+INFO:root:Epoch[25] Validation-RMSE=74.403607
+INFO:root:Epoch[26] Train-RMSE=32.642630
+INFO:root:Epoch[26] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0027.params"
+INFO:root:Epoch[26] Validation-RMSE=41.558583
+INFO:root:Epoch[27] Train-RMSE=32.044802
+INFO:root:Epoch[27] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0028.params"
+INFO:root:Epoch[27] Validation-RMSE=47.510256
+INFO:root:Epoch[28] Train-RMSE=31.304679
+INFO:root:Epoch[28] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0029.params"
+INFO:root:Epoch[28] Validation-RMSE=83.805090
+INFO:root:Epoch[29] Train-RMSE=32.187071
+INFO:root:Epoch[29] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0030.params"
+INFO:root:Epoch[29] Validation-RMSE=73.477193
+INFO:root:Epoch[30] Train-RMSE=31.481036
+INFO:root:Epoch[30] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/precnv-0031.params"
+INFO:root:Epoch[30] Validation-RMSE=35.189224
+INFO:root:Epoch[31] Train-RMSE=31.014668
+INFO:root:Epoch[31] Time cost=0.290
+INFO:root:Saved checkpoint to "./model/precnv-0032.params"
+INFO:root:Epoch[31] Validation-RMSE=40.904839
+INFO:root:Epoch[32] Train-RMSE=31.292137
+INFO:root:Epoch[32] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0033.params"
+INFO:root:Epoch[32] Validation-RMSE=97.825213
+INFO:root:Epoch[33] Train-RMSE=30.531491
+INFO:root:Epoch[33] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0034.params"
+INFO:root:Epoch[33] Validation-RMSE=35.561656
+INFO:root:Epoch[34] Train-RMSE=31.272872
+INFO:root:Epoch[34] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0035.params"
+INFO:root:Epoch[34] Validation-RMSE=44.752093
+INFO:root:Epoch[35] Train-RMSE=31.210701
+INFO:root:Epoch[35] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0036.params"
+INFO:root:Epoch[35] Validation-RMSE=51.934193
+INFO:root:Epoch[36] Train-RMSE=29.685694
+INFO:root:Epoch[36] Time cost=0.289
+INFO:root:Saved checkpoint to "./model/precnv-0037.params"
+INFO:root:Epoch[36] Validation-RMSE=116.509606
+INFO:root:Epoch[37] Train-RMSE=30.358868
+INFO:root:Epoch[37] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0038.params"
+INFO:root:Epoch[37] Validation-RMSE=194.929968
+INFO:root:Epoch[38] Train-RMSE=30.189969
+INFO:root:Epoch[38] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/precnv-0039.params"
+INFO:root:Epoch[38] Validation-RMSE=102.491858
+INFO:root:Epoch[39] Train-RMSE=32.155061
+INFO:root:Epoch[39] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0040.params"
+INFO:root:Epoch[39] Validation-RMSE=110.337049
+INFO:root:Epoch[40] Train-RMSE=30.109862
+INFO:root:Epoch[40] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0041.params"
+INFO:root:Epoch[40] Validation-RMSE=44.858553
+INFO:root:Epoch[41] Train-RMSE=29.641545
+INFO:root:Epoch[41] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0042.params"
+INFO:root:Epoch[41] Validation-RMSE=46.579826
+INFO:root:Epoch[42] Train-RMSE=30.202455
+INFO:root:Epoch[42] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0043.params"
+INFO:root:Epoch[42] Validation-RMSE=95.524290
+INFO:root:Epoch[43] Train-RMSE=31.028187
+INFO:root:Epoch[43] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0044.params"
+INFO:root:Epoch[43] Validation-RMSE=108.890647
+INFO:root:Epoch[44] Train-RMSE=29.919419
+INFO:root:Epoch[44] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0045.params"
+INFO:root:Epoch[44] Validation-RMSE=47.211045
+INFO:root:Epoch[45] Train-RMSE=31.694712
+INFO:root:Epoch[45] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0046.params"
+INFO:root:Epoch[45] Validation-RMSE=147.091984
+INFO:root:Epoch[46] Train-RMSE=29.514448
+INFO:root:Epoch[46] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0047.params"
+INFO:root:Epoch[46] Validation-RMSE=56.468185
+INFO:root:Epoch[47] Train-RMSE=30.054808
+INFO:root:Epoch[47] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0048.params"
+INFO:root:Epoch[47] Validation-RMSE=67.423443
+INFO:root:Epoch[48] Train-RMSE=29.537996
+INFO:root:Epoch[48] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0049.params"
+INFO:root:Epoch[48] Validation-RMSE=45.443898
+INFO:root:Epoch[49] Train-RMSE=29.434102
+INFO:root:Epoch[49] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/precnv-0050.params"
+INFO:root:Epoch[49] Validation-RMSE=38.783580
+INFO:root:Epoch[50] Train-RMSE=29.155545
+INFO:root:Epoch[50] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0051.params"
+INFO:root:Epoch[50] Validation-RMSE=44.167972
+INFO:root:Epoch[51] Train-RMSE=30.011734
+INFO:root:Epoch[51] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0052.params"
+INFO:root:Epoch[51] Validation-RMSE=42.284871
+INFO:root:Epoch[52] Train-RMSE=29.496934
+INFO:root:Epoch[52] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0053.params"
+INFO:root:Epoch[52] Validation-RMSE=86.354471
+INFO:root:Epoch[53] Train-RMSE=29.155591
+INFO:root:Epoch[53] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0054.params"
+INFO:root:Epoch[53] Validation-RMSE=40.220211
+INFO:root:Epoch[54] Train-RMSE=29.149175
+INFO:root:Epoch[54] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0055.params"
+INFO:root:Epoch[54] Validation-RMSE=52.099011
+INFO:root:Epoch[55] Train-RMSE=28.981154
+INFO:root:Epoch[55] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0056.params"
+INFO:root:Epoch[55] Validation-RMSE=97.964408
+INFO:root:Epoch[56] Train-RMSE=29.000129
+INFO:root:Epoch[56] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0057.params"
+INFO:root:Epoch[56] Validation-RMSE=44.171601
+INFO:root:Epoch[57] Train-RMSE=29.218484
+INFO:root:Epoch[57] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0058.params"
+INFO:root:Epoch[57] Validation-RMSE=56.728959
+INFO:root:Epoch[58] Train-RMSE=29.872701
+INFO:root:Epoch[58] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0059.params"
+INFO:root:Epoch[58] Validation-RMSE=87.096444
+INFO:root:Epoch[59] Train-RMSE=33.189048
+INFO:root:Epoch[59] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0060.params"
+INFO:root:Epoch[59] Validation-RMSE=39.935473
+INFO:root:Epoch[60] Train-RMSE=30.245577
+INFO:root:Epoch[60] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0061.params"
+INFO:root:Epoch[60] Validation-RMSE=80.606845
+INFO:root:Epoch[61] Train-RMSE=29.607204
+INFO:root:Epoch[61] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0062.params"
+INFO:root:Epoch[61] Validation-RMSE=60.605466
+INFO:root:Epoch[62] Train-RMSE=29.551216
+INFO:root:Epoch[62] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0063.params"
+INFO:root:Epoch[62] Validation-RMSE=40.314814
+INFO:root:Epoch[63] Train-RMSE=29.755676
+INFO:root:Epoch[63] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0064.params"
+INFO:root:Epoch[63] Validation-RMSE=164.727779
+INFO:root:Epoch[64] Train-RMSE=29.468083
+INFO:root:Epoch[64] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0065.params"
+INFO:root:Epoch[64] Validation-RMSE=36.402993
+INFO:root:Epoch[65] Train-RMSE=29.120760
+INFO:root:Epoch[65] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0066.params"
+INFO:root:Epoch[65] Validation-RMSE=69.108401
+INFO:root:Epoch[66] Train-RMSE=28.980670
+INFO:root:Epoch[66] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0067.params"
+INFO:root:Epoch[66] Validation-RMSE=41.757129
+INFO:root:Epoch[67] Train-RMSE=28.604358
+INFO:root:Epoch[67] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0068.params"
+INFO:root:Epoch[67] Validation-RMSE=61.666552
+INFO:root:Epoch[68] Train-RMSE=28.589348
+INFO:root:Epoch[68] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0069.params"
+INFO:root:Epoch[68] Validation-RMSE=66.796632
+INFO:root:Epoch[69] Train-RMSE=29.692016
+INFO:root:Epoch[69] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0070.params"
+INFO:root:Epoch[69] Validation-RMSE=186.704933
+INFO:root:Epoch[70] Train-RMSE=29.573324
+INFO:root:Epoch[70] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0071.params"
+INFO:root:Epoch[70] Validation-RMSE=101.013131
+INFO:root:Epoch[71] Train-RMSE=29.208200
+INFO:root:Epoch[71] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/precnv-0072.params"
+INFO:root:Epoch[71] Validation-RMSE=34.796517
+INFO:root:Epoch[72] Train-RMSE=28.864488
+INFO:root:Epoch[72] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0073.params"
+INFO:root:Epoch[72] Validation-RMSE=50.621597
+INFO:root:Epoch[73] Train-RMSE=29.535652
+INFO:root:Epoch[73] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0074.params"
+INFO:root:Epoch[73] Validation-RMSE=60.331145
+INFO:root:Epoch[74] Train-RMSE=29.647007
+INFO:root:Epoch[74] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0075.params"
+INFO:root:Epoch[74] Validation-RMSE=173.922758
+INFO:root:Epoch[75] Train-RMSE=30.419278
+INFO:root:Epoch[75] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0076.params"
+INFO:root:Epoch[75] Validation-RMSE=39.060774
+INFO:root:Epoch[76] Train-RMSE=29.511274
+INFO:root:Epoch[76] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0077.params"
+INFO:root:Epoch[76] Validation-RMSE=138.300434
+INFO:root:Epoch[77] Train-RMSE=28.962713
+INFO:root:Epoch[77] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/precnv-0078.params"
+INFO:root:Epoch[77] Validation-RMSE=85.640205
+INFO:root:Epoch[78] Train-RMSE=27.987609
+INFO:root:Epoch[78] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0079.params"
+INFO:root:Epoch[78] Validation-RMSE=92.330017
+INFO:root:Epoch[79] Train-RMSE=28.301890
+INFO:root:Epoch[79] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0080.params"
+INFO:root:Epoch[79] Validation-RMSE=141.500488
+INFO:root:Epoch[80] Train-RMSE=28.087788
+INFO:root:Epoch[80] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0081.params"
+INFO:root:Epoch[80] Validation-RMSE=84.278856
+INFO:root:Epoch[81] Train-RMSE=28.678417
+INFO:root:Epoch[81] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0082.params"
+INFO:root:Epoch[81] Validation-RMSE=61.693514
+INFO:root:Epoch[82] Train-RMSE=28.033715
+INFO:root:Epoch[82] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0083.params"
+INFO:root:Epoch[82] Validation-RMSE=52.045524
+INFO:root:Epoch[83] Train-RMSE=28.822762
+INFO:root:Epoch[83] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0084.params"
+INFO:root:Epoch[83] Validation-RMSE=139.369450
+INFO:root:Epoch[84] Train-RMSE=28.137042
+INFO:root:Epoch[84] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0085.params"
+INFO:root:Epoch[84] Validation-RMSE=66.631938
+INFO:root:Epoch[85] Train-RMSE=29.005923
+INFO:root:Epoch[85] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0086.params"
+INFO:root:Epoch[85] Validation-RMSE=51.731941
+INFO:root:Epoch[86] Train-RMSE=28.945330
+INFO:root:Epoch[86] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0087.params"
+INFO:root:Epoch[86] Validation-RMSE=129.412665
+INFO:root:Epoch[87] Train-RMSE=29.278586
+INFO:root:Epoch[87] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0088.params"
+INFO:root:Epoch[87] Validation-RMSE=60.698210
+INFO:root:Epoch[88] Train-RMSE=30.634914
+INFO:root:Epoch[88] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0089.params"
+INFO:root:Epoch[88] Validation-RMSE=175.080761
+INFO:root:Epoch[89] Train-RMSE=28.506451
+INFO:root:Epoch[89] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0090.params"
+INFO:root:Epoch[89] Validation-RMSE=48.246910
+INFO:root:Epoch[90] Train-RMSE=28.313915
+INFO:root:Epoch[90] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0091.params"
+INFO:root:Epoch[90] Validation-RMSE=120.318248
+INFO:root:Epoch[91] Train-RMSE=28.437644
+INFO:root:Epoch[91] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0092.params"
+INFO:root:Epoch[91] Validation-RMSE=180.048138
+INFO:root:Epoch[92] Train-RMSE=29.053292
+INFO:root:Epoch[92] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0093.params"
+INFO:root:Epoch[92] Validation-RMSE=33.977062
+INFO:root:Epoch[93] Train-RMSE=28.600924
+INFO:root:Epoch[93] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0094.params"
+INFO:root:Epoch[93] Validation-RMSE=81.238406
+INFO:root:Epoch[94] Train-RMSE=29.019990
+INFO:root:Epoch[94] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/precnv-0095.params"
+INFO:root:Epoch[94] Validation-RMSE=92.294736
+INFO:root:Epoch[95] Train-RMSE=29.927274
+INFO:root:Epoch[95] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0096.params"
+INFO:root:Epoch[95] Validation-RMSE=33.752157
+INFO:root:Epoch[96] Train-RMSE=28.974993
+INFO:root:Epoch[96] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0097.params"
+INFO:root:Epoch[96] Validation-RMSE=191.343918
+INFO:root:Epoch[97] Train-RMSE=28.869772
+INFO:root:Epoch[97] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0098.params"
+INFO:root:Epoch[97] Validation-RMSE=43.092730
+INFO:root:Epoch[98] Train-RMSE=28.962008
+INFO:root:Epoch[98] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0099.params"
+INFO:root:Epoch[98] Validation-RMSE=38.117967
+INFO:root:Epoch[99] Train-RMSE=28.325458
+INFO:root:Epoch[99] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0100.params"
+INFO:root:Epoch[99] Validation-RMSE=67.416618
+INFO:root:Epoch[100] Train-RMSE=27.861721
+INFO:root:Epoch[100] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0101.params"
+INFO:root:Epoch[100] Validation-RMSE=111.659374
+INFO:root:Epoch[101] Train-RMSE=28.366081
+INFO:root:Epoch[101] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0102.params"
+INFO:root:Epoch[101] Validation-RMSE=29.087314
+INFO:root:Epoch[102] Train-RMSE=27.924952
+INFO:root:Epoch[102] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0103.params"
+INFO:root:Epoch[102] Validation-RMSE=54.419830
+INFO:root:Epoch[103] Train-RMSE=28.445304
+INFO:root:Epoch[103] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0104.params"
+INFO:root:Epoch[103] Validation-RMSE=171.293560
+INFO:root:Epoch[104] Train-RMSE=32.667829
+INFO:root:Epoch[104] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0105.params"
+INFO:root:Epoch[104] Validation-RMSE=70.197315
+INFO:root:Epoch[105] Train-RMSE=28.519709
+INFO:root:Epoch[105] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/precnv-0106.params"
+INFO:root:Epoch[105] Validation-RMSE=49.416684
+INFO:root:Epoch[106] Train-RMSE=28.605716
+INFO:root:Epoch[106] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0107.params"
+INFO:root:Epoch[106] Validation-RMSE=148.182625
+INFO:root:Epoch[107] Train-RMSE=28.846064
+INFO:root:Epoch[107] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0108.params"
+INFO:root:Epoch[107] Validation-RMSE=35.240236
+INFO:root:Epoch[108] Train-RMSE=28.608087
+INFO:root:Epoch[108] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0109.params"
+INFO:root:Epoch[108] Validation-RMSE=48.661614
+INFO:root:Epoch[109] Train-RMSE=28.513048
+INFO:root:Epoch[109] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0110.params"
+INFO:root:Epoch[109] Validation-RMSE=62.690007
+INFO:root:Epoch[110] Train-RMSE=28.348351
+INFO:root:Epoch[110] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0111.params"
+INFO:root:Epoch[110] Validation-RMSE=160.667912
+INFO:root:Epoch[111] Train-RMSE=27.827467
+INFO:root:Epoch[111] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0112.params"
+INFO:root:Epoch[111] Validation-RMSE=139.312939
+INFO:root:Epoch[112] Train-RMSE=28.659939
+INFO:root:Epoch[112] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0113.params"
+INFO:root:Epoch[112] Validation-RMSE=43.852790
+INFO:root:Epoch[113] Train-RMSE=28.223009
+INFO:root:Epoch[113] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0114.params"
+INFO:root:Epoch[113] Validation-RMSE=34.437600
+INFO:root:Epoch[114] Train-RMSE=28.483824
+INFO:root:Epoch[114] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0115.params"
+INFO:root:Epoch[114] Validation-RMSE=34.428581
+INFO:root:Update[3361]: Change learning rate to 1.00000e-04
+INFO:root:Epoch[115] Train-RMSE=28.227743
+INFO:root:Epoch[115] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0116.params"
+INFO:root:Epoch[115] Validation-RMSE=49.877423
+INFO:root:Epoch[116] Train-RMSE=28.213680
+INFO:root:Epoch[116] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/precnv-0117.params"
+INFO:root:Epoch[116] Validation-RMSE=27.247886
+INFO:root:Epoch[117] Train-RMSE=27.094273
+INFO:root:Epoch[117] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/precnv-0118.params"
+INFO:root:Epoch[117] Validation-RMSE=29.061328
+INFO:root:Epoch[118] Train-RMSE=26.830847
+INFO:root:Epoch[118] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0119.params"
+INFO:root:Epoch[118] Validation-RMSE=28.305579
+INFO:root:Epoch[119] Train-RMSE=26.859109
+INFO:root:Epoch[119] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0120.params"
+INFO:root:Epoch[119] Validation-RMSE=27.218705
+INFO:root:Epoch[120] Train-RMSE=26.932657
+INFO:root:Epoch[120] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0121.params"
+INFO:root:Epoch[120] Validation-RMSE=27.876475
+INFO:root:Epoch[121] Train-RMSE=26.725384
+INFO:root:Epoch[121] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0122.params"
+INFO:root:Epoch[121] Validation-RMSE=28.323521
+INFO:root:Epoch[122] Train-RMSE=26.633591
+INFO:root:Epoch[122] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/precnv-0123.params"
+INFO:root:Epoch[122] Validation-RMSE=26.793532
+INFO:root:Epoch[123] Train-RMSE=26.921972
+INFO:root:Epoch[123] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0124.params"
+INFO:root:Epoch[123] Validation-RMSE=29.608151
+INFO:root:Epoch[124] Train-RMSE=26.622102
+INFO:root:Epoch[124] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0125.params"
+INFO:root:Epoch[124] Validation-RMSE=27.327777
+INFO:root:Epoch[125] Train-RMSE=26.425479
+INFO:root:Epoch[125] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0126.params"
+INFO:root:Epoch[125] Validation-RMSE=26.966787
+INFO:root:Epoch[126] Train-RMSE=26.472409
+INFO:root:Epoch[126] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0127.params"
+INFO:root:Epoch[126] Validation-RMSE=27.765520
+INFO:root:Epoch[127] Train-RMSE=26.530488
+INFO:root:Epoch[127] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/precnv-0128.params"
+INFO:root:Epoch[127] Validation-RMSE=30.193523
+INFO:root:Epoch[128] Train-RMSE=26.530627
+INFO:root:Epoch[128] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/precnv-0129.params"
+INFO:root:Epoch[128] Validation-RMSE=28.116756
+INFO:root:Epoch[129] Train-RMSE=26.808215
+INFO:root:Epoch[129] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0130.params"
+INFO:root:Epoch[129] Validation-RMSE=27.656986
+INFO:root:Epoch[130] Train-RMSE=26.639221
+INFO:root:Epoch[130] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0131.params"
+INFO:root:Epoch[130] Validation-RMSE=27.202177
+INFO:root:Epoch[131] Train-RMSE=26.576767
+INFO:root:Epoch[131] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0132.params"
+INFO:root:Epoch[131] Validation-RMSE=33.065557
+INFO:root:Epoch[132] Train-RMSE=26.635265
+INFO:root:Epoch[132] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0133.params"
+INFO:root:Epoch[132] Validation-RMSE=27.201002
+INFO:root:Epoch[133] Train-RMSE=26.513103
+INFO:root:Epoch[133] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0134.params"
+INFO:root:Epoch[133] Validation-RMSE=28.187500
+INFO:root:Epoch[134] Train-RMSE=26.440316
+INFO:root:Epoch[134] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0135.params"
+INFO:root:Epoch[134] Validation-RMSE=27.164340
+INFO:root:Epoch[135] Train-RMSE=26.532342
+INFO:root:Epoch[135] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0136.params"
+INFO:root:Epoch[135] Validation-RMSE=27.933432
+INFO:root:Epoch[136] Train-RMSE=26.441645
+INFO:root:Epoch[136] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0137.params"
+INFO:root:Epoch[136] Validation-RMSE=28.356293
+INFO:root:Epoch[137] Train-RMSE=26.487918
+INFO:root:Epoch[137] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0138.params"
+INFO:root:Epoch[137] Validation-RMSE=26.884183
+INFO:root:Epoch[138] Train-RMSE=26.573389
+INFO:root:Epoch[138] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0139.params"
+INFO:root:Epoch[138] Validation-RMSE=26.459141
+INFO:root:Epoch[139] Train-RMSE=26.565015
+INFO:root:Epoch[139] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/precnv-0140.params"
+INFO:root:Epoch[139] Validation-RMSE=27.689289
+INFO:root:Epoch[140] Train-RMSE=26.845345
+INFO:root:Epoch[140] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0141.params"
+INFO:root:Epoch[140] Validation-RMSE=27.637821
+INFO:root:Epoch[141] Train-RMSE=26.373240
+INFO:root:Epoch[141] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0142.params"
+INFO:root:Epoch[141] Validation-RMSE=26.466578
+INFO:root:Epoch[142] Train-RMSE=26.452194
+INFO:root:Epoch[142] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0143.params"
+INFO:root:Epoch[142] Validation-RMSE=27.541977
+INFO:root:Epoch[143] Train-RMSE=26.584440
+INFO:root:Epoch[143] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0144.params"
+INFO:root:Epoch[143] Validation-RMSE=27.515267
+INFO:root:Update[4201]: Change learning rate to 1.00000e-05
+INFO:root:Epoch[144] Train-RMSE=26.389310
+INFO:root:Epoch[144] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/precnv-0145.params"
+INFO:root:Epoch[144] Validation-RMSE=27.013096
+INFO:root:Epoch[145] Train-RMSE=26.537294
+INFO:root:Epoch[145] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0146.params"
+INFO:root:Epoch[145] Validation-RMSE=26.314654
+INFO:root:Epoch[146] Train-RMSE=26.389656
+INFO:root:Epoch[146] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0147.params"
+INFO:root:Epoch[146] Validation-RMSE=26.276850
+INFO:root:Epoch[147] Train-RMSE=26.448140
+INFO:root:Epoch[147] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0148.params"
+INFO:root:Epoch[147] Validation-RMSE=26.253366
+INFO:root:Epoch[148] Train-RMSE=26.402973
+INFO:root:Epoch[148] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0149.params"
+INFO:root:Epoch[148] Validation-RMSE=26.251655
+INFO:root:Epoch[149] Train-RMSE=26.446726
+INFO:root:Epoch[149] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0150.params"
+INFO:root:Epoch[149] Validation-RMSE=26.279280
+INFO:root:Epoch[150] Train-RMSE=26.340384
+INFO:root:Epoch[150] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/precnv-0151.params"
+INFO:root:Epoch[150] Validation-RMSE=26.265127
+INFO:root:Epoch[151] Train-RMSE=26.462257
+INFO:root:Epoch[151] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0152.params"
+INFO:root:Epoch[151] Validation-RMSE=26.268482
+INFO:root:Epoch[152] Train-RMSE=26.350951
+INFO:root:Epoch[152] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0153.params"
+INFO:root:Epoch[152] Validation-RMSE=26.304581
+INFO:root:Epoch[153] Train-RMSE=26.369923
+INFO:root:Epoch[153] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0154.params"
+INFO:root:Epoch[153] Validation-RMSE=26.321849
+INFO:root:Epoch[154] Train-RMSE=26.368952
+INFO:root:Epoch[154] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0155.params"
+INFO:root:Epoch[154] Validation-RMSE=26.326802
+INFO:root:Epoch[155] Train-RMSE=26.556945
+INFO:root:Epoch[155] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0156.params"
+INFO:root:Epoch[155] Validation-RMSE=26.309337
+INFO:root:Epoch[156] Train-RMSE=26.244238
+INFO:root:Epoch[156] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/precnv-0157.params"
+INFO:root:Epoch[156] Validation-RMSE=26.299839
+INFO:root:Epoch[157] Train-RMSE=26.464101
+INFO:root:Epoch[157] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0158.params"
+INFO:root:Epoch[157] Validation-RMSE=26.328974
+INFO:root:Epoch[158] Train-RMSE=26.327487
+INFO:root:Epoch[158] Time cost=0.293
+INFO:root:Saved checkpoint to "./model/precnv-0159.params"
+INFO:root:Epoch[158] Validation-RMSE=26.314101
+INFO:root:Epoch[159] Train-RMSE=26.379529
+INFO:root:Epoch[159] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0160.params"
+INFO:root:Epoch[159] Validation-RMSE=26.323112
+INFO:root:Epoch[160] Train-RMSE=26.675667
+INFO:root:Epoch[160] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0161.params"
+INFO:root:Epoch[160] Validation-RMSE=26.294931
+INFO:root:Epoch[161] Train-RMSE=26.260848
+INFO:root:Epoch[161] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0162.params"
+INFO:root:Epoch[161] Validation-RMSE=26.316131
+INFO:root:Epoch[162] Train-RMSE=26.501255
+INFO:root:Epoch[162] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0163.params"
+INFO:root:Epoch[162] Validation-RMSE=26.298988
+INFO:root:Epoch[163] Train-RMSE=26.288301
+INFO:root:Epoch[163] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0164.params"
+INFO:root:Epoch[163] Validation-RMSE=26.296445
+INFO:root:Epoch[164] Train-RMSE=26.360734
+INFO:root:Epoch[164] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0165.params"
+INFO:root:Epoch[164] Validation-RMSE=26.314527
+INFO:root:Epoch[165] Train-RMSE=26.274638
+INFO:root:Epoch[165] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0166.params"
+INFO:root:Epoch[165] Validation-RMSE=26.290983
+INFO:root:Epoch[166] Train-RMSE=26.353252
+INFO:root:Epoch[166] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0167.params"
+INFO:root:Epoch[166] Validation-RMSE=26.276346
+INFO:root:Epoch[167] Train-RMSE=26.487364
+INFO:root:Epoch[167] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/precnv-0168.params"
+INFO:root:Epoch[167] Validation-RMSE=26.271594
+INFO:root:Epoch[168] Train-RMSE=26.439803
+INFO:root:Epoch[168] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0169.params"
+INFO:root:Epoch[168] Validation-RMSE=26.296491
+INFO:root:Epoch[169] Train-RMSE=26.491626
+INFO:root:Epoch[169] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0170.params"
+INFO:root:Epoch[169] Validation-RMSE=26.306698
+INFO:root:Epoch[170] Train-RMSE=26.347504
+INFO:root:Epoch[170] Time cost=0.294
+INFO:root:Saved checkpoint to "./model/precnv-0171.params"
+INFO:root:Epoch[170] Validation-RMSE=26.282624
+INFO:root:Epoch[171] Train-RMSE=26.466724
+INFO:root:Epoch[171] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0172.params"
+INFO:root:Epoch[171] Validation-RMSE=26.295306
+INFO:root:Epoch[172] Train-RMSE=26.260807
+INFO:root:Epoch[172] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0173.params"
+INFO:root:Epoch[172] Validation-RMSE=26.269814
+INFO:root:Epoch[173] Train-RMSE=26.134448
+INFO:root:Epoch[173] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0174.params"
+INFO:root:Epoch[173] Validation-RMSE=26.294504
+INFO:root:Epoch[174] Train-RMSE=26.400322
+INFO:root:Epoch[174] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0175.params"
+INFO:root:Epoch[174] Validation-RMSE=26.281636
+INFO:root:Epoch[175] Train-RMSE=26.328298
+INFO:root:Epoch[175] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0176.params"
+INFO:root:Epoch[175] Validation-RMSE=26.314195
+INFO:root:Epoch[176] Train-RMSE=26.329697
+INFO:root:Epoch[176] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0177.params"
+INFO:root:Epoch[176] Validation-RMSE=26.296878
+INFO:root:Epoch[177] Train-RMSE=26.406763
+INFO:root:Epoch[177] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0178.params"
+INFO:root:Epoch[177] Validation-RMSE=26.291667
+INFO:root:Epoch[178] Train-RMSE=26.377984
+INFO:root:Epoch[178] Time cost=0.318
+INFO:root:Saved checkpoint to "./model/precnv-0179.params"
+INFO:root:Epoch[178] Validation-RMSE=26.274831
+INFO:root:Epoch[179] Train-RMSE=26.558473
+INFO:root:Epoch[179] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/precnv-0180.params"
+INFO:root:Epoch[179] Validation-RMSE=26.314466
+INFO:root:Epoch[180] Train-RMSE=26.286764
+INFO:root:Epoch[180] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0181.params"
+INFO:root:Epoch[180] Validation-RMSE=26.291720
+INFO:root:Epoch[181] Train-RMSE=26.505047
+INFO:root:Epoch[181] Time cost=0.291
+INFO:root:Saved checkpoint to "./model/precnv-0182.params"
+INFO:root:Epoch[181] Validation-RMSE=26.340788
+INFO:root:Epoch[182] Train-RMSE=26.518231
+INFO:root:Epoch[182] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0183.params"
+INFO:root:Epoch[182] Validation-RMSE=26.306479
+INFO:root:Epoch[183] Train-RMSE=26.275382
+INFO:root:Epoch[183] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0184.params"
+INFO:root:Epoch[183] Validation-RMSE=26.305115
+INFO:root:Epoch[184] Train-RMSE=26.204931
+INFO:root:Epoch[184] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/precnv-0185.params"
+INFO:root:Epoch[184] Validation-RMSE=26.286811
+INFO:root:Epoch[185] Train-RMSE=26.405199
+INFO:root:Epoch[185] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0186.params"
+INFO:root:Epoch[185] Validation-RMSE=26.267464
+INFO:root:Epoch[186] Train-RMSE=26.375236
+INFO:root:Epoch[186] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0187.params"
+INFO:root:Epoch[186] Validation-RMSE=26.285337
+INFO:root:Epoch[187] Train-RMSE=26.335075
+INFO:root:Epoch[187] Time cost=0.291
+INFO:root:Saved checkpoint to "./model/precnv-0188.params"
+INFO:root:Epoch[187] Validation-RMSE=26.348599
+INFO:root:Epoch[188] Train-RMSE=26.355516
+INFO:root:Epoch[188] Time cost=0.290
+INFO:root:Saved checkpoint to "./model/precnv-0189.params"
+INFO:root:Epoch[188] Validation-RMSE=26.338645
+INFO:root:Epoch[189] Train-RMSE=26.493496
+INFO:root:Epoch[189] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0190.params"
+INFO:root:Epoch[189] Validation-RMSE=26.326582
+INFO:root:Epoch[190] Train-RMSE=26.321644
+INFO:root:Epoch[190] Time cost=0.291
+INFO:root:Saved checkpoint to "./model/precnv-0191.params"
+INFO:root:Epoch[190] Validation-RMSE=26.308440
+INFO:root:Epoch[191] Train-RMSE=26.457262
+INFO:root:Epoch[191] Time cost=0.291
+INFO:root:Saved checkpoint to "./model/precnv-0192.params"
+INFO:root:Epoch[191] Validation-RMSE=26.265767
+INFO:root:Epoch[192] Train-RMSE=26.423849
+INFO:root:Epoch[192] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0193.params"
+INFO:root:Epoch[192] Validation-RMSE=26.268252
+INFO:root:Epoch[193] Train-RMSE=26.393952
+INFO:root:Epoch[193] Time cost=0.290
+INFO:root:Saved checkpoint to "./model/precnv-0194.params"
+INFO:root:Epoch[193] Validation-RMSE=26.292547
+INFO:root:Epoch[194] Train-RMSE=26.306758
+INFO:root:Epoch[194] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/precnv-0195.params"
+INFO:root:Epoch[194] Validation-RMSE=26.323437
+INFO:root:Epoch[195] Train-RMSE=26.478597
+INFO:root:Epoch[195] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/precnv-0196.params"
+INFO:root:Epoch[195] Validation-RMSE=26.290168
+INFO:root:Epoch[196] Train-RMSE=26.338758
+INFO:root:Epoch[196] Time cost=0.291
+INFO:root:Saved checkpoint to "./model/precnv-0197.params"
+INFO:root:Epoch[196] Validation-RMSE=26.269184
+INFO:root:Epoch[197] Train-RMSE=26.345610
+INFO:root:Epoch[197] Time cost=0.292
+INFO:root:Saved checkpoint to "./model/precnv-0198.params"
+INFO:root:Epoch[197] Validation-RMSE=26.297996
+INFO:root:Epoch[198] Train-RMSE=26.255959
+INFO:root:Epoch[198] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/precnv-0199.params"
+INFO:root:Epoch[198] Validation-RMSE=26.277614
+INFO:root:Epoch[199] Train-RMSE=26.529318
+INFO:root:Epoch[199] Time cost=0.290
+INFO:root:Saved checkpoint to "./model/precnv-0200.params"
+INFO:root:Epoch[199] Validation-RMSE=26.369676
+INFO:root:Namespace(batch_size=2048, bn_mom=0.9, data_dir='../../sinan-ath/logs/socialnet_ml_data/swarm_simple_sys_data_next_5s', gpus='0,1', kv_store='local', load_epoch=0, log='test_single_qps_upsample', lr=0.001, model_prefix='./model/pre_cnv', mom=0.9, network='cnvnet', num_examples=58499, pretrain_model_prefix='', sample=1.0, wd=0.001)
+INFO:root:Epoch[0] Train-RMSE=174.400582
+INFO:root:Epoch[0] Time cost=0.577
+INFO:root:Saved checkpoint to "./model/pre_cnv-0001.params"
+INFO:root:Epoch[0] Validation-RMSE=149.037827
+INFO:root:Epoch[1] Train-RMSE=70.198217
+INFO:root:Epoch[1] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0002.params"
+INFO:root:Epoch[1] Validation-RMSE=64.281065
+INFO:root:Epoch[2] Train-RMSE=49.713483
+INFO:root:Epoch[2] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0003.params"
+INFO:root:Epoch[2] Validation-RMSE=49.226645
+INFO:root:Epoch[3] Train-RMSE=45.859006
+INFO:root:Epoch[3] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0004.params"
+INFO:root:Epoch[3] Validation-RMSE=45.293709
+INFO:root:Epoch[4] Train-RMSE=42.539005
+INFO:root:Epoch[4] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0005.params"
+INFO:root:Epoch[4] Validation-RMSE=46.092191
+INFO:root:Epoch[5] Train-RMSE=40.972507
+INFO:root:Epoch[5] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0006.params"
+INFO:root:Epoch[5] Validation-RMSE=44.722293
+INFO:root:Epoch[6] Train-RMSE=40.174848
+INFO:root:Epoch[6] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0007.params"
+INFO:root:Epoch[6] Validation-RMSE=54.725554
+INFO:root:Epoch[7] Train-RMSE=39.814149
+INFO:root:Epoch[7] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0008.params"
+INFO:root:Epoch[7] Validation-RMSE=39.965569
+INFO:root:Epoch[8] Train-RMSE=37.913970
+INFO:root:Epoch[8] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0009.params"
+INFO:root:Epoch[8] Validation-RMSE=37.100918
+INFO:root:Epoch[9] Train-RMSE=37.087479
+INFO:root:Epoch[9] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0010.params"
+INFO:root:Epoch[9] Validation-RMSE=48.783134
+INFO:root:Epoch[10] Train-RMSE=37.315183
+INFO:root:Epoch[10] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0011.params"
+INFO:root:Epoch[10] Validation-RMSE=43.337452
+INFO:root:Epoch[11] Train-RMSE=37.049937
+INFO:root:Epoch[11] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/pre_cnv-0012.params"
+INFO:root:Epoch[11] Validation-RMSE=48.672770
+INFO:root:Epoch[12] Train-RMSE=36.768278
+INFO:root:Epoch[12] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/pre_cnv-0013.params"
+INFO:root:Epoch[12] Validation-RMSE=37.561770
+INFO:root:Namespace(batch_size=2048, bn_mom=0.9, data_dir='../../sinan-ath/logs/socialnet_ml_data/swarm_simple_sys_data_next_5s', gpus='0,1', kv_store='local', load_epoch=0, log='test_single_qps_upsample', lr=0.001, model_prefix='./model/pre_cnv', mom=0.9, network='cnvnet', num_examples=58499, pretrain_model_prefix='', sample=1.0, wd=0.001)
+INFO:root:Epoch[0] Train-RMSE=175.643994
+INFO:root:Epoch[0] Time cost=0.578
+INFO:root:Saved checkpoint to "./model/pre_cnv-0001.params"
+INFO:root:Epoch[0] Validation-RMSE=245.270727
+INFO:root:Epoch[1] Train-RMSE=71.640128
+INFO:root:Epoch[1] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0002.params"
+INFO:root:Epoch[1] Validation-RMSE=62.173795
+INFO:root:Epoch[2] Train-RMSE=54.574015
+INFO:root:Epoch[2] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0003.params"
+INFO:root:Epoch[2] Validation-RMSE=61.058331
+INFO:root:Epoch[3] Train-RMSE=48.873822
+INFO:root:Epoch[3] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pre_cnv-0004.params"
+INFO:root:Epoch[3] Validation-RMSE=46.129339
+INFO:root:Epoch[4] Train-RMSE=44.772609
+INFO:root:Epoch[4] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0005.params"
+INFO:root:Epoch[4] Validation-RMSE=50.514009
+INFO:root:Epoch[5] Train-RMSE=44.210357
+INFO:root:Epoch[5] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0006.params"
+INFO:root:Epoch[5] Validation-RMSE=41.796014
+INFO:root:Epoch[6] Train-RMSE=42.328057
+INFO:root:Epoch[6] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pre_cnv-0007.params"
+INFO:root:Epoch[6] Validation-RMSE=45.191578
+INFO:root:Epoch[7] Train-RMSE=43.086263
+INFO:root:Epoch[7] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0008.params"
+INFO:root:Epoch[7] Validation-RMSE=45.880661
+INFO:root:Epoch[8] Train-RMSE=41.010841
+INFO:root:Epoch[8] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0009.params"
+INFO:root:Epoch[8] Validation-RMSE=50.116272
+INFO:root:Epoch[9] Train-RMSE=39.733386
+INFO:root:Epoch[9] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0010.params"
+INFO:root:Epoch[9] Validation-RMSE=47.507900
+INFO:root:Epoch[10] Train-RMSE=39.290173
+INFO:root:Epoch[10] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0011.params"
+INFO:root:Epoch[10] Validation-RMSE=48.953202
+INFO:root:Epoch[11] Train-RMSE=38.969715
+INFO:root:Epoch[11] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/pre_cnv-0012.params"
+INFO:root:Epoch[11] Validation-RMSE=53.519140
+INFO:root:Epoch[12] Train-RMSE=38.796135
+INFO:root:Epoch[12] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0013.params"
+INFO:root:Epoch[12] Validation-RMSE=41.518990
+INFO:root:Epoch[13] Train-RMSE=37.968739
+INFO:root:Epoch[13] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0014.params"
+INFO:root:Epoch[13] Validation-RMSE=39.090645
+INFO:root:Epoch[14] Train-RMSE=37.083936
+INFO:root:Epoch[14] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0015.params"
+INFO:root:Epoch[14] Validation-RMSE=39.010767
+INFO:root:Epoch[15] Train-RMSE=37.660425
+INFO:root:Epoch[15] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0016.params"
+INFO:root:Epoch[15] Validation-RMSE=68.571752
+INFO:root:Epoch[16] Train-RMSE=37.264192
+INFO:root:Epoch[16] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0017.params"
+INFO:root:Epoch[16] Validation-RMSE=36.536541
+INFO:root:Epoch[17] Train-RMSE=36.816308
+INFO:root:Epoch[17] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0018.params"
+INFO:root:Epoch[17] Validation-RMSE=38.194296
+INFO:root:Epoch[18] Train-RMSE=36.053584
+INFO:root:Epoch[18] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0019.params"
+INFO:root:Epoch[18] Validation-RMSE=38.572912
+INFO:root:Epoch[19] Train-RMSE=36.936837
+INFO:root:Epoch[19] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0020.params"
+INFO:root:Epoch[19] Validation-RMSE=38.692552
+INFO:root:Epoch[20] Train-RMSE=36.331631
+INFO:root:Epoch[20] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0021.params"
+INFO:root:Epoch[20] Validation-RMSE=45.786561
+INFO:root:Epoch[21] Train-RMSE=35.722415
+INFO:root:Epoch[21] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0022.params"
+INFO:root:Epoch[21] Validation-RMSE=37.773597
+INFO:root:Epoch[22] Train-RMSE=36.325763
+INFO:root:Epoch[22] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0023.params"
+INFO:root:Epoch[22] Validation-RMSE=37.022808
+INFO:root:Epoch[23] Train-RMSE=35.638875
+INFO:root:Epoch[23] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0024.params"
+INFO:root:Epoch[23] Validation-RMSE=37.518999
+INFO:root:Epoch[24] Train-RMSE=35.534968
+INFO:root:Epoch[24] Time cost=0.312
+INFO:root:Saved checkpoint to "./model/pre_cnv-0025.params"
+INFO:root:Epoch[24] Validation-RMSE=70.032876
+INFO:root:Epoch[25] Train-RMSE=36.204009
+INFO:root:Epoch[25] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0026.params"
+INFO:root:Epoch[25] Validation-RMSE=42.444727
+INFO:root:Epoch[26] Train-RMSE=36.133030
+INFO:root:Epoch[26] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0027.params"
+INFO:root:Epoch[26] Validation-RMSE=39.830540
+INFO:root:Epoch[27] Train-RMSE=35.663280
+INFO:root:Epoch[27] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0028.params"
+INFO:root:Epoch[27] Validation-RMSE=35.074535
+INFO:root:Epoch[28] Train-RMSE=34.934426
+INFO:root:Epoch[28] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0029.params"
+INFO:root:Epoch[28] Validation-RMSE=44.894341
+INFO:root:Epoch[29] Train-RMSE=35.731298
+INFO:root:Epoch[29] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pre_cnv-0030.params"
+INFO:root:Epoch[29] Validation-RMSE=38.608041
+INFO:root:Epoch[30] Train-RMSE=35.252360
+INFO:root:Epoch[30] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0031.params"
+INFO:root:Epoch[30] Validation-RMSE=36.517569
+INFO:root:Epoch[31] Train-RMSE=34.734867
+INFO:root:Epoch[31] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0032.params"
+INFO:root:Epoch[31] Validation-RMSE=36.220588
+INFO:root:Epoch[32] Train-RMSE=34.926005
+INFO:root:Epoch[32] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0033.params"
+INFO:root:Epoch[32] Validation-RMSE=37.555079
+INFO:root:Epoch[33] Train-RMSE=33.859983
+INFO:root:Epoch[33] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0034.params"
+INFO:root:Epoch[33] Validation-RMSE=35.086657
+INFO:root:Epoch[34] Train-RMSE=34.680074
+INFO:root:Epoch[34] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0035.params"
+INFO:root:Epoch[34] Validation-RMSE=45.169065
+INFO:root:Epoch[35] Train-RMSE=34.971954
+INFO:root:Epoch[35] Time cost=0.311
+INFO:root:Saved checkpoint to "./model/pre_cnv-0036.params"
+INFO:root:Epoch[35] Validation-RMSE=43.383437
+INFO:root:Epoch[36] Train-RMSE=33.230670
+INFO:root:Epoch[36] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0037.params"
+INFO:root:Epoch[36] Validation-RMSE=35.230464
+INFO:root:Epoch[37] Train-RMSE=33.622317
+INFO:root:Epoch[37] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0038.params"
+INFO:root:Epoch[37] Validation-RMSE=40.420376
+INFO:root:Epoch[38] Train-RMSE=33.556705
+INFO:root:Epoch[38] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0039.params"
+INFO:root:Epoch[38] Validation-RMSE=34.493625
+INFO:root:Epoch[39] Train-RMSE=35.171425
+INFO:root:Epoch[39] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0040.params"
+INFO:root:Epoch[39] Validation-RMSE=62.158277
+INFO:root:Epoch[40] Train-RMSE=33.198952
+INFO:root:Epoch[40] Time cost=0.311
+INFO:root:Saved checkpoint to "./model/pre_cnv-0041.params"
+INFO:root:Epoch[40] Validation-RMSE=39.368715
+INFO:root:Epoch[41] Train-RMSE=32.667697
+INFO:root:Epoch[41] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0042.params"
+INFO:root:Epoch[41] Validation-RMSE=43.334278
+INFO:root:Epoch[42] Train-RMSE=33.314013
+INFO:root:Epoch[42] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0043.params"
+INFO:root:Epoch[42] Validation-RMSE=36.057858
+INFO:root:Epoch[43] Train-RMSE=34.151694
+INFO:root:Epoch[43] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0044.params"
+INFO:root:Epoch[43] Validation-RMSE=78.125991
+INFO:root:Epoch[44] Train-RMSE=32.074270
+INFO:root:Epoch[44] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0045.params"
+INFO:root:Epoch[44] Validation-RMSE=40.335144
+INFO:root:Epoch[45] Train-RMSE=34.001567
+INFO:root:Epoch[45] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0046.params"
+INFO:root:Epoch[45] Validation-RMSE=109.308990
+INFO:root:Epoch[46] Train-RMSE=31.329959
+INFO:root:Epoch[46] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0047.params"
+INFO:root:Epoch[46] Validation-RMSE=91.664472
+INFO:root:Epoch[47] Train-RMSE=31.922562
+INFO:root:Epoch[47] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0048.params"
+INFO:root:Epoch[47] Validation-RMSE=42.518167
+INFO:root:Epoch[48] Train-RMSE=31.220591
+INFO:root:Epoch[48] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0049.params"
+INFO:root:Epoch[48] Validation-RMSE=55.817286
+INFO:root:Epoch[49] Train-RMSE=30.877876
+INFO:root:Epoch[49] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0050.params"
+INFO:root:Epoch[49] Validation-RMSE=65.863214
+INFO:root:Epoch[50] Train-RMSE=30.471854
+INFO:root:Epoch[50] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0051.params"
+INFO:root:Epoch[50] Validation-RMSE=84.875239
+INFO:root:Epoch[51] Train-RMSE=31.060364
+INFO:root:Epoch[51] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pre_cnv-0052.params"
+INFO:root:Epoch[51] Validation-RMSE=32.806884
+INFO:root:Epoch[52] Train-RMSE=30.869558
+INFO:root:Epoch[52] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pre_cnv-0053.params"
+INFO:root:Epoch[52] Validation-RMSE=86.596285
+INFO:root:Epoch[53] Train-RMSE=30.415762
+INFO:root:Epoch[53] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0054.params"
+INFO:root:Epoch[53] Validation-RMSE=37.695553
+INFO:root:Epoch[54] Train-RMSE=30.279348
+INFO:root:Epoch[54] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0055.params"
+INFO:root:Epoch[54] Validation-RMSE=47.219372
+INFO:root:Epoch[55] Train-RMSE=30.098454
+INFO:root:Epoch[55] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0056.params"
+INFO:root:Epoch[55] Validation-RMSE=32.323555
+INFO:root:Epoch[56] Train-RMSE=30.030040
+INFO:root:Epoch[56] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0057.params"
+INFO:root:Epoch[56] Validation-RMSE=115.966016
+INFO:root:Epoch[57] Train-RMSE=30.112425
+INFO:root:Epoch[57] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pre_cnv-0058.params"
+INFO:root:Epoch[57] Validation-RMSE=30.731982
+INFO:root:Epoch[58] Train-RMSE=30.648232
+INFO:root:Epoch[58] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0059.params"
+INFO:root:Epoch[58] Validation-RMSE=86.894956
+INFO:root:Epoch[59] Train-RMSE=34.285594
+INFO:root:Epoch[59] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0060.params"
+INFO:root:Epoch[59] Validation-RMSE=69.403277
+INFO:root:Epoch[60] Train-RMSE=31.275975
+INFO:root:Epoch[60] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0061.params"
+INFO:root:Epoch[60] Validation-RMSE=48.045044
+INFO:root:Epoch[61] Train-RMSE=30.403772
+INFO:root:Epoch[61] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0062.params"
+INFO:root:Epoch[61] Validation-RMSE=49.516295
+INFO:root:Epoch[62] Train-RMSE=30.313962
+INFO:root:Epoch[62] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0063.params"
+INFO:root:Epoch[62] Validation-RMSE=128.999975
+INFO:root:Epoch[63] Train-RMSE=30.160555
+INFO:root:Epoch[63] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0064.params"
+INFO:root:Epoch[63] Validation-RMSE=39.148275
+INFO:root:Epoch[64] Train-RMSE=29.816662
+INFO:root:Epoch[64] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0065.params"
+INFO:root:Epoch[64] Validation-RMSE=62.744130
+INFO:root:Epoch[65] Train-RMSE=29.672580
+INFO:root:Epoch[65] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0066.params"
+INFO:root:Epoch[65] Validation-RMSE=94.601758
+INFO:root:Epoch[66] Train-RMSE=29.696071
+INFO:root:Epoch[66] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0067.params"
+INFO:root:Epoch[66] Validation-RMSE=46.928028
+INFO:root:Epoch[67] Train-RMSE=29.377596
+INFO:root:Epoch[67] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0068.params"
+INFO:root:Epoch[67] Validation-RMSE=45.172437
+INFO:root:Epoch[68] Train-RMSE=29.187828
+INFO:root:Epoch[68] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pre_cnv-0069.params"
+INFO:root:Epoch[68] Validation-RMSE=43.715392
+INFO:root:Epoch[69] Train-RMSE=30.508441
+INFO:root:Epoch[69] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0070.params"
+INFO:root:Epoch[69] Validation-RMSE=119.067694
+INFO:root:Epoch[70] Train-RMSE=30.215739
+INFO:root:Epoch[70] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0071.params"
+INFO:root:Epoch[70] Validation-RMSE=38.974367
+INFO:root:Epoch[71] Train-RMSE=29.684803
+INFO:root:Epoch[71] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0072.params"
+INFO:root:Epoch[71] Validation-RMSE=52.327595
+INFO:root:Epoch[72] Train-RMSE=29.556800
+INFO:root:Epoch[72] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0073.params"
+INFO:root:Epoch[72] Validation-RMSE=41.937529
+INFO:root:Epoch[73] Train-RMSE=30.126825
+INFO:root:Epoch[73] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0074.params"
+INFO:root:Epoch[73] Validation-RMSE=37.400864
+INFO:root:Epoch[74] Train-RMSE=30.144605
+INFO:root:Epoch[74] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pre_cnv-0075.params"
+INFO:root:Epoch[74] Validation-RMSE=67.726069
+INFO:root:Epoch[75] Train-RMSE=31.112816
+INFO:root:Epoch[75] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0076.params"
+INFO:root:Epoch[75] Validation-RMSE=83.769753
+INFO:root:Epoch[76] Train-RMSE=30.188097
+INFO:root:Epoch[76] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0077.params"
+INFO:root:Epoch[76] Validation-RMSE=32.965874
+INFO:root:Epoch[77] Train-RMSE=29.662510
+INFO:root:Epoch[77] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0078.params"
+INFO:root:Epoch[77] Validation-RMSE=32.697241
+INFO:root:Epoch[78] Train-RMSE=28.682423
+INFO:root:Epoch[78] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0079.params"
+INFO:root:Epoch[78] Validation-RMSE=113.921709
+INFO:root:Epoch[79] Train-RMSE=28.961076
+INFO:root:Epoch[79] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0080.params"
+INFO:root:Epoch[79] Validation-RMSE=85.826576
+INFO:root:Epoch[80] Train-RMSE=28.750115
+INFO:root:Epoch[80] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0081.params"
+INFO:root:Epoch[80] Validation-RMSE=32.918735
+INFO:root:Epoch[81] Train-RMSE=29.176229
+INFO:root:Epoch[81] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0082.params"
+INFO:root:Epoch[81] Validation-RMSE=39.884883
+INFO:root:Epoch[82] Train-RMSE=28.707373
+INFO:root:Epoch[82] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0083.params"
+INFO:root:Epoch[82] Validation-RMSE=30.795326
+INFO:root:Epoch[83] Train-RMSE=29.444407
+INFO:root:Epoch[83] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0084.params"
+INFO:root:Epoch[83] Validation-RMSE=151.029184
+INFO:root:Epoch[84] Train-RMSE=28.966958
+INFO:root:Epoch[84] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0085.params"
+INFO:root:Epoch[84] Validation-RMSE=129.612142
+INFO:root:Epoch[85] Train-RMSE=29.643507
+INFO:root:Epoch[85] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0086.params"
+INFO:root:Epoch[85] Validation-RMSE=36.257651
+INFO:root:Epoch[86] Train-RMSE=29.456024
+INFO:root:Epoch[86] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0087.params"
+INFO:root:Epoch[86] Validation-RMSE=69.653512
+INFO:root:Epoch[87] Train-RMSE=29.761968
+INFO:root:Epoch[87] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0088.params"
+INFO:root:Epoch[87] Validation-RMSE=36.355506
+INFO:root:Epoch[88] Train-RMSE=31.220229
+INFO:root:Epoch[88] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0089.params"
+INFO:root:Epoch[88] Validation-RMSE=29.465360
+INFO:root:Epoch[89] Train-RMSE=28.871086
+INFO:root:Epoch[89] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0090.params"
+INFO:root:Epoch[89] Validation-RMSE=35.713102
+INFO:root:Epoch[90] Train-RMSE=28.919822
+INFO:root:Epoch[90] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0091.params"
+INFO:root:Epoch[90] Validation-RMSE=35.963997
+INFO:root:Epoch[91] Train-RMSE=28.954981
+INFO:root:Epoch[91] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0092.params"
+INFO:root:Epoch[91] Validation-RMSE=61.560085
+INFO:root:Epoch[92] Train-RMSE=30.021915
+INFO:root:Epoch[92] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0093.params"
+INFO:root:Epoch[92] Validation-RMSE=38.079124
+INFO:root:Epoch[93] Train-RMSE=29.416242
+INFO:root:Epoch[93] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0094.params"
+INFO:root:Epoch[93] Validation-RMSE=30.074118
+INFO:root:Epoch[94] Train-RMSE=29.637394
+INFO:root:Epoch[94] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0095.params"
+INFO:root:Epoch[94] Validation-RMSE=117.441180
+INFO:root:Epoch[95] Train-RMSE=30.113557
+INFO:root:Epoch[95] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0096.params"
+INFO:root:Epoch[95] Validation-RMSE=46.851106
+INFO:root:Epoch[96] Train-RMSE=29.341583
+INFO:root:Epoch[96] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0097.params"
+INFO:root:Epoch[96] Validation-RMSE=65.607778
+INFO:root:Epoch[97] Train-RMSE=29.266578
+INFO:root:Epoch[97] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0098.params"
+INFO:root:Epoch[97] Validation-RMSE=44.147326
+INFO:root:Epoch[98] Train-RMSE=29.509351
+INFO:root:Epoch[98] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0099.params"
+INFO:root:Epoch[98] Validation-RMSE=154.495615
+INFO:root:Epoch[99] Train-RMSE=28.807757
+INFO:root:Epoch[99] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0100.params"
+INFO:root:Epoch[99] Validation-RMSE=57.648303
+INFO:root:Epoch[100] Train-RMSE=28.499063
+INFO:root:Epoch[100] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0101.params"
+INFO:root:Epoch[100] Validation-RMSE=32.895500
+INFO:root:Epoch[101] Train-RMSE=29.178472
+INFO:root:Epoch[101] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0102.params"
+INFO:root:Epoch[101] Validation-RMSE=35.597755
+INFO:root:Epoch[102] Train-RMSE=28.459464
+INFO:root:Epoch[102] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0103.params"
+INFO:root:Epoch[102] Validation-RMSE=62.548719
+INFO:root:Epoch[103] Train-RMSE=29.029300
+INFO:root:Epoch[103] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0104.params"
+INFO:root:Epoch[103] Validation-RMSE=51.676408
+INFO:root:Epoch[104] Train-RMSE=33.317753
+INFO:root:Epoch[104] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0105.params"
+INFO:root:Epoch[104] Validation-RMSE=48.524448
+INFO:root:Epoch[105] Train-RMSE=29.084061
+INFO:root:Epoch[105] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0106.params"
+INFO:root:Epoch[105] Validation-RMSE=38.295841
+INFO:root:Epoch[106] Train-RMSE=29.142397
+INFO:root:Epoch[106] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0107.params"
+INFO:root:Epoch[106] Validation-RMSE=131.501402
+INFO:root:Epoch[107] Train-RMSE=29.040813
+INFO:root:Epoch[107] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0108.params"
+INFO:root:Epoch[107] Validation-RMSE=118.892527
+INFO:root:Epoch[108] Train-RMSE=29.111213
+INFO:root:Epoch[108] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0109.params"
+INFO:root:Epoch[108] Validation-RMSE=50.008891
+INFO:root:Epoch[109] Train-RMSE=29.350835
+INFO:root:Epoch[109] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0110.params"
+INFO:root:Epoch[109] Validation-RMSE=33.067431
+INFO:root:Epoch[110] Train-RMSE=28.824643
+INFO:root:Epoch[110] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0111.params"
+INFO:root:Epoch[110] Validation-RMSE=39.593188
+INFO:root:Epoch[111] Train-RMSE=28.304486
+INFO:root:Epoch[111] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0112.params"
+INFO:root:Epoch[111] Validation-RMSE=36.150740
+INFO:root:Epoch[112] Train-RMSE=29.156494
+INFO:root:Epoch[112] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0113.params"
+INFO:root:Epoch[112] Validation-RMSE=89.477003
+INFO:root:Epoch[113] Train-RMSE=28.564589
+INFO:root:Epoch[113] Time cost=0.310
+INFO:root:Saved checkpoint to "./model/pre_cnv-0114.params"
+INFO:root:Epoch[113] Validation-RMSE=61.709573
+INFO:root:Epoch[114] Train-RMSE=28.983076
+INFO:root:Epoch[114] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0115.params"
+INFO:root:Epoch[114] Validation-RMSE=154.962858
+INFO:root:Update[3361]: Change learning rate to 1.00000e-04
+INFO:root:Epoch[115] Train-RMSE=28.812077
+INFO:root:Epoch[115] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0116.params"
+INFO:root:Epoch[115] Validation-RMSE=155.149775
+INFO:root:Epoch[116] Train-RMSE=28.623142
+INFO:root:Epoch[116] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0117.params"
+INFO:root:Epoch[116] Validation-RMSE=36.617605
+INFO:root:Epoch[117] Train-RMSE=27.591710
+INFO:root:Epoch[117] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0118.params"
+INFO:root:Epoch[117] Validation-RMSE=27.343700
+INFO:root:Epoch[118] Train-RMSE=27.342894
+INFO:root:Epoch[118] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0119.params"
+INFO:root:Epoch[118] Validation-RMSE=27.199024
+INFO:root:Epoch[119] Train-RMSE=27.374066
+INFO:root:Epoch[119] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0120.params"
+INFO:root:Epoch[119] Validation-RMSE=28.144499
+INFO:root:Epoch[120] Train-RMSE=27.481975
+INFO:root:Epoch[120] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0121.params"
+INFO:root:Epoch[120] Validation-RMSE=28.336557
+INFO:root:Epoch[121] Train-RMSE=27.219694
+INFO:root:Epoch[121] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0122.params"
+INFO:root:Epoch[121] Validation-RMSE=27.396124
+INFO:root:Epoch[122] Train-RMSE=27.140624
+INFO:root:Epoch[122] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0123.params"
+INFO:root:Epoch[122] Validation-RMSE=27.076453
+INFO:root:Epoch[123] Train-RMSE=27.437238
+INFO:root:Epoch[123] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0124.params"
+INFO:root:Epoch[123] Validation-RMSE=27.738051
+INFO:root:Epoch[124] Train-RMSE=27.130403
+INFO:root:Epoch[124] Time cost=0.311
+INFO:root:Saved checkpoint to "./model/pre_cnv-0125.params"
+INFO:root:Epoch[124] Validation-RMSE=26.935560
+INFO:root:Epoch[125] Train-RMSE=26.968531
+INFO:root:Epoch[125] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0126.params"
+INFO:root:Epoch[125] Validation-RMSE=27.344704
+INFO:root:Epoch[126] Train-RMSE=26.986599
+INFO:root:Epoch[126] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0127.params"
+INFO:root:Epoch[126] Validation-RMSE=26.929183
+INFO:root:Epoch[127] Train-RMSE=27.029893
+INFO:root:Epoch[127] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0128.params"
+INFO:root:Epoch[127] Validation-RMSE=28.582903
+INFO:root:Epoch[128] Train-RMSE=27.078553
+INFO:root:Epoch[128] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0129.params"
+INFO:root:Epoch[128] Validation-RMSE=28.039771
+INFO:root:Epoch[129] Train-RMSE=27.347238
+INFO:root:Epoch[129] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0130.params"
+INFO:root:Epoch[129] Validation-RMSE=27.167812
+INFO:root:Epoch[130] Train-RMSE=27.163597
+INFO:root:Epoch[130] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0131.params"
+INFO:root:Epoch[130] Validation-RMSE=26.965133
+INFO:root:Epoch[131] Train-RMSE=27.100177
+INFO:root:Epoch[131] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0132.params"
+INFO:root:Epoch[131] Validation-RMSE=27.727353
+INFO:root:Epoch[132] Train-RMSE=27.124324
+INFO:root:Epoch[132] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0133.params"
+INFO:root:Epoch[132] Validation-RMSE=29.700661
+INFO:root:Epoch[133] Train-RMSE=27.060196
+INFO:root:Epoch[133] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0134.params"
+INFO:root:Epoch[133] Validation-RMSE=26.874072
+INFO:root:Epoch[134] Train-RMSE=26.966456
+INFO:root:Epoch[134] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0135.params"
+INFO:root:Epoch[134] Validation-RMSE=29.012919
+INFO:root:Epoch[135] Train-RMSE=27.112516
+INFO:root:Epoch[135] Time cost=0.317
+INFO:root:Saved checkpoint to "./model/pre_cnv-0136.params"
+INFO:root:Epoch[135] Validation-RMSE=30.015814
+INFO:root:Epoch[136] Train-RMSE=27.008447
+INFO:root:Epoch[136] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0137.params"
+INFO:root:Epoch[136] Validation-RMSE=27.277603
+INFO:root:Epoch[137] Train-RMSE=27.054598
+INFO:root:Epoch[137] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0138.params"
+INFO:root:Epoch[137] Validation-RMSE=29.948162
+INFO:root:Epoch[138] Train-RMSE=27.087032
+INFO:root:Epoch[138] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0139.params"
+INFO:root:Epoch[138] Validation-RMSE=29.573516
+INFO:root:Epoch[139] Train-RMSE=27.091744
+INFO:root:Epoch[139] Time cost=0.302
+INFO:root:Saved checkpoint to "./model/pre_cnv-0140.params"
+INFO:root:Epoch[139] Validation-RMSE=28.330232
+INFO:root:Epoch[140] Train-RMSE=27.365788
+INFO:root:Epoch[140] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0141.params"
+INFO:root:Epoch[140] Validation-RMSE=27.095098
+INFO:root:Epoch[141] Train-RMSE=26.932733
+INFO:root:Epoch[141] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0142.params"
+INFO:root:Epoch[141] Validation-RMSE=27.292729
+INFO:root:Epoch[142] Train-RMSE=27.003353
+INFO:root:Epoch[142] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0143.params"
+INFO:root:Epoch[142] Validation-RMSE=27.300247
+INFO:root:Epoch[143] Train-RMSE=27.141435
+INFO:root:Epoch[143] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0144.params"
+INFO:root:Epoch[143] Validation-RMSE=27.275172
+INFO:root:Update[4201]: Change learning rate to 1.00000e-05
+INFO:root:Epoch[144] Train-RMSE=26.932217
+INFO:root:Epoch[144] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0145.params"
+INFO:root:Epoch[144] Validation-RMSE=26.915742
+INFO:root:Epoch[145] Train-RMSE=27.075545
+INFO:root:Epoch[145] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0146.params"
+INFO:root:Epoch[145] Validation-RMSE=26.777183
+INFO:root:Epoch[146] Train-RMSE=26.927083
+INFO:root:Epoch[146] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0147.params"
+INFO:root:Epoch[146] Validation-RMSE=26.693556
+INFO:root:Epoch[147] Train-RMSE=26.984365
+INFO:root:Epoch[147] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0148.params"
+INFO:root:Epoch[147] Validation-RMSE=26.668559
+INFO:root:Epoch[148] Train-RMSE=26.958458
+INFO:root:Epoch[148] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0149.params"
+INFO:root:Epoch[148] Validation-RMSE=26.649748
+INFO:root:Epoch[149] Train-RMSE=26.969607
+INFO:root:Epoch[149] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0150.params"
+INFO:root:Epoch[149] Validation-RMSE=26.697076
+INFO:root:Epoch[150] Train-RMSE=26.871207
+INFO:root:Epoch[150] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0151.params"
+INFO:root:Epoch[150] Validation-RMSE=26.660666
+INFO:root:Epoch[151] Train-RMSE=27.016302
+INFO:root:Epoch[151] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0152.params"
+INFO:root:Epoch[151] Validation-RMSE=26.658814
+INFO:root:Epoch[152] Train-RMSE=26.890280
+INFO:root:Epoch[152] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0153.params"
+INFO:root:Epoch[152] Validation-RMSE=26.666742
+INFO:root:Epoch[153] Train-RMSE=26.908963
+INFO:root:Epoch[153] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0154.params"
+INFO:root:Epoch[153] Validation-RMSE=26.673206
+INFO:root:Epoch[154] Train-RMSE=26.922277
+INFO:root:Epoch[154] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0155.params"
+INFO:root:Epoch[154] Validation-RMSE=26.663470
+INFO:root:Epoch[155] Train-RMSE=27.091617
+INFO:root:Epoch[155] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0156.params"
+INFO:root:Epoch[155] Validation-RMSE=26.680653
+INFO:root:Epoch[156] Train-RMSE=26.827230
+INFO:root:Epoch[156] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0157.params"
+INFO:root:Epoch[156] Validation-RMSE=26.653146
+INFO:root:Epoch[157] Train-RMSE=26.990903
+INFO:root:Epoch[157] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0158.params"
+INFO:root:Epoch[157] Validation-RMSE=26.649270
+INFO:root:Epoch[158] Train-RMSE=26.886759
+INFO:root:Epoch[158] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0159.params"
+INFO:root:Epoch[158] Validation-RMSE=26.647611
+INFO:root:Epoch[159] Train-RMSE=26.917074
+INFO:root:Epoch[159] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0160.params"
+INFO:root:Epoch[159] Validation-RMSE=26.735093
+INFO:root:Epoch[160] Train-RMSE=27.196301
+INFO:root:Epoch[160] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0161.params"
+INFO:root:Epoch[160] Validation-RMSE=26.634534
+INFO:root:Epoch[161] Train-RMSE=26.822092
+INFO:root:Epoch[161] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0162.params"
+INFO:root:Epoch[161] Validation-RMSE=26.684336
+INFO:root:Epoch[162] Train-RMSE=27.054697
+INFO:root:Epoch[162] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0163.params"
+INFO:root:Epoch[162] Validation-RMSE=26.671002
+INFO:root:Epoch[163] Train-RMSE=26.851660
+INFO:root:Epoch[163] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0164.params"
+INFO:root:Epoch[163] Validation-RMSE=26.656792
+INFO:root:Epoch[164] Train-RMSE=26.903185
+INFO:root:Epoch[164] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0165.params"
+INFO:root:Epoch[164] Validation-RMSE=26.632917
+INFO:root:Epoch[165] Train-RMSE=26.814534
+INFO:root:Epoch[165] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0166.params"
+INFO:root:Epoch[165] Validation-RMSE=26.649067
+INFO:root:Epoch[166] Train-RMSE=26.896534
+INFO:root:Epoch[166] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0167.params"
+INFO:root:Epoch[166] Validation-RMSE=26.634363
+INFO:root:Epoch[167] Train-RMSE=27.052489
+INFO:root:Epoch[167] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0168.params"
+INFO:root:Epoch[167] Validation-RMSE=26.624403
+INFO:root:Epoch[168] Train-RMSE=26.979604
+INFO:root:Epoch[168] Time cost=0.312
+INFO:root:Saved checkpoint to "./model/pre_cnv-0169.params"
+INFO:root:Epoch[168] Validation-RMSE=26.659089
+INFO:root:Epoch[169] Train-RMSE=27.033451
+INFO:root:Epoch[169] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0170.params"
+INFO:root:Epoch[169] Validation-RMSE=26.697866
+INFO:root:Epoch[170] Train-RMSE=26.906927
+INFO:root:Epoch[170] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0171.params"
+INFO:root:Epoch[170] Validation-RMSE=26.629608
+INFO:root:Epoch[171] Train-RMSE=27.060865
+INFO:root:Epoch[171] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0172.params"
+INFO:root:Epoch[171] Validation-RMSE=26.696813
+INFO:root:Epoch[172] Train-RMSE=26.818153
+INFO:root:Epoch[172] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0173.params"
+INFO:root:Epoch[172] Validation-RMSE=26.682333
+INFO:root:Epoch[173] Train-RMSE=26.697816
+INFO:root:Epoch[173] Time cost=0.307
+INFO:root:Saved checkpoint to "./model/pre_cnv-0174.params"
+INFO:root:Epoch[173] Validation-RMSE=26.618101
+INFO:root:Epoch[174] Train-RMSE=26.973979
+INFO:root:Epoch[174] Time cost=0.308
+INFO:root:Saved checkpoint to "./model/pre_cnv-0175.params"
+INFO:root:Epoch[174] Validation-RMSE=26.644902
+INFO:root:Epoch[175] Train-RMSE=26.866922
+INFO:root:Epoch[175] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0176.params"
+INFO:root:Epoch[175] Validation-RMSE=26.662922
+INFO:root:Epoch[176] Train-RMSE=26.863742
+INFO:root:Epoch[176] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0177.params"
+INFO:root:Epoch[176] Validation-RMSE=26.674157
+INFO:root:Epoch[177] Train-RMSE=26.951032
+INFO:root:Epoch[177] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0178.params"
+INFO:root:Epoch[177] Validation-RMSE=26.639552
+INFO:root:Epoch[178] Train-RMSE=26.926127
+INFO:root:Epoch[178] Time cost=0.309
+INFO:root:Saved checkpoint to "./model/pre_cnv-0179.params"
+INFO:root:Epoch[178] Validation-RMSE=26.641384
+INFO:root:Epoch[179] Train-RMSE=27.119645
+INFO:root:Epoch[179] Time cost=0.305
+INFO:root:Saved checkpoint to "./model/pre_cnv-0180.params"
+INFO:root:Epoch[179] Validation-RMSE=26.651565
+INFO:root:Epoch[180] Train-RMSE=26.828285
+INFO:root:Epoch[180] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0181.params"
+INFO:root:Epoch[180] Validation-RMSE=26.616945
+INFO:root:Epoch[181] Train-RMSE=27.048056
+INFO:root:Epoch[181] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0182.params"
+INFO:root:Epoch[181] Validation-RMSE=26.639144
+INFO:root:Epoch[182] Train-RMSE=27.071134
+INFO:root:Epoch[182] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0183.params"
+INFO:root:Epoch[182] Validation-RMSE=26.687545
+INFO:root:Epoch[183] Train-RMSE=26.849665
+INFO:root:Epoch[183] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0184.params"
+INFO:root:Epoch[183] Validation-RMSE=26.642640
+INFO:root:Epoch[184] Train-RMSE=26.769232
+INFO:root:Epoch[184] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0185.params"
+INFO:root:Epoch[184] Validation-RMSE=26.681465
+INFO:root:Epoch[185] Train-RMSE=26.962293
+INFO:root:Epoch[185] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0186.params"
+INFO:root:Epoch[185] Validation-RMSE=26.625801
+INFO:root:Epoch[186] Train-RMSE=26.946738
+INFO:root:Epoch[186] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0187.params"
+INFO:root:Epoch[186] Validation-RMSE=26.613720
+INFO:root:Epoch[187] Train-RMSE=26.873602
+INFO:root:Epoch[187] Time cost=0.295
+INFO:root:Saved checkpoint to "./model/pre_cnv-0188.params"
+INFO:root:Epoch[187] Validation-RMSE=26.672900
+INFO:root:Epoch[188] Train-RMSE=26.898652
+INFO:root:Epoch[188] Time cost=0.296
+INFO:root:Saved checkpoint to "./model/pre_cnv-0189.params"
+INFO:root:Epoch[188] Validation-RMSE=26.667246
+INFO:root:Epoch[189] Train-RMSE=27.015275
+INFO:root:Epoch[189] Time cost=0.299
+INFO:root:Saved checkpoint to "./model/pre_cnv-0190.params"
+INFO:root:Epoch[189] Validation-RMSE=26.642533
+INFO:root:Epoch[190] Train-RMSE=26.885581
+INFO:root:Epoch[190] Time cost=0.304
+INFO:root:Saved checkpoint to "./model/pre_cnv-0191.params"
+INFO:root:Epoch[190] Validation-RMSE=26.634260
+INFO:root:Epoch[191] Train-RMSE=27.001779
+INFO:root:Epoch[191] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0192.params"
+INFO:root:Epoch[191] Validation-RMSE=26.626327
+INFO:root:Epoch[192] Train-RMSE=26.993771
+INFO:root:Epoch[192] Time cost=0.303
+INFO:root:Saved checkpoint to "./model/pre_cnv-0193.params"
+INFO:root:Epoch[192] Validation-RMSE=26.639767
+INFO:root:Epoch[193] Train-RMSE=26.951724
+INFO:root:Epoch[193] Time cost=0.298
+INFO:root:Saved checkpoint to "./model/pre_cnv-0194.params"
+INFO:root:Epoch[193] Validation-RMSE=26.655010
+INFO:root:Epoch[194] Train-RMSE=26.855007
+INFO:root:Epoch[194] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0195.params"
+INFO:root:Epoch[194] Validation-RMSE=26.630824
+INFO:root:Epoch[195] Train-RMSE=27.041005
+INFO:root:Epoch[195] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0196.params"
+INFO:root:Epoch[195] Validation-RMSE=26.624317
+INFO:root:Epoch[196] Train-RMSE=26.886761
+INFO:root:Epoch[196] Time cost=0.306
+INFO:root:Saved checkpoint to "./model/pre_cnv-0197.params"
+INFO:root:Epoch[196] Validation-RMSE=26.607923
+INFO:root:Epoch[197] Train-RMSE=26.889728
+INFO:root:Epoch[197] Time cost=0.297
+INFO:root:Saved checkpoint to "./model/pre_cnv-0198.params"
+INFO:root:Epoch[197] Validation-RMSE=26.652157
+INFO:root:Epoch[198] Train-RMSE=26.806803
+INFO:root:Epoch[198] Time cost=0.301
+INFO:root:Saved checkpoint to "./model/pre_cnv-0199.params"
+INFO:root:Epoch[198] Validation-RMSE=26.654974
+INFO:root:Epoch[199] Train-RMSE=27.080705
+INFO:root:Epoch[199] Time cost=0.300
+INFO:root:Saved checkpoint to "./model/pre_cnv-0200.params"
+INFO:root:Epoch[199] Validation-RMSE=26.656173
