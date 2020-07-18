@@ -58,8 +58,7 @@ def sample_in_unison(arr, num_examples, sample_rate):
     for i in range(10):
         np.random.shuffle(index)
     sampled_index = index[:int(num_examples * sample_rate)]
-    sampled_data = []
-    sampled_arr = 
+    sampled_arr = []
     for a in arr:
         a = np.take(a, indices=sampled_index, axis = 0)
         sampled_arr.append(a)
