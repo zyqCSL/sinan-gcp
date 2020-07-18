@@ -5,10 +5,10 @@
 
 '''
 # pretrain on local cluster data
-python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/precnv
+python  train_cnvnet.py --num-examples 58499 --lr 0.001 --gpus 0,1 --data-dir ./swarm_simple_sys_data_next_5s --wd 0.001 --model-prefix ./model/pre_cnv
 
 # fine tune on gcp data
-python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ../logs/gcp_simple_sys_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/precnv --load-epoch 200 --log finetune_01_cnv
+python  train_cnvnet.py --num-examples 29502 --lr 0.0001 --gpus 0,1 --data-dir ../logs/gcp_simple_sys_data_next_5s --sample 0.1 --wd 0.001 --pretrain-model-prefix ./model/pre_cnv --load-epoch 200 --log finetune_01_cnv
 '''
 
 import mxnet as mx
@@ -37,7 +37,6 @@ def _load_model(args, rank=0):
     model_prefix = args.pretrain_model_prefix
     if rank > 0 and os.path.exists("%s-%d-symbol.json" % (model_prefix, rank)):
         model_prefix += "-%d" % (rank)
-    print model_prefix
     sym, arg_params, aux_params = mx.model.load_checkpoint(
         model_prefix, args.load_epoch)
     logging.info('Loaded model %s_%04d.params', model_prefix, args.load_epoch)
@@ -137,9 +136,13 @@ def main():
     
     if args.load_epoch > 1:
         assert model != None
-        sym, arg_params, aux_params = _load_model(args, kv.rank)
-        assert sym != None
-        model.set_params(arg_params, aux_params, allow_missing=True, allow_extra=True)
+        load_params = _load_model(args, kv.rank)
+        model.bind(for_training=False, 
+            data_shapes=[('data1', (args.batch_size,6,28,CnnTimeSteps)), 
+                         ('data2', (args.batch_size,5,CnnTimeSteps)), 
+                         # ('data3', (default_batch_size,2,28))
+                         ('data3', (args.batch_size,28))])
+        model.set_params(load_params[1], load_params[2], allow_missing=True)
         model.fit(
             train_iter,
             eval_data = valid_iter,
