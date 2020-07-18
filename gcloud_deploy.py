@@ -285,6 +285,7 @@ if init_gcloud:
         node_name = json_config['host']
         cpus = json_config['cpus']
         accelerator = json_config['accelerator']
+        disk_size = '40GB'
 
         t = threading.Thread(target=create_sinan_instance, kwargs={
             'instance_name': node_name,
