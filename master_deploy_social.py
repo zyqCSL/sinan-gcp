@@ -149,7 +149,6 @@ with open(str(DeployConfig), 'r') as f:
 	ReplicaCpus = config_info['replica_cpus']
 	Servers = config_info['nodes']
 	for node in Servers:
-		assert 'ip_addr' in Servers[node]
 		assert 'cpus' in Servers[node]
 		# assert 'label' in Servers[node]	# docker swarm tag of the node
 	ServiceConfig = config_info['service']
