@@ -8,6 +8,8 @@ import threading
 import time
 from pathlib import Path
 
+sys.path.append(str(Path.cwd() / 'src'))
+from docker_swarm_util import *
 
 def scp(source, target, identity_file, quiet=False):
     _stdout = sys.stdout
@@ -324,7 +326,6 @@ else:
     with open(str(internal_ip_path), 'r') as f:
         internal_ips = json.load(f)
 
-# create_sinan_firewall_rule(slave_port=slave_port)
 # -----------------------------------------------------------------------
 # run exp
 # -----------------------------------------------------------------------
@@ -343,9 +344,9 @@ master_run_exp_cmd += 'python3 master_deploy_social.py' + \
     ' --gpu-port=' + str(gpu_port) + \
     ' --deploy-config=' + str(deploy_config) + \
     ' --gpu-config=' + str(gpu_config) + \
-    ' --mab-config=' + str(mab_config) + \
-    ' --setup-swarm'
-    # ' --deploy' + \
+    ' --mab-config=' + str(mab_config)
+    ' --setup-swarm' + \
+    ' --deploy'
     
 assert master_host != ''
 assert master_host in external_ips
