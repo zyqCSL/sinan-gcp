@@ -1382,12 +1382,22 @@ def main():
 		# establish docker swarm
 		worker_nodes = list(Servers.keys())
 		worker_nodes.remove(HostServer)
+		print('host: ', HostServer)
 		assert HostServer not in worker_nodes
 		setup_swarm(username=Username, worker_nodes=worker_nodes)
 		# label nodes
 		for server in Servers:
 			if 'label' in Servers[server]:
 				update_node_label(server, Servers[server]['label'])
+
+		# always deploy benchmark if needs to set up swarm
+		while True:
+			docker_stack_rm(stack_name=Stackname)
+			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
+				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
+			if converged:
+				break
+
 	#---- connect slaves -----#
 	slave_service_config = {}
 	slave_service_config['services'] = list(Services)
@@ -1409,7 +1419,7 @@ def main():
 	i = 0
 	while i < len(TestUsers):
 		users = TestUsers[i]
-		if Deploy or i == 0:
+		if Deploy and not (SetupSwarm and i == 0):
 			docker_stack_rm(stack_name=Stackname)
 			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
 				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark

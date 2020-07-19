@@ -1408,6 +1408,15 @@ def main():
 		for server in Servers:
 			if 'label' in Servers[server]:
 				update_node_label(server, Servers[server]['label'])
+
+		# always deploy benchmark if needs to set up swarm
+		while True:
+			docker_stack_rm(stack_name=Stackname)
+			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
+				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
+			if converged:
+				break
+
 	#---- connect slaves -----#
 	slave_service_config = {}
 	slave_service_config['services'] = list(Services)
@@ -1426,7 +1435,7 @@ def main():
 	GpuSock = connect_gpu(gpu_host=GpuConfig['host'], gpu_port=GpuPort)
 	
 	# data collection
-	if Deploy:
+	if Deploy and not SetupSwarm:
 		while True:
 			docker_stack_rm(stack_name=Stackname)
 			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
