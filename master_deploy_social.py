@@ -1411,8 +1411,10 @@ def main():
 		users = TestUsers[i]
 		if Deploy or i == 0:
 			docker_stack_rm(stack_name=Stackname)
-			docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
+			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
 				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
+		if not converged:
+			continue
 		users_dir = DataDir / ('users_' + str(users))
 		service_fail = run_exp(users=users, log_dir=users_dir)
 		if not service_fail:

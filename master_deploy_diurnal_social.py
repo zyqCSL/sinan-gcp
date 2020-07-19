@@ -1427,9 +1427,12 @@ def main():
 	
 	# data collection
 	if Deploy:
-		docker_stack_rm(stack_name=Stackname)
-		docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
-			benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
+		while True:
+			docker_stack_rm(stack_name=Stackname)
+			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
+				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
+			if converged:
+				break
 	run_exp(diurnal_load=DiurnalLoad, log_dir=DataDir)
 	time.sleep(20)
 

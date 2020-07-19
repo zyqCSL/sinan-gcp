@@ -340,8 +340,8 @@ master_run_exp_cmd += 'python3 master_deploy_social.py' + \
     ' --deploy-config=' + str(deploy_config) + \
     ' --gpu-config=' + str(gpu_config)
     ' --mab-config=' + str(mab_config) + \
-    # ' --deploy' + \
     ' --setup-swarm'
+    # ' --deploy' + \
     
 assert master_host != ''
 assert master_host in external_ips
