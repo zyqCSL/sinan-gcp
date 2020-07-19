@@ -1419,6 +1419,7 @@ def main():
 	i = 0
 	while i < len(TestUsers):
 		users = TestUsers[i]
+		converged = True
 		if Deploy and not (SetupSwarm and i == 0):
 			docker_stack_rm(stack_name=Stackname)
 			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
