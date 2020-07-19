@@ -1,7 +1,7 @@
 cd ../
 python3 gcloud_deploy.py --username yz2297 \
 	--init-gcloud \
-	--deploy-config social_swarm_overprov.json \
+	--deploy-config social_swarm.json \
 	--stack-name sinan-socialnet \
 	--min-users 5 --max-users 45 --users-step 5 \
 	--exp-time 300 \
