@@ -62,7 +62,7 @@ parser.add_argument('--model-prefix', dest='model_prefix', type=str, default='./
 parser.add_argument('--load-epoch', dest='load_epoch', type=int, default=200)
 parser.add_argument('--xgb-prefix', dest='xgb_prefix', type=str, 
 	default='./xgb_model/social_nn_sys_state_look_forward_')
-parser.add_argument('--gpus', type=str, default='0', help='the gpus will be used, e.g "0,1,2,3"')
+parser.add_argument('--gpus', type=str, help='the gpus will be used, e.g "0,1,2,3"')
 parser.add_argument('--kv-store', type=str, default='local', help='the kvstore type')
 
 args = parser.parse_args()
@@ -117,101 +117,15 @@ def _predict(info):
 
 	# rps
 	rps_data = _compose_sys_data_channel(raw_sys_data, 'rps', batch_size)
-
 	# replica
 	replica_data = _compose_sys_data_channel(raw_sys_data, 'replica', batch_size)
-
 	# cpu limit
 	cpu_limit_data = _compose_sys_data_channel(raw_sys_data, 'cpu_limit', batch_size)
-
 	# cpu usage
 	cpu_usage_mean_data = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_mean', batch_size)
-	# cpu_usage_min_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_min', batch_size)
-	# cpu_usage_max_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_max', batch_size)
-	# cpu_usage_std_data  = _compose_sys_data_channel(raw_sys_data, 'cpu_usage_std', batch_size)   # std deviation
-
 	# memory
 	rss_mean_data = _compose_sys_data_channel(raw_sys_data, 'rss_mean', batch_size)
-	# rss_min_data  = _compose_sys_data_channel(raw_sys_data, 'rss_min', batch_size)
-	# rss_max_data  = _compose_sys_data_channel(raw_sys_data, 'rss_max', batch_size)
-	# rss_std_data  = _compose_sys_data_channel(raw_sys_data, 'rss_std', batch_size)   # std deviation
-
 	cache_mem_mean_data = _compose_sys_data_channel(raw_sys_data, 'cache_mem_mean', batch_size)
-	# cache_mem_min_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_min', batch_size)
-	# cache_mem_max_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_max', batch_size)
-	# cache_mem_std_data  = _compose_sys_data_channel(raw_sys_data, 'cache_mem_std', batch_size)   # std deviation
-
-	#page_faults_mean_data = _compose_sys_data_channel(raw_sys_data, 'page_faults_mean', batch_size)
-	# page_faults_min_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_min', batch_size)
-	# page_faults_max_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_max', batch_size)
-	# page_faults_std_data  = _compose_sys_data_channel(raw_sys_data, 'page_faults_std', batch_size)   # std deviation
-
-	# network
-	#rx_packets_mean_data = _compose_sys_data_channel(raw_sys_data, 'rx_packets_mean', batch_size)
-	# rx_packets_min_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_min', batch_size)
-	# rx_packets_max_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_max', batch_size)
-	# rx_packets_std_data  = _compose_sys_data_channel(raw_sys_data, 'rx_packets_std', batch_size)   # std deviation
-
-	#rx_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_mean', batch_size)
-	# rx_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_min', batch_size)
-	# rx_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_max', batch_size)
-	# rx_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'rx_bytes_std', batch_size)   # std deviation
-
-	#tx_packets_mean_data = _compose_sys_data_channel(raw_sys_data, 'tx_packets_mean', batch_size)
-	# tx_packets_min_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_min', batch_size)
-	# tx_packets_max_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_max', batch_size)
-	# tx_packets_std_data  = _compose_sys_data_channel(raw_sys_data, 'tx_packets_std', batch_size)   # std deviation
-
-	#tx_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_mean', batch_size)
-	# tx_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_min', batch_size)
-	# tx_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_max', batch_size)
-	# tx_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'tx_bytes_std', batch_size)   # std deviation
-
-	# io
-	#io_bytes_mean_data = _compose_sys_data_channel(raw_sys_data, 'io_bytes_mean', batch_size)
-	# io_bytes_min_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_min', batch_size)
-	# io_bytes_max_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_max', batch_size)
-	# io_bytes_std_data  = _compose_sys_data_channel(raw_sys_data, 'io_bytes_std', batch_size)   # std deviation
-
-	#io_serviced_mean_data = _compose_sys_data_channel(raw_sys_data, 'io_serviced_mean', batch_size)
-	# io_serviced_min_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_min', batch_size)
-	# io_serviced_max_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_max', batch_size)
-	# io_serviced_std_data  = _compose_sys_data_channel(raw_sys_data, 'io_serviced_std', batch_size)   # std deviation
-
-	# shape: (batch_size, channel width, #servers, CnnTimeSteps)
-	# sys_data = np.concatenate(
-	# 	(rps_data, replica_data, cpu_limit_data,
-	# 	 cpu_usage_mean_data, cpu_usage_min_data, cpu_usage_max_data, cpu_usage_std_data, 
-	# 	 # network
-	# 	 rx_packets_mean_data, rx_packets_min_data, rx_packets_max_data, rx_packets_std_data,
-	# 	 rx_bytes_mean_data,   rx_bytes_min_data,   rx_bytes_max_data,   rx_bytes_std_data, 
-	# 	 tx_packets_mean_data, tx_packets_min_data, tx_packets_max_data, tx_packets_std_data,
-	# 	 tx_bytes_mean_data,   tx_bytes_min_data,   tx_bytes_max_data,   tx_bytes_std_data,
-	# 	 # memory
-	# 	 rss_mean_data, rss_min_data, rss_max_data, rss_std_data,
-	# 	 cache_mem_mean_data, cache_mem_min_data, cache_mem_max_data, cache_mem_std_data,
-	# 	 page_faults_mean_data, page_faults_min_data, page_faults_max_data, page_faults_std_data,
-	# 	 # io
-	# 	 io_serviced_mean_data, io_serviced_min_data, io_serviced_max_data, io_serviced_std_data,
-	# 	 io_bytes_mean_data, io_bytes_min_data, io_bytes_max_data, io_bytes_std_data), 
-	# 	axis=1)
-
-	# sys_data = np.concatenate(
-	# 	(rps_data, replica_data, cpu_limit_data,
-	# 	 cpu_usage_mean_data,
-	# 	 # network
-	# 	 rx_packets_mean_data,
-	# 	 rx_bytes_mean_data, 
-	# 	 tx_packets_mean_data,
-	# 	 tx_bytes_mean_data,
-	# 	 # memory
-	# 	 rss_mean_data,
-	# 	 cache_mem_mean_data,
-	# 	 page_faults_mean_data,
-	# 	 # io
-	# 	 io_serviced_mean_data,
-	# 	 io_bytes_mean_data), 
-	# 	axis=1)
 
 	sys_data = np.concatenate(
 		(rps_data, 
@@ -247,62 +161,30 @@ def _predict(info):
 	#-------------------------- next_info --------------------------#
 	ncore_next = None
 	ncore_next_k = None
-	# rps_next = None
-	# rps_next_k = None
 	for i, proposal in enumerate(raw_next_info):
 		for j, service in enumerate(Services):
 			if j == 0:
 				ncore_proposal = np.array(proposal[service]['cpus'])
-				# rps_proposal = np.array(proposal[service]['rps'])
 			else:
 				ncore_proposal = np.vstack((ncore_proposal, np.array(proposal[service]['cpus'])))
-				# rps_proposal = np.vstack((rps_proposal, np.array(proposal[service]['rps'])))
 
 		for k in range(0, XgbLookForward):
 			if k == 0:
 				ncore_proposal_next_k = np.array(ncore_proposal).reshape([-1, 1])
-				# rps_proposal_next_k = np.array(rps_proposal).reshape([-1, 1])
 			else:
 				ncore_proposal_next_k = np.hstack((ncore_proposal_next_k, 
 											np.array(ncore_proposal).reshape([-1, 1])))
-				# rps_proposal_next_k = np.hstack((rps_proposal_next_k, 
-				# 							np.array(rps_proposal).reshape([-1, 1])))
 
 		if i == 0:
 			ncore_next = ncore_proposal.reshape([1, ncore_proposal.shape[0]])
 			ncore_next_k = ncore_proposal_next_k.reshape(
 							[1, ncore_proposal_next_k.shape[0], ncore_proposal_next_k.shape[1]])
-
-			# rps_next = rps_proposal.reshape([1, rps_proposal.shape[0]])
-			# rps_next_k = rps_proposal_next_k.reshape(
-			# 				[1, rps_proposal_next_k.shape[0], rps_proposal_next_k.shape[1]])
 		else:
 			ncore_next = np.vstack((ncore_next, ncore_proposal.reshape([1, ncore_proposal.shape[0]])))
 			ncore_next_k = np.vstack((ncore_next_k, 
 						ncore_proposal_next_k.reshape(
 							[1, ncore_proposal_next_k.shape[0], ncore_proposal_next_k.shape[1]])))
 
-			# rps_next = np.vstack((rps_next, rps_proposal.reshape([1, rps_proposal.shape[0]])))
-			# rps_next_k = np.vstack((rps_next_k, 
-			# 			rps_proposal_next_k.reshape(
-			# 				[1, rps_proposal_next_k.shape[0], rps_proposal_next_k.shape[1]])))
-
-	# ncore_next = ncore_next.reshape([ncore_next.shape[0], 1, ncore_next.shape[1]])
-	# ncore_next_k = ncore_next_k.reshape(
-	# 				[ncore_next_k.shape[0], 1, ncore_next_k.shape[1], ncore_next_k.shape[2]])
-	# rps_next = rps_next.reshape([rps_next.shape[0], 1, rps_next.shape[1]])
-	# rps_next_k = rps_next_k.reshape(
-	# 				[rps_next_k.shape[0], 1, rps_next_k.shape[1], rps_next_k.shape[2]])
-	
-	# compose next_info
-	'''
-	print ncore_next.shape
-	print ncore_next_k.shape
-	print rps_next.shape
-	print rps_next_k.shape
-	'''
-	# next_data = np.concatenate((ncore_next, rps_next), axis=1)
-	# next_k_data = np.concatenate((ncore_next_k, rps_next_k),axis=1)
 
 	next_data = ncore_next
 	next_k_data = ncore_next_k
@@ -461,7 +343,7 @@ def warmup():
 	t_s = time.time()
 	pred = _predict(info)
 	logging.info('model warmed up')
-	# print 'inf time: ', time.time() - t_s
+	print 'inf time: ', time.time() - t_s
 	# print pred
 
 def main():

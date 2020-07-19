@@ -267,6 +267,10 @@ if init_gcloud:
             node_name = json_config['host']
             cpus = json_config['cpus']
             accelerator = json_config['accelerator']
+            if accelerator == '':
+                accelerator = None
+            if 'startup_script' in json_config:
+                predictor_startup_script_path = Path.home() / 'sinan-gcp' / 'scripts' / json_config['startup_script']
             disk_size = '40GB'
 
             t = threading.Thread(target=create_sinan_instance, kwargs={

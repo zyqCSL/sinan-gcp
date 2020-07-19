@@ -279,14 +279,18 @@ if init_gcloud:
             init_gcloud_threads.append(t)
             t.start()
 
-    # create gpu instance
+    # create predictor instance
     with open(str(gpu_config_path), 'r') as f:
         json_config = json.load(f)
         node_name = json_config['host']
         cpus = json_config['cpus']
         accelerator = json_config['accelerator']
+        if accelerator == '':
+            accelerator = None
+        if 'startup_script' in json_config:
+            predictor_startup_script_path = Path.home() / 'sinan-gcp' / 'scripts' / json_config['startup_script']
         disk_size = '40GB'
-
+        
         t = threading.Thread(target=create_sinan_instance, kwargs={
             'instance_name': node_name,
             'zone': zone,

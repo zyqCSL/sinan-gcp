@@ -11,19 +11,22 @@ from util import *
 
 def setup_gpu(username, gpu_host, work_dir, gpus):
 	slave_cmd = 'cd ' + work_dir + ';'
-	slave_cmd += 'python social_media_predictor.py --gpus ' + ','.join([str(g) for g in gpus])
+	if len(gpus) > 0:
+		slave_cmd += 'python social_media_predictor.py --gpus ' + ','.join([str(g) for g in gpus])
+	else:
+		slave_cmd += 'python social_media_predictor.py'
 	print(slave_cmd)
 	p = ssh(username=username, host=gpu_host, cmd=slave_cmd)
-	print('--------waiting for gpu setup---------')
+	print('--------waiting for predictor setup---------')
 	time.sleep(20)
-	print('--------gpu setup---------')
+	print('--------predictor setup---------')
 	return p
 
 def connect_gpu(gpu_host, gpu_port):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	sock.connect((gpu_host, gpu_port))
 	sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-	logging.info('gpu connected')
+	logging.info('predictor connected')
 	return sock
 
 def get_ml_prediction(info, gpu_sock):
