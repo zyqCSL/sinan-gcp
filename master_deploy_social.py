@@ -180,7 +180,7 @@ LocustCsv = args.locust_csv
 LocustLog = args.locust_log
 
 LocustStatsDir = Path.home() / 'sinan_locust_log'
-LocustDir = Path.cwd() / '..' / 'locust'
+LocustDir = Path.cwd() / 'locust'
 LocustStats = LocustStatsDir / args.locust_stats
 LocustVolumes = [(str(LocustDir / 'src'), '/mnt/locust'), 
 				 (str(LocustDir / 'base64_images'), '/mnt/social_images'), 

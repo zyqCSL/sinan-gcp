@@ -343,7 +343,7 @@ def warmup():
 	t_s = time.time()
 	pred = _predict(info)
 	logging.info('model warmed up')
-	print 'inf time: ', time.time() - t_s
+	logging.info('inf time: %.3f' %(time.time() - t_s))
 	# print pred
 
 def main():
