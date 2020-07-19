@@ -511,6 +511,7 @@ services:
       - jaeger
     deploy:
       mode: replicated
+      endpoint_mode: dnsrr
       replicas: 1
       placement:
         max_replicas_per_node: 1

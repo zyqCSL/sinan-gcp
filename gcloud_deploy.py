@@ -330,7 +330,6 @@ else:
 # run exp
 # -----------------------------------------------------------------------
 master_run_exp_cmd = 'cd /home/' + username + '/sinan-gcp/;'
-
 master_run_exp_cmd += 'python3 master_deploy_social.py' + \
     ' --user-name=' + username + \
     ' --stack-name=' + stack_name + \
