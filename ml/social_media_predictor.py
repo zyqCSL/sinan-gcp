@@ -137,7 +137,7 @@ def _predict(info):
 		 cache_mem_mean_data), 
 		axis=1)
 
-	logging.info('sys_data.shape = ' + str(sys_data.shape))
+	# logging.info('sys_data.shape = ' + str(sys_data.shape))
 
 	#-------------------------- e2e_lat --------------------------#
 	for key in ['90.0', '95.0', '98.0', '99.0', '99.9']:
@@ -156,7 +156,7 @@ def _predict(info):
 		else:
 			lat_data = np.vstack((lat_data, e2e_lat))
 
-	logging.info('lat_data.shape = ' + str(lat_data.shape))
+	# logging.info('lat_data.shape = ' + str(lat_data.shape))
 
 	#-------------------------- next_info --------------------------#
 	ncore_next = None
@@ -189,8 +189,8 @@ def _predict(info):
 	next_data = ncore_next
 	next_k_data = ncore_next_k
 
-	logging.info('next_data.shape = ' + str(next_data.shape))
-	logging.info('next_k_data.shape = ' + str(next_k_data.shape))
+	# logging.info('next_data.shape = ' + str(next_data.shape))
+	# logging.info('next_k_data.shape = ' + str(next_k_data.shape))
 
 	pred_data  = {'data1':sys_data, 'data2':lat_data, 'data3':next_data}
 	pred_iter = mx.io.NDArrayIter(pred_data, batch_size=batch_size)
