@@ -8,4 +8,4 @@ python3 gcloud_deploy.py --username yz2297 \
 	--measure-interval 1 --slave-port 40011 \
 	--gpu-port 40010 \
 	--gpu-config pred_cpu.json \
-	--mab-config social_mab.json
+	--mab-config social_mab_overprov.json

@@ -111,7 +111,8 @@ for service in service_config:
         assert node_name not in node_config
         node_id += 1
         node_config[node_name] = {}
-        node_config[node_name]['cpus'] = service_config[service]['node_cpus']
+        # node_config[node_name]['cpus'] = service_config[service]['node_cpus']
+        node_config[node_name]['cpus'] = max(16, service_config[service]['node_cpus'])
         node_config[node_name]['label'] = 'service=' + str(service)
 
 cluster_config = {}

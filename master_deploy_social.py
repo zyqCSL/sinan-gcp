@@ -1413,11 +1413,11 @@ def main():
 			docker_stack_rm(stack_name=Stackname)
 			converged = docker_stack_deploy(stack_name=Stackname, benchmark=Benchmark,
 				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
-		if not converged:
-			continue
-		users_dir = DataDir / ('users_' + str(users))
-		service_fail = run_exp(users=users, log_dir=users_dir)
-		if not service_fail:
+		service_fail = False
+		if converged:
+			users_dir = DataDir / ('users_' + str(users))
+			service_fail = run_exp(users=users, log_dir=users_dir)
+		if not service_fail and converged:
 			i += 1
 		else:
 			docker_teardown_swarm(username=Username, nodes=list(Servers.keys()))
