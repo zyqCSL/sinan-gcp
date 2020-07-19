@@ -187,7 +187,7 @@ def docker_stack_deploy(stack_name, benchmark, benchmark_dir, compose_file, quie
 			converged = actual == desired
 			if not converged:
 				break
-		time.sleep(5)
+		time.sleep(10)
 		waits += 1
 		if waits > 30:
 			logging.info('services failed to converge')
