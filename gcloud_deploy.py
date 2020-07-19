@@ -343,7 +343,7 @@ master_run_exp_cmd += 'python3 master_deploy_social.py' + \
     ' --gpu-port=' + str(gpu_port) + \
     ' --deploy-config=' + str(deploy_config) + \
     ' --gpu-config=' + str(gpu_config) + \
-    ' --mab-config=' + str(mab_config)
+    ' --mab-config=' + str(mab_config) + \
     ' --setup-swarm' + \
     ' --deploy'
     
