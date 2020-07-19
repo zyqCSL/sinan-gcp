@@ -19,7 +19,8 @@ docker pull yz2297/social-network-ml-swarm:latest --quiet
 apt-get -y --no-install-recommends install \
   python \
   python-pip \
-  python-setuptools
+  python-setuptools \
+  libgomp1
 
 pip install argparse \
   pandas \
