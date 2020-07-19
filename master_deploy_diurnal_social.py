@@ -114,15 +114,15 @@ Deploy = args.deploy
 SetupSwarm = args.setup_swarm
 Stackname = args.stack_name
 Benchmark = args.benchmark
-BenchmarkDir =  Path.cwd() / '..' / 'benchmarks' / args.benchmark
+BenchmarkDir =  Path.cwd() / 'benchmarks' / args.benchmark
 ComposeFile = BenchmarkDir / args.compose_file
 MeasureInterval = args.measure_interval	# in second
 SlavePort = args.slave_port
 DeployConfig = Path.cwd() / 'config' / args.deploy_config.strip()
-MultiArmBanditConfig = Path('.') / 'config' / args.mab_config.strip()
-GpuServerConfig = Path('.') / 'config' / args.gpu_config.strip()
+MultiArmBanditConfig = Path.cwd() / 'config' / args.mab_config.strip()
+GpuServerConfig = Path.cwd() / 'config' / args.gpu_config.strip()
 
-DataDir =  Path('.') / 'logs' / 'diurnal_deploy_data'
+DataDir =  Path.cwd() / 'logs' / 'diurnal_deploy_data'
 
 if not os.path.isdir(str(DataDir)):
 	os.makedirs(str(DataDir))
