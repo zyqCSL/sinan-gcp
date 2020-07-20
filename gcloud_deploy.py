@@ -197,6 +197,7 @@ parser.add_argument('--exp-time', dest='exp_time', type=int, required=True)
 parser.add_argument('--measure-interval', dest='measure_interval', type=int, default=1)
 parser.add_argument('--slave-port', dest='slave_port', type=int, default=40011)
 parser.add_argument('--gpu-port', dest='gpu_port', type=int, default=40010)
+parser.add_argument('--locust-script', dest='locust_script', type=str, default='socialml_rps_10.py')
 
 # -----------------------------------------------------------------------
 # parse args
@@ -221,6 +222,7 @@ exp_time = args.exp_time
 measure_interval = args.measure_interval
 slave_port = args.slave_port
 gpu_port = args.gpu_port
+locust_script = '/mnt/locust/' + args.locust_script
 
 # -----------------------------------------------------------------------
 # ssh-keygen
@@ -339,6 +341,7 @@ master_run_exp_cmd += 'python3 master_deploy_social.py' + \
     ' --slave-port=' + str(slave_port) + \
     ' --exp-time=' + str(exp_time) + \
     ' --measure-interval=' + str(measure_interval) + \
+    ' --locust-script=' + locust_script + \
     ' --slave-port=' + str(slave_port) + \
     ' --gpu-port=' + str(gpu_port) + \
     ' --deploy-config=' + str(deploy_config) + \
