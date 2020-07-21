@@ -115,9 +115,10 @@ def docker_ps():
 			logging.warning('container %s disappears after docker ps' %c_name)
 			continue
 		service = ''
+		sim_c_name = c_name.replace(Stackname, '')
 		for s in Services:
 			# choose the longest matching name
-			if s in c_name and len(s) > len(service):	
+			if s in sim_c_name and len(s) > len(service):	
 				service = s
 		if service == '':
 			logging.warning("docker ps container_name = %s, container_id = %s has no matching service" %(c_name, c_id))
