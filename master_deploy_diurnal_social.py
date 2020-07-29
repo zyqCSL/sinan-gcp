@@ -1255,9 +1255,12 @@ def run_exp(diurnal_load, log_dir):
 			users=users, quiet=True)
 
 		assert(locust_p != None)
-		time.sleep(5)	
+		time.sleep(10)
+		time_before_warmed = 10
+		while not os.path.isfile(str(LocustStats)):
+			time.sleep(1)
+			time_before_warmed += 1
 		# wait for all locust users to be active
-		time_before_warmed = 5
 		actual_users = 0
 		while actual_users < min(users, prev_users):
 			time_before_warmed += 1
@@ -1434,6 +1437,7 @@ def main():
 				benchmark_dir=BenchmarkDir, compose_file=ComposeFile)	# deploy benchmark
 			if converged:
 				break
+		time.sleep(10)
 	run_exp(diurnal_load=DiurnalLoad, log_dir=DataDir)
 	time.sleep(20)
 
