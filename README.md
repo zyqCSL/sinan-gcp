@@ -6,7 +6,9 @@
 
 ## Repo structure & script usage
 ### benchmarks 
-benchmarks directory contain the source codes of tested benchmarks. For SocialNetwork application (benchmarks/socialNetwork-ml-swarm), we added two compute-intensive machine learning microservices (text-filter and media-filter), and also add image data to user posts (previously posts only include text), in order to make the application a little more representative than original versions. We also provide a warm up script (benchmarks/socialNetwork-ml-swarm/setup_social_graph_init_data_sync.py) for the application, to fill the social-network friendship graph, and to fill the databases with posts.
+benchmarks directory contain the source codes of tested benchmarks. 
+
+For SocialNetwork application (benchmarks/socialNetwork-ml-swarm), we added two compute-intensive machine learning microservices (text-filter and media-filter), and also add image data to user posts (previously posts only include text), in order to make the application a little more representative than original versions. We also provide a warm up script (benchmarks/socialNetwork-ml-swarm/setup_social_graph_init_data_sync.py) for the application, to fill the social-network friendship graph, and to fill the databases with posts.
 
 ### config
 config contains configuration files of cluster, scheduling actions, and inference engine.
@@ -28,11 +30,17 @@ utilization functions.
 
 ### root directory
 master_data_collect_social.py  --- master for data collection
+
 master_deploy_social.py  --- master for running deployment experiment of socialNetwork
+
 master_deploy_diurnal_social.py --- master for running deployment experiment of socialNetwork with diurnal load
+
 slave_data_collect.py --- slave for data collection & deployment
+
 gcloud.py --- set up gcloud cluster & collect data
+
 gcloud_deploy.py --- set up glcoud cluster & deploy socialNetwork
+
 gcloud_deploy_diurnal.py --- set up gcloud cluster & deploy socialNetwork with diurnal rps pattern
 
 ## Reproducing experiment results
