@@ -23,7 +23,12 @@ scripts for running experiments
 codes related to workload generation
 
 ### ml
-scirpts for ml modeling data prepration, training, deployment and fine-tunning (for different user workload patterns)
+ml models and scirpts for data preparation, training, deployment and fine-tunning (for different user workload patterns). The complete flow includes the following steps: 
+- collect training data (short cut script in exp_scripts/gcloud_run_exp.sh)
+- process collected data with data_parser_docker_next_k.py
+- train the CNN & XGboost model with processed data (train_cnvnet.py & xgb_trian_latent.py). NN architectures are in the model directory.
+- deploy online with running microservices (social_media_predictor.py)
+- fine tune the model to adapt to changes, cluster changes, workload skews e.g. (finetune.sh)
 
 ### src
 utilization functions
