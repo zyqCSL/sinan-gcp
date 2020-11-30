@@ -21,10 +21,10 @@ series = {ASPLOS '21}
 ### benchmarks 
 benchmarks directory contain the source codes of tested benchmarks. 
 
-For SocialNetwork application (benchmarks/socialNetwork-ml-swarm), we added two compute-intensive machine learning microservices (text-filter and media-filter), and also add image data to user posts (previously posts only include text), in order to make the application a little more representative than original versions. We also provide a warm up script (benchmarks/socialNetwork-ml-swarm/setup_social_graph_init_data_sync.py) for the application, to fill the social-network friendship graph, and to fill the databases with posts
+For SocialNetwork application (`benchmarks/socialNetwork-ml-swarm`), we added two compute-intensive machine learning microservices (text-filter and media-filter), and also add image data to user posts (previously posts only include text), in order to make the application a little more representative than original versions. We also provide a warm up script (`benchmarks/socialNetwork-ml-swarm/setup_social_graph_init_data_sync.py`) for the application, to fill the social-network friendship graph, and to fill the databases with posts
 
 ### config
-config contains configuration files of cluster, scheduling actions, and inference engine
+configuration files of cluster, scheduling actions, and inference engine
 
 ### misc
 scripts to generate config files
@@ -33,7 +33,7 @@ scripts to generate config files
 scripts for running experiments
 
 ### locust
-codes related to workload generation
+code for workload generation
 
 ### ml
 ml models and scirpts for data preparation, training, deployment and fine-tunning (for different user workload patterns). The complete flow includes the following steps: 
