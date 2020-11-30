@@ -1,7 +1,7 @@
 # SINAN-GCP
 
 ## Publication
-If you use Rosetta in your research, please cite our ASPLOS'21 paper.
+If you use Sinan in your research, please cite our ASPLOS'21 paper.
 ```
 @inproceedings{sinan-asplos2021,
 author = {Yanqi, Zhang and Weizhe, Hua and Zhuangzhuang, Zhou and G. Edward, Suh and Christina, Delimitrou
