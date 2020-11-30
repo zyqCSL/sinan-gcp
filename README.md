@@ -83,7 +83,7 @@ cd exp_scripts
 x can be set to 1, 2 and 3.
 
 ### Deployment experiment with diurnal rps pattern
-This script tests the deployment of Sinan a diurnal rps pattern
+This script tests the deployment of Sinan under a diurnal rps pattern
 ```bash
 cd exp_scripts
 ./gcloud_deploy_diurnal_cpu_pred.sh
