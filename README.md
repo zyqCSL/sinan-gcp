@@ -12,7 +12,7 @@ series = {ASPLOS '21}
 }
 ```
 
-## Prerequisites: 
+## Prerequisites
 - Python 3.5+
 - Python 2.7 (for plotting)
 - Install & set up Google Cloud SDK (https://cloud.google.com/sdk/docs/how-to). In order to reproduce the results presented in the paper, the CPU quota (Compute Engine API) of your Google Cloud project should be no less than 500.
@@ -37,11 +37,11 @@ codes related to workload generation
 
 ### ml
 ml models and scirpts for data preparation, training, deployment and fine-tunning (for different user workload patterns). The complete flow includes the following steps: 
-- collect training data (short cut script in exp_scripts/gcloud_run_exp.sh)
-- process collected data with data_parser_docker_next_k.py
-- train the CNN & XGBoost model with processed data (train_cnvnet.py & xgb_trian_latent.py). NN architectures are in the model directory.
-- deploy online with running microservices (social_media_predictor.py)
-- fine tune the model to adapt to changes, cluster changes, workload skews e.g. (finetune.sh)
+- collect training data (short cut script in `exp_scripts/gcloud_run_exp.sh`)
+- process collected data with `data_parser_docker_next_k.py`
+- train the CNN & XGBoost model with processed data (`train_cnvnet.py` & `xgb_trian_latent.py`). The architectures of neural networks are in the model directory.
+- deploy online with running microservices (`social_media_predictor.py`)
+- fine tune the model to adapt to changes, cluster changes, workload skews e.g. (`finetune.sh`)
 
 ### src
 utilization functions
@@ -50,19 +50,19 @@ utilization functions
 initialization scripts for GCE VMs
 
 ### root directory
-master_data_collect_social.py  --- master for data collection
+`master_data_collect_social.py`  --- master for data collection
 
-master_deploy_social.py  --- master for running deployment experiment of the social network benchmark
+`master_deploy_social.py`  --- master for running deployment experiment of the social network benchmark
 
-master_deploy_diurnal_social.py --- master for running deployment experiment of the social network benchmark with diurnal request per second (rps) pattern
+`master_deploy_diurnal_social.py` --- master for running deployment experiment of the social network benchmark with diurnal request per second (rps) pattern
 
-slave_data_collect.py --- slave for data collection & deployment
+`slave_data_collect.py` --- slave for data collection & deployment
 
-gcloud.py --- set up gcloud cluster & collect data
+`gcloud.py` --- set up gcloud cluster & collect data
 
-gcloud_deploy.py --- set up glcoud cluster & deploy the social network benchmark
+`gcloud_deploy.py` --- set up glcoud cluster & deploy the social network benchmark
 
-gcloud_deploy_diurnal.py --- set up gcloud cluster & deploy the social network benchmark with diurnal rps pattern
+`gcloud_deploy_diurnal.py` --- set up gcloud cluster & deploy the social network benchmark with diurnal rps pattern
 
 ## Reproducing experiment results
 Following instructions assume that users start from git root directory. Before executing any shell script, users should make sure to change the '--username' argument in the shell script to his own Google Cloud user name. When execution of scripts is completed, system execution log should be in the logs directory of the master node. Users can copy the data to local machine with scp (the ssh keys are automatically generated and stored in keys directory)
