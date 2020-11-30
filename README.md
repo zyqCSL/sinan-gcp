@@ -1,4 +1,17 @@
 # SINAN-GCP
+
+## Publication
+If you use Rosetta in your research, please cite our ASPLOS'21 paper.
+```
+@inproceedings{sinan-asplos2021,
+author = {Yanqi, Zhang and Weizhe, Hua and Zhuangzhuang, Zhou and G. Edward, Suh and Christina, Delimitrou
+},
+title = {Sinan: ML-Based & QoS-Aware Resource Management for Cloud Microservices},
+booktitle = {Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems},
+series = {ASPLOS '21}
+}
+```
+
 ## Prerequisites: 
 - Python 3.5+
 - Python 2.7 (for plotting)
