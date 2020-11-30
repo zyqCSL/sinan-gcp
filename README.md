@@ -17,7 +17,7 @@ series = {ASPLOS '21}
 - Python 2.7 (for plotting)
 - Install & set up Google Cloud SDK (https://cloud.google.com/sdk/docs/how-to). In order to reproduce the results presented in the paper, the CPU quota (Compute Engine API) of your Google Cloud project should be no less than 500.
 
-## Repo structure & script usage
+## Code structure
 ### benchmarks 
 benchmarks directory contain the source codes of tested benchmarks. 
 
@@ -64,7 +64,7 @@ initialization scripts for GCE VMs
 
 `gcloud_deploy_diurnal.py` --- set up gcloud cluster & deploy the social network benchmark with diurnal rps pattern
 
-## Reproducing experiment results
+## Usage
 Following instructions assume that users start from git root directory. Before executing any shell script, users should make sure to change the '--username' argument in the shell script to his own Google Cloud user name. When execution of scripts is completed, system execution log should be in the logs directory of the master node. Users can copy the data to local machine with scp (the ssh keys are automatically generated and stored in keys directory)
 
 ### Deployment experiment with static rps and identical workload
