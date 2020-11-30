@@ -7,7 +7,7 @@ If you use Sinan in your research, please cite our ASPLOS'21 paper.
 author = {Yanqi, Zhang and Weizhe, Hua and Zhuangzhuang, Zhou and G. Edward, Suh and Christina, Delimitrou
 },
 title = {Sinan: ML-Based & QoS-Aware Resource Management for Cloud Microservices},
-booktitle = {Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems},
+booktitle = {Proceedings of the Twenty-Sixth International Conference on Architectural Support for Programming Languages and Operating Systems},
 series = {ASPLOS '21}
 }
 ```
