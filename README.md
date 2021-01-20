@@ -91,6 +91,13 @@ cd exp_scripts
 
 ### Data processing
 ```bash
+python data_proc/count_cpu.py dir_name
+```
+This script calculates the average cpu usage, tail latencies & violation rates of the execution logs.
+
+```bash
 python data_proc/plot.py dir_name
 ```
-dir_name should be the directory that contains system execution log. For example, logs/deploy_data in the static load experiments. For specific log directory, check DataDir variable in the master_deploy* scripts
+This script plots the real-time cpu allocation of each service and end-to-end latencies. 
+
+dir_name should be the directory that contains system execution log. For example, logs/deploy_data in the static load experiments. For specific log directory, check DataDir variable in the master_deploy* scripts.
