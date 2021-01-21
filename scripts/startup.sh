@@ -38,7 +38,7 @@ pip3 install argparse \
 # git clones
 # git clone https://github.com/zyqCSL/sinan-gcp.git /home/zzhou612/sinan-gcp
 # sudo chown -R zzhou612:zzhou612 /home/zzhou612/sinan-gcp
-git clone https://github.com/zyqCSL/sinan-gcp.git /home/mingyulianggce/sinan-gcp
+git clone https://github.com/zyqCSL/sinan-gcp.git --branch artifact_eval /home/mingyulianggce/sinan-gcp
 sudo chown -R mingyulianggce:mingyulianggce /home/mingyulianggce/sinan-gcp
 
 # for locust
