@@ -12,7 +12,7 @@ add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-get update
 apt-get install -y docker-ce
-usermod -aG docker yz2297
+usermod -aG docker mingyulianggce
 docker pull yz2297/social-network-ml-swarm:latest --quiet
 
 # python packages
@@ -32,13 +32,13 @@ pip install --no-cache-dir mxnet-mkl
 pip install --no-cache-dir xgboost
 
 # git clones
-git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan-gcp
-sudo chown -R yz2297:yz2297 /home/yz2297/sinan-gcp
+git clone https://github.com/zyqCSL/sinan-gcp.git /home/mingyulianggce/sinan-gcp
+sudo chown -R mingyulianggce:mingyulianggce /home/mingyulianggce/sinan-gcp
 
 # for locust
-mkdir /home/yz2297/sinan_locust_log
-sudo chmod -R 777 /home/yz2297/sinan_locust_log
+mkdir /home/mingyulianggce/sinan_locust_log
+sudo chmod -R 777 /home/mingyulianggce/sinan_locust_log
 
 # finish flag
-touch /home/yz2297/startup_finished
-chown yz2297:yz2297 /home/yz2297/startup_finished
+touch /home/mingyulianggce/startup_finished
+chown mingyulianggce:mingyulianggce /home/mingyulianggce/startup_finished

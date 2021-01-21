@@ -38,7 +38,7 @@ gpu_config['accelerator'] = ''
 gpu_config['startup_script'] = 'predictor_cpu_startup.sh'
 
 gpu_config['host'] = 'predictor'
-gpu_config['working_dir'] = '/home/yz2297/sinan-gcp/ml'
+gpu_config['working_dir'] = '/home/mingyulianggce/sinan-gcp/ml'
 
 
 with open(str(gpu_config_path), 'w+') as f:

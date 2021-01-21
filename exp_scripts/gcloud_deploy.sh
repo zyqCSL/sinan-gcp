@@ -1,5 +1,5 @@
 cd ../
-python3 gcloud_deploy.py --username yz2297 \
+python3 gcloud_deploy.py --username mingyulianggce \
 	--init-gcloud \
 	--deploy-config social_swarm.json \
 	--stack-name sinan-socialnet \

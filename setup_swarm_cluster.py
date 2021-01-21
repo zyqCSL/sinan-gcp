@@ -31,7 +31,7 @@ logging.basicConfig(level=logging.INFO,
 parser = argparse.ArgumentParser()
 # parser.add_argument('--cpus', dest='cpus', type=int, required=True)
 # parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)
-parser.add_argument('--user-name', dest='user_name', type=str, default='yz2297')
+parser.add_argument('--user-name', dest='user_name', type=str, default='mingyulianggce')
 parser.add_argument('--setup-swarm', dest='setup_swarm', action='store_true')
 parser.add_argument('--deploy', dest='deploy', action='store_true')
 parser.add_argument('--stack-name', dest='stack_name', type=str, required=True)

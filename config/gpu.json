@@ -6,5 +6,5 @@
     ],
     "host": "predictor",
     "startup_script": "predictor_startup.sh",
-    "working_dir": "/home/yz2297/sinan-gcp/ml"
+    "working_dir": "/home/mingyulianggce/sinan-gcp/ml"
 }

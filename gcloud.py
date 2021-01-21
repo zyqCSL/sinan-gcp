@@ -273,7 +273,7 @@ else:
 # run exp
 # -----------------------------------------------------------------------
 
-# python3 master_data_collect_social.py --user-name yz2297 \
+# python3 master_data_collect_social.py --user-name mingyulianggce \
 #     --stack-name sinan-socialnet \
 #     --min-users 4 --max-users 64 --users-step 4 \
 #     --exp-time 2700 --measure-interval 1 --slave-port 40011 --deploy-config swarm_ath.json \

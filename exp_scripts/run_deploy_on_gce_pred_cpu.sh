@@ -1,5 +1,5 @@
 cd ../
-python3 master_deploy_social.py --user-name yz2297 \
+python3 master_deploy_social.py --user-name mingyulianggce \
 	--stack-name sinan-socialnet \
 	--min-users 5 --max-users 45 --users-step 5 \
 	--exp-time 300 --measure-interval 1 --slave-port 40011 \

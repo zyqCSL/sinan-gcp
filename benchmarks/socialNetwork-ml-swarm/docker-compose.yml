@@ -308,11 +308,11 @@ services:
       - ./nginx-web-server/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
       - ./nginx-web-server/jaeger-config.json:/usr/local/openresty/nginx/jaeger-config.json
       - ./gen-lua:/gen-lua
-      # - /home/yz2297/Software/socialNetwork-ml-swarm/nginx-web-server/lua-scripts:/usr/local/openresty/nginx/lua-scripts
-      # - /home/yz2297/Software/socialNetwork-ml-swarm/nginx-web-server/pages:/usr/local/openresty/nginx/pages
-      # - /home/yz2297/Software/socialNetwork-ml-swarm/nginx-web-server/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
-      # - /home/yz2297/Software/socialNetwork-ml-swarm/nginx-web-server/jaeger-config.json:/usr/local/openresty/nginx/jaeger-config.json
-      # - /home/yz2297/Software/socialNetwork-ml-swarm/gen-lua:/gen-lua
+      # - /home/mingyulianggce/Software/socialNetwork-ml-swarm/nginx-web-server/lua-scripts:/usr/local/openresty/nginx/lua-scripts
+      # - /home/mingyulianggce/Software/socialNetwork-ml-swarm/nginx-web-server/pages:/usr/local/openresty/nginx/pages
+      # - /home/mingyulianggce/Software/socialNetwork-ml-swarm/nginx-web-server/conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      # - /home/mingyulianggce/Software/socialNetwork-ml-swarm/nginx-web-server/jaeger-config.json:/usr/local/openresty/nginx/jaeger-config.json
+      # - /home/mingyulianggce/Software/socialNetwork-ml-swarm/gen-lua:/gen-lua
     depends_on:
       - user-service
       - user-mention-service
