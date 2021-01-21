@@ -12,7 +12,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-get update
 apt-get install -y docker-ce
 usermod -aG docker mingyulianggce
-docker pull yz2297/social-network-ml-swarm:latest --quiet
+docker pull sailresearch/social-network-ml-swarm:latest --quiet
 
 # python packages
 apt-get -y --no-install-recommends install \

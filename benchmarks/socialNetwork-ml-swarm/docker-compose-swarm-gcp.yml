@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   social-graph-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: social-graph-service
 #    ports:
 #      - 10000:9090
@@ -62,7 +62,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   write-home-timeline-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: write-home-timeline-service
     entrypoint: WriteHomeTimelineService
     depends_on:
@@ -127,7 +127,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   write-user-timeline-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: write-user-timeline-service
     entrypoint: WriteUserTimelineService
     depends_on:
@@ -169,7 +169,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   compose-post-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: compose-post-service
 #    ports:
 #      - 10001:9090
@@ -212,7 +212,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   post-storage-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: post-storage-service
     # ports:
     #   - 10002:9090
@@ -276,7 +276,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   user-timeline-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: user-timeline-service
 #    ports:
 #      - 10003:9090
@@ -337,7 +337,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   url-shorten-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: url-shorten-service
 #    ports:
 #      - 10004:9090
@@ -359,7 +359,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   user-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: user-service
 #    ports:
 #      - 10005:9090
@@ -422,7 +422,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   media-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: media-service
 #    ports:
 #      - 10006:9090
@@ -444,7 +444,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   media-filter-service:
-    image: yz2297/social-network-media-filter
+    image: sailresearch/social-network-media-filter
     hostname: media-filter-service
     deploy:
       mode: replicated
@@ -461,7 +461,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   text-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: text-service
 #    ports:
 #      - 10007:9090
@@ -485,7 +485,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   text-filter-service:
-    image: yz2297/social-network-text-filter
+    image: sailresearch/social-network-text-filter
     hostname: text-filter-service
     deploy:
       mode: replicated
@@ -502,7 +502,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   unique-id-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: unique-id-service
 #    ports:
 #      - 10008:9090
@@ -525,7 +525,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   user-mention-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: user-mention-service
     entrypoint: UserMentionService
     depends_on:
@@ -545,7 +545,7 @@ services:
       net.ipv4.tcp_keepalive_probes: 3
 
   home-timeline-service:
-    image: yz2297/social-network-ml-swarm
+    image: sailresearch/social-network-ml-swarm
     hostname: home-timeline-service
     entrypoint: HomeTimelineService
     depends_on:
