@@ -32,7 +32,7 @@ pip install --no-cache-dir mxnet-mkl
 pip install --no-cache-dir xgboost
 
 # git clones
-git clone https://github.com/zyqCSL/sinan-gcp.git  --branch artifact_eval /home/SINANUSER/sinan-gcp
+git clone https://github.com/zyqCSL/sinan-gcp.git /home/SINANUSER/sinan-gcp
 sudo chown -R SINANUSER:SINANUSER /home/SINANUSER/sinan-gcp
 
 # for locust
