@@ -4,6 +4,7 @@ import logging
 import math
 import subprocess
 import sys
+import os
 import threading
 import time
 from pathlib import Path
@@ -219,6 +220,23 @@ if init_gcloud:
 # -----------------------------------------------------------------------
 # gcloud compute instances create
 # -----------------------------------------------------------------------
+os.makedirs(str(Path.home() / 'sinan-gcp' / 'scripts'), exist_ok=True)
+def generate_user_template(template_path, script_path, username):
+    with open(str(template_path), 'r') as f:
+        texts = f.read()
+    new_texts = texts.replace('SINANUSER', username)
+    with open(str(script_path), 'w+') as f:
+        f.write(new_texts)
+generate_user_template(template_path=Path.home() / 'sinan-gcp' / 'scripts_template' / 'startup.sh',
+    script_path=Path.home() / 'sinan-gcp' / 'scripts' / 'startup.sh', 
+    username=username)
+generate_user_template(template_path=Path.home() / 'sinan-gcp' / 'scripts_template' / 'predictor_startup.sh',
+    script_path=Path.home() / 'sinan-gcp' / 'scripts' / 'predictor_startup.sh', 
+    username=username)
+generate_user_template(template_path=Path.home() / 'sinan-gcp' / 'scripts_template' / 'predictor_cpu_startup.sh',
+    script_path=Path.home() / 'sinan-gcp' / 'scripts' / 'predictor_cpu_startup.sh', 
+    username=username)
+    
 startup_script_path = Path.home() / 'sinan-gcp' / 'scripts' / 'startup.sh'
 public_key_path = Path.home() / 'sinan-gcp' / 'keys' / 'id_rsa.pub'
 

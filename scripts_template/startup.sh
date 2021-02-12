@@ -11,8 +11,8 @@ add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-get update
 apt-get install -y docker-ce
-usermod -aG docker yz2297
-docker pull yz2297/social-network-ml-swarm:latest --quiet
+usermod -aG docker SINANUSER
+docker pull sailresearch/social-network-ml-swarm:latest --quiet
 
 # python packages
 apt-get -y --no-install-recommends install \
@@ -38,13 +38,13 @@ pip3 install argparse \
 # git clones
 # git clone https://github.com/zyqCSL/sinan-gcp.git /home/zzhou612/sinan-gcp
 # sudo chown -R zzhou612:zzhou612 /home/zzhou612/sinan-gcp
-git clone https://github.com/zyqCSL/sinan-gcp.git /home/yz2297/sinan-gcp
-sudo chown -R yz2297:yz2297 /home/yz2297/sinan-gcp
+git clone https://github.com/zyqCSL/sinan-gcp.git --branch artifact_eval /home/SINANUSER/sinan-gcp
+sudo chown -R SINANUSER:SINANUSER /home/SINANUSER/sinan-gcp
 
 # for locust
-mkdir /home/yz2297/sinan_locust_log
-sudo chmod -R 777 /home/yz2297/sinan_locust_log
+mkdir /home/SINANUSER/sinan_locust_log
+sudo chmod -R 777 /home/SINANUSER/sinan_locust_log
 
 # finish flag
-touch /home/yz2297/startup_finished
-chown yz2297:yz2297 /home/yz2297/startup_finished
+touch /home/SINANUSER/startup_finished
+chown SINANUSER:SINANUSER /home/SINANUSER/startup_finished

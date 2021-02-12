@@ -110,6 +110,7 @@ args = parser.parse_args()
 # MaxCpus = args.cpus
 # StackName = args.stack_name
 Username = args.user_name
+os.environ['SINANUSER'] = Username
 Deploy = args.deploy
 SetupSwarm = args.setup_swarm
 Stackname = args.stack_name

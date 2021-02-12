@@ -94,6 +94,7 @@ args = parser.parse_args()
 # todo: currently assumes all vm instances have the same #cpus
 # MaxCpus = args.cpus
 Username = args.user_name
+os.environ['SINANUSER'] = Username
 Deploy = args.deploy
 SetupSwarm = args.setup_swarm
 Stackname = args.stack_name

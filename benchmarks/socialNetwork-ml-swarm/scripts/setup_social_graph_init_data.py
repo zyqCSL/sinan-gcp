@@ -1,6 +1,7 @@
 import aiohttp
 import asyncio
 import sys
+import os
 import random
 import base64
 
@@ -120,7 +121,10 @@ charset = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's',
   '6', '7', '8', '9', '0']
 
 #----------------- media data -----------------#
-benchmark_dir = "/home/yz2297/sinan-gcp/benchmarks/socialNetwork-ml-swarm/"
+username = 'yz2297'
+if 'SINANUSER' in os.environ:
+    username = os.environ['SINANUSER']
+benchmark_dir = "/home/" + username + "/sinan-gcp/benchmarks/socialNetwork-ml-swarm/"
 media_dir = benchmark_dir + "/wrk2/scripts/social-network/images/"
 media_jpg = {}
 media_jpg_num = 17
