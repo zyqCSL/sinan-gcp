@@ -65,7 +65,7 @@ initialization scripts for GCE VMs
 `gcloud_deploy_diurnal.py` --- set up gcloud cluster & deploy the social network benchmark with diurnal rps pattern
 
 ## Usage
-Following instructions assume that users start from git root directory. Before executing any shell script, users should make sure to clone the repo to their home directory and change the '--username' argument in the shell script to his own Google Cloud user name. When execution of scripts is completed, system execution log should be in the logs directory of the master node. Users can copy the data to local machine with scp (the ssh keys are automatically generated and stored in keys directory)
+Following instructions assume that users start from git root directory. Before executing any shell script, users should make sure to **clone the repo to their home directory and change the '--username' argument in the shell script to his own Google Cloud user name**. When execution of scripts is completed, system execution log should be in the logs directory of the master node. Users can copy the data to local machine with scp (the ssh keys are automatically generated and stored in keys directory)
 
 ### Deployment experiment with static rps and identical workload
 This script tests the deployment of Sinan under static RPS, with the workload composition the same as training data (w0 in Figure 13 and Figure 14 in the paper). For detailed information on workload characterization, please check locust/src/social_rps_10.py
